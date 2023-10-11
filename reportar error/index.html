@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/styles.css">
 	<title>Reportar error</title>
 </head>
-
 <body>
-	<dialog>
-		<button autofocus>Cerrar</button>
+	<dialog id="errorDialog">
+		<button id="closeDialog" autofocus>Cerrar</button>
 		<form action="#" method="post">
 			<label for="report">Reportar Error</label>
 			<label for="POST-name">Nombre</label>
@@ -32,7 +31,8 @@
 			<input type="submit" value="Reportar" />
 		</form>
 	</dialog>
-	<button>Reportar Error</button>
+	<button id="openDialog">Reportar Error</button>
+	<script src="index.js"></script>
 </body>
 
 </html>
