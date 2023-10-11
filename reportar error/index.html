@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Reportar error</title>
+</head>
+
+<body>
+	<dialog>
+		<button autofocus>Cerrar</button>
+		<form action="#" method="post">
+			<label for="report">Reportar Error</label>
+			<label for="POST-name">Nombre</label>
+			<input id="POST-name" type="text" name="name" />
+			<label for="POST-surname">Apellido</label>
+			<input id="POST-surname" type="text" name="surname" />
+			<label for="POST-mail">Correo Electrónico</label>
+			<input id="POST-mail" type="text" name="mail" />
+			<label for="POST-motive">Seleccione un motivo</label>
+			<select name="options" id="multiple-select" multiple>
+				<option value="1">Error de redacción</option>
+				<option value="2">Publicidad</option>
+				<option value="3">Comentarios</option>
+				<option value="4">Problemas con mi suscripción</option>
+				<option value="5">Problemas con mi usuario</option>
+				<option value="6">Otro</option>
+			</select>
+			<label for="POST-detail">Detalle en el siguiente campo lo que desea que revisemos</label>
+			<textarea id="POST-detail" name="detail" rows="4" cols="50"></textarea>
+			<input type="submit" value="Reportar" />
+		</form>
+	</dialog>
+	<button>Reportar Error</button>
+</body>
+
+</html>
