@@ -4,19 +4,27 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="./css/styles.css">
-	<title>Reportar error</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">	<title>Reportar error</title>
 </head>
 <body>
 	<dialog id="errorDialog">
 		<button id="closeDialog" autofocus>Cerrar</button>
 		<form action="#" method="post">
-			<label for="report">Reportar Error</label>
-			<label for="POST-name">Nombre</label>
-			<input id="POST-name" type="text" name="name" />
-			<label for="POST-surname">Apellido</label>
-			<input id="POST-surname" type="text" name="surname" />
-			<label for="POST-mail">Correo Electrónico</label>
-			<input id="POST-mail" type="text" name="mail" />
+			<label for="report" class="form-title">Reportar Error</label>
+			<div class="name-mail-container">
+				<div class="name-container">
+					<label for="POST-name">Nombre</label>
+					<input id="POST-name" type="text" name="name" />
+				</div>
+				<div class="mail-container">
+					<label for="POST-mail">Correo Electrónico</label>
+					<input id="POST-mail" type="text" name="mail" />
+				</div>
+			</div>
 			<label for="POST-motive">Seleccione un motivo</label>
 			<select name="options" id="multiple-select" multiple>
 				<option value="1">Error de redacción</option>
@@ -28,7 +36,7 @@
 			</select>
 			<label for="POST-detail">Detalle en el siguiente campo lo que desea que revisemos</label>
 			<textarea id="POST-detail" name="detail" rows="4" cols="50"></textarea>
-			<input type="submit" value="Reportar" />
+			<input type="submit" class="submit-btn" value="Reportar" />
 		</form>
 	</dialog>
 	<button id="openDialog">Reportar Error</button>
