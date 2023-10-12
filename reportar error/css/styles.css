@@ -1,38 +1,55 @@
+:root{
+    --titleColor:#000000;
+    --textColor:#616060;
+    --actionBg: #4A3AFF;
+    --actionColor:#ffffff;
+    --borderColor: #E1E3E6;
+    --borderRadiusRounded:30px;
+    --borderRadiusBox:10px;
+}
+
 body {
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
+    font-size: 1rem;
   }
 
-dialog {
+.report-dialog {
     border: none;
-    border-radius: 30px;
+    border-radius: var(--borderRadiusRounded);
     padding: 2.5rem 3.5rem;
+    position: relative;
 }
-form{
+.report-form{
     display: flex;
     flex-direction: column;
     gap: 1.3rem;
     width: 100%;
 }
-form label{
-    color: #616060;
+.report-form-label {
+    color: var(--textColor);
     font-size: 1.5rem;
     font-weight: 400;
 }
-form input, textarea {
-    border: 3px solid #E1E3E6;
+.report-form-data, .report-txtarea, .report-select {
+    border: 3px solid var(--borderColor);
     padding: .625rem 1.25rem;
     font-size: 1.2rem;
 }
-input {
-    border-radius: 50px;
+.report-form-data, .report-select  {
+    border-radius: var(--borderRadiusRounded);
     min-height: 20px;   
 }
-textarea{
-    border-radius: 10px;
+.report-select{
+    color:var(--textColor);
+    cursor: pointer;
+}
+.report-txtarea {
+    border-radius: var(--borderRadiusBox);
     min-height: 150px;
+    resize: vertical;
 }
 
 .name-mail-container{
@@ -47,30 +64,54 @@ textarea{
     width: 45%;
 }
 
-.form-title {
+.report-form-title {
     font-family: "Bitter", sans-serif;
     display: flex;
-    color: #000;
+    color: var(--titleColor);
     align-self: flex-start;
     font-size: 2.25rem;
     font-weight: 700;
 }
-.submit-btn {
-    background: #4A3AFF;
-    color: white;
-    align-self: center;
+
+.report-btn{
+    cursor: pointer;
+    border: none;
     padding: 1rem 4rem;
 }
-
+.submit-btn {
+    background:var(--actionBg);
+    color: var(--actionColor);
+    align-self: center;
+    border-radius: var(--borderRadiusRounded);
+    font-size: 1.2rem;
+}
+.close-dialog-btn {
+    padding:.5rem 1rem;
+    border-radius: var(--borderRadiusBox);
+    position: absolute;
+    top: .8rem;
+    right: 1.5rem;
+}
+.open-dialog-btn{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    border-radius: var(--borderRadiusRounded);
+    font-weight: 500;
+}
+.dialog-btn-container {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
 @media only screen and (max-width: 768px) {
 
-    dialog {
+    .report-dialog {
         padding: 1.5rem 2rem;
         width: 80%; 
         margin: 0 auto;
     }
-
-    form input, textarea {
+    .report-form-data, .report-txtarea {
         font-size: 1rem; 
         padding: .5rem 1rem;
     }
@@ -86,5 +127,8 @@ textarea{
 
     .submit-btn {
         padding: 0.8rem 2rem;
+    }
+    .close-dialog-btn {
+        padding:.4rem .8rem;
     }
 }
