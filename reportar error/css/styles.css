@@ -1,90 +1,136 @@
+:root {
+  --radius: 15px;
+  --border: #e1e3e6;
+  --text: #616060;
+}
+
 body {
-    font-family: "Roboto", sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-  }
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-size: 1rem;
+}
 
 dialog {
-    border: none;
-    border-radius: 30px;
-    padding: 2.5rem 3.5rem;
-}
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 1.3rem;
-    width: 100%;
-}
-form label{
-    color: #616060;
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-form input, textarea {
-    border: 3px solid #E1E3E6;
-    padding: .625rem 1.25rem;
-    font-size: 1.2rem;
-}
-input {
-    border-radius: 50px;
-    min-height: 20px;   
-}
-textarea{
-    border-radius: 10px;
-    min-height: 150px;
+  border: none;
+  border-radius: var(--radius);
+  padding: 2.5rem 3.5rem;
+  position: relative;
 }
 
-.name-mail-container{
-    display: flex;
-    justify-content: space-between; 
+/* Form Report Module */
+
+form.reportModule {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  width: 100%;
+}
+form.reportModule label {
+  color: var(--text);
+  font-weight: 400;
 }
 
-.name-container, .mail-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 45%;
+form.reportModule input,
+textarea {
+  border: 3px solid var(--border);
+  padding: 0.625rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+dialog .closeButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+  height: 40px;
+  border: none;
+}
+
+input,
+select {
+  border-radius: var(--radius);
+  min-height: 20px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  background-color: white;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: solid 3px var(--border);
+  padding: 1em 1em 1em 1em;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+}
+
+textarea {
+  border-radius: var(--radius);
+  min-height: 150px;
+  resize: vertical;
+}
+
+.name-mail-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-container,
+.mail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 45%;
 }
 
 .form-title {
-    font-family: "Bitter", sans-serif;
-    display: flex;
-    color: #000;
-    align-self: flex-start;
-    font-size: 2.25rem;
-    font-weight: 700;
+  font-family: "Bitter", sans-serif;
+  display: flex;
+  color: #000;
+  align-self: flex-start;
+  font-size: 2.25rem;
+  font-weight: 700;
 }
 .submit-btn {
-    background: #4A3AFF;
-    color: white;
-    align-self: center;
-    padding: 1rem 4rem;
+  background: #4a3aff;
+  color: white;
+  align-self: center;
+  padding: 1rem 4rem;
 }
 
 @media only screen and (max-width: 768px) {
+  dialog {
+    padding: 1.5rem 2rem;
+    width: 80%;
+    margin: 0 auto;
+  }
 
-    dialog {
-        padding: 1.5rem 2rem;
-        width: 80%; 
-        margin: 0 auto;
-    }
+  form input,
+  textarea {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
 
-    form input, textarea {
-        font-size: 1rem; 
-        padding: .5rem 1rem;
-    }
+  .name-mail-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-    .name-mail-container {
-        flex-direction: column; 
-        gap: 1rem; 
-    }
-    
-    .name-container, .mail-container {
-        width: 100%; 
-    }
+  .name-container,
+  .mail-container {
+    width: 100%;
+  }
 
-    .submit-btn {
-        padding: 0.8rem 2rem;
-    }
+  .submit-btn {
+    padding: 0.8rem 2rem;
+  }
 }
