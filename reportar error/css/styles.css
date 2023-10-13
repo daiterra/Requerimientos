@@ -1,11 +1,15 @@
 :root{
     --titleColor:#000000;
-    --textColor:#616060;
-    --actionBg: #4A3AFF;
+    --colorPrimaryText: #333333;
+    --colorPrimary: #06416a;
+    --actionBgPrimary: #06416a;
+    --actionBgSecondary:#fcee21;
     --actionColor:#ffffff;
-    --borderColor: #E1E3E6;
+    --borderColor: #ccc;
     --borderRadiusRounded:30px;
-    --borderRadiusBox:10px;
+    --borderRadiusBox:5px;
+    --fontSizeSmall:13px;
+    --fontSizeLarge:15px;
 }
 
 body {
@@ -14,38 +18,45 @@ body {
     padding: 0;
     height: 100vh;
     font-size: 1rem;
+    background-image:url(/assets/elpaisbg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
   }
 
 .report-dialog {
     border: none;
-    border-radius: var(--borderRadiusRounded);
-    padding: 2.5rem 3.5rem;
+    border-radius: var(--borderRadiusBox);
+    padding: 1.5rem 2.5rem;
     position: relative;
+    width: 500px;
+    
 }
 .report-form{
     display: flex;
     flex-direction: column;
-    gap: 1.3rem;
+    gap: 1rem;
     width: 100%;
 }
 .report-form-label {
-    color: var(--textColor);
-    font-size: 1.5rem;
+    color: var(--colorPrimaryText);
+    font-size: var(--fontSizeSmall);
     font-weight: 400;
 }
 .report-form-data, .report-txtarea, .report-select {
-    border: 3px solid var(--borderColor);
+    border: 1px solid var(--borderColor);
     padding: .625rem 1.25rem;
-    font-size: 1.2rem;
+    font-size: var(--fontSizeSmall);
 }
 .report-form-data, .report-select  {
-    border-radius: var(--borderRadiusRounded);
+    border-radius: var(--borderRadiusBox);
     min-height: 20px;   
 }
 .report-select{
-    color:var(--textColor);
+    color:var(--colorPrimaryText);
     cursor: pointer;
 }
+
 .report-txtarea {
     border-radius: var(--borderRadiusBox);
     min-height: 150px;
@@ -65,44 +76,59 @@ body {
 }
 
 .report-form-title {
-    font-family: "Bitter", sans-serif;
+    /* font-family: "Bitter", sans-serif; */
     display: flex;
     color: var(--titleColor);
     align-self: flex-start;
-    font-size: 2.25rem;
-    font-weight: 700;
+    font-size: 1.8rem;
+    font-weight: 500;
 }
 
 .report-btn{
     cursor: pointer;
     border: none;
-    padding: 1rem 4rem;
+    padding: .5rem 2rem;
+    transition: all 0.3s ease-in-out;
+}
+.report-btn:hover{
+    transform: translateY(-4px);  
 }
 .submit-btn {
-    background:var(--actionBg);
-    color: var(--actionColor);
-    align-self: center;
-    border-radius: var(--borderRadiusRounded);
+   
+    background:var(--actionColor);
+    color: var(--colorPrimaryText);
+    border-radius: var(--borderRadiusBox);
     font-size: 1.2rem;
+    border:1px solid var(--colorPrimary)
 }
+.submit-btn:hover {
+    color: var(--actionColor);
+    background:var(--actionBgPrimary);
+   
+}
+
 .close-dialog-btn {
-    padding:.5rem 1rem;
+    padding:.5rem;
     border-radius: var(--borderRadiusBox);
     position: absolute;
     top: .8rem;
-    right: 1.5rem;
+    right: .8rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: none;
 }
 .open-dialog-btn{
     margin-left: auto;
     margin-right: auto;
     font-size: 1rem;
     border-radius: var(--borderRadiusRounded);
-    font-weight: 500;
+    font-weight: 400;
+    background-color: var(--actionBgSecondary);
 }
 .dialog-btn-container {
     display: grid;
     place-items: center;
-    height: 100vh;
+    height: 60vh;
 }
 @media only screen and (max-width: 768px) {
 
