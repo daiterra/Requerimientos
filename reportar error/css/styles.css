@@ -18,7 +18,7 @@ body {
     padding: 0;
     height: 100vh;
     font-size: 1rem;
-    background-image:url(/assets/elpaisbg.png);
+    background-image:url(/assets/el-pais-bg2.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
@@ -87,14 +87,20 @@ body {
 .report-btn{
     cursor: pointer;
     border: none;
-    padding: .5rem 2rem;
     transition: all 0.3s ease-in-out;
 }
 .report-btn:hover{
     transform: translateY(-4px);  
 }
+.small {
+    padding: .5rem 1rem ;
+    font-size: var(--fontSizeSmall);
+}
+.large {
+    font-size: var(--fontSizeLarge);
+    padding: .5rem 2rem;
+}
 .submit-btn {
-   
     background:var(--actionColor);
     color: var(--colorPrimaryText);
     border-radius: var(--borderRadiusBox);
@@ -118,17 +124,30 @@ body {
     background: none;
 }
 .open-dialog-btn{
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1rem;
+    /* margin-left: auto;
+    margin-right: auto; */
     border-radius: var(--borderRadiusRounded);
-    font-weight: 400;
+    font-weight: 700;
     background-color: var(--actionBgSecondary);
 }
+
 .dialog-btn-container {
-    display: grid;
-    place-items: center;
-    height: 60vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap:.5rem;
+    width: 58%;
+}
+.position-container{
+    display: flex;
+    align-items: end;
+    height: 71vh;
+}
+
+.report-msg{
+    color:var(--titleColor);
+    font-size: var(--fontSizeSmall);
+    font-weight: 600;
 }
 @media only screen and (max-width: 768px) {
 
