@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,50 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">	<title>Reportar error</title>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+		rel="stylesheet">
+	<title>Reportar error</title>
 </head>
+
 <body>
+	<div class="Page-actions-wrapper">
+		<div class="Page-actions">
+			<div class="ActionBar">
+				<ul class="ActionBar-items">
+					<li class="ActionBar-items-item">
+						<a class="ActionLink"  target="_blank">
+							<img src="assets/Facebook.png" alt="Facebook Icon" />
+						</a>
+					</li>
+					<li class="ActionBar-items-item">
+						<a class="ActionLink"  target="_blank">
+							<img src="assets/LinkedIn.png" alt="LinkedIn Icon" />
+						</a>
+					</li>
+					<li class="ActionBar-items-item">
+						<a class="ActionLink" target="_blank" >
+							<img src="assets/Twitter.png" alt="Twitter Icon" />						</a>
+					</li>
+					<li class="ActionBar-items-item">
+						<a class="ActionLink">
+							<img src="assets/Email.png" alt="Email Icon" />				</a>
+					</li>
+					<li class="ActionBar-items-item">
+						<a class="ActionLink"  target="_blank">
+							<img src="assets/WhatsApp.png" alt="WhatsApp Icon" />
+						</a>
+					</li>
+					<div class="divider"></div>
+					<li class="ActionBar-items-item">
+						<a class="ActionLink" >
+							<img src="assets/error.png" alt="Error Icon" id="openDialogBtnIcon" />				</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
 	<dialog class="report-dialog" id="reportDialog">
 		<button id="closeDialog" class="close-dialog-btn report-btn" autofocus>X</button>
 		<form class="report-form" action="#" method="post">
@@ -18,15 +60,17 @@
 			<div class="name-mail-container">
 				<div class="name-container">
 					<label class="report-form-label" for="POST-name">Nombre</label>
-					<input class="report-form-data" id="POST-name" type="text" name="name" required maxlength="20" placeholder="Introduce tu nombre"/>
+					<input class="report-form-data" id="POST-name" type="text" name="name" required maxlength="20"
+						placeholder="Introduce tu nombre" />
 				</div>
 				<div class="mail-container">
 					<label for="POST-mail" class="report-form-label">Correo Electrónico</label>
-					<input id="POST-mail" class="report-form-data" type="email" name="mail" required maxlength="20" placeholder="Introduce tu email">
+					<input id="POST-mail" class="report-form-data" type="email" name="mail" required maxlength="20"
+						placeholder="Introduce tu email">
 				</div>
 			</div>
 			<label for="POST-motive" class="report-form-label">Seleccione un motivo</label>
-			<select class="report-select" name="options" id="multiple-select" >
+			<select class="report-select" name="options" id="multiple-select">
 				<option value="digital">Error de redacción</option>
 				<option value="trafico">Publicidad</option>
 				<option value="digital">Comentarios</option>
@@ -34,7 +78,8 @@
 				<option value="atc">Problemas con mi usuario</option>
 				<option value="atc">Otro</option>
 			</select>
-			<label for="POST-detail" class="report-form-label" >Detalle en el siguiente campo lo que desea que revisemos</label>
+			<label for="POST-detail" class="report-form-label">Detalle en el siguiente campo lo que desea que
+				revisemos</label>
 			<textarea class="report-txtarea" id="POST-detail" name="detail" rows="4" cols="50" required></textarea>
 			<input type="submit" class="submit-btn report-btn" value="Reportar" />
 		</form>
@@ -42,7 +87,7 @@
 	<div class="position-container">
 		<div class="dialog-btn-container">
 			<div class="container-report-msg"><span class="report-msg"> ¿Encontraste un error? </span></div>
-			<button class="report-btn open-dialog-btn small" id="openDialog">Reportar</button>
+			<button class="report-btn open-dialog-btn small" id="openDialogBtn">Reportar</button>
 		</div>
 	</div>
 	<script src="index.js"></script>
