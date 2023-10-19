@@ -28,7 +28,7 @@ body {
     width: 500px;
     
 }
-.report-form{
+.report-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -72,7 +72,6 @@ body {
 }
 
 .report-form-title {
-    /* font-family: "Bitter", sans-serif; */
     display: flex;
     color: var(--titleColor);
     align-self: flex-start;
@@ -120,8 +119,6 @@ body {
     background: none;
 }
 .open-dialog-btn{
-    /* margin-left: auto;
-    margin-right: auto; */
     border-radius: var(--borderRadiusBox);
     font-weight: 700;
     background-color: var(--actionBgSecondary);
@@ -134,7 +131,7 @@ body {
     gap:.5rem;
     width: 58%;
 }
-.position-container{
+.position-container {
     display: flex;
     justify-content: end;
     align-items: start;
@@ -171,7 +168,7 @@ body {
 }
 
 .ActionBar.sticky .ActionBar-items-item {
-  
+
     transform: scale(0.9);
 }
 .ActionBar.sticky .ActionBar-items {
@@ -218,7 +215,7 @@ body {
     z-index: 1000;
 }
 
-.ActionBar-items-item.with-tooltip{
+.ActionBar-items-item.with-tooltip {
     position: relative;
 }
 
