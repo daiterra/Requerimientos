@@ -16,47 +16,64 @@
 </head>
 
 <body>
-	<div class="container">
-		
-	</div>
-	<div class="Page-actions-wrapper">
-		<div class="Page-actions">
-			<div class="ActionBar">
+	<header style="text-align: center;"><h1>El País</h1></header>
+	<main style="width:50%; margin:0 auto; text-align: left;">
+		<article>
+			<h2>Detectan más casos de escarlatina en Montevideo y en Colonia; aguardan confirmación de otros departamentos</h2>
+			<h3>El Ministerio de Salud Pública (MSP) emitió este martes un comunicado donde informó de un esperable aumento de casos de Streptococcus Pyogenes acorde a la época del año.</h3>
+			<hr />
+			<em>Compartir esta noticia</em>
+			<div id="ActionBar" class="ActionBar">
 				<ul class="ActionBar-items">
 					<li class="ActionBar-items-item">
-						<a class="ActionLink" target="_blank">
+						<a class="ActionLink"  target="_blank">
 							<img src="assets/Facebook.png" alt="Facebook Icon" />
 						</a>
 					</li>
 					<li class="ActionBar-items-item">
-						<a class="ActionLink" target="_blank">
+						<a class="ActionLink"  target="_blank">
 							<img src="assets/LinkedIn.png" alt="LinkedIn Icon" />
 						</a>
 					</li>
 					<li class="ActionBar-items-item">
-						<a class="ActionLink" target="_blank">
-							<img src="assets/Twitter.png" alt="Twitter Icon" /> </a>
+						<a class="ActionLink" target="_blank" >
+							<img src="assets/Twitter.png" alt="Twitter Icon" /></a>
 					</li>
 					<li class="ActionBar-items-item">
 						<a class="ActionLink">
-							<img src="assets/Email.png" alt="Email Icon" /> </a>
+							<img src="assets/Email.png" alt="Email Icon" /></a>
 					</li>
 					<li class="ActionBar-items-item">
-						<a class="ActionLink" target="_blank">
+						<a class="ActionLink"  target="_blank">
 							<img src="assets/WhatsApp.png" alt="WhatsApp Icon" />
 						</a>
 					</li>
-					<div class="divider ActionBar-items-item"></div>
+					<div class="divider"></div>
 					<li class="ActionBar-items-item">
-						<a class="ActionLink">
-							<img src="assets/error.png" alt="Error Icon" id="openDialogBtnIcon" />
-						</a>
+						<a class="ActionLink" >
+							<img src="assets/error.png" alt="Error Icon" id="openDialogBtnIcon" title="Reportar error" /></a>
 					</li>
 				</ul>
 			</div>
-		</div>
-	</div>
-
+			<div style="text-align: center;">
+				<img class="margin:0 auto;" src="https://placehold.co/700x400" alt="Image" />
+			</div>
+			<p>Detectaron casos de escarlatina en los departamentos de Montevideo y Colonia, y aguardan la confirmación de otros posibles contagios en Maldonado y Soriano, según confirmaron a El País fuentes de Primaria. Al momento, se confirmaron siete casos en Montevideo y uno en Colonia.</p>
+			<p>Se trata de "uno o dos casos" en diferentes escuelas y al momento no han detectado brotes en los centros afectados, acotaron los informantes. Aquellos que fueron identificados, cursan el tratamiento con estado "leve" de la bacteria Streptococcus Pyogenes.</p>
+			<p>Este martes de noche, el Ministerio de Salud Pública (MSP) emitió un comunicado señalando que hasta ese entonces habían tres casos confirmados, así como que días atrás falleció un niño de cinco años por una infección con esta bacteria.</p>
+			<p>La cartera que dirige Karina Rando informó ayer la detección de un "esperable aumento de casos de Streptococcus acorde a la época del año". Puntualmente, un brote -esto es dos o más casos- en un grupo de una escuela de Montevideo, que se amplió por estas horas, según información del organismo educativo.</p>
+			<p>Álvaro Galiana, director del Hospital Pereira Rossell, explicó a El País que la faringitis y escarlatina, causadas por la bacteria Streptocccus pyogenes, son "muy frecuentes en los niños", pero que se trata con medicamentos y "no genera mayores problemas" si se atiende a tiempo.</p>
+			<div class="position-container">
+				<hr />
+				<div class="dialog-btn-container">
+					<div class="container-report-msg"><span class="report-msg"> ¿Encontraste un error? </span></div>
+					<button class="report-btn open-dialog-btn small" id="openDialogBtn">Reportar</button>
+				</div>
+			</div>
+		</article>
+	</main>
+	
+	
 	<dialog class="report-dialog" id="reportDialog">
 		<button id="closeDialog" class="close-dialog-btn report-btn" autofocus>X</button>
 		<form class="report-form" action="#" method="post">
@@ -88,12 +105,12 @@
 			<input type="submit" class="submit-btn report-btn" value="Reportar" />
 		</form>
 	</dialog>
-	<div class="position-container">
+	<!-- <div class="position-container">
 		<div class="dialog-btn-container">
 			<div class="container-report-msg"><span class="report-msg"> ¿Encontraste un error? </span></div>
 			<button class="report-btn open-dialog-btn small" id="openDialogBtn">Reportar</button>
 		</div>
-	</div>
+	</div> -->
 	<script src="index.js"></script>
 </body>
 
