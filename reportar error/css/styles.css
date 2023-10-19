@@ -85,9 +85,10 @@ body {
     border: none;
     transition: all 0.3s ease-in-out;
 }
-.report-btn:hover{
+ .report-btn:hover{
     transform: translateY(-4px);  
 }
+
 .small {
     padding: .5rem 1rem ;
     font-size: var(--fontSizeSmall);
@@ -135,8 +136,10 @@ body {
 }
 .position-container{
     display: flex;
-    align-items: end;
+    justify-content: end;
+    align-items: start;
     height: 50vh;
+    padding-top: 1rem;
 }
 
 .report-msg{
@@ -149,7 +152,12 @@ body {
 
 .ActionBar.sticky{
     position: fixed;
-    top:0;
+    top:10%;
+    left: 10%;
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: var(--borderRadiusBox);
+    display: flex;
 }
 
 .ActionBar-items {
@@ -159,7 +167,21 @@ body {
     flex-direction: row;
     align-items: center;
     gap:.5rem;
-    padding: 1rem;
+    padding: .5rem;  
+}
+
+.ActionBar.sticky .ActionBar-items-item {
+  
+    transform: scale(0.9);
+}
+.ActionBar.sticky .ActionBar-items {
+    flex-direction: column;
+}
+
+.ActionBar.sticky .divider {
+    width: 30px;
+    height: 2px;
+    margin: 0.5rem 0;
 }
 
 .ActionLink {
@@ -178,12 +200,8 @@ body {
     background-color: #ccc;
     height: 30px;
     width: 2px;
-    /* margin: 10px 0; */
 }
 
-.container{
-    height: 700px;
-}
 @media only screen and (max-width: 768px) {
 
     .report-dialog {
