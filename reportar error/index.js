@@ -6,3 +6,8 @@ const openDialogBtnIcon = document.getElementById("openDialogBtnIcon")
 openDialogBtn.addEventListener("click", () => reportDialog.showModal());
 openDialogBtnIcon.addEventListener("click", () => reportDialog.showModal());
 closeDialogBtn.addEventListener("click", () => reportDialog.close());
+
+window.addEventListener("scroll", function () {
+    var actionBar = document.getElementById("ActionBar");
+    actionBar.classList.toggle("sticky", window.scrollY > 300);
+  });
