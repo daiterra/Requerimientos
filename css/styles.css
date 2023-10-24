@@ -1,0 +1,279 @@
+:root{
+    --titleColor:#000000;
+    --colorPrimaryText: #333333;
+    --colorPrimary: #06416a;
+    --actionBgPrimary: #06416a;
+    --actionBgSecondary:#fcee21;
+    --actionColor:#ffffff;
+    --borderColor: #ccc;
+    --borderRadiusRounded:30px;
+    --borderRadiusBox:5px;
+    --fontSizeSmall:13px;
+    --fontSizeLarge:15px;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-size: 1rem;
+  }
+
+.report-dialog {
+    border: none;
+    border-radius: var(--borderRadiusBox);
+    padding: 1.5rem 2.5rem;
+    position: relative;
+    width: 500px;
+    
+}
+.report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+.report-form-label {
+    color: var(--colorPrimaryText);
+    font-size: var(--fontSizeSmall);
+    font-weight: 400;
+}
+.report-form-data, .report-txtarea, .report-select {
+    border: 1px solid var(--borderColor);
+    padding: .625rem 1.25rem;
+    font-size: var(--fontSizeSmall);
+}
+.report-form-data, .report-select  {
+    border-radius: var(--borderRadiusBox);
+    min-height: 20px;   
+}
+.report-select{
+    color:var(--colorPrimaryText);
+    cursor: pointer;
+}
+
+.report-txtarea {
+    border-radius: var(--borderRadiusBox);
+    min-height: 150px;
+    resize: vertical;
+}
+
+.name-mail-container{
+    display: flex;
+    justify-content: space-between; 
+}
+
+.name-container, .mail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 45%;
+}
+
+.report-form-title {
+    display: flex;
+    color: var(--titleColor);
+    align-self: flex-start;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.report-btn{
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+ .report-btn:hover{
+    transform: translateY(-4px);  
+}
+
+.small {
+    padding: .5rem 1rem ;
+    font-size: var(--fontSizeSmall);
+}
+.large {
+    font-size: var(--fontSizeLarge);
+    padding: .5rem 2rem;
+}
+.submit-btn {
+    background:var(--actionColor);
+    color: var(--colorPrimaryText);
+    border-radius: var(--borderRadiusBox);
+    font-size: 1.2rem;
+    border:1px solid var(--colorPrimary)
+}
+.submit-btn:hover {
+    color: var(--actionColor);
+    background:var(--actionBgPrimary); 
+}
+
+.close-dialog-btn {
+    padding:.5rem;
+    border-radius: var(--borderRadiusBox);
+    position: absolute;
+    top: .8rem;
+    right: .8rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: none;
+}
+.open-dialog-btn{
+    border-radius: var(--borderRadiusBox);
+    font-weight: 700;
+    background-color: var(--actionBgSecondary);
+}
+
+.dialog-btn-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap:.5rem;
+    width: 58%;
+}
+.position-container {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    height: 30vh;
+    padding-top: 1rem;
+}
+
+.report-msg{
+    color:var(--titleColor);
+    font-size: var(--fontSizeSmall);
+    font-weight: 600;
+}
+
+/* navbar */
+
+.ActionBar.sticky{
+    position: fixed;
+    top:10%;
+    left: 10%;
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: var(--borderRadiusBox);
+    display: flex;
+}
+
+.ActionBar-items {
+    list-style-type: none; 
+    padding: 0; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:.5rem;
+    padding: .5rem;  
+}
+
+.ActionBar.sticky .ActionBar-items-item {
+
+    transform: scale(0.9);
+}
+.ActionBar.sticky .ActionBar-items {
+    flex-direction: column;
+}
+
+.ActionBar.sticky .divider {
+    width: 30px;
+    height: 2px;
+    margin: 0.5rem 0;
+}
+
+.ActionLink {
+    text-decoration: none; 
+    display: flex; 
+    align-items: center;
+    cursor: pointer;
+}
+
+.ActionLink img {
+    width: 24px;
+    height: 24px;
+}
+
+.divider {
+    background-color: #ccc;
+    height: 30px;
+    width: 2px;
+}
+.custom-tooltip {
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 1s linear 0.2s, visibility .5s linear 0.5s; 
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+.ActionBar-items-item.with-tooltip {
+    position: relative;
+}
+
+.ActionBar-items-item.with-tooltip:hover .custom-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .report-dialog {
+        padding: 1.5rem 2rem;
+        width: 80%; 
+        margin: 0 auto;
+    }
+    .report-form-data, .report-txtarea {
+        font-size: 1rem; 
+        padding: .5rem 1rem;
+    }
+
+    .name-mail-container {
+        flex-direction: column; 
+        gap: 1rem; 
+    }
+    
+    .name-container, .mail-container {
+        width: 100%; 
+    }
+
+    .submit-btn {
+        padding: 0.8rem 2rem;
+    }
+    .close-dialog-btn {
+        padding:.4rem .8rem;
+    }
+    .ActionBar-items {
+        flex-direction: row;
+    }
+
+    .ActionBar-items-item {
+        margin-right: 0; 
+        margin-bottom: 10px;
+    }
+    .ActionBar{
+        position: sticky;
+    }
+    .ActionBar.sticky {
+        position: static;
+        box-shadow: none;
+    }
+    .ActionBar.sticky  .ActionBar-items{
+        flex-direction: row;
+    }
+    .ActionBar.sticky .divider {
+        height: 30px;
+        width: 2px;
+        /* margin: 0.5rem 0; */
+    }
+}
+
