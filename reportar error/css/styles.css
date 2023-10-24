@@ -263,6 +263,17 @@ body {
     .ActionBar{
         position: sticky;
     }
-    
+    .ActionBar.sticky {
+        position: static;
+        box-shadow: none;
+    }
+    .ActionBar.sticky  .ActionBar-items{
+        flex-direction: row;
+    }
+    .ActionBar.sticky .divider {
+        height: 30px;
+        width: 2px;
+        /* margin: 0.5rem 0; */
+    }
 }
 
