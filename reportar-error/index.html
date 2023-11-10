@@ -76,9 +76,9 @@
 	
 		
 	
-	<dialog class="report-dialog" id="reportDialog">
-		<button id="closeDialog" class="close-dialog-btn report-btn" autofocus>X</button>
-		<form class="report-form" action="#" method="post">
+	<dialog class="report-dialog dialog-centered " id="reportDialog">
+		<button id="closeDialog" aria-label="close" class="close-dialog-btn report-btn">X</button>  	
+		<form id="reportForm" class="report-form" action="#" method="post">
 			<label for="report" class="report-form-title">Reportar Error</label>
 			<div class="name-mail-container">
 				<div class="name-container">
@@ -106,6 +106,10 @@
 			<textarea class="report-txtarea" id="POST-detail" name="detail" rows="4" cols="50" required></textarea>
 			<input type="submit" class="submit-btn report-btn" value="Reportar" />
 		</form>
+		<div id="confirmationView" class="report-form"> 
+			<div class="confirmation-message">Gracias por reportar el error.</div>
+			<button class="confirmation-button large ">Reportado</button>
+		</div>
 	</dialog>
 
 	<script src="index.js"></script>
