@@ -3,11 +3,12 @@
     --colorPrimaryText: #333333;
     --colorPrimary: #06416a;
     --actionBgPrimary: #06416a;
+    --colorPrimaryLighter:#82a0b4;
     --actionBgSecondary:#fcee21;
     --actionColor:#ffffff;
     --actionSuccess:#347603;
     --borderColor: #ccc;
-    --borderRadiusRounded:30px;
+    --borderRadiusRounded:50%;
     --borderRadiusBox:5px;
     --fontSizeSmall:13px;
     --fontSizeLarge:15px;
@@ -27,7 +28,7 @@ body {
     padding: 1.5rem 2.5rem;
     position: relative;
     width: 500px;
-    display: flex;
+    /* display: flex; */
 }
 .report-form {
     display: flex;
@@ -84,10 +85,7 @@ body {
 .report-btn{
     cursor: pointer;
     border: none;
-    transition: all 0.3s ease-in-out;
-}
- .report-btn:hover{
-    transform: translateY(-4px);  
+    transition: all 0.2s ease-in-out;
 }
 
 .small {
@@ -111,14 +109,20 @@ body {
 }
 
 .close-dialog-btn {
-    padding: 1rem;
-    border-radius: var(--borderRadiusBox);
+    padding: .5rem .8rem;
+    border: none;
+    border-radius: var(--borderRadiusRounded);
     position: absolute;
     top: .5rem;
     right: .8rem;
     font-size: 1.3rem;
     font-weight: 700;
     background: none;
+}
+
+.close-dialog-btn:hover{
+    background-color: var(--actionBgPrimary);
+    color: var(--actionColor);
 }
 .open-dialog-btn{
     border-radius: var(--borderRadiusBox);
@@ -231,17 +235,17 @@ body {
     left:50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    margin:0;
   }
 
 
-#confirmationView {
+.report-confirmation-container {
     display: none; 
     text-align: center;
   }
   .confirmation-message {
-    font-size: var(--fontSizeLarge);
+    font-size: 1.2rem;
     color: var(--colorPrimaryText);
+    font-weight: 500;
   }
   
   .confirmation-button {
@@ -253,10 +257,14 @@ body {
     width: 100%;
     pointer-events: none;
   }
-/*   
-  .confirmation-button:hover {
-    background-color: darken(var(--actionBgPrimary), 10%); 
-  } */
+  .report-confirmation-container.active {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    gap:12rem
+  }
+ 
 
   
 
