@@ -1,0 +1,80 @@
+<div id="ranking-mundial-rugby"></div>
+<script>
+    const rankingRugby = document.getElementById("ranking-mundial-rugby")
+    const rankingWrapper = rankingRugby.parentNode.parentNode.parentNode
+    rankingWrapper.setAttribute("id", "ranking-rugby-wrapper")
+    rankingRugby.style.display = "none"
+    //capturamos la tabla que tiene la info de las tabs
+    const firstTable = rankingWrapper.querySelector("table:first-child")
+    const tabs = firstTable.querySelectorAll("tr")
+    //en un array nos guardamos el contenido, y removemos la tabla del front
+    let tabsContent = []
+    tabs.forEach((tab) => {
+        let td = tab.querySelector("td")
+        tabsContent.push(td.innerText)
+    })
+    firstTable.remove()
+    //creamos la navbar de campeonatos
+    const ulTabs = document.createElement("ul")
+    let anchorTabs = []
+    tabsContent.forEach((tab) => {
+        let li = document.createElement("li")
+        const anchor = document.createElement("a")
+        anchorTabs.push(anchor)
+        anchor.innerText = tab
+        anchor.href = "#"
+        li.appendChild(anchor)
+        ulTabs.appendChild(li)
+    })
+
+    anchorTabs.forEach((link, index) => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault()
+            console.log('index', index)
+            //aca llamo a la funcion que oculta todas las tablas
+            //mostrar la tabla que corresponda al indice de la tab seleccionada
+            //para esto las tablas deben estar ordenadas
+        })
+    })
+
+    console.log(anchorTabs)
+    rankingWrapper.prepend(ulTabs)
+    /* 
+   crear una funcion que agarrando a rankingTables, iterando, oculte todas las tablas
+    */
+
+
+
+    const rankingTables = rankingWrapper.querySelectorAll("table")
+
+    rankingTables.forEach((table, index) => {
+        let firstRow = table.querySelector("tr:first-child")
+        let tBody = table.querySelector("tbody")
+        let tHead = document.createElement("thead")
+        firstRow.querySelectorAll("td").forEach((td) => {
+            let th = document.createElement("th")
+            th.textContent = td.textContent
+            firstRow.replaceChild(th, td)
+        })
+
+        tHead.appendChild(firstRow)
+        table.insertBefore(tHead, tBody)
+        let tRow = tBody.querySelectorAll("tr")
+        tRow.forEach((tr) => {
+            // console.log(tr)
+            tr.querySelectorAll("td").forEach((td) => {
+                td.style = ""
+            })
+            // tr.style = ""
+        })
+        if (index != 0) {
+            table.style.display = "none"
+        }
+    })
+    const rankingGroupTitles = rankingWrapper.querySelectorAll("h3")
+    rankingGroupTitles.forEach((title) => {
+        title.classList.add(title.innerText.replace(" ", "-").toLowerCase())
+    })
+
+
+</script>
