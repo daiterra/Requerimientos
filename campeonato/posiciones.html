@@ -7,6 +7,8 @@
     //capturamos la tabla que tiene la info de las tabs
     const firstTable = rankingWrapper.querySelector("table:first-child")
     const tabs = firstTable.querySelectorAll("tr")
+    const rankingGroupTitles = rankingWrapper.querySelector("h3")
+    // console.log("rankingGroupTitles", rankingGroupTitles)
     //en un array nos guardamos el contenido, y removemos la tabla del front
     let tabsContent = []
     tabs.forEach((tab) => {
@@ -16,8 +18,11 @@
     firstTable.remove()
     //creamos la navbar de campeonatos
     const ulTabs = document.createElement("ul")
+    ulTabs.classList.add("ranking-championship-tabs");
     let anchorTabs = []
-    tabsContent.forEach((tab) => {
+    let currentActiveLink = null;
+    //iteramos el array que contiene la info de las tabs, y con esa info creamos la lista de tabs
+    tabsContent.forEach((tab, index) => {
         let li = document.createElement("li")
         const anchor = document.createElement("a")
         anchorTabs.push(anchor)
@@ -25,28 +30,46 @@
         anchor.href = "#"
         li.appendChild(anchor)
         ulTabs.appendChild(li)
+        if (index === 0) {
+            anchor.classList.add("active");
+            currentActiveLink = anchor;
+        }
     })
 
+    //seteamos al hacer click en cada tab que se muestre solo la tab seleccionada
     anchorTabs.forEach((link, index) => {
+        if (index === 0) {
+            rankingGroupTitles.textContent = link.innerText
+        }
         link.addEventListener("click", (e) => {
+            // console.log(link.innerText)
             e.preventDefault()
-            console.log('index', index)
-            //aca llamo a la funcion que oculta todas las tablas
-            //mostrar la tabla que corresponda al indice de la tab seleccionada
-            //para esto las tablas deben estar ordenadas
+            if (currentActiveLink) {
+                currentActiveLink.classList.remove("active");
+            }
+            showSelectedTable(index)
+            link.classList.add("active");
+            currentActiveLink = link;
+            rankingGroupTitles.textContent = link.innerText
         })
     })
-
-    console.log(anchorTabs)
-    rankingWrapper.prepend(ulTabs)
+    //agregamos dentro del container la navbar de tabs arriba de todo
+    rankingWrapper.insertBefore(ulTabs, rankingWrapper.childNodes[1]);
     /* 
-   crear una funcion que agarrando a rankingTables, iterando, oculte todas las tablas
+        
     */
-
+    const showSelectedTable = (selectedIndex) => {
+        rankingTables.forEach((table, index) => {
+            if (index === selectedIndex) {
+                table.style.display = 'table'
+            } else {
+                table.style.display = 'none'
+            }
+        })
+    }
 
 
     const rankingTables = rankingWrapper.querySelectorAll("table")
-
     rankingTables.forEach((table, index) => {
         let firstRow = table.querySelector("tr:first-child")
         let tBody = table.querySelector("tbody")
@@ -60,21 +83,19 @@
         tHead.appendChild(firstRow)
         table.insertBefore(tHead, tBody)
         let tRow = tBody.querySelectorAll("tr")
+        //pisamos los estilos default de la tabla que es pegada por el usuario para poder setearle nuestros estilos
         tRow.forEach((tr) => {
-            // console.log(tr)
             tr.querySelectorAll("td").forEach((td) => {
                 td.style = ""
             })
-            // tr.style = ""
         })
         if (index != 0) {
             table.style.display = "none"
         }
     })
-    const rankingGroupTitles = rankingWrapper.querySelectorAll("h3")
-    rankingGroupTitles.forEach((title) => {
-        title.classList.add(title.innerText.replace(" ", "-").toLowerCase())
-    })
 
-
+    // rankingGroupTitles.forEach((title) => {
+    //     console.log(title)
+    //     title.classList.add(title.innerText.replace(" ", "-").toLowerCase())
+    // })
 </script>
