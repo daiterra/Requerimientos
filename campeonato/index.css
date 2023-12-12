@@ -18,12 +18,12 @@
     width: auto !important;
 }
 
-#ranking-rugby-wrapper table tbody tr:first-child > td:last-child,
+/* #ranking-rugby-wrapper table tbody tr:first-child > td:last-child,
 #ranking-rugby-wrapper table tbody tr:nth-child(2) > td:last-child {
     background-color: #78dcaa;
     color: white;
     font-weight: bold;
-}
+} */
 
 #ranking-rugby-wrapper tr:nth-of-type(even) {
     background-color: #f0eded;
@@ -39,21 +39,22 @@
 
 #ranking-rugby-wrapper h3 {
     font-family: var(--font-3);
-    font-size: 18px;
-    color: var(--color-primary-text-inverse);
-    padding: 0 40px 0 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--color-primary-text);
+    padding: 10px 40px 10px 20px;
     border-radius: 6px 10px 50px 6px;
-    background-color: #19194b;
+    background-color: #78dcaa;
     width: fit-content;
 }
 
-#ranking-rugby-wrapper .Enhancement {
+/* #ranking-rugby-wrapper .Enhancement {
     margin: 20px 0 !important;
     max-width: unset !important;
     width: 100% !important;
-}
+} */
 
-#ranking-rugby-wrapper h3.grupo-a {
+/* #ranking-rugby-wrapper h3.grupo-a {
     background-color: #78dcaa;
 }
 
@@ -117,8 +118,35 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+} */
+/* navbar tabs */
+#ranking-rugby-wrapper .ranking-championship-tabs {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0;
+    border-radius: 5px;
+    border-bottom: 3px solid #f0eded;
 }
-
+.ranking-championship-tabs li {
+    margin: 0;
+    display: flex;
+}
+.ranking-championship-tabs a {
+    color: #0c0e0f;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px 10px 0;
+    transition: color 0.3s;
+}
+#ranking-rugby-wrapper .ranking-championship-tabs a:hover {
+    color: #4a4e50;
+    text-decoration: none;
+}
+.ranking-championship-tabs a.active {
+    font-weight: bold;
+    border-bottom: 3px solid #78dcaa;
+}
 @media screen and (min-width: 480px) {
     #ranking-rugby-wrapper td,
     #ranking-rugby-wrapper th {
@@ -126,8 +154,8 @@
         font-size: 14px;
     }
 
-    #ranking-rugby-wrapper {
+    /* #ranking-rugby-wrapper {
         padding-left: calc(50% - 240px);
         padding-right: calc(50% - 240px);
-    }
+    } */
 }
