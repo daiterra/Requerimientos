@@ -1,0 +1,259 @@
+:root {
+    --titleColor: #000000;
+    --colorPrimaryText: #333333;
+    --colorPrimary: #06416a;
+    --actionBgPrimary: #06416a;
+    --actionBgSecondary: #fcee21;
+    --actionColor: #ffffff;
+    --actionSuccess: #347603;
+    --actionError: #ff0000;
+    --borderColor: #ccc;
+    --borderRadiusRounded: 30px;
+    --borderRadiusBox: 5px;
+    --fontSizeSmall: 13px;
+    --fontSizeLarge: 15px;
+}
+
+.report-dialog {
+    border: none;
+    border-radius: var(--borderRadiusBox);
+    /* padding: 1.5rem 2.5rem; */ /* Se pasa el padding a container-form-fields */
+    position: relative;
+    width: 500px;
+    margin: 0;
+    /* fabricio 23/11 */
+    padding: 0;
+}
+
+.report-form .container-form-fields {
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+    width: 100%;
+
+    /* dai 24/11 */
+    padding: 1.5rem 2rem 2rem;
+}
+
+.report-form-label {
+    color: var(--colorPrimaryText);
+    font-size: var(--fontSizeSmall);
+    font-weight: 400;
+
+    /* fabricio 23/11 */
+    margin: 1rem 0;
+}
+
+.report-form-data,
+.report-txtarea,
+.report-select {
+    border: 1px solid var(--borderColor);
+    padding: 0.625rem 1.25rem;
+    font-size: var(--fontSizeSmall);
+}
+
+.report-form-data,
+.report-select {
+    border-radius: var(--borderRadiusBox);
+    min-height: 20px;
+}
+
+.report-select {
+    color: var(--colorPrimaryText);
+    cursor: pointer;
+    background-color: var(--actionColor);
+    /* fabricio 23/11 */
+    margin-bottom: 1rem;
+}
+
+.report-txtarea {
+    border-radius: var(--borderRadiusBox);
+    min-height: 150px;
+    resize: vertical;
+}
+
+.name-mail-container {
+    display: flex;
+    justify-content: space-between;
+
+    /* fabricio 23/11 */
+    margin-bottom: 1rem;
+}
+
+.name-container,
+.mail-container {
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+    width: 45%;
+}
+
+.report-form-title {
+    display: flex;
+    color: var(--titleColor);
+    align-self: flex-start;
+    font-size: var(--body-1);
+    font-weight: 500;
+
+    /* fabricio 23/11 */
+    padding: 1rem 1rem 1rem 2rem;
+    background: var(--color-primary);
+    color: var(--color-primary-text-inverse);
+}
+
+.report-btn {
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+.report-btn:hover {
+    transform: translateY(-4px);
+}
+
+.small {
+    padding: 0.5rem 1rem;
+    font-size: var(--fontSizeSmall);
+}
+
+.large {
+    font-size: var(--fontSizeLarge);
+    padding: 0.5rem 2rem;
+}
+
+.submit-btn {
+    padding: 0.5rem 1rem;
+    background: var(--actionColor);
+    color: var(--colorPrimaryText);
+    border-radius: var(--borderRadiusBox);
+    font-size: var(--fontSizeLarge);
+    border: 1px solid var(--colorPrimary);
+
+    /* fabricio 23/11 */
+    margin-top: 2rem;
+}
+
+.submit-btn:hover {
+    color: var(--actionColor);
+    background: var(--actionBgPrimary);
+}
+
+.close-dialog-btn {
+    padding: 1rem;
+    border-radius: var(--borderRadiusBox);
+    position: absolute;
+    top: 0.4rem;
+    right: 0.8rem;
+    font-size: var(--fontSizeSmall);
+    font-weight: 700;
+    background: none;
+
+    /* fabricio 23/11 */
+    color: var(--color-primary-text-inverse);
+}
+
+.open-dialog-btn {
+    border-radius: var(--borderRadiusBox);
+    font-weight: 700;
+    background-color: var(--actionBgSecondary);
+}
+
+.dialog-btn-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 0.5rem;
+    width: 58%;
+}
+
+.position-container {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    height: 30vh;
+    padding-top: 1rem;
+}
+
+.report-msg {
+    color: var(--titleColor);
+    font-size: var(--fontSizeSmall);
+    font-weight: 600;
+}
+
+.dialog-centered {
+    position: fixed;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.form-message {
+    display: none;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.success {
+    color: var(--actionSuccess);
+    padding: 2.5rem;
+}
+
+.error {
+    color: var(--actionError);
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+/* .blur-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    backdrop-filter: blur(2px);
+} */
+dialog::backdrop {
+    background: rgba(227, 222, 222, 0.25);
+}
+
+@media only screen and (max-width: 768px) {
+    .report-dialog {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .report-form-data,
+    .report-txtarea,
+    .report-select {
+        font-size: var(--fontSizeLarge);
+        padding: 1rem !important;
+    }
+    .report-form-title {
+        padding: 1rem;
+    }
+
+    .name-mail-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .name-container,
+    .mail-container {
+        width: 100%;
+    }
+
+    .report-form .container-form-fields {
+        padding: 1rem 1rem 1rem;
+    }
+
+    .submit-btn {
+        padding: 0.8rem 2rem;
+    }
+    .close-dialog-btn {
+        padding: 0.4rem 0.8rem;
+        top: 0.8rem;
+    }
+}
