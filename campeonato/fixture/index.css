@@ -1,0 +1,133 @@
+#cruces-rugby-wrapper {
+    padding-top: 2rem;
+    margin: 4rem auto 6rem auto;
+}
+
+#cruces-rugby-wrapper table {
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 50px;
+    border: 1px solid red;
+}
+
+#cruces-rugby-wrapper td,
+#cruces-rugby-wrapper th {
+    padding: 5px;
+    font-family: var(--font-3);
+    font-size: 11px;
+    text-align: center;
+}
+
+/* #cruces-rugby-wrapper td:nth-child(3),
+#cruces-rugby-wrapper th:nth-child(3) {
+    text-align: right;
+    font-weight: bold;
+} */
+
+/* #cruces-rugby-wrapper td:last-child,
+#cruces-rugby-wrapper th:last-child {
+    text-align: left;
+    font-weight: bold;
+} */
+
+#cruces-rugby-wrapper tr:nth-of-type(even) {
+    background-color: #f0eded;
+}
+
+#cruces-rugby-wrapper thead tr {
+    background-color: #19194b;
+}
+
+#cruces-rugby-wrapper thead tr th {
+    color: #fff;
+}
+
+#cruces-rugby-wrapper h3 {
+    font-family: var(--font-3);
+    font-size: 18px;
+    color: var(--color-primary-text-inverse);
+    padding: 0 40px 0 20px;
+    border-radius: 6px 10px 50px 6px;
+    background-color: #19194b;
+    width: fit-content;
+}
+
+#cruces-rugby-wrapper .Enhancement {
+    margin: 20px 0 !important;
+    max-width: unset !important;
+    width: 100% !important;
+}
+
+#cruces-rugby-wrapper .cuartos-de-final h3,
+#cruces-rugby-wrapper .cuartos-de-final + table > thead > tr {
+    background-color: #2d3cff;
+}
+
+#cruces-rugby-wrapper .semifinales h3,
+#cruces-rugby-wrapper .semifinales + table > thead > tr {
+    background-color: gray;
+}
+
+#cruces-rugby-wrapper .bronce h3,
+#cruces-rugby-wrapper .bronce + table > thead > tr {
+    background-color: #cd7f32;
+}
+
+#cruces-rugby-wrapper .final h3,
+#cruces-rugby-wrapper .final + table > thead > tr {
+    background-color: #daa520;
+}
+
+#cruces-rugby-wrapper .draw {
+    color: blue;
+}
+
+#cruces-rugby-wrapper .winner {
+    color: #00c000;
+    font-weight: bold;
+}
+
+.fixture-title {
+    display: flex;
+    border-radius: 6px;
+    margin-bottom: 4rem;
+    box-shadow: 0 3px 10px var(--color-border);
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.fixture-title img {
+    width: 40px;
+}
+
+.fixture-title h2 {
+    font-family: var(--font-3);
+    color: #19194b;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.new-list-sponsor {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    padding: 16px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 480px) {
+    #cruce-rugby-wrapper td,
+    #cruce-rugby-wrapper th {
+        padding: 5px 15px;
+        font-size: 14px;
+    }
+
+    #cruce-rugby-wrapper {
+        padding-left: calc(50% - 240px);
+        padding-right: calc(50% - 240px);
+    }
+}

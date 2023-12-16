@@ -1,0 +1,105 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixture</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<div class="RichTextModule-items RichTextBody">
+    <table>
+        <tbody>
+            <tr>
+                <th>fecha</th>
+                <th>hora</th>
+                <th>lugar</th>
+                <th>equipo 1</th>
+                <th>puntaje </th>
+                <th>puntaje</th>
+                <th>equipo 2</th>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1">14/10</td>
+                <td colspan="1" rowspan="1">12:00</td>
+                <td colspan="1" rowspan="1">estadio beldevere</td>
+                <td colspan="1" rowspan="1">Gales</td>
+                <td colspan="1" rowspan="1">17</td>
+                <td colspan="1" rowspan="1" class="winner">29</td>
+                <td colspan="1" rowspan="1">Argentina</td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1">14/10</td>
+                <td colspan="1" rowspan="1">16:00</td>
+                <td colspan="1" rowspan="1">estadio beldevere</td>
+                <td colspan="1" rowspan="1">Irlanda</td>
+                <td colspan="1" rowspan="1">24</td>
+                <td colspan="1" rowspan="1" class="winner">28</td>
+                <td colspan="1" rowspan="1">Nueva Zelanda</td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1">15/10</td>
+                <td colspan="1" rowspan="1">12:00</td>
+                <td colspan="1" rowspan="1">estadio beldevere</td>
+                <td colspan="1" rowspan="1">Inglaterra</td>
+                <td colspan="1" rowspan="1" class="winner">30</td>
+                <td colspan="1" rowspan="1">24</td>
+                <td colspan="1" rowspan="1">Fiji</td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1">15/10</td>
+                <td colspan="1" rowspan="1">16:00</td>
+                <td colspan="1" rowspan="1">estadio beldevere</td>
+                <td colspan="1" rowspan="1">Francia</td>
+                <td colspan="1" rowspan="1">28</td>
+                <td colspan="1" rowspan="1" class="winner">29</td>
+                <td colspan="1" rowspan="1">Sudáfrica</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="Enhancement">
+        <div class="Enhancement-item">
+            <div id="cruces-mundial-rugby"></div>
+            <script>
+                const crucesRugby = document.getElementById('cruces-mundial-rugby');
+                const crucesWrapper = crucesRugby.parentNode.parentNode.parentNode;
+                crucesWrapper.setAttribute('id', 'cruces-rugby-wrapper');
+
+                const crucesTables = crucesWrapper.querySelectorAll('table');
+                crucesTables.forEach((table) => {
+                    let firstRow = table.querySelector('tr:first-child');
+                    let tBody = table.querySelector('tbody');
+                    let tHead = document.createElement('thead');
+                    firstRow.querySelectorAll('td').forEach((td) => {
+                        let th = document.createElement('th');
+                        th.textContent = td.textContent;
+                        firstRow.replaceChild(th, td);
+                    });
+                    tHead.appendChild(firstRow);
+                    table.insertBefore(tHead, tBody);
+                });
+
+                let crucesGroupTitles = crucesWrapper.querySelectorAll('h3');
+                crucesGroupTitles.forEach((title) => {
+                    title.parentNode.parentNode.classList.add(title.innerText.replaceAll(' ', '-').toLowerCase());
+                });
+
+                let crucesMatchs = crucesWrapper.querySelectorAll('tbody tr');
+                crucesMatchs.forEach((match) => {
+                    console.log(match.childNodes)
+                    let result1 = match.childNodes[9];
+                    let result2 = match.childNodes[11];
+                    // console.log(result1)
+                    let resultNum1 = parseInt(result1.textContent);
+                    let resultNum2 = parseInt(result2.textContent);
+                    if (resultNum1 == resultNum2) {
+                        result1.classList.add('draw');
+                        result2.classList.add('draw');
+                    } else if (resultNum1 > resultNum2) {
+                        result1.classList.add('winner');
+                    } else {
+                        result2.classList.add('winner');
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</div>
