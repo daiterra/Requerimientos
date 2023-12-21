@@ -58,9 +58,9 @@ details summary {
     justify-content: center;
     height: 40px;
     width: 40px;
+    flex-shrink: 0;
     color: var(--colorPrimary);
     background-color: var(--colorToogle);
-    /* transform: rotate(90deg); */
     font-size: 1.5rem;
     border-radius: 50%;
     transition: transform 0.2s ease-in-out;
@@ -104,14 +104,6 @@ details .faq-details-description {
 .fa-chevron-right {
     font-size: 1rem;
 }
-/* .arrow-container {
-    background-color: grey;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: relative;
-    right: 0;
-} */
 
 @media only screen and (max-width: 768px) {
     .faq-divider .icon {
@@ -120,5 +112,9 @@ details .faq-details-description {
     .faq-divider {
         left: 0;
         width: 100%;
+    }
+    .arrow-container {
+        font-size: 1rem;
+        margin-left: 0.5rem;
     }
 }
