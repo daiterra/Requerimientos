@@ -1,12 +1,10 @@
 :root {
     --titleColor: #000000;
     --colorPrimary: #fc2e20;
-    --actionBgPrimary: #06416a;
     --colorSecondary: #b5bfd9;
+    --colorToogle: #ededeb;
     --borderRadiusRounded: 30px;
     --borderRadiusBox: 5px;
-    --fontSizeSmall: 13px;
-    --fontSizeLarge: 15px;
 }
 body {
     padding: 0;
@@ -21,7 +19,7 @@ body {
 .faq-title {
     font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 0rem;
+    margin-bottom: 0.5rem;
 }
 .faq-divider {
     border-top: 1px solid var(--colorPrimary);
@@ -61,9 +59,9 @@ details summary {
     height: 40px;
     width: 40px;
     color: var(--colorPrimary);
-    background-color: var(--colorSecondary);
-    transform: rotate(90deg);
-    font-size: 24px;
+    background-color: var(--colorToogle);
+    /* transform: rotate(90deg); */
+    font-size: 1.5rem;
     border-radius: 50%;
     transition: transform 0.2s ease-in-out;
 }
