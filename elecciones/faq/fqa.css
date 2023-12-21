@@ -1,3 +1,13 @@
+:root {
+    --titleColor: #000000;
+    --colorPrimary: #fc2e20;
+    --actionBgPrimary: #06416a;
+    --colorSecondary: #b5bfd9;
+    --borderRadiusRounded: 30px;
+    --borderRadiusBox: 5px;
+    --fontSizeSmall: 13px;
+    --fontSizeLarge: 15px;
+}
 body {
     padding: 0;
     margin: 0;
@@ -14,10 +24,10 @@ body {
     margin-bottom: 0rem;
 }
 .faq-divider {
-    border-top: 1px solid #fc2e20;
+    border-top: 1px solid var(--colorPrimary);
     /* width: 100%; */
     position: relative;
-    width: 115%;
+    width: 107%;
     left: -30px;
     position: relative;
 }
@@ -32,7 +42,7 @@ details[open] summary ~ * {
 details summary {
     width: 100%;
     padding: 1rem 0.5rem;
-    border-top: 1px solid #b5bfd9;
+    border-top: 1px solid var(--colorSecondary);
     position: relative;
     cursor: pointer;
     font-size: 1.25rem;
@@ -50,8 +60,8 @@ details summary {
     justify-content: center;
     height: 40px;
     width: 40px;
-    color: #fc2e20;
-    background-color: #c9cbcf;
+    color: var(--colorPrimary);
+    background-color: var(--colorSecondary);
     transform: rotate(90deg);
     font-size: 24px;
     border-radius: 50%;
@@ -59,8 +69,8 @@ details summary {
 }
 
 details summary:hover {
-    background-color: #f78a7e;
-    filter: saturate(70%);
+    background-color: #ffb1b2;
+    filter: saturate(50%);
 }
 
 details summary::-webkit-details-marker {
@@ -102,10 +112,10 @@ details p {
     position: absolute;
     top: -45px;
     left: -80px;
-    background-color: #fc2e20;
+    background-color: var(--colorPrimary);
     border-radius: 50%;
     padding: 1.5rem;
-    color: white;
+    color: #fff;
 }
 .fa-solid {
     font-size: 2rem;
