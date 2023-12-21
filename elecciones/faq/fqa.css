@@ -7,10 +7,7 @@ body {
     margin: auto;
     width: 50%;
 }
-/* .active,
-.collapsible:hover {
-    background-color: grey;
-} */
+
 .faq-title {
     font-size: 1.8rem;
     font-weight: 700;
@@ -41,42 +38,66 @@ details summary {
     font-size: 1.25rem;
     font-weight: 300;
     list-style: none;
+    display: flex;
+    outline: 0;
+    font-weight: 600;
+    align-items: center;
+    justify-content: space-between;
+}
+.arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    color: #fc2e20;
+    background-color: #c9cbcf;
+    transform: rotate(90deg);
+    font-size: 24px;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+}
+
+details summary:hover {
+    background-color: #f78a7e;
+    filter: saturate(70%);
 }
 
 details summary::-webkit-details-marker {
     display: none;
 }
 
-details summary:after {
+/* details summary:after {
     content: ">";
     transform: rotate(90deg);
     color: #fc2e20;
     position: absolute;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 0;
     margin-top: 0.75rem;
-    right: 0;
+    right: 2%;
     font-weight: 200;
     transform-origin: center;
     transition: 200ms linear;
     border-radius: 50%;
-}
+} */
 details[open] summary:after {
     transform: rotate(-90deg);
-    font-size: 2rem;
+    /* font-size: 1.5rem; */
 }
-details summary {
-    outline: 0;
-    font-weight: 600;
+details[open] .arrow-container {
+    transform: rotate(-90deg);
+    /* font-size: 1.5rem; */
 }
+details[open] .arrow-container ~ * {
+    animation: open 0.3s ease-in-out;
+}
+
 details p {
     font-size: 0.95rem;
     margin: 0 0 1rem;
     padding: 0.5rem 0.5rem;
 }
-/* details summary :last-child {
-    border: 1px solid red;
-} */
 .faq-divider span {
     position: absolute;
     top: -45px;
@@ -90,11 +111,11 @@ details p {
     font-size: 2rem;
     font-weight: 900;
 }
-.arrow-container {
+/* .arrow-container {
     background-color: grey;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     position: relative;
     right: 0;
-}
+} */
