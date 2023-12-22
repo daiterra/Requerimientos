@@ -12,8 +12,20 @@ body {
 }
 
 .faq-container {
-    margin: auto;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    /* position: relative; */
+    /* gap: 1rem; */
+    border: 1px solid purple;
+}
+.faq-image-container {
+    padding-top: 2rem;
+}
+.faq-content-container {
+    position: relative;
+    padding-left: 1rem;
+}
+.faq-image-container .icon {
 }
 
 .faq-title {
@@ -24,10 +36,11 @@ body {
 .faq-divider {
     border-top: 1px solid var(--colorPrimary);
     /* width: 100%; */
-    position: relative;
-    width: 107%;
-    left: -30px;
-    position: relative;
+    position: absolute;
+    width: 102%;
+    left: 0;
+    /* left: -30px; */
+    /* position: relative; */
 }
 .faq-subtitle {
     font-size: 0.8rem;
@@ -66,12 +79,12 @@ details summary {
     transition: transform 0.2s ease-in-out;
 }
 
-details summary:hover {
+.faq-container-details summary:hover {
     background-color: #ffb1b2;
     filter: saturate(50%);
 }
 
-details summary::-webkit-details-marker {
+.faq-container-details summary::-webkit-details-marker {
     display: none;
 }
 
@@ -88,10 +101,10 @@ details .faq-details-description {
     margin: 0 0 1rem;
     padding: 0.5rem 0.5rem;
 }
-.faq-divider span {
-    position: absolute;
-    top: -45px;
-    left: -80px;
+.faq-image-container .icon {
+    /* position: absolute; */
+    /* top: -45px; */
+    /* left: -80px; */
     background-color: var(--colorPrimary);
     border-radius: 50%;
     padding: 1.5rem;
@@ -106,7 +119,10 @@ details .faq-details-description {
 }
 
 @media only screen and (max-width: 768px) {
-    .faq-divider .icon {
+    .faq-container {
+        width: 80%;
+    }
+    .faq-image-container {
         display: none;
     }
     .faq-divider {
