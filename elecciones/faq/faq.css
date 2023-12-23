@@ -3,6 +3,7 @@
     --colorPrimary: #fc2e20;
     --colorSecondary: #b5bfd9;
     --colorToogle: #ededeb;
+    --colorPlaceHolder: rgba(0, 0, 0, 0.3);
     --borderRadiusRounded: 30px;
     --borderRadiusBox: 5px;
 }
@@ -14,14 +15,8 @@ body {
 .faq-container {
     display: flex;
     padding: 1rem;
-    /* justify-content: center; */
-    /* position: relative; */
-    /* gap: 1rem; */
-    /* border: 1px solid purple; */
 }
-.faq-image-container {
-    padding-top: 2rem;
-}
+
 .faq-content-container {
     position: relative;
     padding-left: 1rem;
@@ -39,8 +34,6 @@ body {
     position: absolute;
     /* width: 102%; */
     left: 0;
-    /* left: -30px; */
-    /* position: relative; */
 }
 .faq-subtitle {
     font-size: 0.8rem;
@@ -66,7 +59,7 @@ details summary {
     align-items: center;
     justify-content: space-between;
 }
-.arrow-container {
+.chevron-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,7 +70,7 @@ details summary {
     background-color: var(--colorToogle);
     font-size: 1.5rem;
     border-radius: 50%;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
 .faq-container-details summary:hover {
@@ -89,34 +82,38 @@ details summary {
     display: none;
 }
 
-details[open] .arrow-container {
-    transform: rotate(-90deg);
-    /* font-size: 1.5rem; */
+.faq-container-details[open] .chevron-container {
+    transform: rotate(-180deg);
 }
-details[open] .arrow-container ~ * {
+.faq-container-details[open] .chevron-container ~ * {
     animation: open 0.3s ease-in-out;
 }
 
-details .faq-details-description {
-    font-size: 0.95rem;
+.faq-container-details .faq-details-description {
+    font-size: 1rem;
     margin: 0 0 1rem;
     padding: 0.5rem 0.5rem;
 }
-.faq-image-container .icon {
-    /* position: absolute; */
-    /* top: -45px; */
-    /* left: -80px; */
+
+.faq-icon-container {
+    padding-top: 1.8rem;
+}
+.faq-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     background-color: var(--colorPrimary);
     border-radius: 50%;
     padding: 1.5rem;
-    color: #fff;
 }
-.fa-microscope {
-    font-size: 2rem;
-    font-weight: 900;
+.faq-image-icon {
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
 }
-.fa-chevron-right {
-    font-size: 1rem;
+.faq-change-color {
+    filter: invert(1);
 }
 
 @media only screen and (max-width: 768px) {
