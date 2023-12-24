@@ -14,7 +14,7 @@ body {
 
 .faq-container {
     display: flex;
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
 .faq-content-container {
@@ -24,9 +24,9 @@ body {
 }
 
 .faq-title {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 1rem; */
 }
 .faq-divider {
     border-top: 1px solid var(--colorPrimary);
@@ -36,21 +36,21 @@ body {
     left: 0;
 }
 .faq-subtitle {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
     padding: 1rem;
     padding-left: 0;
 }
-details[open] summary ~ * {
+.faq-container-details[open] summary ~ * {
     animation: open 0.3s ease-in-out;
 }
 
-details summary {
+.faq-container-details summary {
     width: 100%;
     padding: 1rem 0.5rem;
     border-top: 1px solid var(--colorSecondary);
     position: relative;
     cursor: pointer;
-    font-size: 1.25rem;
+    /* font-size: 1.25rem; */
     font-weight: 300;
     list-style: none;
     display: flex;
@@ -58,6 +58,7 @@ details summary {
     font-weight: 600;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
 }
 .chevron-container {
     display: flex;
@@ -71,6 +72,13 @@ details summary {
     font-size: 1.5rem;
     border-radius: 50%;
     transition: transform 0.3s ease-in-out;
+}
+.faq-container svg {
+    fill: none;
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
 }
 
 .faq-container-details summary:hover {
@@ -89,15 +97,15 @@ details summary {
     animation: open 0.3s ease-in-out;
 }
 
-.faq-container-details .faq-details-description {
-    font-size: 1rem;
+.faq-details-description {
+    font-size: 1.3rem;
     margin: 0 0 1rem;
     padding: 0.5rem 0.5rem;
 }
 
-.faq-icon-container {
+/* .faq-icon-container {
     padding-top: 1.8rem;
-}
+} */
 .faq-image-container {
     display: flex;
     justify-content: center;
@@ -106,19 +114,17 @@ details summary {
     border-radius: 50%;
     padding: 1.5rem;
 }
-.faq-image-icon {
-    height: 40px;
-    width: 40px;
-    min-width: 40px;
-    min-height: 40px;
-}
-.faq-change-color {
+
+.faq-image-container svg {
     filter: invert(1);
 }
 
 @media only screen and (max-width: 768px) {
-    .faq-container {
-        width: 80%;
+    .faq-title {
+        font-size: 2.5rem;
+    }
+    .faq-details-description {
+        font-size: 2rem;
     }
     .faq-image-container {
         display: none;
