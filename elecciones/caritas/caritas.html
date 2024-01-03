@@ -3326,72 +3326,114 @@ if(hasIntersectionObserver) {
     <div class="Enhancement-item">
 <!-- aca empieza tu codigo -->
 <style>
+    :root{
+        --shadow-container: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
     .cards-links-container {
         display: grid;
         grid-template-columns: repeat(auto-fill,
                 minmax(150px, 1fr));
-        gap: 1.5rem;
+        gap: 2rem;
         margin-bottom: 4rem;
     }
 
     .card-container {
         display: flex;
         flex-direction: column;
-        border: 1px solid #ddd;
+        /* border: 1px solid var(--color-primary-text); */
         text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 3rem 1rem;
+        box-shadow:var(--shadow-container);
+        padding: 3rem 2rem;
         align-items: center;
-        justify-content: space-between;
-        margin-bottom: 4rem;
-        /* height: 100%; */
+        gap: 1.5rem;
+        max-height: 500px;
+        /* overflow: hidden; */
+        /* text-overflow: ellipsis; */
+        position: relative
     }
 
-    .cards-links-container .card-container:hover {
-        border: 1px solid var(--color-link-text-hover);
-        background-color:var(--color-primary-translucid); 
-        transition: all 0.3s;
+    .RichTextBody .card-title {
+        padding: 2rem 0 0;
+        font-size: 3rem;
+        font-weight: 400;
     }
 
-    .card {
-        outline: none
-    }
-    .cards-links-container .link{
-        cursor: default;
-    }
-    .card-title {
-        font-size: 4.5rem;
-        color: var(--color-primary)
-    }
-
-    .card-subtitle {
+    .RichTextBody .card-subtitle-description {
         font-size: 1.5rem;
     }
 
+    .mayus {
+        text-transform: uppercase;
+    }
 
-    .cards-links-description {
+    .card-image-container {
+        width: 160px;
+        height: 160px;
+    }
+
+    .card-image-container img {
+        min-width: 100%;
+        min-height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        background: var(--color-article-backdrop);
+    }
+
+
+    .card-flag-description {
+        border-top: 1px solid var(--actionError);
+        border-bottom: 1px solid var(--actionError);
+        width: 100%;
+        color: var(--actionError);
+    }
+
+    .card-description {
+        text-align: justify;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .card-heading-section {
         display: flex;
         flex-direction: column;
-        gap: 4rem;
+        align-items: center;
     }
 
-    .cards-links-description .card-container {
-        background-color: var(--color-article-backdrop);
-        padding: 4rem;
+    .card-flag-description {
+        padding: .5rem 0;
     }
 
-    .card-subtitle-description {
-        padding: 2rem 1rem;
+    .expanded {
+        max-height: none;
+        overflow: auto;
     }
 
+    .card-toggle-button {
+        border: none;
+        padding: 1rem 2rem;
+        margin: 0 auto 1rem;
+        position: absolute;
+        bottom: 0;
+        border-radius: var(--borderRadiusRounded);
+        box-shadow: var(--shadow-container);
+        font-weight: 700;
+        font-size:1.5rem;
+    }
+    .card-toggle-button:hover{
+        background-color: var(--color-primary-text-translucid);
+    }
 
-    /* .link .card-subtitle{
-        font-weight: 500;
-    } */
-
+    .card-description-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 3rem;
+        color: var(--color-primary-text)
+    }
 
     @media only screen and (max-width: 768px) {
-        .card-description {
+        /* .card-description {
             font-size: 1.5rem;
         }
 
@@ -3401,154 +3443,145 @@ if(hasIntersectionObserver) {
 
         .RichTextBody .card-subtitle-description {
             font-size: 2rem;
+        } */
+        @media only screen and (max-width: 768px) {
+        .cards-links-container {
+            grid-template-columns: 1fr;
+            gap:4rem;
         }
-       
+    }
+
     }
 </style>
 <section class="cards-links-container" id="cardsDescriptionContainer">
-    
+
     <article class="card-container" id="pregunta-0">
-        <div>
-            <img>
+        <section class="card-heading-section">
+            <div class="card-image-container">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/38/37138w160.png" alt="figure">
+            </div>
+            <h2 class="card-title">Juan Manzur</h2>
+            <h3 class="card-subtitle-description mayus">jefe de gabinete</h3>
+        </section>
+        <span class="card-flag-description mayus">nuevo ingreso</span>
+        <div class="card-description-container">
+            <p class="card-description">El gobernador de Tucumán se ganó el enojo de Cristina Kirchner cuando, durante
+                el gobierno de Mauricio Macri, pronosticó que el kirchnerismo era un "ciclo terminado". Pero Cristina
+                Kirchner le pidió a Alberto Fernández que lo nombrara en reemplazo de Santiago Cafiero. Tras amagar con
+                resistir, el Presidente aceptó nombrarlo como Jefe de Gabinete.</p>
+            <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+            </button>
         </div>
-        <h2 class="card-title">1</h2>
-        <h3 class="card-subtitle-description">¿Hasta cuándo puede aparecer un testamento?</h3>
-       
-        <p class="card-description">La Justicia no determinó todavía quiénes heredarán a María Kodama, pero abrió su
-            sucesión y se presentaron a reclamar la herencia cinco sobrinos, hijos de su hermano Jorge Kodama. Ellos
-            serían herederos legítimos, pero no son herederos forzosos (condición que la ley argentina les reconoce solo
-            a los ascendientes, descendientes y cónyuges); por eso, si apareciera un testamento, ellos podrían ser
-            desplazados y no recibir nada.</p>
+
+
     </article>
     <article class="card-container" id="pregunta-1">
-        <div>
-            <img>
+        <section class="card-heading-section">
+            <div class="card-image-container">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/38/37138w160.png" alt="figure">
+            </div>
+            <h2 class="card-title">Aníbal Fernández</h2>
+            <h3 class="card-subtitle-description mayus">MINISTRO DE SEGURIDAD
+            </h3>
+        </section>
+
+
+        <span class="card-flag-description mayus">nuevo ingreso</span>
+
+        <div class="card-description-container">
+            <p class="card-description">El gobernador de Tucumán se ganó el enojo de Cristina Kirchner cuando, durante
+                el gobierno de Mauricio Macri, pronosticó que el kirchnerismo era un "ciclo terminado". Pero Cristina
+                Kirchner le pidió a Alberto Fernández que lo nombrara en reemplazo de Santiago Cafiero. Tras amagar con
+                resistir, el Presidente aceptó nombrarlo como Jefe de Gabinete.</p>
+            <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+            </button>
         </div>
-        <h2 class="card-title">2</h2>
-        <h3 class="card-subtitle-description">¿Cómo sigue el trámite de la sucesión?</h3>
-        
-        <p class="card-description">La Justicia tratará de determinar si hay un testamento -hasta ahora no hay rastros
-            de que exista-, y si hay otros posibles herederos o acreedores de los bienes de Kodama. En busca de un
-            posible testamento, se consultará a los registros del Colegio de Escribanos y de Abogados; para dar con
-            otros herederos o acreedores, se publicarán edictos. Esta etapa del trámite de la sucesión termina con la
-            declaratoria de herederos. Normalmente, la Justicia completa estos trámites en menos de seis meses. Después
-            se identifican los bienes, se pagan las deudas de la sucesión y se puede hacer la partición.</p>
 
     </article>
     <article class="card-container" id="pregunta-2">
-        <div>
-            <img>
+        <section class="card-heading-section">
+            <div class="card-image-container">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/38/37138w160.png" alt="figure">
+            </div>
+            <h2 class="card-title">Aníbal Fernández</h2>
+            <h3 class="card-subtitle-description mayus">MINISTRO DE SEGURIDAD
+            </h3>
+        </section>
+        <span class="card-flag-description mayus">nuevo ingreso</span>
+
+        <div class="card-description-container">
+            <p class="card-description">El gobernador de Tucumán se ganó el enojo de Cristina Kirchner cuando, durante
+                el gobierno de Mauricio Macri, pronosticó que el kirchnerismo era un "ciclo terminado". Pero Cristina
+                Kirchner le pidió a Alberto Fernández que lo nombrara en reemplazo de Santiago Cafiero. Tras amagar con
+                resistir, el Presidente aceptó nombrarlo como Jefe de Gabinete.</p>
+            <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+            </button>
         </div>
-        <h2 class="card-title">3</h2>
-        <h3 class="card-subtitle-description">¿Hasta cuándo puede aparecer un testamento?</h3>
-        <p class="card-description">Puede aparecer en cualquier momento porque la acción de petición de herencia (que es
-            la que correspondería a un hipotético heredero reconocido por testamento) no tiene plazo. El Código aclara:
-            “Sin perjuicio de la prescripción adquisitiva”, es decir, siempre que no haya pasado el tiempo que prevé la
-            ley para que quien poseyó algo una determinada cantidad de años se convierta en su propietario (para
-            inmuebles, por ejemplo, nunca es menos de 10 años). Hay dos clases de testamentos: por escritura pública
-            (ante escribano) u ológrafo, que debe estar hecho de puño y letra por Kodama, con la fecha y con su firma.
-            Podría ser válido incluso un testamento ológrafo dejado por ella en el extrajero.</p>
 
     </article>
     <article class="card-container" id="pregunta-3">
-        <h2 class="card-title">4</h2>
-        <h3 class="card-subtitle-description">¿Cuánto tiempo tiene el depositario de un testamento para entregarlo?</h3>
-        <p class="card-description">El artículo 2471 del Código Civil y Comercial establece expresamente la “obligación
-            de denunciar la existencia del testamento” y dice que “quien participa en el otorgamiento de un testamento o
-            en cuyo poder se encuentra, está obligado a comunicarlo a las personas interesadas, una vez acaecida la
-            muerte del testador”. Por eso, sería extraño que alguien tuviera el testamento en su poder y todavía no lo
-            hubiera informado; sobre todo, si es un escribano.</p>
-    </article>
-    <article class="card-container" id="pregunta-4">
-        <div>
-            <img>
+        <section class="card-heading-section">
+            <div class="card-image-container">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/38/37138w160.png" alt="figure">
+            </div>
+            <h2 class="card-title">Aníbal Fernández</h2>
+            <h3 class="card-subtitle-description mayus">MINISTRO DE SEGURIDAD
+            </h3>
+        </section>
+        <span class="card-flag-description mayus">nuevo ingreso</span>
+        <div class="card-description-container">
+            <p class="card-description">El gobernador de Tucumán se ganó el enojo de Cristina Kirchner cuando, durante
+                el gobierno de Mauricio Macri, pronosticó que el kirchnerismo era un "ciclo terminado". Pero Cristina
+                Kirchner le pidió a Alberto Fernández que lo nombrara en reemplazo de Santiago Cafiero. Tras amagar con
+                resistir, el Presidente aceptó nombrarlo como Jefe de Gabinete.</p>
+            <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+            </button>
         </div>
-        <h2 class="card-title">5</h2>
-        <h3 class="card-subtitle-description">¿Qué pasa si cuando aparece un heredero testamentario ya no hay más
-            bienes?
-        </h3>
-        <p class="card-description">La situación varía si los “herederos aparentes” son de buena o mala fe, pero en
-            todos los casos deben devolver los bienes (salvo la excepción de la prescripción adquisitiva). “Si
-            apareciera un testamento y los sobrinos se hubieran repartido los bienes, deberían devolverlos para que sean
-            entregados a los herederos testamentarios. Si hubieran vendido los bienes a un tercero, deberían devolver el
-            valor más los intereses. Y la ley es incluso más dura si se trata de herederos aparentes ‘de mala fe’ [que
-            sabían que había un testamento u otros herederos]”, dijo a LA NACION el abogado Andrés Beccar Varela,
-            especialista en Familia y Sucesiones. “Una diferencia clave entre los de buena y los de mala fe es qué pasa
-            con ‘los frutos”, advirtió Ana Ortelli, profesora de Sucesiones. Si los “herederos aparentes”, que en este
-            caso serían los sobrinos, actuaron de buena fe, se quedarían con "los frutos" percibidos, lo que incluiría,
-            por ejemplo, alquileres -según explicó Ortelli-, pero también todos los derechos de autor que hubieran
-            cobrado.</p>
-
     </article>
-    <article class="card-container" id="pregunta-5">
-        <div>
-            <img>
+    <article class="card-container" id="pregunta-3">
+        <section class="card-heading-section">
+            <div class="card-image-container">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/38/37138w160.png" alt="figure">
+            </div>
+            <h2 class="card-title">Aníbal Fernández</h2>
+            <h3 class="card-subtitle-description mayus">MINISTRO DE SEGURIDAD
+            </h3>
+        </section>
+        <span class="card-flag-description mayus">nuevo ingreso</span>
+        <div class="card-description-container">
+            <p class="card-description">De perfil confrontativo y afín a Cristina Kirchner, Soria asumió como ministro de Justicia cuando renunció Marcela Losardo, acorralada por el kirchnerismo.</p>
+            <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+            </button>
         </div>
-        <h2 class="card-title">6</h2>
-        <h3 class="card-subtitle-description">¿Quién es y qué rol tiene “el abogado de Kodama”?
-        </h3>
-        <p class="card-description">Fernando Soto fue el abogado que, el lunes pasado, abrió la sucesión de María
-            Kodama. Presentó un escrito en el que relató que fue durante más de 20 años su representante legal y que
-            inició en su nombre múltiples acciones para resguardar la obra de Borges frente a plagios, alteraciones,
-            falsificaciones de manuscritos, robos. Dijo que promovía la sucesión porque entendía que no había testamento
-            ni herederos identificados. Invocó su condición de “acreedor” de Kodama por unos viejos honorarios, pero
-            dijo que lo que en realidad pretendía era “forzar” la aparición de posibles herederos -a quienes además les
-            ofreció de antemano representarlos- y que se protegieran los bienes. Por ahora, el rol de Soto en la causa
-            se limita a haber sido quien abrió la sucesión. Eso podría darle derecho a los honorarios correspondientes a
-            la primera parte del proceso judicial, aunque los herederos podrían discutírselos.
-        </p>
-
     </article>
-    <article class="card-container" id="pregunta-6">
-        <div>
-            <img>
+    <article class="card-container" id="pregunta-3">
+        <section class="card-heading-section">
+            <div class="card-image-container">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/38/37138w160.png" alt="figure">
+            </div>
+            <h2 class="card-title">Aníbal Fernández</h2>
+            <h3 class="card-subtitle-description mayus">MINISTRO DE SEGURIDAD
+            </h3>
+        </section>
+        <span class="card-flag-description mayus">nuevo ingreso</span>
+        <div class="card-description-container">
+            <p class="card-description">El gobernador de Tucumán se ganó el enojo de Cristina Kirchner cuando, durante
+                el gobierno de Mauricio Macri, pronosticó que el kirchnerismo era un "ciclo terminado". Pero Cristina
+                Kirchner le pidió a Alberto Fernández que lo nombrara en reemplazo de Santiago Cafiero. Tras amagar con
+                resistir, el Presidente aceptó nombrarlo como Jefe de Gabinete.</p>
+            <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+            </button>
         </div>
-        <h2 class="card-title">7</h2>
-        <h3 class="card-subtitle-description">¿Hasta cuándo puede aparecer un testamento?</h3>
-        <p class="card-description">Hay varios bienes ya identificados, que Soto detalló en su escrito. Entre ellos, dos
-            departamentos en Recoleta (el de Rodríguez Peña 1236, piso 8, A y B, y el de French 3016, piso 8) y la casa
-            de Anchorena 1660, donde funciona la Fundación Internacional Jorge Luis Borges; los derechos de autor de
-            toda la obra literaria del escritor, sus medallas, condecoraciones y distinciones; manuscritos originales,
-            dibujos de su autoría y su biblioteca personal (intervenida por el propio Borges).</p>
-    </article>
-    <article class="card-container" id="pregunta-7">
-        <div>
-            <img>
-        </div>
-        <h2 class="card-title">8</h2>
-        <h3 class="card-subtitle-description">¿Cómo sigue el trámite de la sucesión?</h3>
-        <p class="card-description">La Justicia tratará de determinar si hay un testamento -hasta ahora no hay rastros
-            de que exista-, y si hay otros posibles herederos o acreedores de los bienes de Kodama. En busca de un
-            posible testamento, se consultará a los registros del Colegio de Escribanos y de Abogados; para dar con
-            otros herederos o acreedores, se publicarán edictos. Esta etapa del trámite de la sucesión termina con la
-            declaratoria de herederos. Normalmente, la Justicia completa estos trámites en menos de seis meses. Después
-            se identifican los bienes, se pagan las deudas de la sucesión y se puede hacer la partición.</p>
-
-    </article>
-    <article class="card-container" id="pregunta-8">
-        <div>
-            <img>
-        </div>
-        <h2 class="card-title">9</h2>
-        <h3 class="card-subtitle-description">¿Puede el Estado quedarse con bienes o con derechos sobre la obra de
-            Borges?</h3>
-        <p class="card-description">Los derechos de la obra de Borges -como el resto de los bienes- son de la sucesión y
-            todo indica que pasarán a pertenecer a los sobrinos de Kodama, que podrían disponer de todo como quisieran.
-            No hay una ley de protección de los bienes culturales que restrinja la capacidad de disponer que tienen los
-            herederos, explicaron especialistas a LA NACION. La regla general es que si el Estado quiere quedarse con
-            algún bien, debe recurrir a la vía de la expropiación (para eso necesita una ley e indemnizar a los
-            herederos). En las últimas horas, distintos autores pidieron que el Estado intervenga. Beatriz Sarlo propuso
-            crear un archivo Borges en la Biblioteca Nacional, según publicó Infobae. Carlos Gamerro, que se ponga en
-            funcionamiento un comité de expertos para, sin vulnerar los derechos económicos de los herederos, tomar
-            decisiones del tipo literario, editorial y de archivo. Julián Axat recordó el caso de Franz Kafka: una
-            heredera del manuscrito de El Proceso lo vendió a dos millones de dólares y el Superior Tribunal de Israel
-            dijo que la obra de Kafka pertenecía a las grandes creaciones de la invención de humanidad y debía regirse
-            por el derecho público, no el privado, y pasar a manos de la Biblioteca Nacional de Israel. El ministro de
-            Cultura, Tristán Bauer, dijo a LA NACION que es “prematuro” hacer comentarios sobre el tema.</p>
-
     </article>
 </section>
 <script>
+    function toggleDescription(button) {
+        const cardContainer = button.closest('.card-container');
+        cardContainer.classList.toggle('expanded');
+        const buttonText = cardContainer.classList.contains('expanded') ? 'ver menos' : 'ver mas';
+    button.textContent = buttonText;
+    }
+
 </script>
                 
 
