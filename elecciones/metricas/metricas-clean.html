@@ -1,0 +1,242 @@
+<style>
+    :root {
+        --shadow-container: 2px 4px 8px rgba(0, 0, 0, 0.1);
+        --background-container: #EAF4FF;
+
+    }
+
+    .RichTextBody .metrics-title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 2rem;
+    }
+
+    .metrics-title {
+        font-size: 2rem;
+        color: var(--color-dark-gray);
+        margin-bottom: 0;
+    }
+
+
+    .metrics-line {
+        width: 160px;
+        height: 2px;
+        display: inline-block;
+        background: #101F2E;
+    }
+
+    .metrics-facts-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 2rem;
+        box-shadow: var(--shadow-container);
+        /* background-color: var(--background-container); */
+    }
+
+
+
+    .RichTextBody .metrics-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        border-right: 1px solid #4e5151cc;
+        text-align: center;
+    }
+
+    .metrics-item:last-child {
+        border: none;
+    }
+
+    .RichTextBody .metrics-number {
+        font-size: 2em;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .RichTextBody .metrics-label {
+        color: rgba(78, 81, 81, 0.8);
+        font-size: 1em;
+        margin: 0;
+        padding: 1rem 1rem 0;
+        text-align: center;
+    }
+
+    .uppercase {
+        text-transform: uppercase;
+    }
+
+
+    .metrics-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .metrics-container {
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .metrics-footer-text {
+        font-size: .8em;
+    }
+
+
+    @media screen and (max-width: 768px) {
+        .metrics-facts-container {
+            flex-direction: column;
+        }
+
+        .RichTextBody .metrics-item {
+            border: none;
+            border-bottom: 1px solid #4e5151cc;
+        }
+
+        .RichTextBody .metrics-item:last-child {
+            border: none;
+        }
+    }
+</style>
+<section class="metrics-additional-content-container">
+    <article class="metrics-additional-content">
+        <h3>Salud y Población</h3>
+        <p>Ayer el Indec publicó los números definitivos del Censo 2022 y rectificó, por tercera vez, la cantidad de
+            habitantes de toda la Argentina. El 19 de mayo se había informado que la población era 47.327.407, pero el
+            31 de enero se redujo a 46.044.703. El último dato oficial da cuenta de los 45.892.285 de argentinos en todo
+            el territorio nacional, aunque la cantidad estimada al 1° de julio de 2022 es de 46.234.830 por la falta de
+            cobertura de ciertas áreas durante el operativo lo que obligó al Indec a realizar esta estimación mediante
+            proyecciones con base del Censo 2010. También fueron censadas 5705 personas en situación de calle.</p>
+    </article>
+</section>
+<section class="metrics-container" id="metricsContainer">
+    <div class="metrics-title-container">
+        <h2 class="metrics-title uppercase">Por sexo</h2>
+        <span class="metrics-line"></span>
+    </div>
+    <section id="metricsFacts" class="metrics-facts-container">
+
+
+        <article class="metrics-item" data-number="12">
+            <p class="metrics-label uppercase">Mujeres</p>
+            <p id="number1" class="metrics-number">12</p>
+        </article>
+        <article class="metrics-item" data-number="55">
+
+            <p class="metrics-label uppercase">Hombres</p>
+            <p id="number2" class="metrics-number">55</p>
+        </article>
+        <article class="metrics-item" data-number="359">
+            <p class="metrics-label uppercase">Personas</p>
+            <p id="number3" class="metrics-number">359</p>
+        </article>
+
+
+    </section>
+</section>
+<footer class="metrics-footer">
+    <p class="metrics-footer-text">*No incluye a las personas en viviendas colectivas (residencias,internados,etc)</p>
+</footer>
+
+<article class="metrics-additional-content">
+    <h3>Ciudadanos</h3>
+    <p>El relevamiento 2022 también arrojó que hay 23.705.494 mujeres (51,7% del total) y 22.186.7961 hombres (48,3%).
+        En los resultados provisionales sumaban 8293 (0,02%) las personas que se identificaron como no binarias, pero
+        esa categoría no figura en los resultados finales. De acuerdo al índice de feminidad por cada 100 hombres hay
+        107 mujeres en Argentina, aunque ese número disminuye a 97 en la población de 0 a 14 años, mientras que aumenta
+        en la de mayores de 65, donde por cada 100 hombres hay 140 mujeres. El incremento es mayor a partir de los 85
+        años, con 228 mujeres por cada 100 hombres.</p>
+    <p>En cuanto al acceso a la salud, el 60,9% de la población (27.787.124 personas) declaró tener una obra social o
+        prepaga, incluida PAMI, y el 3,3% (1.514.231 personas) accede a programas o planes estatales de salud; mientras
+        que el 35,8% (16.317.432 personas) depende del sistema público.</p>
+</article>
+<script>
+    function simpleCounter(element, options) {
+        let settings = {
+            start: 0,
+            end: 100,
+            easing: 'swing',
+            duration: 400,
+            complete: ''
+        };
+
+        Object.assign(settings, options);
+
+        let thisElement = document.querySelector(element);
+
+        if (!thisElement) {
+            console.error('Element not found');
+            return;
+        }
+
+        let count = settings.start;
+        let startTime;
+
+        function animateCounter(timestamp) {
+            if (!startTime) {
+                startTime = timestamp;
+            }
+
+            let progress = timestamp - startTime;
+
+            if (progress < settings.duration) {
+                let easeProgress = ease(progress / settings.duration);
+                count = settings.start + Math.ceil((settings.end - settings.start) * easeProgress);
+                thisElement.textContent = count;
+
+                requestAnimationFrame(animateCounter);
+            } else {
+                thisElement.textContent = settings.end;
+
+                if (typeof settings.complete === 'function') {
+                    settings.complete();
+                }
+            }
+        }
+
+        function ease(t) {
+            return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+        }
+
+        requestAnimationFrame(animateCounter);
+    }
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function handleVisibility() {
+        var metricsContainer = document.getElementById('metricsContainer');
+        if (isElementInViewport(metricsContainer)) {
+            simpleCounter('#number1', { end: 56778, duration: 3000 });
+            simpleCounter('#number2', { end: 49854, duration: 3000 });
+            simpleCounter('#number3', { end: 92882, duration: 3000 });
+
+            var metricsNumbers = document.querySelectorAll('.metrics-number');
+
+            var labelColors = ['#06416a', '#a753a0', '#489052'];
+
+            metricsNumbers.forEach(function (number, index) {
+                number.style.color = labelColors[index % labelColors.length];
+            });
+
+            window.removeEventListener('scroll', handleVisibility);
+        }
+    }
+
+    window.addEventListener('scroll', handleVisibility);
+
+    handleVisibility();
+</script>
