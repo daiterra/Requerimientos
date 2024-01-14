@@ -3486,7 +3486,42 @@ if(hasIntersectionObserver) {
     font-size: 1.3rem;
     margin: 0 0 1rem;
 }
+.discarded-content-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap:5rem;
+}
+.discarded-material-card{
+    /* max-width: 700px; */
+    display: flex;
+    flex-direction: column;
+    gap:5rem;
+    justify-content: space-around;
+    align-items: center;
+}
+.discarded-container-img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.discarded-material-afirmation {
+    border: 1px solid var(--color-timeline-divider);
+    padding: 4rem;
+    margin: 2rem 0;
+    width: 65%;
+}
+.divider{
+    width: 100%;
+    padding-bottom: 1rem;
+    border-top: 1px solid var(--color-timeline-divider);
+}
+
+.discarded-container-img figcaption{
+    padding-top: 1rem;
+}
 </style> 
 <section class="candidates-list-container"> <!-- lista candidatos -->
     <ul class="candidates-list">
@@ -3797,15 +3832,15 @@ if(hasIntersectionObserver) {
                 <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/39/58539.svg" alt="education-heading"><!-- education -->
             </section>
     </article>
-    <div class="divider">-</div>
-    <div class="divider">-</div>
-    <div class="divider">-</div>
+    <div class="divider"></div>
+    <div class="divider"></div>
+    <div class="divider"></div>
     <article id="discardedMaterial" class="discarded-material-container"> <!-- material descartado -->
         <section class="candidate-heading-section">
             <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/51/58351.svg" alt="discarded material heading">
         </section>
 
-        <section class="discarded-content-container">
+        <section class="discarded-content-container ">
             <article class="discarded-material-card">
                 <div class="discarded-material-afirmation">Sergio Massa en 2015, cuando prometía que iba a “barrer a los ñoquis de La Cámpora”
                 </div>
@@ -3828,11 +3863,12 @@ if(hasIntersectionObserver) {
                       </figure>
                 </div>
             </article>
-            <div class="divider">-</div>
+            <!-- <div class="divider">-</div> -->
             <article class="discarded-material-card">
                 <div class="discarded-material-afirmation">Bullrich en la campaña de 2003, cuando dijo que Macri era “corrupto”
+                </div>
                 <div>
-                    <figure class="discarded-container-img">
+                    <figure class="discarded-container-img" >
                         <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/43/58243w780q100.jpeg" alt="Bullrich" />
                         <figcaption>Patricia Bullrich cuando militaba en la Juventud Peronista, delante de una pintada que prometía: “Volveremos”
                         </figcaption>
@@ -3850,7 +3886,7 @@ if(hasIntersectionObserver) {
                       </figure>
                 </div>
             </article>
-            <div class="divider">-</div>
+            <!-- <div class="divider">-</div> -->
             <article class="discarded-material-card">
                 <div class="discarded-material-afirmation">Sergio Massa en 2015, cuando prometía que iba a “barrer a los ñoquis de La Cámpora”
                 </div>
@@ -3873,7 +3909,7 @@ if(hasIntersectionObserver) {
                       </figure>
                 </div>
             </article>
-            <div class="divider">-</div>
+            <!-- <div class="divider">-</div> -->
 
         </section>
     </article>
