@@ -3325,124 +3325,552 @@ if(hasIntersectionObserver) {
 <div class="Enhancement" data-align-center>
     <div class="Enhancement-item">
 <!-- aca empieza tu codigo -->
-<!-- <style>
- @media (min-width: 768px) {
-  .candidates {
-    grid-template-columns: 1fr 3fr;
-  }
-  .candidate {
-    width: 100%;
-  }
-}
+ <style>
 
-@media (max-width: 767px) {
-  .candidates {
-    grid-template-columns: 1fr;
-  }
-  .candidate {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-}
+    :root{
+        --color-timeline-title:#237AB9;
+        --color-timeline-divider:#DEDEDE
+    }
 
+.floating-button {
+        display: none;
+        text-align: center;
+        position: fixed;
+        width: 65px;
+        height: 65px;
+        background: #2cb3f0;
+        bottom: 10%;
+        border-radius: 50%;
+        right: 35%;
+        margin: auto;
+        color: black;
+        line-height: 65px;
+        text-align: center;
+        font-size: 23px;
+        z-index: 100;
+        box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
+        cursor: pointer;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
 
-.candidates ul {
+    .floating-button svg {
+        fill: none;
+        height: 40px;
+        width: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+.candidates-list {
+    display: flex;
+    justify-content: space-between;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.candidates li {
+.candidate-item {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
 }
-
-.candidates li a {
+.candidate-name{
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    /* width: 100%; */
+}
+.candidates-list-container{
+    padding: 4rem;
+}
+/* .candidates li a {
   display: block;
   width: 100%;
   height: 100%;
+} */
+
+.candidate-link img {
+  /* width: 180px; 
+    height: 100px; */
+    object-fit: cover;
+    overflow: hidden;
+}
+.candidate-timeline-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0 5rem;
+}
+.candidate-timeline{
+    display:flex;
+    padding: 5rem;
+    gap:2rem;
+    border-bottom: 1px solid var(--color-timeline-divider) ;
 }
 
-.candidates li img {
-  width: 100%;
+.debug-border{
+    border:1px solid red
+}
+.RichTextBody .candidate-timeline-col-period{
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+    flex: 1;
+    border-right: 1px solid var(--color-timeline-divider);
+    align-items: flex-end;
+}
+.RichTextBody  .col-date{
+    font-size: 1.8rem;
+}
+.RichTextBody  .col-period{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.RichTextBody .candidate-timeline-col-description{
+    flex: 1;
+    text-align: left;
+    /* padding-right: 8rem; chequear espacio a la izq */ 
+}
+.RichTextBody .candidate-timeline-col-description img{
+   padding-bottom: 2rem;
+}
+.candidate-timeline-title{
+    color: var(--color-timeline-title);
+    font-weight:700
 }
 
-.candidate h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.candidate-heading-section{
+    max-width: 1260px;
+}
+.candidate-timeline-container{
+    max-width: 1000px;
+}
+ .candidate-heading-section,.candidate-timeline-container {
+    margin: 3rem auto;
+}
+/* .candidate-heading-section img{
+    width: 100%;
+}  */
+.candidate-timeline-content{
+    font-size: 1.5rem;
 }
 
-.candidate h3 {
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-}
-
-.candidate p {
-  font-size: 0.8rem;
-  line-height: 1.5;
-}
-</style> -->
-<section class="candidates-list-container">
-    <h2 class="candidates-title">Candidatos</h2>
+</style> 
+<section class="candidates-list-container"> <!-- lista candidatos -->
     <ul class="candidates-list">
-      <li class="candididates-item">
-        <a href="#candidato1">
-          <img src="./assets/avatar.png" alt="Candidato 1">
-        </a>
-        <span>candidato 1</span>
-      </li>
-      <li class="candididates-item">
-        <a href="#candidato2">
-            <img src="./assets/avatar.png" alt="Candidato 2">
-        </a>
-        <span>candidato 2</span>
-      </li>
-      <li class="candididates-item">
-        <a href="#candidato3">
-            <img src="./assets/avatar.png" alt="Candidato 3">
-        </a>
-        <span>candidato 3</span>
-      </li>
+        <li class="candididate-item">
+            <a class="candidate-link" href="#candidate1">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/57/58157w180q100.jpg" alt="Candidato 1">
+            </a>
+            <p class="candidate-name">Sergio Massa</p>
+        </li>
+        <li class="candididates-item">
+            <a href="#candidate2">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/56/58156w180q100.jpg" alt="Candidato 2">
+            </a>
+            <p class="candidate-name">Patricia Bullrich</p>
+        </li>
+        <li class="candididates-item">
+            <a href="#candidate3">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/54/58154w180q100.jpg" alt="Candidato 3">
+            </a>
+            <p class="candidate-name">Javier Milei</p>
+        </li>
+        <li class="candididates-item">
+            <a  class="candidate-link" href="#discardedContent">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/62/58162.svg" alt="Candidato 3">
+            </a>
+            <p class="candidate-name">material descartado</p>
+        </li>
     </ul>
-  </section>
-  <section class="candidates-cv-container">
-    <section id="candidato1" class="candidate-personal-data-container">
-        <img src="./assets/avatar.png" alt="Candidato 1">
-        <article class="candidate-data-fields">
-            <p class="candidate-data-field">nombre<span class="candidate-data-">candidato</span></p>
-            <p class="candidate-data-field">edad<span class="candidate-data-">50 anios</span></p>
-            <p class="candidate-data-field">firma<span class="candidate-data-">firma</span></p>
-        </article>
-    </section>
-    <section class="candidate-heading-section">
-        <h2 class="candidate-heading-title">EXPERIENCIA</h2>
-        <div class="candidate-divider-line"></div>
-    </section>
-    <article class="candidate-timeline">
-        <div class="candidate-timeline-col">
-            <h3>2022-2023</h3>
-            <p>2 anios</p>
-        </div>
-        <div class="candidate-timeline-col">
-            <img src="https://statics.eleconomista.com.ar/2022/08/crop/62e940be9da11__950x512.webp">
-        </div>
-        
+</section>
+<section class="candidates-resume-container"> <!-- contenedor todos los cvs -->
+    <article id="candidate1" class="candidate-data-container"> <!-- cv primer candidato -->
+        <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/41/58341.svg" alt="Candidato 1">
+        <section class="candidate-heading-section"> <!-- experiencia tit -->
+            <img width="1260" src="https://buckets3.glanacion.com/lntools/anexos/fotos/42/58342.svg" alt="experience-heading">
+        </section>
+        <section class="candidate-timeline-container"> <!--timwlinw -->
+            <article class="candidate-timeline">
+                <div class="candidate-timeline-col-period">
+                    <h3 class="col-date">2022-2023</h3>
+                    <p class="col-period">2 años</p>
+                </div>
+                <div class="candidate-timeline-col-description">
+                    <img class="candidate-timeline-img"
+                        src="https://buckets3.glanacion.com/lntools/anexos/fotos/90/58490w630q100.jpg">
+                    <span class="candidate-timeline-title">Ministro de Economía de la Nación</span>
+                    <p class="candidate-timeline-content">Massa asumió en medio de una fuerte turbulencia financiera que
+                        alimentó un clima de inestabilidad institucional. Primero logró calmar el dólar y frenar la
+                        inflación -pasó de 7,4 puntos en julio a 4,9 en noviembre de 2022-, pero los precios volvieron a
+                        dispararse y la inflación tocó un pico histórico de 8,4% en abril de este año y apenas logró
+                        desinflarse en mayo y junio. Como ministro, Massa acumula un 101% de inflación con un dólar blue
+                        que superó los $570. Dos semanas antes de las PASO, logró cerrar un preacuerdo con el FMI que
+                        será el salvavidas para llegar con calma al final del mandato, pero que le exige medidas de
+                        ajuste.</p>
+                </div>
+
+                </article>
+                <article class="candidate-timeline">
+                <div class="candidate-timeline-col-period">
+                    <h3>  <h3 class="col-date">2022-2023</h3>
+                    <p class="col-period">2 años</p>
+                </div>
+                <div class="candidate-timeline-col-description">
+                    <img class="candidate-timeline-img"
+                        src="https://buckets3.glanacion.com/lntools/anexos/fotos/90/58490w630q100.jpg">
+                    <span class="candidate-timeline-title">Presidente de la Cámara de Diputados de la Nación</span>
+                    <p class="candidate-timeline-content">En 2019, Massa se integró a último momento al Frente de Todos
+                        como tercer accionista. Encabezó la boleta de diputados y se convirtió en presidente de la
+                        Cámara baja. Al inicio del mandato de Alberto Fernández logró sancionar un paquete de leyes de
+                        emergencia económica y luego administró el trabajo legislativo de forma remota durante toda la
+                        pandemia. En 2021, fue ratificado como presidente de la Cámara, apoyado por todos los bloques.
+                        Un mes después vivió uno de los momentos más turbulentos de la vida política interna del Frente
+                        de Todos, cuando Máximo Kirchner -con quien Massa venía hilvanando una pragmática alianza
+                        política- renunció a la jefatura del interbloque oficialista en desacuerdo con el acuerdo que
+                        Martín Guzmán firmó con el FMI.
+                    </p>
+                </div>
+
+                </article>
+                <article class="candidate-timeline">
+                <div class="candidate-timeline-col-period">
+                      <h3 class="col-date">2022-2023</h3>
+                    <p class="col-period">2 años</p>
+                </div>
+                <div class="candidate-timeline-col-description">
+                    <img class="candidate-timeline-img"
+                        src="https://buckets3.glanacion.com/lntools/anexos/fotos/90/58490w630q100.jpg">
+                    <span class="candidate-timeline-title">Ministro de Economía de la Nación</span>
+                    <p class="candidate-timeline-content">Massa asumió en medio de una fuerte turbulencia financiera que
+                        alimentó un clima de inestabilidad institucional. Primero logró calmar el dólar y frenar la
+                        inflación -pasó de 7,4 puntos en julio a 4,9 en noviembre de 2022-, pero los precios volvieron a
+                        dispararse y la inflación tocó un pico histórico de 8,4% en abril de este año y apenas logró
+                        desinflarse en mayo y junio. Como ministro, Massa acumula un 101% de inflación con un dólar blue
+                        que superó los $570. Dos semanas antes de las PASO, logró cerrar un preacuerdo con el FMI que
+                        será el salvavidas para llegar con calma al final del mandato, pero que le exige medidas de
+                        ajuste.</p>
+                </div>
+
+            </article>
+        </section>
+        <section class="candidate-heading-section"> <!-- references title -->
+            <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/49/58349.svg" alt="education-heading">
+        </section>
+            <article class="candidate-reference"> <!-- references section -->
+                <h4 class="candidate-references-title" >Lo recomiendan</h4>
+                <p class="candidate-references-quote">
+                    "Sergio Massa demostró audacia y compromiso en momentos difíciles. Es frontal, dialoga con todos y no necesita de discursos marketineros para contar los verdaderos desafíos que tenemos por delante"
+                </p>
+                <p class="candidate-references-author">
+                    EDUARDO "WADO" DE PEDRO, MINISTRO DEL INTERIOR Y CANDIDATO A SENADOR POR LA PROVINCIA (UP)
+                </p>
+           
+                <h4 class="candidate-references-title" > No lo recomiendan</h4>
+                <p class="candidate-references-quote">
+                    "Massa es un fabulador serial que actúa para obtener sus ventajitas. Expresa lo peor de la viveza criolla aplicada a la política. Duplicó la inflación en un año de gestión. Insólito es que dice que siendo presidente podría resolver lo que no resuelve hoy como ministro"
+                </p>
+                <p class="candidate-references-author">
+                    MAXIMILIANO FERRARO, DIPUTADO Y CANDIDATO A DIPUTADO POR LA CIUDAD EN LA LISTA DE HORACIO RODRÍGUEZ LARRETA
+                </p>
+
+            </article>
+            <section class="candidate-heading-section">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/39/58539.svg" alt="education-heading"><!-- education -->
+            </section>
+            <section class="candidate-heading-section">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/39/58539.svg" alt="languages-heading"><!--languages  -->
+            </section>
     </article>
-    <article class="candidate">
-        <h2 id="candidato2">Candidato 2</h2>
-        <h3>Título de la noticia</h3>
-        <p>Este es el cuerpo de la noticia.</p>
+    <article id="candidate2" class="candidate-data-container"> <!-- cv segundo candidato -->
+        <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/56/58356.svg" alt="Candidato 2">
+        <section class="candidate-heading-section"> <!-- experiencia tit -->
+            <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/42/58342.svg" alt="experience-heading">
+        </section>
+        <section class="candidate-timeline-container"> <!--timwlinw -->
+            <article class="candidate-timeline">
+                <div class="candidate-timeline-col-period">
+                      <h3 class="col-date">2022-2023</h3>
+                    <p class="col-period">2 años</p>
+                </div>
+                <div class="candidate-timeline">
+                    <img class="candidate-timeline-img"
+                        src="https://buckets3.glanacion.com/lntools/anexos/fotos/09/58509w630q100.jpg">
+                    <span class="candidate-timeline-title">Presidenta de Pro
+                    </span>
+                    <p class="candidate-timeline-content">Macri la eligió presidenta de Pro tras ser derrotado en las elecciones de 2019. Con esa plataforma, Bullrich recorrió el país, impulsó marchas contra las restricciones por la pandemia y construyó su candidatura a presidenta. Este año pidió licencia por la campaña con el argumento de que no quería que se confundiera "la institucionalidad partidaria" con su precandidatura.
+
+
+                    </p>
+                </div>
+
+                </article>
+                <article class="candidate-timeline">
+                <div class="candidate-timeline-col-period">
+                    <h3 class="col-date">2022-2023</class=>
+                    <p class="col-period">2 años</p>
+                </div>
+                <div class="candidate-timeline">
+                    <img class="candidate-timeline-img"
+                        src="https://buckets3.glanacion.com/lntools/anexos/fotos/13/58513w780q100.jpg">
+                    <span class="candidate-timeline-title">Presidente de la Cámara de Diputados de la Nación</span>
+                    <p class="candidate-timeline-content">En 2019, Massa se integró a último momento al Frente de Todos
+                        como tercer accionista. Encabezó la boleta de diputados y se convirtió en presidente de la
+                        Cámara baja. Al inicio del mandato de Alberto Fernández logró sancionar un paquete de leyes de
+                        emergencia económica y luego administró el trabajo legislativo de forma remota durante toda la
+                        pandemia. En 2021, fue ratificado como presidente de la Cámara, apoyado por todos los bloques.
+                        Un mes después vivió uno de los momentos más turbulentos de la vida política interna del Frente
+                        de Todos, cuando Máximo Kirchner -con quien Massa venía hilvanando una pragmática alianza
+                        política- renunció a la jefatura del interbloque oficialista en desacuerdo con el acuerdo que
+                        Martín Guzmán firmó con el FMI.
+                    </p>
+                </div>
+
+                </article>
+                <article class="candidate-timeline">
+                <div class="candidate-timeline-col-period">
+                      <h3 class="col-date">2022-2023</h3>
+                    <p class="col-period">2 años</p>
+                </div>
+                <div class="candidate-timeline">
+                    <span class="candidate-timeline-title">Ministro de Economía de la Nación</span>
+                    <p class="candidate-timeline-content">Massa asumió en medio de una fuerte turbulencia financiera que
+                        alimentó un clima de inestabilidad institucional. Primero logró calmar el dólar y frenar la
+                        inflación -pasó de 7,4 puntos en julio a 4,9 en noviembre de 2022-, pero los precios volvieron a
+                        dispararse y la inflación tocó un pico histórico de 8,4% en abril de este año y apenas logró
+                        desinflarse en mayo y junio. Como ministro, Massa acumula un 101% de inflación con un dólar blue
+                        que superó los $570. Dos semanas antes de las PASO, logró cerrar un preacuerdo con el FMI que
+                        será el salvavidas para llegar con calma al final del mandato, pero que le exige medidas de
+                        ajuste.</p>
+                </div>
+
+            </article>
+        </section>
+        <section class="candidate-heading-section"> <!-- references title -->
+            <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/49/58349.svg" alt="education-heading">
+        </section>
+            <article class="candidate-reference"> <!-- references section -->
+                <h4 class="candidate-references-title" >Lo recomiendan</h4>
+                <p class="candidate-references-quote">
+                    “Bullrich tiene un gran convencimiento sobre la reforma que se tiene que hacer en la Argentina. Sin eso no se puede superar el estancamiento y la decadencia. Ella tiene el coraje para enfrentar con éxito esta tarea”
+                </p>
+                <p class="candidate-references-author">
+                    RICARDO LÓPEZ MURPHY, EXMINISTRO DE ECONOMÍA Y DEFENSA
+                </p>
+           
+                <h4 class="candidate-references-title" > No lo recomiendan</h4>
+                <p class="candidate-references-quote">
+                    “Tengo diferencias significativas y profundas con Bullrich. Estoy en contra de eliminar derechos de los trabajadores para resolver los problemas agudos de nuestro país. Y, segundo, se tiene que terminar con un sistema financiero que no esté al servicio del desarrollo y la producción. Necesitamos una política industrial”
+                </p>
+                <p class="candidate-references-author">
+                    RODOLFO DAER, EXTITULAR DE LA CGT
+                </p>
+
+            </article>
+            <section class="candidate-heading-section">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/66/58466.svg" alt="education-heading"><!-- education -->
+            </section>
+            <section class="candidate-heading-section">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/67/58467.svg" alt="languages-heading"><!--languages  -->
+            </section>
     </article>
-    <article class="candidate">
-        <h2 id="candidato3">Candidato 3</h2>
-        <h3>Título de la noticia</h3>
-        <p>Este es el cuerpo de la noticia.</p>
+    <article id="candidate3" class="candidate-data-container"> <!-- cv tercer candidato -->
+        <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/60/58360.svg" alt="Candidato 3">
+        <section class="candidate-heading-section"> <!-- experiencia tit -->
+            <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/42/58342.svg" alt="experience-heading">
+        </section>
+        <section class="candidate-timeline-container"> <!--timwlinw -->
+            <article class="candidate-timeline">
+                <div class="candidate-timeline-col-period">
+                      <h3 class="col-date">2022-2023</h3>
+                    <p class="col-period">2 años</p>
+                </div>
+                <div class="candidate-timeline">
+                    <img class="candidate-timeline-img"
+                        src="https://buckets3.glanacion.com/lntools/anexos/fotos/20/58520w630q100.jpg">
+                    <span class="candidate-timeline-title">Diputado nacional
+                    </span>
+                    <p class="candidate-timeline-content">Firmó nueve proyectos de ley relacionados, en su mayoría, con derogaciones de impuestos. Aunque registra asistencia en la mayoría de las sesiones –estuvo presente en 14 de las 16 de 2022 y en todas las de 2023–, durante su primer año completo como diputado estuvo ausente en la mitad de las votaciones, donde no acompañó, por ejemplo, el programa para cubrir a nivel sanitario la pubertad precoz, un tema que fue aprobado por unanimidad. Además, rechazó el proyecto que regula la actividad de los acompañantes terapéuticos, fundamentales en el abordaje de personas discapacitadas, y votó en contra del proyecto para combatir la violencia digital contra las mujeres. Desde su asunción, Milei sortea su dieta.
+
+
+                    </p>
+                </div>
+
+                </article>
+                <article class="candidate-timeline">
+                <div class="candidate-timeline-col-period">
+                    <h3>  <h3 class="col-date">2022-2023</h3>
+                    <p class="col-period">2 años</p>
+                </div>
+                <div class="candidate-timeline">
+                    <img class="candidate-timeline-img"
+                        src="https://buckets3.glanacion.com/lntools/anexos/fotos/90/58490w630q100.jpg">
+                    <span class="candidate-timeline-title">Presidente de la Cámara de Diputados de la Nación</span>
+                    <p class="candidate-timeline-content">En 2019, Massa se integró a último momento al Frente de Todos
+                        como tercer accionista. Encabezó la boleta de diputados y se convirtió en presidente de la
+                        Cámara baja. Al inicio del mandato de Alberto Fernández logró sancionar un paquete de leyes de
+                        emergencia económica y luego administró el trabajo legislativo de forma remota durante toda la
+                        pandemia. En 2021, fue ratificado como presidente de la Cámara, apoyado por todos los bloques.
+                        Un mes después vivió uno de los momentos más turbulentos de la vida política interna del Frente
+                        de Todos, cuando Máximo Kirchner -con quien Massa venía hilvanando una pragmática alianza
+                        política- renunció a la jefatura del interbloque oficialista en desacuerdo con el acuerdo que
+                        Martín Guzmán firmó con el FMI.
+                    </p>
+                </div>
+
+                </article>
+                <article class="candidate-timeline">
+                <div class="candidate-timeline-col-period">
+                      <h3 class="col-date">2022-2023</h3>
+                    <p class="col-period">2 años</p>
+                </div>
+                <div class="candidate-timeline">
+                    <img class="candidate-timeline-img"
+                        src="https://buckets3.glanacion.com/lntools/anexos/fotos/90/58490w630q100.jpg">
+                    <span class="candidate-timeline-title">Ministro de Economía de la Nación</span>
+                    <p class="candidate-timeline-content">Massa asumió en medio de una fuerte turbulencia financiera que
+                        alimentó un clima de inestabilidad institucional. Primero logró calmar el dólar y frenar la
+                        inflación -pasó de 7,4 puntos en julio a 4,9 en noviembre de 2022-, pero los precios volvieron a
+                        dispararse y la inflación tocó un pico histórico de 8,4% en abril de este año y apenas logró
+                        desinflarse en mayo y junio. Como ministro, Massa acumula un 101% de inflación con un dólar blue
+                        que superó los $570. Dos semanas antes de las PASO, logró cerrar un preacuerdo con el FMI que
+                        será el salvavidas para llegar con calma al final del mandato, pero que le exige medidas de
+                        ajuste.</p>
+                </div>
+
+            </article>
+        </section>
+        <section class="candidate-heading-section"> <!-- references title -->
+            <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/49/58349.svg" alt="education-heading">
+        </section>
+            <article class="candidate-reference"> <!-- references section -->
+                <h4 class="candidate-references-title" >Lo recomiendan</h4>
+                <p class="candidate-references-quote">
+                    "Sergio Massa demostró audacia y compromiso en momentos difíciles. Es frontal, dialoga con todos y no necesita de discursos marketineros para contar los verdaderos desafíos que tenemos por delante"
+                </p>
+                <p class="candidate-references-author">
+                    EDUARDO "WADO" DE PEDRO, MINISTRO DEL INTERIOR Y CANDIDATO A SENADOR POR LA PROVINCIA (UP)
+                </p>
+           
+                <h4 class="candidate-references-title" > No lo recomiendan</h4>
+                <p class="candidate-references-quote">
+                    "Massa es un fabulador serial que actúa para obtener sus ventajitas. Expresa lo peor de la viveza criolla aplicada a la política. Duplicó la inflación en un año de gestión. Insólito es que dice que siendo presidente podría resolver lo que no resuelve hoy como ministro"
+                </p>
+                <p class="candidate-references-author">
+                    MAXIMILIANO FERRARO, DIPUTADO Y CANDIDATO A DIPUTADO POR LA CIUDAD EN LA LISTA DE HORACIO RODRÍGUEZ LARRETA
+                </p>
+
+            </article>
+            <section class="candidate-heading-section">
+                <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/39/58539.svg" alt="education-heading"><!-- education -->
+            </section>
     </article>
+    <div class="divider">-</div>
+    <div class="divider">-</div>
+    <div class="divider">-</div>
+    <article id="discardedMaterial" class="discarded-material-container"> <!-- material descartado -->
+        <section class="candidate-heading-section">
+            <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/51/58351.svg" alt="discarded material heading">
+        </section>
+
+        <section class="discarded-content-container">
+            <article class="discarded-material-card">
+                <div class="discarded-material-afirmation">Sergio Massa en 2015, cuando prometía que iba a “barrer a los ñoquis de La Cámpora”
+                </div>
+                <div>
+                    <figure class="discarded-container-img">
+                        <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/38/58238w780q100.JPG" alt="Massa" />
+                        <figcaption>Massa en 2016, cuando integró la comitiva de Mauricio Macri al foro económico de Davos
+                        </figcaption>
+                      </figure>
+                </div>
+            </article>
+            <article class="discarded-material-card">
+                <div class="discarded-material-afirmation">Massa y su famoso “tajaí” en un spot destinado a los correntinos
+                </div>
+                <div>
+                    <figure class="discarded-container-img">
+                        <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/39/58239w780q100.jpg" alt="Massa" />
+                        <figcaption>Massa en 2016, cuando integró la comitiva de Mauricio Macri al foro económico de Davos
+                        </figcaption>
+                      </figure>
+                </div>
+            </article>
+            <div class="divider">-</div>
+            <article class="discarded-material-card">
+                <div class="discarded-material-afirmation">Bullrich en la campaña de 2003, cuando dijo que Macri era “corrupto”
+                <div>
+                    <figure class="discarded-container-img">
+                        <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/43/58243w780q100.jpeg" alt="Bullrich" />
+                        <figcaption>Patricia Bullrich cuando militaba en la Juventud Peronista, delante de una pintada que prometía: “Volveremos”
+                        </figcaption>
+                      </figure>
+                </div>
+            </article>
+            <article class="discarded-material-card">
+                <div class="discarded-material-afirmation">Massa y su famoso “tajaí” en un spot destinado a los correntinos
+                </div>
+                <div>
+                    <figure class="discarded-container-img">
+                        <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/48/58248w780q100.jpg" alt="Massa" />
+                        <figcaption>Milei con Maslatón, hoy enemistados
+                        </figcaption>
+                      </figure>
+                </div>
+            </article>
+            <div class="divider">-</div>
+            <article class="discarded-material-card">
+                <div class="discarded-material-afirmation">Sergio Massa en 2015, cuando prometía que iba a “barrer a los ñoquis de La Cámpora”
+                </div>
+                <div>
+                    <figure class="discarded-container-img">
+                        <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/38/58238w780q100.JPG" alt="Massa" />
+                        <figcaption>Massa en 2016, cuando integró la comitiva de Mauricio Macri al foro económico de Davos
+                        </figcaption>
+                      </figure>
+                </div>
+            </article>
+            <article class="discarded-material-card">
+                <div class="discarded-material-afirmation">Massa y su famoso “tajaí” en un spot destinado a los correntinos
+                </div>
+                <div>
+                    <figure class="discarded-container-img">
+                        <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/39/58239w780q100.jpg" alt="Massa" />
+                        <figcaption>Massa en 2016, cuando integró la comitiva de Mauricio Macri al foro económico de Davos
+                        </figcaption>
+                      </figure>
+                </div>
+            </article>
+            <div class="divider">-</div>
+
+        </section>
+    </article>
+    <a href="#cards-links-container" class="floating-button" id="floatingButton">
+        <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path d="M12 6V18M12 6L7 11M12 6L17 11" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </g>
+        </svg>
+    </a>
 </section>
 <script>
-
+//remove aside bar in order to occupy full screen
+let pageAsideDiv = document.querySelector('.Page-aside');
+    let pagetwoColumn = document.querySelector('.Page-twoColumn')
+    if (pagetwoColumn) {
+        pagetwoColumn.classList.remove('Page-twoColumn');
+        pagetwoColumn.classList.add('Page-oneColumn');
+    }
+    if (pageAsideDiv) {
+        // Remove the div from the DOM
+        pageAsideDiv.parentNode.removeChild(pageAsideDiv);
+    }
 </script>
                 
 
