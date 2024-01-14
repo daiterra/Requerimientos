@@ -3341,7 +3341,7 @@ if(hasIntersectionObserver) {
         background: #2cb3f0;
         bottom: 10%;
         border-radius: 50%;
-        right: 35%;
+        right: 5%;
         margin: auto;
         color: black;
         line-height: 65px;
@@ -3522,8 +3522,35 @@ if(hasIntersectionObserver) {
 .discarded-container-img figcaption{
     padding-top: 1rem;
 }
+@media screen and (max-width: 768px) {
+    .candidates-list{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+     .candidate-timeline{
+        flex-direction: column;
+    }
+    .RichTextBody .candidate-timeline-col-period{
+        border:none;
+        text-align: center;
+        align-items: center;
+    }
+    .candidate-reference-title{
+        max-width: 100%;
+    }
+    .discarded-material-afirmation{
+        width: 100%;
+        border: none;
+    }
+    .floating-button {
+            left: 0;
+            right: 80%;
+            bottom:5%;
+        }
+}
 </style> 
-<section class="candidates-list-container"> <!-- lista candidatos -->
+<section class="candidates-list-container" id="cardsDescriptionContainer"> <!-- lista candidatos -->
     <ul class="candidates-list">
         <li class="candididate-item">
             <a class="candidate-link" href="#candidate1">
@@ -3913,7 +3940,7 @@ if(hasIntersectionObserver) {
 
         </section>
     </article>
-    <a href="#cards-links-container" class="floating-button" id="floatingButton">
+    <a href="#candidates-links-container" class="floating-button" id="floatingButton">
         <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -3936,6 +3963,25 @@ let pageAsideDiv = document.querySelector('.Page-aside');
         // Remove the div from the DOM
         pageAsideDiv.parentNode.removeChild(pageAsideDiv);
     }
+
+    function isInViewport(element) {
+        var rect = element.getBoundingClientRect();
+        return (
+            rect.top <= window.innerHeight &&
+            rect.bottom >= 0 &&
+            rect.left <= window.innerWidth &&
+            rect.right >= 0
+        );
+    }
+    let containerCardsDescription = document.getElementById('cardsDescriptionContainer')
+    let floatingButton = document.getElementById('floatingButton');
+    window.addEventListener('scroll', function () {
+        if (isInViewport(containerCardsDescription)) {
+            floatingButton.style.display = 'none';
+        } else {
+            floatingButton.style.display = 'block';
+        }
+    });
 </script>
                 
 
