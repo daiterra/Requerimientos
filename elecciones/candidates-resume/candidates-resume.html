@@ -3457,6 +3457,35 @@ if(hasIntersectionObserver) {
 .candidate-timeline-content{
     font-size: 1.5rem;
 }
+.candidate-reference {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.8rem;
+    /* max-width: 1000px; */
+}
+.candidate-reference-title{
+    text-align: center;
+    border-bottom: 2px solid var(--color-timeline-divider);
+    max-width: 15%;
+    margin: 1rem auto;
+    line-height: 1.5; 
+}
+.RichTextBody .candidate-reference-quote{
+    max-width: 700px;
+    padding:1rem;
+    margin:1rem  0 ;
+}
+.recommended{
+    color: var(--color-timeline-title);
+}
+.RichTextBody .candidate-reference-author{
+    max-width: 500px;
+    font-size: 1.3rem;
+    margin: 0 0 1rem;
+}
 
 </style> 
 <section class="candidates-list-container"> <!-- lista candidatos -->
@@ -3561,19 +3590,19 @@ if(hasIntersectionObserver) {
             <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/49/58349.svg" alt="education-heading">
         </section>
             <article class="candidate-reference"> <!-- references section -->
-                <h4 class="candidate-references-title" >Lo recomiendan</h4>
-                <p class="candidate-references-quote">
+                <h4 class="candidate-reference-title" >Lo recomiendan</h4>
+                <p class="candidate-reference-quote recommended">
                     "Sergio Massa demostró audacia y compromiso en momentos difíciles. Es frontal, dialoga con todos y no necesita de discursos marketineros para contar los verdaderos desafíos que tenemos por delante"
                 </p>
-                <p class="candidate-references-author">
+                <p class="candidate-reference-author">
                     EDUARDO "WADO" DE PEDRO, MINISTRO DEL INTERIOR Y CANDIDATO A SENADOR POR LA PROVINCIA (UP)
                 </p>
            
-                <h4 class="candidate-references-title" > No lo recomiendan</h4>
-                <p class="candidate-references-quote">
+                <h4 class="candidate-reference-title" > No lo recomiendan</h4>
+                <p class="candidate-reference-quote">
                     "Massa es un fabulador serial que actúa para obtener sus ventajitas. Expresa lo peor de la viveza criolla aplicada a la política. Duplicó la inflación en un año de gestión. Insólito es que dice que siendo presidente podría resolver lo que no resuelve hoy como ministro"
                 </p>
-                <p class="candidate-references-author">
+                <p class="candidate-reference-author">
                     MAXIMILIANO FERRARO, DIPUTADO Y CANDIDATO A DIPUTADO POR LA CIUDAD EN LA LISTA DE HORACIO RODRÍGUEZ LARRETA
                 </p>
 
@@ -3596,7 +3625,7 @@ if(hasIntersectionObserver) {
                       <h3 class="col-date">2022-2023</h3>
                     <p class="col-period">2 años</p>
                 </div>
-                <div class="candidate-timeline">
+                <div class="candidate-timeline-col-description">
                     <img class="candidate-timeline-img"
                         src="https://buckets3.glanacion.com/lntools/anexos/fotos/09/58509w630q100.jpg">
                     <span class="candidate-timeline-title">Presidenta de Pro
@@ -3613,7 +3642,7 @@ if(hasIntersectionObserver) {
                     <h3 class="col-date">2022-2023</class=>
                     <p class="col-period">2 años</p>
                 </div>
-                <div class="candidate-timeline">
+                <div class="candidate-timeline-col-description">
                     <img class="candidate-timeline-img"
                         src="https://buckets3.glanacion.com/lntools/anexos/fotos/13/58513w780q100.jpg">
                     <span class="candidate-timeline-title">Presidente de la Cámara de Diputados de la Nación</span>
@@ -3635,7 +3664,7 @@ if(hasIntersectionObserver) {
                       <h3 class="col-date">2022-2023</h3>
                     <p class="col-period">2 años</p>
                 </div>
-                <div class="candidate-timeline">
+                <div class="candidate-timeline-col-description">
                     <span class="candidate-timeline-title">Ministro de Economía de la Nación</span>
                     <p class="candidate-timeline-content">Massa asumió en medio de una fuerte turbulencia financiera que
                         alimentó un clima de inestabilidad institucional. Primero logró calmar el dólar y frenar la
@@ -3653,19 +3682,19 @@ if(hasIntersectionObserver) {
             <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/49/58349.svg" alt="education-heading">
         </section>
             <article class="candidate-reference"> <!-- references section -->
-                <h4 class="candidate-references-title" >Lo recomiendan</h4>
-                <p class="candidate-references-quote">
+                <h4 class="candidate-reference-title" >Lo recomiendan</h4>
+                <p class="candidate-reference-quote recommended">
                     “Bullrich tiene un gran convencimiento sobre la reforma que se tiene que hacer en la Argentina. Sin eso no se puede superar el estancamiento y la decadencia. Ella tiene el coraje para enfrentar con éxito esta tarea”
                 </p>
-                <p class="candidate-references-author">
+                <p class="candidate-reference-author">
                     RICARDO LÓPEZ MURPHY, EXMINISTRO DE ECONOMÍA Y DEFENSA
                 </p>
            
-                <h4 class="candidate-references-title" > No lo recomiendan</h4>
-                <p class="candidate-references-quote">
+                <h4 class="candidate-reference-title" > No lo recomiendan</h4>
+                <p class="candidate-reference-quote">
                     “Tengo diferencias significativas y profundas con Bullrich. Estoy en contra de eliminar derechos de los trabajadores para resolver los problemas agudos de nuestro país. Y, segundo, se tiene que terminar con un sistema financiero que no esté al servicio del desarrollo y la producción. Necesitamos una política industrial”
                 </p>
-                <p class="candidate-references-author">
+                <p class="candidate-reference-author">
                     RODOLFO DAER, EXTITULAR DE LA CGT
                 </p>
 
@@ -3688,7 +3717,7 @@ if(hasIntersectionObserver) {
                       <h3 class="col-date">2022-2023</h3>
                     <p class="col-period">2 años</p>
                 </div>
-                <div class="candidate-timeline">
+                <div class="candidate-timeline-col-description">
                     <img class="candidate-timeline-img"
                         src="https://buckets3.glanacion.com/lntools/anexos/fotos/20/58520w630q100.jpg">
                     <span class="candidate-timeline-title">Diputado nacional
@@ -3705,7 +3734,7 @@ if(hasIntersectionObserver) {
                     <h3>  <h3 class="col-date">2022-2023</h3>
                     <p class="col-period">2 años</p>
                 </div>
-                <div class="candidate-timeline">
+                <div class="candidate-timeline-col-description">
                     <img class="candidate-timeline-img"
                         src="https://buckets3.glanacion.com/lntools/anexos/fotos/90/58490w630q100.jpg">
                     <span class="candidate-timeline-title">Presidente de la Cámara de Diputados de la Nación</span>
@@ -3727,7 +3756,7 @@ if(hasIntersectionObserver) {
                       <h3 class="col-date">2022-2023</h3>
                     <p class="col-period">2 años</p>
                 </div>
-                <div class="candidate-timeline">
+                <div class="candidate-timeline-col-description">
                     <img class="candidate-timeline-img"
                         src="https://buckets3.glanacion.com/lntools/anexos/fotos/90/58490w630q100.jpg">
                     <span class="candidate-timeline-title">Ministro de Economía de la Nación</span>
@@ -3747,19 +3776,19 @@ if(hasIntersectionObserver) {
             <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/49/58349.svg" alt="education-heading">
         </section>
             <article class="candidate-reference"> <!-- references section -->
-                <h4 class="candidate-references-title" >Lo recomiendan</h4>
-                <p class="candidate-references-quote">
+                <h4 class="candidate-reference-title" >Lo recomiendan</h4>
+                <p class="candidate-reference-quote recommended">
                     "Sergio Massa demostró audacia y compromiso en momentos difíciles. Es frontal, dialoga con todos y no necesita de discursos marketineros para contar los verdaderos desafíos que tenemos por delante"
                 </p>
-                <p class="candidate-references-author">
+                <p class="candidate-reference-author">
                     EDUARDO "WADO" DE PEDRO, MINISTRO DEL INTERIOR Y CANDIDATO A SENADOR POR LA PROVINCIA (UP)
                 </p>
            
-                <h4 class="candidate-references-title" > No lo recomiendan</h4>
-                <p class="candidate-references-quote">
+                <h4 class="candidate-reference-title" > No lo recomiendan</h4>
+                <p class="candidate-reference-quote">
                     "Massa es un fabulador serial que actúa para obtener sus ventajitas. Expresa lo peor de la viveza criolla aplicada a la política. Duplicó la inflación en un año de gestión. Insólito es que dice que siendo presidente podría resolver lo que no resuelve hoy como ministro"
                 </p>
-                <p class="candidate-references-author">
+                <p class="candidate-reference-author">
                     MAXIMILIANO FERRARO, DIPUTADO Y CANDIDATO A DIPUTADO POR LA CIUDAD EN LA LISTA DE HORACIO RODRÍGUEZ LARRETA
                 </p>
 
