@@ -3329,7 +3329,8 @@ if(hasIntersectionObserver) {
     :root {
         --shadow-container: 2px 4px 8px rgba(0, 0, 0, 0.1);
         --background-container: #EAF4FF;
-
+        --color-label-metrics: #4e5151cc;
+        --color-border-metrics:#ECEBEB;
     }
 
     .RichTextBody .metrics-title-container {
@@ -3337,11 +3338,10 @@ if(hasIntersectionObserver) {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        margin: 2rem;
     }
 
-    .metrics-title {
-        font-size: 2rem;
+    .RichTextBody .metrics-title {
+        font-size: 3rem;
         color: var(--color-dark-gray);
         margin-bottom: 0;
     }
@@ -3358,9 +3358,7 @@ if(hasIntersectionObserver) {
         display: flex;
         flex-direction: row;
         width: 100%;
-        padding: 2rem;
-        box-shadow: var(--shadow-container);
-        /* background-color: var(--background-container); */
+        padding: 1rem 0;
     }
 
 
@@ -3369,10 +3367,12 @@ if(hasIntersectionObserver) {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         flex-grow: 1;
-        border-right: 1px solid #4e5151cc;
+        padding: 0 1rem 1rem;
+        border-right: 1px solid var(--color-border-metrics);
         text-align: center;
+        gap:1rem;
     }
 
     .metrics-item:last-child {
@@ -3386,7 +3386,7 @@ if(hasIntersectionObserver) {
     }
 
     .RichTextBody .metrics-label {
-        color: rgba(78, 81, 81, 0.8);
+        color: var(--color-label-metrics);
         font-size: 1em;
         margin: 0;
         padding: 1rem 1rem 0;
@@ -3404,11 +3404,12 @@ if(hasIntersectionObserver) {
         align-items: center;
         padding: 1rem;
         text-align: center;
-        margin-bottom: 1rem;
+        border-top:1px solid var(--color-border-metrics);
+        margin-bottom: 2rem;
     }
 
     .metrics-container {
-        margin-bottom: 3rem;
+        margin: 3rem 0 0;
         text-align: center;
     }
 
@@ -3418,18 +3419,24 @@ if(hasIntersectionObserver) {
 
 
     @media screen and (max-width: 768px) {
+        .RichTextBody .metrics-title{
+            font-size: 3.5rem;
+        }
         .metrics-facts-container {
             flex-direction: column;
+            padding: 0 1rem;
         }
 
         .RichTextBody .metrics-item {
             border: none;
-            border-bottom: 1px solid #4e5151cc;
-        }
+            border-bottom: 1px solid #ECEBEB;
+            margin: 0 auto;
 
+        }
         .RichTextBody .metrics-item:last-child {
             border: none;
         }
+        
     }
 </style>
 <section class="metrics-additional-content-container">
@@ -3445,24 +3452,21 @@ if(hasIntersectionObserver) {
 </section>
 <section class="metrics-container" id="metricsContainer">
     <div class="metrics-title-container">
-        <h2 class="metrics-title uppercase">Por sexo</h2>
-        <span class="metrics-line"></span>
+        <h2 class="metrics-title">Por sexo</h2>
     </div>
     <section id="metricsFacts" class="metrics-facts-container">
-
-
         <article class="metrics-item" data-number="12">
-            <p class="metrics-label uppercase">Mujeres</p>
-            <p id="number1" class="metrics-number">12</p>
+            <span class="metrics-label uppercase">Mujeres</span>
+            <span id="number1" class="metrics-number">300.690.481</span>
         </article>
         <article class="metrics-item" data-number="55">
 
-            <p class="metrics-label uppercase">Hombres</p>
-            <p id="number2" class="metrics-number">55</p>
+            <span class="metrics-label uppercase">Hombres</span>
+            <span id="number2" class="metrics-number">22.072.046</span>
         </article>
         <article class="metrics-item" data-number="359">
-            <p class="metrics-label uppercase">Personas</p>
-            <p id="number3" class="metrics-number">359</p>
+            <span class="metrics-label uppercase">Personas</span>
+            <span id="number3" class="metrics-number">82.009.803</span>
         </article>
 
 
@@ -3485,12 +3489,13 @@ if(hasIntersectionObserver) {
         que el 35,8% (16.317.432 personas) depende del sistema público.</p>
 </article>
 <script>
-    function simpleCounter(element, options) {
+
+function simpleCounter(element, options) {
         let settings = {
             start: 0,
             end: 100,
             easing: 'swing',
-            duration: 400,
+            duration: 500,
             complete: ''
         };
 
@@ -3547,9 +3552,9 @@ if(hasIntersectionObserver) {
     function handleVisibility() {
         var metricsContainer = document.getElementById('metricsContainer');
         if (isElementInViewport(metricsContainer)) {
-            simpleCounter('#number1', { end: 56778, duration: 3000 });
-            simpleCounter('#number2', { end: 49854, duration: 3000 });
-            simpleCounter('#number3', { end: 92882, duration: 3000 });
+            simpleCounter('#number1', { end: 390481, duration: 3000 });
+            simpleCounter('#number2', { end: 227046, duration: 3000 });
+            simpleCounter('#number3', { end: 820803, duration: 3000 });
 
             var metricsNumbers = document.querySelectorAll('.metrics-number');
 
@@ -3566,6 +3571,7 @@ if(hasIntersectionObserver) {
     window.addEventListener('scroll', handleVisibility);
 
     handleVisibility();
+    
 </script>
                 
 
