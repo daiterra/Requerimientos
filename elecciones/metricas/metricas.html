@@ -3358,7 +3358,8 @@ if(hasIntersectionObserver) {
         display: flex;
         flex-direction: row;
         width: 100%;
-        padding: 1rem 0;
+        padding: 2rem 0;
+        box-shadow: var(--shadow-container);
     }
 
 
@@ -3534,8 +3535,8 @@ function simpleCounter(element, options) {
         }
 
         function ease(t) {
-            return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-        }
+            return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t; // easeInOutQuart
+        }       
 
         requestAnimationFrame(animateCounter);
     }
