@@ -3489,13 +3489,88 @@ if(hasIntersectionObserver) {
         que el 35,8% (16.317.432 personas) depende del sistema público.</p>
 </article>
 <script>
-     var metricsNumbers = document.querySelectorAll('.metrics-number');
 
-var labelColors = ['#039BE5', '#66c2ff', '#4f5252cc'];
+function simpleCounter(element, options) {
+        let settings = {
+            start: 0,
+            end: 100,
+            easing: 'swing',
+            duration: 500,
+            complete: ''
+        };
 
-metricsNumbers.forEach(function (number, index) {
-    number.style.color = labelColors[index % labelColors.length];
-});
+        Object.assign(settings, options);
+
+        let thisElement = document.querySelector(element);
+
+        if (!thisElement) {
+            console.error('Element not found');
+            return;
+        }
+
+        let count = settings.start;
+        let startTime;
+
+        function animateCounter(timestamp) {
+            if (!startTime) {
+                startTime = timestamp;
+            }
+
+            let progress = timestamp - startTime;
+
+            if (progress < settings.duration) {
+                let easeProgress = ease(progress / settings.duration);
+                count = settings.start + Math.ceil((settings.end - settings.start) * easeProgress);
+                thisElement.textContent = count;
+
+                requestAnimationFrame(animateCounter);
+            } else {
+                thisElement.textContent = settings.end;
+
+                if (typeof settings.complete === 'function') {
+                    settings.complete();
+                }
+            }
+        }
+
+        function ease(t) {
+            return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+        }
+
+        requestAnimationFrame(animateCounter);
+    }
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function handleVisibility() {
+        var metricsContainer = document.getElementById('metricsContainer');
+        if (isElementInViewport(metricsContainer)) {
+            simpleCounter('#number1', { end: 390481, duration: 3000 });
+            simpleCounter('#number2', { end: 227046, duration: 3000 });
+            simpleCounter('#number3', { end: 820803, duration: 3000 });
+
+            var metricsNumbers = document.querySelectorAll('.metrics-number');
+
+            var labelColors = ['#06416a', '#a753a0', '#489052'];
+
+            metricsNumbers.forEach(function (number, index) {
+                number.style.color = labelColors[index % labelColors.length];
+            });
+
+            window.removeEventListener('scroll', handleVisibility);
+        }
+    }
+
+    window.addEventListener('scroll', handleVisibility);
+
+    handleVisibility();
     
 </script>
                 
