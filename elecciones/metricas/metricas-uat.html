@@ -3341,7 +3341,7 @@ if(hasIntersectionObserver) {
     }
 
     .RichTextBody .metrics-title {
-        font-size: 2.5rem;
+        font-size: 3rem;
         color: var(--color-dark-gray);
         margin-bottom: 0;
     }
@@ -3358,7 +3358,7 @@ if(hasIntersectionObserver) {
         display: flex;
         flex-direction: row;
         width: 100%;
-        padding: 2rem 0;
+        padding: 1rem 0;
     }
 
 
@@ -3367,10 +3367,12 @@ if(hasIntersectionObserver) {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         flex-grow: 1;
+        padding: 0 1rem 1rem;
         border-right: 1px solid var(--color-border-metrics);
         text-align: center;
+        gap:1rem;
     }
 
     .metrics-item:last-child {
@@ -3417,8 +3419,12 @@ if(hasIntersectionObserver) {
 
 
     @media screen and (max-width: 768px) {
+        .RichTextBody .metrics-title{
+            font-size: 3.5rem;
+        }
         .metrics-facts-container {
             flex-direction: column;
+            padding: 0 1rem;
         }
 
         .RichTextBody .metrics-item {
@@ -3449,20 +3455,18 @@ if(hasIntersectionObserver) {
         <h2 class="metrics-title">Por sexo</h2>
     </div>
     <section id="metricsFacts" class="metrics-facts-container">
-
-
         <article class="metrics-item" data-number="12">
-            <p class="metrics-label uppercase">Mujeres</p>
-            <p id="number1" class="metrics-number">23.690.481</p>
+            <span class="metrics-label uppercase">Mujeres</span>
+            <span id="number1" class="metrics-number">300.690.481</span>
         </article>
         <article class="metrics-item" data-number="55">
 
-            <p class="metrics-label uppercase">Hombres</p>
-            <p id="number2" class="metrics-number">22.072.046</p>
+            <span class="metrics-label uppercase">Hombres</span>
+            <span id="number2" class="metrics-number">22.072.046</span>
         </article>
         <article class="metrics-item" data-number="359">
-            <p class="metrics-label uppercase">Personas</p>
-            <p id="number3" class="metrics-number">82.990.803</p>
+            <span class="metrics-label uppercase">Personas</span>
+            <span id="number3" class="metrics-number">82.009.803</span>
         </article>
 
 
