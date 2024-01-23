@@ -3326,12 +3326,14 @@ if(hasIntersectionObserver) {
     <div class="Enhancement-item">
 <!-- aca empieza tu codigo -->
 <style>
-    :root {
-        --color-title-card: #0292FA;
+    :root{
+        --border-color:#ddd;
+        --box-shadow-card: 0 5px 16px 1px rgb(0 0 0 / 16%);
     }
-    html, body {
-         scroll-behavior: smooth;
-        }
+    html,
+    body {
+        scroll-behavior: smooth;
+    }
 
     .cards-links-container {
         display: grid;
@@ -3343,17 +3345,19 @@ if(hasIntersectionObserver) {
     .card-container {
         display: flex;
         flex-direction: column;
-        border: 1px solid #ddd;
         text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 3rem 1rem;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 4rem;
     }
+    .cards-links-container .card-container{
+        box-shadow: var(--box-shadow-card);
+        border: 1px solid var(--border-color);
+    }
 
     .cards-links-container .card-container:hover {
-        border: 1px solid var(--color-title-card);
+        border: 1px solid var(--color-primary);
         background-color: var(--color-site-bg);
         transition: all 0.3s;
     }
@@ -3368,7 +3372,7 @@ if(hasIntersectionObserver) {
 
     .card-title {
         font-size: 4.5rem;
-        color: var(--color-title-card);
+        color: var(--color-primary);
     }
 
     .cards-links-description .card-title {
@@ -3381,6 +3385,7 @@ if(hasIntersectionObserver) {
         font-size: 1.5rem;
         font-weight: 400;
         flex-grow: 1;
+        /* margin-top: 1rem; */
     }
 
     .card-action {
@@ -3455,12 +3460,19 @@ if(hasIntersectionObserver) {
     }
 
     @media only screen and (max-width: 768px) {
+        .cards-global-container .cards-links-container {
+        padding: 2rem 0 0;
+        scroll-margin: 100px;
+    }
+        .cards-links-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
         .card-description {
             font-size: 1.5rem;
         }
 
         .card-container {
-            padding: 4rem 0.5rem;
+            padding: 4rem .5rem;
         }
 
         .RichTextBody .card-subtitle-description {
