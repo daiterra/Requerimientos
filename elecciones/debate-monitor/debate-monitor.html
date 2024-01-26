@@ -3326,31 +3326,559 @@ if(hasIntersectionObserver) {
     <div class="Enhancement-item">
 <!-- aca empieza tu codigo -->
 <style>
-    
+    :root {
+        --fontSizeTitle: 3.2rem;
+        --fontSizeSubtitle: 1.6rem;
+        --dividerColor: #E0E0E0;
+    }
+
+    .section-container .words-counter-main-container {
+        border-bottom: 1px solid var(--dividerColor);
+    }
+
+    .section-container {
+        border-top: 1px solid var(--dividerColor);
+        padding: 10rem 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .monitor-debate-container {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+        padding: 3rem 0;
+    }
+
+    .monitor-debate-heading {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .monitor-debate-heading .monitor-debate-title {
+        font-size: var(--fontSizeTitle);
+        font-weight: 300;
+    }
+
+    .monitor-debate-subtitle {
+        font-size: var(--fontSizeSubtitle);
+    }
+
+    .name-party-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .candidate-name {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .candidate-dynamic-image-container {
+        width: 240px;
+        height: 140px;
+    }
+
+    .name-right {
+        color: var(--color-secondary)
+    }
+
+    .name-left {
+        color: var(--color-title)
+    }
 </style>
-   
-<script>
- const templateContainer = document.createElement('div');
-
-templateContainer.innerHTML = `
-    <article class="mentions-candidate-container">
-        <h4 class="mentions-candidate-title"><slot name="title">Default Title</slot></h4>
-        <div class="mentions-progress">
-            <span class="mantions-candidate-name"><slot name="name">Default Name</slot></span>
-            <div class="mentions-dots-container">
-                <span class="mentions-dot">dot</span>
-                <span class="mentions-dot">dot</span>
-                <span class="mentions-dot">dot</span>
-                <span class="mentions-dot">dot</span>
-                <span class="mentions-dot">dot</span>
-            </div>
-            <span class="mentions-quantity"><slot name="mentions">0</slot> mentions</span>
+<div class="monitor-debate-container">
+    <section class="section-container words-counter-main-container">
+        <div class="monitor-debate-heading">
+            <h2 class="monitor-debate-title">Contador de palabras</h2>
+            <span class="monitor-debate-subtitle"> Cuántas veces se nombraron entre sí </span>
         </div>
-    </article>
-`;
+        <div class="words-counter-container">
+            <div class="words-counter-candidates-container">
+                <div class="candidate-item">
+                    <div class="candidate-data">
+                        <article class="name-party-container">
+                            <span class="candidate-name name-left">name</span>
+                            <span class="candidate-party">party</span>
+                        </article>
+                        <div class="candidate-dynamic-image-container">
+                            <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/04/60904.gif"
+                                class="candidate-image">
+                        </div>
+                    </div>
+                    <div class="words-counter-bubble">
+                        <div class="words-counter-bubble-content">
+                            <span class="bubble-number">bubble number</span>
+                            <span class="bubble-words">bubble words</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="candidate-item">
+                    <div class="candidate-data">
+                        <article class="name-party-container">
+                            <span class="candidate-name name-right">name</span>
+                            <span class="candidate-party">party</span>
+                        </article>
+                        <div class="candidate-dynamic-image-container">
+                            <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/03/60903.gif"
+                                class="candidate-image">
+                        </div>
+                    </div>
+                    <div class="words-counter-bubble">
+                        <div class="words-counter-bubble-content">
+                            <span class="bubble-number">bubble number</span>
+                            <span class="bubble-words">bubble words</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+    </section>
+    <section class="section-container">
+        <div class="monitor-debate-heading">
+            <h2 class="monitor-debate-title">Menciones al rival </h2>
+            <span class="monitor-debate-subtitle"> Cuántas veces se nombraron entre sí </span>
+        </div>
+        <div class="mentions-container">
+            <div class="candidates-container">
+                <article class="candidate-container">
+                    <div class="candidate-container-data">
+                        <div class="candidate-container-image">
+                            <img class="candidate-image"
+                                src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png"
+                                alt="candidate image" />
+                        </div>
+                        <div class="name-party-container">
+                            <span class="candidate-mentions-text">candidates mention</span>
+                            <div class="candidate-mentions-number">
+                                <span class="mentions-number">20</span>
+                                <span class="mentions-number-times">veces</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arrow-container upper-arrow">
+                        <svg viewBox="0 0 550 500" height="550" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="arrowhead-smassa" markerWidth="2" markerHeight="2" refX="0.5" refY="1"
+                                    orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,2 L2,1 z" fill="#549DD1"></path>
+                                </marker>
+                                <linearGradient id="smassa-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#549DD1"></stop>
+                                    <stop offset="100%" stop-color="#8878C3"></stop>
+                                </linearGradient>
+                            </defs>
+                            <path d="M525,275 A250,250 0 0,0 62.98797596089352,142.52018394169878" fill="none"
+                                stroke="url(#smassa-gradient)" stroke-width="17" marker-end="url(#arrowhead-smassa)">
+                            </path>
+                        </svg>
+                    </div>
+                </article>
+                <article class="candidate-container">
+                    <div class="candidate-container-data">
+                        <div class="candidate-container-image">
+                            <img class="candidate-image"
+                                src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png"
+                                alt="candidate image" />
+                        </div>
+                        <div class="name-party-container">
+                            <span class="candidate-mentions-text">candidates mention</span>
+                            <div class="candidate-mentions-number">
+                                <span class="mentions-number">20</span>
+                                <span class="mentions-number-times">veces</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arrow-container lower-arrow">
+                        <svg viewBox="0 0 550 500" height="500" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="arrowhead" markerWidth="2" markerHeight="2" refX="1.8" refY="1"
+                                    orient="auto" markerUnits="strokeWidth">
+                                    <path d="M2,0 L2,2 L0,1 z" fill="#8878C3"></path>
+                                </marker>
+                                <linearGradient id="jmilei-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#549DD1"></stop>
+                                    <stop offset="100%" stop-color="#8878C3"></stop>
+                                </linearGradient>
+                            </defs>
+                            <path d="M525,275 A250,250 0 0,1 62.98797596089352,142.52018394169878" fill="none"
+                                stroke="url(#jmilei-gradient)" marker-start="url(#arrowhead)" stroke-width="30"></path>
+                        </svg>
+                    </div>
+                </article>
+                <div class="mentions-total-container">
+                    <p class="mentions-total">total mentions</p>
+                    <span class="mentions-total-number">30</span>
+                </div>
+            </div>
+            <footer class="legends-container">
+                <p class="legends-content">*El relevamiento contempla distintos modos de hacer referencia a cada
+                    candidato, no solo su nombre o apellido
+                </p>
+            </footer>
+        </div>
+        <div>
 
-// Appending the template to the document body
-document.body.appendChild(templateContainer.content);
+        </div>
+    </section>
+    <section class="section-container mostly-used">
+        <div class="monitor-debate-heading">
+            <h2 class="monitor-debate-title">Las palabras más usadas durante el debate </h2>
+            <span class="monitor-debate-subtitle"> Los términos más frecuentes en la exposición de cada candidato
+            </span>
+        </div>
+        <div class="mostly-used-candidates-container">
+            <article class="mostly-used-candidate-item">
+                <div class="candidate-data">
+                    <article class="name-party-container">
+                        <span class="candidate-name name-left">name</span>
+                        <span class="candidate-party">party</span>
+                    </article>
+                    <div class="candidate-container-image">
+                        <img class="candidate-image"
+                            src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png" />
+                    </div>
+
+                </div>
+                <section class="mostly-used-words-container">
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                </section>
+            </article>
+            <article class="mostly-used-candidate-item">
+                <div class="candidate-data">
+                    <article class="name-party-container">
+                        <span class="candidate-name name-right">name</span>
+                        <span class="candidate-party">party</span>
+                    </article>
+                    <div class="candidate-container-image">
+                        <img class="candidate-image"
+                            src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" />
+                    </div>
+
+                </div>
+                <section class="mostly-used-words-container">
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                </section>
+            </article>
+        </div>
+    </section>
+    <section class="section-container words-survey">
+        <div class="monitor-debate-heading">
+            <h2 class="monitor-debate-title">Relevamiento de palabras </h2>
+            <span class="monitor-debate-subtitle"> Menciones y omisiones de términos claves </span>
+        </div>
+        <div class="words-survey-container">
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">Title survey </h3>
+                <div class="words-survey-mentions">
+                    <span class="candidate-name-survey">candidate name</span>
+                    <div class="candidate-mentions-content">
+                        <hr />
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">title</h3>
+                <div class="words-survey-mentions">
+                    <span class="candidate-name-survey">candidate name</span>
+                    <div class="candidate-mentions-content">
+                        <hr />
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">title</h3>
+                <div class="words-survey-mentions">
+                    <span class="candidate-name-survey">candidate name</span>
+                    <div class="candidate-mentions-content">
+                        <hr />
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">title</h3>
+                <div class="words-survey-mentions">
+                    <span class="candidate-name-survey">candidate name</span>
+                    <div class="candidate-mentions-content">
+                        <hr />
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">title</h3>
+                <div class="words-survey-mentions">
+                    <span class="candidate-name-survey">candidate name</span>
+                    <div class="candidate-mentions-content">
+                        <hr />
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">title</h3>
+                <div class="words-survey-mentions">
+                    <span class="candidate-name-survey">candidate name</span>
+                    <div class="candidate-mentions-content">
+                        <hr />
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">title</h3>
+                <div class="words-survey-mentions">
+                    <span class="candidate-name-survey">candidate name</span>
+                    <div class="candidate-mentions-content">
+                        <hr />
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">title</h3>
+                <div class="words-survey-mentions">
+                    <span class="candidate-name-survey">candidate name</span>
+                    <div class="candidate-mentions-content">
+                        <hr />
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">title</h3>
+                <div class="words-survey-mentions">
+                    <span class="candidate-name-survey">candidate name</span>
+                    <div class="candidate-mentions-content">
+                        <hr />
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">menciones</span>
+                </div>
+            </article>
+        </div>
+        <article>
+
+        </article>
+    </section>
+    <section class="section-container mostly-used">
+        <div class="monitor-debate-heading">
+            <h2 class="monitor-debate-title">¿Por qué querés ser presidente? </h2>
+            <span class="monitor-debate-subtitle"> Las palabras más usadas en la respuesta de cada candidato </span>
+        </div>
+        <div class="mostly-used-candidates-container">
+            <article class="mostly-used-candidate-item">
+                <div class="candidate-data">
+                    <article class="name-party-container">
+                        <span class="candidate-name name-left">name</span>
+                        <span class="candidate-party">party</span>
+                    </article>
+                    <div class="candidate-container-image">
+                        <img class="candidate-image"
+                            src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png" />
+                    </div>
+
+                </div>
+                <section class="mostly-used-words-container">
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                </section>
+            </article>
+            <article class="mostly-used-candidate-item">
+                <div class="candidate-data">
+                    <article class="name-party-container">
+                        <span class="candidate-name name-right">name</span>
+                        <span class="candidate-party">party</span>
+                    </article>
+                    <div class="candidate-container-image">
+                        <img class="candidate-image"
+                            src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" />
+                    </div>
+
+                </div>
+                <section class="mostly-used-words-container">
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">mostly used word</span>
+                        <span class="mostly-used-number"> mostly used number</span>
+                    </article>
+                </section>
+            </article>
+        </div>
+    </section>
+</div>
+<script>
+
 </script>
                 
 
