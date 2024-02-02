@@ -3308,1228 +3308,7 @@ if(hasIntersectionObserver) {
                         </div>
                     </div>
                 
-<style>
-    :root {
-        --fontSizeTitle: 3.2rem;
-        --fontSizeSubtitle: 1.6rem;
-        --dividerColor: #E0E0E0;
-        --color-candidate-left: var(--color-primary);
-        --color-candidate-right: var(--color-section-tvshow);
-        --color-legends: rgba(78, 81, 81, 0.8)
-    }
 
-
-
-    .section-container {
-        border-top: 1px solid var(--dividerColor);
-        padding: 10rem 0 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 7rem
-    }
-
-    .words-counter-main-container {
-        /* border-bottom: 1px solid var(--dividerColor); */
-        padding-bottom: 0
-    }
-
-    .monitor-debate-container {
-        display: flex;
-        flex-direction: column;
-        /* gap: 6rem; */
-        padding: 3rem 0;
-    }
-
-    .monitor-debate-heading {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-        margin: 7rem 0;
-        white-space: nowrap;
-    }
-
-    .monitor-debate-heading .monitor-debate-title {
-        font-size: var(--fontSizeTitle);
-        font-weight: 300;
-    }
-
-    .monitor-debate-subtitle {
-        font-size: var(--fontSizeSubtitle);
-    }
-
-    .name-party-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .candidate-name {
-        font-size: 2rem;
-        font-weight: 700;
-    }
-
-    .candidate-dynamic-image-container {
-        width: 140px;
-        height: 140px;
-    }
-
-    .name-right {
-        color: var(--color-candidate-right)
-    }
-
-    .name-left {
-        color: var(--color-candidate-left)
-    }
-
-    .words-counter-candidates-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    /* .candidate-data {
-        display: flex;
-        align-items: end;
-    } */
-
-    .candidate-item {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .name-party-container .candidate-party {
-        align-self: flex-start;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 1.3rem;
-    }
-
-    .name-party-container .party-left {
-        align-self: end;
-    }
-
-    .candidate-right .name-party-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: flex-end;
-    }
-
-    .candidate-data {
-        display: flex;
-        /* gap: 1rem; */
-        /* position:relative */
-    }
-
-    .candidate-right .candidate-data {
-        flex-direction: row-reverse;
-    }
-
-    .words-counter-bubble {
-        position: absolute;
-        top: -60px;
-        width: 100px;
-        height: 100px;
-        transform: scale(1.2);
-        border-radius: 50%;
-
-        color: var(--actionColor);
-    }
-
-    .candidate-left .words-counter-bubble {
-        align-self: flex-end;
-        right: 52%;
-        background-color: var(--color-candidate-left);
-    }
-
-    .candidate-right .words-counter-bubble {
-        align-self: flex-end;
-        right: 30%;
-        background-color: var(--color-candidate-right);
-    }
-
-    .words-counter-candidates-container {
-        position: relative
-    }
-
-    .words-counter-bubble-content {
-        display: flex;
-        /* font-family: Prumo; */
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        padding: 1rem;
-    }
-
-    .words-counter-bubble::after {
-        content: "";
-        position: absolute;
-        bottom: 6px;
-        left: -6px;
-        width: 40px;
-        height: 15px;
-        background-color: inherit;
-        -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);
-        clip-path: polygon(100% 0, 100% 100%, 0 100%);
-    }
-
-    .candidate-right .words-counter-bubble::after {
-        left: auto;
-        bottom: 5px;
-        right: -5px;
-        width: 40px;
-        height: 16px;
-        -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%);
-        clip-path: polygon(0 0, 0 100%, 100% 100%);
-    }
-
-    .bubble-number {
-        font-size: 2rem;
-    }
-
-    .bubble-words {
-        font-size: 1.3rem;
-    }
-
-    .words-counter-bubble {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .mentions-container {
-        position: relative;
-        min-height: 650px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    /* .candidates-container{
-        display: flex;
-        align-items: center;
-
-    } */
-
-    .candidate-mentions-left {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .candidate-container-data {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    .candidate-mentions-right .candidate-container-data {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-self: flex-end
-    }
-
-    .candidate-container-image {
-        width: 110px;
-        height: 110px;
-    }
-
-    .candidate-mentions-image {
-        border-radius: 50%;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .candidate-image {
-        width: 100%;
-        height: 100%;
-    }
-
-    .candidate-mentions-image-left {
-        background-color: var(--color-candidate-left)
-    }
-
-    .candidate-mentions-image-right {
-        background-color: var(--color-candidate-right)
-    }
-
-    .candidate-mentions-left .name-party-container::before {
-        content: attr(data-tooltip);
-        /* Display the content of the 'data-tooltip' attribute */
-        position: absolute;
-        bottom: 50%;
-        left: 0;
-        background-color: #fff;
-        /* color: #fff; */
-        width: 30%;
-        padding: 8px;
-        font-weight: bold;
-        text-transform: uppercase;
-        border-radius: 4px;
-        font-size: 14px;
-        opacity: 0;
-        /* Initially hidden */
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .candidate-mentions-right .name-party-container::before {
-        content: attr(data-tooltip);
-        /* Display the content of the 'data-tooltip' attribute */
-        position: absolute;
-
-        background-color: #fff;
-        /* color: #fff; */
-        width: 30%;
-        padding: 8px;
-        font-weight: bold;
-        text-transform: uppercase;
-        border-radius: 4px;
-        font-size: 14px;
-        opacity: 0;
-        /* Initially hidden */
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .candidate-container-data:hover .name-party-container::before {
-        opacity: 1;
-    }
-
-    .candidate-mentions-left .candidate-container-data .name-party-container {
-        bottom: 50%;
-        left: 0;
-    }
-
-    .candidate-mentions-right .candidate-container-data .name-party-container {
-        bottom: 50%;
-        right: 0;
-    }
-
-
-    .candidate-mentions-number {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        /* width: 35%; */
-        /* flex-wrap: wrap; */
-    }
-
-    .mentions-number {
-        font-weight: 600;
-        font-size: 3rem;
-    }
-
-    .number-left {
-        color: var(--color-candidate-left);
-    }
-
-    .number-left .mentions-number {
-        display: flex;
-        /* align-self: end; */
-        text-align: end;
-    }
-
-    .upper-arrow {
-        position: absolute;
-        top: 30px;
-        right: 0;
-        transform: rotate(-6deg);
-
-    }
-
-    .lower-arrow {
-        position: absolute;
-        bottom: -8%;
-        left: -5px;
-        transform: rotate(-8deg);
-
-    }
-
-    .candidate-mentions-number .number-left {
-        display: flex;
-    }
-
-
-    .words-survey-container {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .legends-container {
-        font-size: .8em;
-        color: var(--color-legends);
-        display: flex;
-        padding-top: 8rem;
-        text-align: center;
-        justify-content: center;
-        align-items: flex-end;
-    }
-
-    /* mostly used */
-    .mostly-used-candidates-container {
-        display: flex;
-        gap: 10rem;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .mostly-used-candidate-item .candidate-data {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .mostly-used-name-party-container .candidate-party {
-        align-self: center;
-    }
-
-    .candidate-mostly-used-image-left {
-        border-bottom: 3px solid var(--color-candidate-left)
-    }
-
-    .candidate-mostly-used-image-right {
-        border-bottom: 3px solid var(--color-candidate-right)
-    }
-
-    .mostly-used-words-container {
-        text-align: center;
-        padding: 2rem 0;
-        transition: 1s ease-in-out;
-        width: fit-content;
-        margin: auto;
-    }
-
-    .mostly-used-word-container {
-        display: flex;
-        flex-direction: row-reverse;
-        gap: .5rem;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .mostly-used-number {
-        font-size: 1rem;
-    }
-
-    .mostly-used-word {
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        font-weight: 600;
-    }
-
-    .mostly-used-word-lg {
-        font-size: 3.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .mostly-used-word-md {
-        font-size: 2.5rem;
-        margin-bottom: .5rem;
-    }
-
-    .RichTextBody .words-survey-title {
-        text-transform: uppercase;
-        font-size: 2rem;
-        text-align: center;
-    }
-
-    .words-survey-mentions {
-        padding: 2rem 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 1.5rem;
-        /* border:1px solid red */
-    }
-
-    .candidate-mentions-content {
-        width: 60%;
-        position: relative;
-        top: 10px;
-        white-space: nowrap;
-
-    }
-
-    .candidate-mentions-content>hr {
-        width: 100%;
-        border: dashed 1px var(--dividerColor);
-
-    }
-
-    .candidate-mentions-content>ul {
-        margin: 0;
-        padding: 0;
-        width: fit-content;
-        display: flex;
-        flex-direction: row;
-
-        gap: 4px;
-        position: relative;
-        /* Added position: relative */
-        background-color: white;
-        top: -10px;
-    }
-
-    .candidate-mentions-content>ul>li {
-        border-radius: 50%;
-
-        width: 15px;
-        height: 15px;
-        /* top:-10px; */
-        position: relative;
-        /* Changed to relative */
-        display: inline-block;
-        z-index: 999;
-    }
-
-    .survey-right>ul>li {
-        background-color: var(--color-candidate-right);
-    }
-
-    .survey-left>ul>li {
-        background-color: var(--color-candidate-left);
-    }
-
-    .word-survey-container {
-        padding: 6rem 0 2rem;
-        border-bottom: 1px solid var(--dividerColor);
-    }
-
-    .word-survey-container:last-child {
-        border: none;
-    }
-
-    .disabled {
-        opacity: .4;
-    }
-
-    .disabled .candidate-mentions-content {
-        top: 0
-    }
-
-    .words-survey-container {
-        text-align: center;
-    }
-
-    .candidates {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .mentions-total-container {
-        text-align: center;
-        font-size: 2rem;
-        text-transform: uppercase;
-        font-weight: 500;
-        color: var(--color-legends);
-    }
-</style>
-<div class="monitor-debate-container">
-    <section class="section-container words-counter-main-container">
-        <div class="monitor-debate-heading">
-            <h2 class="monitor-debate-title">Contador de palabras</h2>
-            <span class="monitor-debate-subtitle"> Cuántas veces se nombraron entre sí </span>
-        </div>
-        <div class="words-counter-container">
-            <div class="words-counter-candidates-container">
-                <div class="candidate-item candidate-left">
-                    <div class="candidate-data">
-                        <article class="name-party-container ">
-                            <span class="candidate-name name-left">Massa</span>
-                            <span class="candidate-party party-left">UP</span>
-                        </article>
-                        <div class="candidate-dynamic-image-container">
-                            <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/04/60904.gif"
-                                class="candidate-image">
-                        </div>
-                    </div>
-                    <div class="words-counter-bubble">
-                        <div class="words-counter-bubble-content">
-                            <span class="bubble-number">35.834</span>
-                            <span class="bubble-words">palabras</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="candidate-item candidate-right">
-                    <div class="candidate-data  ">
-                        <article class="name-party-container">
-                            <span class="candidate-name name-right">Milei</span>
-                            <span class="candidate-party">lla</span>
-                        </article>
-                        <div class="candidate-dynamic-image-container">
-                            <img src="https://buckets3.glanacion.com/lntools/anexos/fotos/03/60903.gif"
-                                class="candidate-image">
-                        </div>
-                    </div>
-                    <div class="words-counter-bubble">
-                        <div class="words-counter-bubble-content">
-                            <span class="bubble-number">35.834</span>
-                            <span class="bubble-words">palabras</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div></div>
-        </div>
-    </section>
-    <section class="section-container section-container-mentions">
-        <div class="monitor-debate-heading">
-            <h2 class="monitor-debate-title">Menciones al rival </h2>
-            <span class="monitor-debate-subtitle"> Cuántas veces se nombraron entre sí </span>
-        </div>
-        <div class="mentions-container">
-
-            <div class="container-arrows">
-                <div class="arrow-container upper-arrow">
-                    <svg viewBox="0 0 550 500" height="550" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <marker id="arrowhead-smassa" markerWidth="2" markerHeight="2" refX="0.5" refY="1"
-                                orient="auto" markerUnits="strokeWidth">
-                                <path d="M0,0 L0,2 L2,1 z" fill="#549DD1"></path>
-                            </marker>
-                            <linearGradient id="smassa-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#549DD1"></stop>
-                                <stop offset="100%" stop-color="#8878C3"></stop>
-                            </linearGradient>
-                        </defs>
-                        <path d="M525,275 A250,250 0 0,0 62.98797596089352,142.52018394169878" fill="none"
-                            stroke="url(#smassa-gradient)" stroke-width="17" marker-end="url(#arrowhead-smassa)">
-                        </path>
-                    </svg>
-                </div>
-                <div class="arrow-container lower-arrow">
-                    <svg viewBox="0 0 550 500" height="500" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <marker id="arrowhead" markerWidth="2" markerHeight="2" refX="1.8" refY="1" orient="auto"
-                                markerUnits="strokeWidth">
-                                <path d="M2,0 L2,2 L0,1 z" fill="#8878C3"></path>
-                            </marker>
-                            <linearGradient id="jmilei-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#549DD1"></stop>
-                                <stop offset="100%" stop-color="#8878C3"></stop>
-                            </linearGradient>
-                        </defs>
-                        <path d="M525,275 A250,250 0 0,1 62.98797596089352,142.52018394169878" fill="none"
-                            stroke="url(#jmilei-gradient)" marker-start="url(#arrowhead)" stroke-width="30"></path>
-                    </svg>
-                </div>
-            </div>
-            <div class="candidates">
-
-
-                <article class="candidate-container candidate-mentions-left">
-                    <div class="candidate-container-data">
-                        <div class="candidate-container-image candidate-mentions-image">
-                            <img class="candidate-mentions-image candidate-mentions-image-left"
-                                src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png"
-                                alt="candidate image" />
-                        </div>
-                        <div class="name-party-container" data-tooltip='Massa menciono a Milei 20 veces'>
-                            <!-- <span class="candidate-mentions-text">candidates mention</span> -->
-                            <!-- <div class="candidate-mentions-number number-left">
-                                    <span class="mentions-number">20</span>
-                                    <span class="mentions-number-times">veces</span>
-                                </div> -->
-                        </div>
-                    </div>
-
-                </article>
-                <div class="mentions-total-container">
-                    <p class="mentions-total">total mentions</p>
-                    <span class="mentions-total-number">30</span>
-                </div>
-                <article class="candidate-container candidate-mentions-right">
-                    <div class="candidate-container-data ">
-                        <div class="candidate-container-image candidate-mentions-image">
-                            <img class="candidate-image candidate-mentions-image-right"
-                                src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png"
-                                alt="candidate image" />
-                        </div>
-                        <div class="name-party-container" data-tooltip='Mile menciono a Massa 10 veces'> <!-- <span class="candidate-mentions-text">candidates mention</span>
-                                <div class="candidate-mentions-number ">
-                                    <span class="mentions-number">20</span>
-                                    <span class="mentions-number-times">veces</span> -->
-                        </div>
-                    </div>
-            </div>
-
-            </article>
-        </div>
-
-        <footer class="legends-container">
-            <p class="legends-content">*El relevamiento contempla distintos modos de hacer referencia a cada
-                candidato, no solo su nombre o apellido
-            </p>
-        </footer>
-</div>
-<div>
-
-</div>
-</section>
-<section class="section-container mostly-used">
-    <div class="monitor-debate-heading heading-mostly-used-words">
-        <h2 class="monitor-debate-title">Las palabras más usadas durante el debate </h2>
-        <span class="monitor-debate-subtitle"> Los términos más frecuentes en la exposición de cada candidato
-        </span>
-    </div>
-    <div class="mostly-used-candidates-container">
-        <article class="mostly-used-candidate-item">
-            <div class="candidate-data mostly-used-candidate-data">
-                <article class="name-party-container mostly-used-name-party-container">
-                    <span class="candidate-name name-left">Massa</span>
-                    <span class="candidate-party">UP</span>
-                </article>
-                <div class="candidate-container-image candidate-mostly-used-image-left">
-                    <img class="candidate-image"
-                        src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png" />
-                </div>
-
-            </div>
-            <section class="mostly-used-words-container name-left">
-                <article class="mostly-used-word-container ">
-                    <span class="mostly-used-word mostly-used-word-lg">argentina</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">cambio</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">palabra</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">tornado</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">calor</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">naturaleza</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-            </section>
-        </article>
-        <article class="mostly-used-candidate-item name-right">
-            <div class="candidate-data">
-                <article class="name-party-container mostly-used-name-party-container">
-                    <span class="candidate-name name-right">name</span>
-                    <span class="candidate-party">party</span>
-                </article>
-                <div class="candidate-container-image candidate-mostly-used-image-right">
-                    <img class="candidate-image"
-                        src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" />
-                </div>
-
-            </div>
-            <section class="mostly-used-words-container name-">
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word mostly-used-word-md">alegria</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">larger</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-            </section>
-        </article>
-    </div>
-</section>
-<section class="section-container words-survey">
-    <div class="monitor-debate-heading">
-        <h2 class="monitor-debate-title">Relevamiento de palabras </h2>
-        <span class="monitor-debate-subtitle"> Menciones y omisiones de términos claves </span>
-    </div>
-    <div class="words-survey-container">
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left  disabled">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> sin menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right disabled">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">sin menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right disabled">
-                <span class="candidate-name-survey ">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">sin menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 1 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 15 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <div class="legends-container">
-            <p class="legends-content">* Cada palabra relevada puede incluir sinónimos o derivados
-            </p>
-        </div>
-
-
-
-
-</section>
-<section class="section-container mostly-used">
-    <div class="monitor-debate-heading">
-        <h2 class="monitor-debate-title">¿Por qué querés ser presidente? </h2>
-        <span class="monitor-debate-subtitle"> Las palabras más usadas en la respuesta de cada candidato </span>
-    </div>
-    <div class="mostly-used-candidates-container">
-        <article class="mostly-used-candidate-item">
-            <div class="candidate-data mostly-used-candidate-data">
-                <article class="name-party-container mostly-used-name-party-container">
-                    <span class="candidate-name name-left">Massa</span>
-                    <span class="candidate-party">UP</span>
-                </article>
-                <div class="candidate-container-image candidate-mostly-used-image-left">
-                    <img class="candidate-image"
-                        src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png" />
-                </div>
-
-            </div>
-            <section class="mostly-used-words-container name-left">
-                <article class="mostly-used-word-container ">
-                    <span class="mostly-used-word mostly-used-word-lg">argentina</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">cambio</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">palabra</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">tornado</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">calor</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">naturaleza</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-            </section>
-        </article>
-        <article class="mostly-used-candidate-item name-right">
-            <div class="candidate-data">
-                <article class="name-party-container mostly-used-name-party-container">
-                    <span class="candidate-name name-right">name</span>
-                    <span class="candidate-party">party</span>
-                </article>
-                <div class="candidate-container-image candidate-mostly-used-image-right">
-                    <img class="candidate-image"
-                        src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" />
-                </div>
-
-            </div>
-            <section class="mostly-used-words-container name-">
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word mostly-used-word-md">alegria</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">larger</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-            </section>
-        </article>
-    </div>
-</section>
-</div>
-<script>
-
-</script>
                     
                         
                             
@@ -4548,33 +3327,29 @@ if(hasIntersectionObserver) {
 <!-- aca empieza tu codigo -->
 <style>
     :root {
-        --fontSizeTitle: 3.2rem;
-        --fontSizeSubtitle: 1.6rem;
-        --dividerColor: #E0E0E0;
+        --font-size-title: 3.2rem;
+        --font-size-subtitle: 1.6rem;
+        --color-divider: #E0E0E0;
         --color-candidate-left: var(--color-primary);
         --color-candidate-right: var(--color-section-tvshow);
         --color-legends: rgba(78, 81, 81, 0.8)
     }
 
-
-
     .section-container {
-        border-top: 1px solid var(--dividerColor);
+        border-top: 1px solid var(--color-divider);
         padding: 10rem 0 2rem;
         display: flex;
         flex-direction: column;
-        gap: 7rem
+        gap: 7rem;
     }
 
     .words-counter-main-container {
-        /* border-bottom: 1px solid var(--dividerColor); */
-        padding-bottom: 0
+        padding-bottom: 0;
     }
 
     .monitor-debate-container {
         display: flex;
         flex-direction: column;
-        /* gap: 6rem; */
         padding: 3rem 0;
     }
 
@@ -4584,16 +3359,16 @@ if(hasIntersectionObserver) {
         flex-direction: column;
         gap: 1rem;
         align-items: center;
-        margin: 7rem 0
+        margin: 7rem 0;
     }
 
     .monitor-debate-heading .monitor-debate-title {
-        font-size: var(--fontSizeTitle);
+        font-size: var(--font-size-title);
         font-weight: 300;
     }
 
     .monitor-debate-subtitle {
-        font-size: var(--fontSizeSubtitle);
+        font-size: var(--font-size-subtitle);
     }
 
     .name-party-container {
@@ -4614,22 +3389,17 @@ if(hasIntersectionObserver) {
     }
 
     .name-right {
-        color: var(--color-candidate-right)
+        color: var(--color-candidate-right);
     }
 
     .name-left {
-        color: var(--color-candidate-left)
+        color: var(--color-candidate-left);
     }
 
     .words-counter-candidates-container {
         display: flex;
         justify-content: space-between;
     }
-
-    /* .candidate-data {
-        display: flex;
-        align-items: end;
-    } */
 
     .candidate-item {
         display: flex;
@@ -4655,8 +3425,6 @@ if(hasIntersectionObserver) {
 
     .candidate-data {
         display: flex;
-        /* gap: 1rem; */
-        /* position:relative */
     }
 
     .candidate-right .candidate-data {
@@ -4670,7 +3438,6 @@ if(hasIntersectionObserver) {
         height: 100px;
         transform: scale(1.2);
         border-radius: 50%;
-
         color: var(--actionColor);
     }
 
@@ -4687,12 +3454,11 @@ if(hasIntersectionObserver) {
     }
 
     .words-counter-candidates-container {
-        position: relative
+        position: relative;
     }
 
     .words-counter-bubble-content {
         display: flex;
-        /* font-family: Prumo; */
         flex-direction: column;
         text-align: center;
         align-items: center;
@@ -4745,12 +3511,6 @@ if(hasIntersectionObserver) {
         justify-content: center;
     }
 
-    /* .candidates-container{
-        display: flex;
-        align-items: center;
-
-    } */
-
     .candidate-mentions-left {
         display: flex;
         flex-direction: column-reverse;
@@ -4760,23 +3520,57 @@ if(hasIntersectionObserver) {
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        position: relative;
+        z-index: 10;
     }
 
     .candidate-mentions-right .candidate-container-data {
         display: flex;
         flex-direction: row-reverse;
-        justify-self: flex-end
+        justify-self: flex-end;
     }
 
     .candidate-container-image {
         width: 110px;
         height: 110px;
+
     }
 
     .candidate-mentions-image {
         border-radius: 50%;
-        position: relative;
         overflow: hidden;
+        transition: transform ease-in-out 150ms;
+    }
+
+    .candidate-mentions-image::before,
+    .candidate-mentions-image::after {
+        opacity: 0;
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-radius: 50%;
+    }
+
+    .candidate-mentions-image::after {
+        content: "";
+        background: var(--color-heading-bg);
+        z-index: 1;
+        animation: pulse 2000ms infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            opacity: 0.75;
+        }
+
+        100% {
+            transform: scale(1.35);
+            opacity: 0;
+        }
     }
 
     .candidate-image {
@@ -4784,72 +3578,62 @@ if(hasIntersectionObserver) {
         height: 100%;
     }
 
+    .candidate-mentions-image .candidate-image {
+        position: relative;
+        z-index: 999;
+    }
+
     .candidate-mentions-image-left {
-        background-color: var(--color-candidate-left)
+        background-color: var(--color-candidate-left);
     }
 
     .candidate-mentions-image-right {
-        background-color: var(--color-candidate-right)
+        background-color: var(--color-candidate-right);
     }
 
     .candidate-mentions-left .name-party-container::before {
         content: attr(data-tooltip);
-        /* Display the content of the 'data-tooltip' attribute */
         position: absolute;
-        bottom: 50%;
-        left: 0;
+        bottom: 0;
+        left: -110%;
         background-color: #fff;
-        /* color: #fff; */
-        width: 30%;
-        padding: 8px;
+        width: 100%;
+        border: 1px solid var(--color-candidate-left);
+        padding: .5rem;
+        margin-right: .5rem;
         font-weight: bold;
         text-transform: uppercase;
         border-radius: 4px;
         font-size: 14px;
         opacity: 0;
-        /* Initially hidden */
         transition: opacity 0.3s ease-in-out;
     }
 
     .candidate-mentions-right .name-party-container::before {
         content: attr(data-tooltip);
-        /* Display the content of the 'data-tooltip' attribute */
         position: absolute;
-
+        border: 1px solid var(--color-candidate-right);
         background-color: #fff;
-        /* color: #fff; */
-        width: 30%;
-        padding: 8px;
+        width: 100%;
+        padding: .5rem;
         font-weight: bold;
         text-transform: uppercase;
-        border-radius: 4px;
-        font-size: 14px;
+        border-radius: .5rem;
+        font-size: 1.5rem;
         opacity: 0;
-        /* Initially hidden */
         transition: opacity 0.3s ease-in-out;
+        bottom: 0;
+        right: -110%;
     }
 
-    .candidate-container-data:hover .name-party-container::before {
+    .candidate-container .candidate-container-data:hover .name-party-container::before {
         opacity: 1;
     }
-
-    .candidate-mentions-left .candidate-container-data .name-party-container {
-        bottom: 50%;
-        left: 0;
-    }
-
-    .candidate-mentions-right .candidate-container-data .name-party-container {
-        bottom: 50%;
-        right: 0;
-    }
-
 
     .candidate-mentions-number {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        /* width: 35%; */
-        /* flex-wrap: wrap; */
     }
 
     .mentions-number {
@@ -4863,7 +3647,6 @@ if(hasIntersectionObserver) {
 
     .number-left .mentions-number {
         display: flex;
-        /* align-self: end; */
         text-align: end;
     }
 
@@ -4872,7 +3655,6 @@ if(hasIntersectionObserver) {
         top: 30px;
         right: 0;
         transform: rotate(-6deg);
-
     }
 
     .lower-arrow {
@@ -4880,13 +3662,11 @@ if(hasIntersectionObserver) {
         bottom: -8%;
         left: -5px;
         transform: rotate(-8deg);
-
     }
 
     .candidate-mentions-number .number-left {
         display: flex;
     }
-
 
     .words-survey-container {
         display: flex;
@@ -4903,12 +3683,13 @@ if(hasIntersectionObserver) {
         align-items: flex-end;
     }
 
-    /* mostly used */
     .mostly-used-candidates-container {
         display: flex;
         gap: 10rem;
         align-items: center;
         justify-content: center;
+
+
     }
 
     .mostly-used-candidate-item .candidate-data {
@@ -4922,11 +3703,11 @@ if(hasIntersectionObserver) {
     }
 
     .candidate-mostly-used-image-left {
-        border-bottom: 3px solid var(--color-candidate-left)
+        border-bottom: 3px solid var(--color-candidate-left);
     }
 
     .candidate-mostly-used-image-right {
-        border-bottom: 3px solid var(--color-candidate-right)
+        border-bottom: 3px solid var(--color-candidate-right);
     }
 
     .mostly-used-words-container {
@@ -4935,6 +3716,11 @@ if(hasIntersectionObserver) {
         transition: 1s ease-in-out;
         width: fit-content;
         margin: auto;
+    }
+
+    .mostly-used-words-container-fade {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
     }
 
     .mostly-used-word-container {
@@ -4978,7 +3764,6 @@ if(hasIntersectionObserver) {
         justify-content: space-between;
         align-items: center;
         font-size: 1.5rem;
-        /* border:1px solid red */
     }
 
     .candidate-mentions-content {
@@ -4986,13 +3771,11 @@ if(hasIntersectionObserver) {
         position: relative;
         top: 10px;
         white-space: nowrap;
-
     }
 
     .candidate-mentions-content>hr {
         width: 100%;
-        border: dashed 1px var(--dividerColor);
-
+        border: dashed 1px var(--color-divider);
     }
 
     .candidate-mentions-content>ul {
@@ -5001,22 +3784,17 @@ if(hasIntersectionObserver) {
         width: fit-content;
         display: flex;
         flex-direction: row;
-
         gap: 4px;
         position: relative;
-        /* Added position: relative */
         background-color: white;
         top: -10px;
     }
 
     .candidate-mentions-content>ul>li {
         border-radius: 50%;
-
         width: 15px;
         height: 15px;
-        /* top:-10px; */
         position: relative;
-        /* Changed to relative */
         display: inline-block;
         z-index: 999;
     }
@@ -5031,7 +3809,7 @@ if(hasIntersectionObserver) {
 
     .word-survey-container {
         padding: 6rem 0 2rem;
-        border-bottom: 1px solid var(--dividerColor);
+        border-bottom: 1px solid var(--color-divider);
     }
 
     .word-survey-container:last-child {
@@ -5043,7 +3821,7 @@ if(hasIntersectionObserver) {
     }
 
     .disabled .candidate-mentions-content {
-        top: 0
+        top: 0;
     }
 
     .words-survey-container {
@@ -5064,12 +3842,100 @@ if(hasIntersectionObserver) {
         font-weight: 500;
         color: var(--color-legends);
     }
+
+    @media only screen and (max-width: 768px) {
+        .candidate-right .words-counter-bubble::after {
+            /* bottom: 5px; */
+            left: auto;
+            bottom: -10px;
+            right: 28px;
+            /* width: 40px; */
+            height: 20px;
+            -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+
+        .candidate-left .words-counter-bubble::after {
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            -webkit-transform: rotate(300deg);
+            transform: rotate(300deg);
+            right: 28px;
+            bottom: -10px;
+            left: auto;
+        }
+
+        .words-counter-bubble {
+            top: -123px;
+        }
+
+        /* .candidate-left .words-counter-bubble{
+        right: 51%;
+    } */
+        .candidate-right .words-counter-bubble {
+            right: 24%;
+        }
+
+        .words-counter-main-container .monitor-debate-heading {
+            padding-bottom: 4rem;
+        }
+
+        .candidate-data,
+        .candidate-right .candidate-data {
+            flex-direction: column-reverse;
+        }
+
+        .candidate-data .name-party-container {
+            align-content: center;
+        }
+
+        .name-party-container .candidate-party {
+            align-self: center;
+        }
+
+        .upper-arrow svg {
+            width: 100%;
+        }
+
+        .lower-arrow svg {
+            width: 90%;
+        }
+
+        .lower-arrow {
+            bottom: -10px;
+            left: -4px;
+            transform: rotate(-1deg);
+            /* right: -14px; */
+        }
+
+        .candidate-container .candidate-container-data .name-party-container::before {
+            opacity: 1;
+            font-size: .8rem;
+
+        }
+
+        .candidate-mentions-left .candidate-container-data .name-party-container::before {
+            left: 65%;
+            /* top:-140%; */
+            bottom: 90%
+        }
+
+        .candidate-mentions-right .candidate-container-data .name-party-container::before {
+            left: -50%;
+            bottom: -55%
+        }
+
+        .mostly-used-candidates-container {
+            /* gap:5rem; */
+            flex-direction: column;
+        }
+    }
 </style>
 <div class="monitor-debate-container">
     <section class="section-container words-counter-main-container">
         <div class="monitor-debate-heading">
             <h2 class="monitor-debate-title">Contador de palabras</h2>
-            <span class="monitor-debate-subtitle"> Cuántas veces se nombraron entre sí </span>
         </div>
         <div class="words-counter-container">
             <div class="words-counter-candidates-container">
@@ -5119,7 +3985,6 @@ if(hasIntersectionObserver) {
             <span class="monitor-debate-subtitle"> Cuántas veces se nombraron entre sí </span>
         </div>
         <div class="mentions-container">
-
             <div class="container-arrows">
                 <div class="arrow-container upper-arrow">
                     <svg viewBox="0 0 550 500" height="550" xmlns="http://www.w3.org/2000/svg">
@@ -5161,18 +4026,18 @@ if(hasIntersectionObserver) {
                 <article class="candidate-container candidate-mentions-left">
                     <div class="candidate-container-data">
                         <div class="candidate-container-image candidate-mentions-image">
-                            <img class="candidate-mentions-image candidate-mentions-image-left"
+                            <img class="candidate-image candidate-mentions-image-left"
                                 src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png"
                                 alt="candidate image" />
                         </div>
                         <div class="name-party-container" data-tooltip='Massa menciono a Milei 20 veces'>
-                            <!-- <span class="candidate-mentions-text">candidates mention</span> -->
-                            <!-- <div class="candidate-mentions-number number-left">
+                            <!-- <span class="candidate-mentions-text">candidates mention</span>
+                            <div class="candidate-mentions-number number-left">
                                     <span class="mentions-number">20</span>
                                     <span class="mentions-number-times">veces</span>
-                                </div> -->
+                                </div>
+                        </div> -->
                         </div>
-                    </div>
 
                 </article>
                 <div class="mentions-total-container">
@@ -5186,7 +4051,7 @@ if(hasIntersectionObserver) {
                                 src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png"
                                 alt="candidate image" />
                         </div>
-                        <div class="name-party-container" data-tooltip='Mile menciono a Massa 10 veces'> <!-- <span class="candidate-mentions-text">candidates mention</span>
+                        <div class="name-party-container" data-tooltip='Milei menciono a Massa 10 veces'> <!-- <span class="candidate-mentions-text">candidates mention</span>
                                 <div class="candidate-mentions-number ">
                                     <span class="mentions-number">20</span>
                                     <span class="mentions-number-times">veces</span> -->
@@ -5226,7 +4091,7 @@ if(hasIntersectionObserver) {
                 </div>
 
             </div>
-            <section class="mostly-used-words-container name-left">
+            <section class="mostly-used-words-container mostly-used-words-container-fade name-left">
                 <article class="mostly-used-word-container ">
                     <span class="mostly-used-word mostly-used-word-lg">argentina</span>
                     <span class="mostly-used-number"> 15</span>
@@ -5277,7 +4142,7 @@ if(hasIntersectionObserver) {
                 </div>
 
             </div>
-            <section class="mostly-used-words-container name-">
+            <section class="mostly-used-words-container mostly-used-words-container-fade name-right">
                 <article class="mostly-used-word-container">
                     <span class="mostly-used-word mostly-used-word-md">alegria</span>
                     <span class="mostly-used-number"> 15</span>
@@ -5765,6 +4630,25 @@ if(hasIntersectionObserver) {
 </section>
 </div>
 <script>
+    const mostlyUsedSections = document.querySelectorAll('.mostly-used-words-container-fade');
+
+    const options = {
+        threshold: 0.5 // Adjust the threshold as needed
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1; // When in viewport, set opacity to 1 for fade effect
+            } else {
+                entry.target.style.opacity = 0; // Reset opacity when out of the viewport
+            }
+        });
+    }, options);
+
+    mostlyUsedSections.forEach(section => {
+        observer.observe(section); // Observe each .mostly-used-words-container
+    });
 
 </script>
                 
