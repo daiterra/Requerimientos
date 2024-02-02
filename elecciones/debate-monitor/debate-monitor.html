@@ -3347,12 +3347,17 @@ if(hasIntersectionObserver) {
         padding-bottom: 0;
     }
 
-    .monitor-debate-container {
+    /* .monitor-debate-container {
         display: flex;
         flex-direction: column;
         padding: 3rem 0;
-    }
+    } */
 
+    .monitor-debate-container {
+        display: flex;
+        flex-direction: column;
+        /* padding: 3rem 0; */
+    }
     .monitor-debate-heading {
         text-align: center;
         display: flex;
@@ -3561,17 +3566,7 @@ if(hasIntersectionObserver) {
         animation: pulse 2000ms infinite;
     }
 
-    @keyframes pulse {
-        0% {
-            transform: scale(0.95);
-            opacity: 0.75;
-        }
 
-        100% {
-            transform: scale(1.35);
-            opacity: 0;
-        }
-    }
 
     .candidate-image {
         width: 100%;
@@ -3668,10 +3663,7 @@ if(hasIntersectionObserver) {
         display: flex;
     }
 
-    .words-survey-container {
-        display: flex;
-        flex-direction: column;
-    }
+
 
     .legends-container {
         font-size: .8em;
@@ -3682,7 +3674,18 @@ if(hasIntersectionObserver) {
         justify-content: center;
         align-items: flex-end;
     }
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            opacity: 0.75;
+        }
 
+        100% {
+            transform: scale(1.35);
+            opacity: 0;
+        }
+    }
+/* mostly used section */
     .mostly-used-candidates-container {
         display: flex;
         gap: 10rem;
@@ -3784,10 +3787,11 @@ if(hasIntersectionObserver) {
         width: fit-content;
         display: flex;
         flex-direction: row;
-        gap: 4px;
+        gap:.4rem;
         position: relative;
         background-color: white;
         top: -10px;
+        flex-wrap: wrap;
     }
 
     .candidate-mentions-content>ul>li {
@@ -3816,6 +3820,10 @@ if(hasIntersectionObserver) {
         border: none;
     }
 
+    .words-survey-container {
+        display: flex;
+        flex-direction: column;
+    }
     .disabled {
         opacity: .4;
     }
@@ -3843,7 +3851,7 @@ if(hasIntersectionObserver) {
         color: var(--color-legends);
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 600px) {
         .candidate-right .words-counter-bubble::after {
             /* bottom: 5px; */
             left: auto;
@@ -3870,9 +3878,7 @@ if(hasIntersectionObserver) {
             top: -123px;
         }
 
-        /* .candidate-left .words-counter-bubble{
-        right: 51%;
-    } */
+    
         .candidate-right .words-counter-bubble {
             right: 24%;
         }
@@ -3922,13 +3928,40 @@ if(hasIntersectionObserver) {
         }
 
         .candidate-mentions-right .candidate-container-data .name-party-container::before {
-            left: -50%;
+            left: -75%;
             bottom: -55%
         }
 
         .mostly-used-candidates-container {
             /* gap:5rem; */
             flex-direction: column;
+        }
+        .candidate-mentions-image::after{
+            animation:none;
+        }
+    }
+    @media (min-width: 600px) and (max-width: 1000px) {
+    .candidate-mentions-image::after {
+        animation: none; 
+    }
+    .mentions-container{
+        width: 95%;
+    }
+    .candidate-container .candidate-container-data .name-party-container::before {
+            opacity: 1;
+            font-size: .8rem;
+
+        }
+
+        .candidate-mentions-left .candidate-container-data .name-party-container::before {
+            left: 65%;
+            /* top:-140%; */
+            bottom: 90%
+        }
+
+        .candidate-mentions-right .candidate-container-data .name-party-container::before {
+            left: -75%;
+            bottom: -55%
         }
     }
 </style>
@@ -4067,10 +4100,7 @@ if(hasIntersectionObserver) {
                 candidato, no solo su nombre o apellido
             </p>
         </footer>
-</div>
-<div>
 
-</div>
 </section>
 <section class="section-container mostly-used">
     <div class="monitor-debate-heading heading-mostly-used-words">
@@ -4630,7 +4660,7 @@ if(hasIntersectionObserver) {
 </section>
 </div>
 <script>
-    const mostlyUsedSections = document.querySelectorAll('.mostly-used-words-container-fade');
+    const mostlyUsedSections = document.querySelectorAll('.mostly-used-words-container');
 
     const options = {
         threshold: 0.5 // Adjust the threshold as needed
