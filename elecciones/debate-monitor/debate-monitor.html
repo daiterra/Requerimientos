@@ -3347,17 +3347,12 @@ if(hasIntersectionObserver) {
         padding-bottom: 0;
     }
 
-    /* .monitor-debate-container {
-        display: flex;
-        flex-direction: column;
-        padding: 3rem 0;
-    } */
 
     .monitor-debate-container {
         display: flex;
         flex-direction: column;
-        /* padding: 3rem 0; */
     }
+
     .monitor-debate-heading {
         text-align: center;
         display: flex;
@@ -3389,7 +3384,7 @@ if(hasIntersectionObserver) {
     }
 
     .candidate-dynamic-image-container {
-        width: 140px;
+        width: 170px;
         height: 140px;
     }
 
@@ -3648,16 +3643,18 @@ if(hasIntersectionObserver) {
     .upper-arrow {
         position: absolute;
         top: 30px;
-        right: 0;
-        transform: rotate(-6deg);
+        right: 12%;
+        transform: rotate(-5deg);
     }
+
 
     .lower-arrow {
         position: absolute;
         bottom: -8%;
-        left: -5px;
-        transform: rotate(-8deg);
+        left: 12%;
+        transform: rotate(-6deg);
     }
+
 
     .candidate-mentions-number .number-left {
         display: flex;
@@ -3674,6 +3671,7 @@ if(hasIntersectionObserver) {
         justify-content: center;
         align-items: flex-end;
     }
+
     @keyframes pulse {
         0% {
             transform: scale(0.95);
@@ -3685,7 +3683,8 @@ if(hasIntersectionObserver) {
             opacity: 0;
         }
     }
-/* mostly used section */
+
+    /* mostly used section */
     .mostly-used-candidates-container {
         display: flex;
         gap: 10rem;
@@ -3787,7 +3786,7 @@ if(hasIntersectionObserver) {
         width: fit-content;
         display: flex;
         flex-direction: row;
-        gap:.4rem;
+        gap: .4rem;
         position: relative;
         background-color: white;
         top: -10px;
@@ -3824,6 +3823,7 @@ if(hasIntersectionObserver) {
         display: flex;
         flex-direction: column;
     }
+
     .disabled {
         opacity: .4;
     }
@@ -3840,7 +3840,7 @@ if(hasIntersectionObserver) {
         display: flex;
         width: 100%;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .mentions-total-container {
@@ -3851,13 +3851,29 @@ if(hasIntersectionObserver) {
         color: var(--color-legends);
     }
 
+    .mentions-total {
+        display: block;
+    }
+
+
+
     @media only screen and (max-width: 600px) {
+
+        .candidates {
+            justify-content: space-between;
+        }
+
+        .upper-arrow {
+            position: absolute;
+            top: 30px;
+            right: 0;
+            transform: rotate(1deg);
+        }
+
         .candidate-right .words-counter-bubble::after {
-            /* bottom: 5px; */
             left: auto;
             bottom: -10px;
             right: 28px;
-            /* width: 40px; */
             height: 20px;
             -webkit-transform: rotate(270deg);
             transform: rotate(270deg);
@@ -3878,7 +3894,7 @@ if(hasIntersectionObserver) {
             top: -123px;
         }
 
-    
+
         .candidate-right .words-counter-bubble {
             right: 24%;
         }
@@ -3909,11 +3925,12 @@ if(hasIntersectionObserver) {
         }
 
         .lower-arrow {
-            bottom: -10px;
-            left: -4px;
-            transform: rotate(-1deg);
+            bottom: -15px;
+            left: 0px;
+            transform: rotate(-4deg);
             /* right: -14px; */
         }
+
 
         .candidate-container .candidate-container-data .name-party-container::before {
             opacity: 1;
@@ -3923,7 +3940,6 @@ if(hasIntersectionObserver) {
 
         .candidate-mentions-left .candidate-container-data .name-party-container::before {
             left: 65%;
-            /* top:-140%; */
             bottom: 90%
         }
 
@@ -3933,36 +3949,56 @@ if(hasIntersectionObserver) {
         }
 
         .mostly-used-candidates-container {
-            /* gap:5rem; */
             flex-direction: column;
         }
-        .candidate-mentions-image::after{
-            animation:none;
+
+        .candidate-mentions-image::after {
+            animation: none;
         }
     }
-    @media (min-width: 600px) and (max-width: 1000px) {
-    .candidate-mentions-image::after {
-        animation: none; 
+
+    @media (min-width: 600px) and (max-width: 900px) {
+
+        .candidates {
+            justify-content: space-between;
+        }
+
+        .upper-arrow {
+            position: absolute;
+            top: 30px;
+            right: 1%;
+            transform: rotate(-5deg);
+        }
+
+        .lower-arrow {
+            position: absolute;
+            bottom: -8%;
+            left: 1%;
+            transform: rotate(-6deg);
+        }
     }
-    .mentions-container{
-        width: 95%;
-    }
-    .candidate-container .candidate-container-data .name-party-container::before {
-            opacity: 1;
-            font-size: .8rem;
 
+    @media (min-width: 900px) and (max-width: 1200px) {
+
+        .candidates {
+            justify-content: space-between;
         }
 
-        .candidate-mentions-left .candidate-container-data .name-party-container::before {
-            left: 65%;
-            /* top:-140%; */
-            bottom: 90%
+        .upper-arrow {
+            position: absolute;
+            top: 30px;
+            right: 3%;
+            transform: rotate(-5deg);
         }
 
-        .candidate-mentions-right .candidate-container-data .name-party-container::before {
-            left: -75%;
-            bottom: -55%
+        .lower-arrow {
+            position: absolute;
+            bottom: -8%;
+            left: -1%;
+            transform: rotate(-6deg);
         }
+
+
     }
 </style>
 <div class="monitor-debate-container">
@@ -4074,7 +4110,7 @@ if(hasIntersectionObserver) {
 
                 </article>
                 <div class="mentions-total-container">
-                    <p class="mentions-total">total mentions</p>
+                    <span class="mentions-total">total mentions</span>
                     <span class="mentions-total-number">30</span>
                 </div>
                 <article class="candidate-container candidate-mentions-right">
@@ -4101,587 +4137,586 @@ if(hasIntersectionObserver) {
             </p>
         </footer>
 
-</section>
-<section class="section-container mostly-used">
-    <div class="monitor-debate-heading heading-mostly-used-words">
-        <h2 class="monitor-debate-title">Las palabras más usadas durante el debate </h2>
-        <span class="monitor-debate-subtitle"> Los términos más frecuentes en la exposición de cada candidato
-        </span>
-    </div>
-    <div class="mostly-used-candidates-container">
-        <article class="mostly-used-candidate-item">
-            <div class="candidate-data mostly-used-candidate-data">
-                <article class="name-party-container mostly-used-name-party-container">
-                    <span class="candidate-name name-left">Massa</span>
-                    <span class="candidate-party">UP</span>
-                </article>
-                <div class="candidate-container-image candidate-mostly-used-image-left">
-                    <img class="candidate-image"
-                        src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png" />
-                </div>
-
-            </div>
-            <section class="mostly-used-words-container mostly-used-words-container-fade name-left">
-                <article class="mostly-used-word-container ">
-                    <span class="mostly-used-word mostly-used-word-lg">argentina</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">cambio</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">palabra</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">tornado</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">calor</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">naturaleza</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-            </section>
-        </article>
-        <article class="mostly-used-candidate-item name-right">
-            <div class="candidate-data">
-                <article class="name-party-container mostly-used-name-party-container">
-                    <span class="candidate-name name-right">name</span>
-                    <span class="candidate-party">party</span>
-                </article>
-                <div class="candidate-container-image candidate-mostly-used-image-right">
-                    <img class="candidate-image"
-                        src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" />
-                </div>
-
-            </div>
-            <section class="mostly-used-words-container mostly-used-words-container-fade name-right">
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word mostly-used-word-md">alegria</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">larger</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-            </section>
-        </article>
-    </div>
-</section>
-<section class="section-container words-survey">
-    <div class="monitor-debate-heading">
-        <h2 class="monitor-debate-title">Relevamiento de palabras </h2>
-        <span class="monitor-debate-subtitle"> Menciones y omisiones de términos claves </span>
-    </div>
-    <div class="words-survey-container">
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left  disabled">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> sin menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right disabled">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">sin menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right disabled">
-                <span class="candidate-name-survey ">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">sin menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 1 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 15 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <article class="word-survey-container">
-            <h3 class="words-survey-title">Title survey </h3>
-            <div class="words-survey-mentions name-left ">
-                <span class="candidate-name-survey">candidate left</span>
-                <div class="candidate-mentions-content survey-left">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions"> 12 menciones</span>
-            </div>
-            <div class="words-survey-mentions name-right">
-                <span class="candidate-name-survey">candidate right</span>
-                <div class="candidate-mentions-content survey-right">
-                    <hr />
-                    <ul>
-                        <li></li>
-                        <li></li>
-
-                    </ul>
-                </div>
-                <span class="candidate-number-mentions">10 menciones</span>
-            </div>
-        </article>
-        <div class="legends-container">
-            <p class="legends-content">* Cada palabra relevada puede incluir sinónimos o derivados
-            </p>
+    </section>
+    <section class="section-container mostly-used">
+        <div class="monitor-debate-heading heading-mostly-used-words">
+            <h2 class="monitor-debate-title">Las palabras más usadas durante el debate </h2>
+            <span class="monitor-debate-subtitle"> Los términos más frecuentes en la exposición de cada candidato
+            </span>
         </div>
+        <div class="mostly-used-candidates-container">
+            <article class="mostly-used-candidate-item">
+                <div class="candidate-data mostly-used-candidate-data">
+                    <article class="name-party-container mostly-used-name-party-container">
+                        <span class="candidate-name name-left">Massa</span>
+                        <span class="candidate-party">UP</span>
+                    </article>
+                    <div class="candidate-container-image candidate-mostly-used-image-left">
+                        <img class="candidate-image"
+                            src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png" />
+                    </div>
 
-
-
-
-</section>
-<section class="section-container mostly-used">
-    <div class="monitor-debate-heading">
-        <h2 class="monitor-debate-title">¿Por qué querés ser presidente? </h2>
-        <span class="monitor-debate-subtitle"> Las palabras más usadas en la respuesta de cada candidato </span>
-    </div>
-    <div class="mostly-used-candidates-container">
-        <article class="mostly-used-candidate-item">
-            <div class="candidate-data mostly-used-candidate-data">
-                <article class="name-party-container mostly-used-name-party-container">
-                    <span class="candidate-name name-left">Massa</span>
-                    <span class="candidate-party">UP</span>
-                </article>
-                <div class="candidate-container-image candidate-mostly-used-image-left">
-                    <img class="candidate-image"
-                        src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png" />
                 </div>
+                <section class="mostly-used-words-container mostly-used-words-container-fade name-left">
+                    <article class="mostly-used-word-container ">
+                        <span class="mostly-used-word mostly-used-word-lg">argentina</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">cambio</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">palabra</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">tornado</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">calor</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">naturaleza</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                </section>
+            </article>
+            <article class="mostly-used-candidate-item name-right">
+                <div class="candidate-data">
+                    <article class="name-party-container mostly-used-name-party-container">
+                        <span class="candidate-name name-right">name</span>
+                        <span class="candidate-party">party</span>
+                    </article>
+                    <div class="candidate-container-image candidate-mostly-used-image-right">
+                        <img class="candidate-image"
+                            src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" />
+                    </div>
 
-            </div>
-            <section class="mostly-used-words-container name-left">
-                <article class="mostly-used-word-container ">
-                    <span class="mostly-used-word mostly-used-word-lg">argentina</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">cambio</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">palabra</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">tornado</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">calor</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">naturaleza</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-            </section>
-        </article>
-        <article class="mostly-used-candidate-item name-right">
-            <div class="candidate-data">
-                <article class="name-party-container mostly-used-name-party-container">
-                    <span class="candidate-name name-right">name</span>
-                    <span class="candidate-party">party</span>
-                </article>
-                <div class="candidate-container-image candidate-mostly-used-image-right">
-                    <img class="candidate-image"
-                        src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" />
                 </div>
+                <section class="mostly-used-words-container mostly-used-words-container-fade name-right">
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word mostly-used-word-md">alegria</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">larger</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                </section>
+            </article>
+        </div>
+    </section>
+    <section class="section-container words-survey">
+        <div class="monitor-debate-heading">
+            <h2 class="monitor-debate-title">Relevamiento de palabras </h2>
+            <span class="monitor-debate-subtitle"> Menciones y omisiones de términos claves </span>
+        </div>
+        <div class="words-survey-container">
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">Title survey </h3>
+                <div class="words-survey-mentions name-left ">
+                    <span class="candidate-name-survey">candidate left</span>
+                    <div class="candidate-mentions-content survey-left">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions"> 12 menciones</span>
+                </div>
+                <div class="words-survey-mentions name-right">
+                    <span class="candidate-name-survey">candidate right</span>
+                    <div class="candidate-mentions-content survey-right">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
 
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">10 menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">Title survey </h3>
+                <div class="words-survey-mentions name-left  disabled">
+                    <span class="candidate-name-survey">candidate left</span>
+                    <div class="candidate-mentions-content survey-left">
+                        <hr />
+                        <ul>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions"> sin menciones</span>
+                </div>
+                <div class="words-survey-mentions name-right disabled">
+                    <span class="candidate-name-survey">candidate right</span>
+                    <div class="candidate-mentions-content survey-right">
+                        <hr />
+                        <ul>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">sin menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">Title survey </h3>
+                <div class="words-survey-mentions name-left ">
+                    <span class="candidate-name-survey">candidate left</span>
+                    <div class="candidate-mentions-content survey-left">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions"> 12 menciones</span>
+                </div>
+                <div class="words-survey-mentions name-right disabled">
+                    <span class="candidate-name-survey ">candidate right</span>
+                    <div class="candidate-mentions-content survey-right">
+                        <hr />
+                        <ul>
+
+
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">sin menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">Title survey </h3>
+                <div class="words-survey-mentions name-left ">
+                    <span class="candidate-name-survey">candidate left</span>
+                    <div class="candidate-mentions-content survey-left">
+                        <hr />
+                        <ul>
+                            <li></li>
+
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions"> 1 menciones</span>
+                </div>
+                <div class="words-survey-mentions name-right">
+                    <span class="candidate-name-survey">candidate right</span>
+                    <div class="candidate-mentions-content survey-right">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">10 menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">Title survey </h3>
+                <div class="words-survey-mentions name-left ">
+                    <span class="candidate-name-survey">candidate left</span>
+                    <div class="candidate-mentions-content survey-left">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions"> 15 menciones</span>
+                </div>
+                <div class="words-survey-mentions name-right">
+                    <span class="candidate-name-survey">candidate right</span>
+                    <div class="candidate-mentions-content survey-right">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">10 menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">Title survey </h3>
+                <div class="words-survey-mentions name-left ">
+                    <span class="candidate-name-survey">candidate left</span>
+                    <div class="candidate-mentions-content survey-left">
+                        <hr />
+                        <ul>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions"> 12 menciones</span>
+                </div>
+                <div class="words-survey-mentions name-right">
+                    <span class="candidate-name-survey">candidate right</span>
+                    <div class="candidate-mentions-content survey-right">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">10 menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">Title survey </h3>
+                <div class="words-survey-mentions name-left ">
+                    <span class="candidate-name-survey">candidate left</span>
+                    <div class="candidate-mentions-content survey-left">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions"> 12 menciones</span>
+                </div>
+                <div class="words-survey-mentions name-right">
+                    <span class="candidate-name-survey">candidate right</span>
+                    <div class="candidate-mentions-content survey-right">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">10 menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">Title survey </h3>
+                <div class="words-survey-mentions name-left ">
+                    <span class="candidate-name-survey">candidate left</span>
+                    <div class="candidate-mentions-content survey-left">
+                        <hr />
+                        <ul>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions"> 12 menciones</span>
+                </div>
+                <div class="words-survey-mentions name-right">
+                    <span class="candidate-name-survey">candidate right</span>
+                    <div class="candidate-mentions-content survey-right">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+
+
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">10 menciones</span>
+                </div>
+            </article>
+            <article class="word-survey-container">
+                <h3 class="words-survey-title">Title survey </h3>
+                <div class="words-survey-mentions name-left ">
+                    <span class="candidate-name-survey">candidate left</span>
+                    <div class="candidate-mentions-content survey-left">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions"> 12 menciones</span>
+                </div>
+                <div class="words-survey-mentions name-right">
+                    <span class="candidate-name-survey">candidate right</span>
+                    <div class="candidate-mentions-content survey-right">
+                        <hr />
+                        <ul>
+                            <li></li>
+                            <li></li>
+
+                        </ul>
+                    </div>
+                    <span class="candidate-number-mentions">10 menciones</span>
+                </div>
+            </article>
+            <div class="legends-container">
+                <p class="legends-content">* Cada palabra relevada puede incluir sinónimos o derivados
+                </p>
             </div>
-            <section class="mostly-used-words-container name-">
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word mostly-used-word-md">alegria</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">larger</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-                <article class="mostly-used-word-container">
-                    <span class="mostly-used-word">word</span>
-                    <span class="mostly-used-number"> 15</span>
-                </article>
-            </section>
-        </article>
-    </div>
-</section>
+
+
+
+
+    </section>
+    <section class="section-container mostly-used">
+        <div class="monitor-debate-heading">
+            <h2 class="monitor-debate-title">¿Por qué querés ser presidente? </h2>
+            <span class="monitor-debate-subtitle"> Las palabras más usadas en la respuesta de cada candidato </span>
+        </div>
+        <div class="mostly-used-candidates-container">
+            <article class="mostly-used-candidate-item">
+                <div class="candidate-data mostly-used-candidate-data">
+                    <article class="name-party-container mostly-used-name-party-container">
+                        <span class="candidate-name name-left">Massa</span>
+                        <span class="candidate-party">UP</span>
+                    </article>
+                    <div class="candidate-container-image candidate-mostly-used-image-left">
+                        <img class="candidate-image"
+                            src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png" />
+                    </div>
+
+                </div>
+                <section class="mostly-used-words-container name-left">
+                    <article class="mostly-used-word-container ">
+                        <span class="mostly-used-word mostly-used-word-lg">argentina</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">cambio</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">palabra</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">tornado</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">calor</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">naturaleza</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                </section>
+            </article>
+            <article class="mostly-used-candidate-item name-right">
+                <div class="candidate-data">
+                    <article class="name-party-container mostly-used-name-party-container">
+                        <span class="candidate-name name-right">name</span>
+                        <span class="candidate-party">party</span>
+                    </article>
+                    <div class="candidate-container-image candidate-mostly-used-image-right">
+                        <img class="candidate-image"
+                            src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" />
+                    </div>
+
+                </div>
+                <section class="mostly-used-words-container name-">
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word mostly-used-word-md">alegria</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">larger</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                    <article class="mostly-used-word-container">
+                        <span class="mostly-used-word">word</span>
+                        <span class="mostly-used-number"> 15</span>
+                    </article>
+                </section>
+            </article>
+        </div>
+    </section>
 </div>
 <script>
     const mostlyUsedSections = document.querySelectorAll('.mostly-used-words-container');
 
     const options = {
-        threshold: 0.5 // Adjust the threshold as needed
+        threshold: 0.5
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = 1; // When in viewport, set opacity to 1 for fade effect
+                entry.target.style.opacity = 1;
             } else {
-                entry.target.style.opacity = 0; // Reset opacity when out of the viewport
+                entry.target.style.opacity = 0;
             }
         });
     }, options);
 
     mostlyUsedSections.forEach(section => {
-        observer.observe(section); // Observe each .mostly-used-words-container
+        observer.observe(section);
     });
 
 </script>
-                
 
             </div>
         </div><p></p>
