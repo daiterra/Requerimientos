@@ -3335,6 +3335,7 @@ if(hasIntersectionObserver) {
         --shadow-container: 1px 10px 15px -15px #0006;
         --color-background: #FAFAFA;
         --color-candidate-divider: #ccc;
+        --color-footer-text:#a3a3a3
     }
     .parties-nav {
         /* background-color: #333; */
@@ -3357,7 +3358,7 @@ if(hasIntersectionObserver) {
         top: 10%;
         box-shadow: var(--shadow-container);
         background-color: var(--color-background);
-        /* width: 42%; */
+        width: 46%;
         /* z-index: 1000; */
     }
 
@@ -3366,6 +3367,7 @@ if(hasIntersectionObserver) {
         padding: 0;
         margin: 0;
         display: flex;
+        justify-content: center;
     }
 
     .navbar-item {
@@ -3381,11 +3383,36 @@ if(hasIntersectionObserver) {
         border-radius: 50%;
         margin-right: 10px;
     }
-    .first { background-color: var(--color-first); }
-    .second { background-color:  var(--color-second); }
-    .third { background-color:  var(--color-third); }
-    .fourth { background-color:  var(--color-fourth); }
-    .fifth { background-color:  var(--color-fifth); }
+    .first {
+        background-color: var(--color-first);
+    }
+    .color-first{
+        color:var(--color-first)
+    }
+    .second { 
+        background-color:  var(--color-second);
+    }
+    .color-second{
+        color:var(--color-second)
+    }
+    .third { 
+        background-color:  var(--color-third);
+    }
+    .color-third{
+        color:var(--color-third)
+    }
+    .fourth { 
+        background-color:  var(--color-fourth); 
+    }
+    .color-fourth{
+        color:var(--color-fourth)
+    }
+    .fifth {
+        background-color:  var(--color-fifth);
+    }
+    .color-fifth{
+        color:var(--color-fifth)
+    }
     
     .table-candidate-container{
         display: flex;
@@ -3394,8 +3421,8 @@ if(hasIntersectionObserver) {
         align-items: center;
         width: 100%;
         border-top:1px solid var(--color-candidate-divider);
-        border-bottom:1px solid var(--color-candidate-divider);
-        padding: 2rem 0;
+        /* border-bottom:1px solid var(--color-candidate-divider); */
+        padding: 2rem 0 0;
     }
     .candidate-container-image{
         width: 110px;
@@ -3454,17 +3481,28 @@ if(hasIntersectionObserver) {
     font-weight: 700;
     font-size: 1.5em;
    }
-   
+   .poll-footer{
+        border: 1px solid var(--color-candidate-divider);
+        color: var(--color-footer-text);
+        padding: .5rem;
+        margin: 2rem 0;
+        /* width: 65%; */
+   }
    @keyframes progress {
         from {
             transform: scaleY(0);
      }
     }
 
-/* .polls-wrapper{
-    position: relative;
-} */
-
+    .polls-wrapper, .poll-container{
+        text-align: center;
+    }
+    .poll-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:6rem
+    }
 </style>
 
 <div class="container-wrapper">
@@ -3478,16 +3516,19 @@ if(hasIntersectionObserver) {
 
     </section>
     <section class="polls-wrapper">
-        <nav class="parties-nav" id="partiesNav">
-            <ul class="navbar-items">
-                <li class="navbar-item"><span class="bullet first"></span>Item 1</li>
-                <li class="navbar-item"><span class="bullet second"></span>Item 2</li>
-                <li class="navbar-item"><span class="bullet third"></span>Item 3</li>
-                <li class="navbar-item"><span class="bullet fourth"></span>Item 4</li>
-                <li class="navbar-item"><span class="bullet fifth"></span>Item 5</li>
-            </ul>
-        </nav>
-       <h2 class="parties-title"> A QUIEN ELEGIS?</h2>
+        
+            <nav class="parties-nav" id="partiesNav">
+                <ul class="navbar-items">
+                    <li class="navbar-item"><span class="bullet first"></span>Item 1</li>
+                    <li class="navbar-item"><span class="bullet second"></span>Item 2</li>
+                    <li class="navbar-item"><span class="bullet third"></span>Item 3</li>
+                    <li class="navbar-item"><span class="bullet fourth"></span>Item 4</li>
+                    <li class="navbar-item"><span class="bullet fifth"></span>Item 5</li>
+                </ul>
+            </nav>
+           <h2 class="parties-title"> A QUIEN ELEGIS?</h2>
+        
+
        <article class="poll-container">
             <h3 class="poll-consultant">consultant</h3>
             <select id="poll-period">
@@ -3502,7 +3543,7 @@ if(hasIntersectionObserver) {
                         </div>
                         <span class="candidate-name">name</span>
                     </div>
-                    <span class="percentage-number">20,0%</span>
+                    <span class="percentage-number color-first">20,0%</span>
                     <div class="candidate-percentage-container">
                         <div class="percentage-bar first"></div>
                     </div>
@@ -3514,7 +3555,7 @@ if(hasIntersectionObserver) {
                         </div>
                         <span class="candidate-name">name</span>
                     </div>
-                    <span class="percentage-number">20,0%</span>
+                    <span class="percentage-number color-second">20,0%</span>
 
                     <div class="candidate-percentage-container second">
                         <div class="percentage-bar "></div>
@@ -3527,7 +3568,7 @@ if(hasIntersectionObserver) {
                         </div>
                         <span class="candidate-name">name</span>
                     </div>
-                    <span class="percentage-number">20,0%</span>
+                    <span class="percentage-number color-third">20,0%</span>
                     <div class="candidate-percentage-container">
                         
                         <div class="percentage-bar third"></div>
