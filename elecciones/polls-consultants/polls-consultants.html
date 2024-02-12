@@ -3425,8 +3425,8 @@ if(hasIntersectionObserver) {
         padding: 2rem 0 0;
     }
     .candidate-container-image{
-        width: 110px;
-        height: 110px;
+        width: 80px;
+        height: 80px;
         overflow: hidden;
         border-radius: 50%;
     }
@@ -3457,41 +3457,48 @@ if(hasIntersectionObserver) {
     .candidate-data{
         display: flex;
         flex-direction: column;
-        gap:.5rem
+        gap:.5rem;
+        align-items: center;
+    }
+    .candidate-votes{
+         /* border:1px solid red; */
+         display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        /* gap:1rem; */
+        flex-grow: 1;
+        width: 100%;
     }
     .candidate-percentage-container{
-        /* border:1px solid red; */
-        display: flex;
-        flex-direction: column;
-        gap:1rem;
+       
         flex-grow:1;
         width:100%;
         position: relative;
-   }
-   .percentage-bar{
-        position:absolute;
-        width: 100%;
-        bottom:0;
-        height: 100%;
-        animation: progress 2s ease-out forwards;
-        transform-origin: bottom;
-        /* background-color: pink; */
+        /* height: 100%; */
    }
    .percentage-number{
-    font-weight: 700;
-    font-size: 1.5em;
-   }
-   .poll-footer{
+       font-weight: 700;
+       font-size: 1.5em;
+    }
+    .poll-footer{
         border: 1px solid var(--color-candidate-divider);
         color: var(--color-footer-text);
         padding: .5rem;
         margin: 2rem 0;
         /* width: 65%; */
-   }
+    }
+    .percentage-bar{
+         position:absolute;
+         width: 100%;
+         bottom:0;
+         height: 90%;
+         animation: progress 2s ease-out forwards;
+         transform-origin: bottom;
+    }
    @keyframes progress {
         from {
             transform: scaleY(0);
-     }
+        }
     }
 
     .polls-wrapper, .poll-container{
@@ -3532,96 +3539,61 @@ if(hasIntersectionObserver) {
        <article class="poll-container">
             <h3 class="poll-consultant">consultant</h3>
             <select id="poll-period">
-                <option value="period-one">period one</option>
-                <option value="period-two">period two</option>
+                <option value="firstPeriod">period one</option>
+                <option value="secondPeriod">period two</option>
               </select>
             <section class="table-candidate-container">
                 <article class="candidate-item">
                     <div class="candidate-data">
                         <div class="candidate-container-image first">
-                            <img  src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" alt="candidate image">
+                            <img class="candidate-image"  src="" alt="candidate image">
                         </div>
                         <span class="candidate-name">name</span>
                     </div>
-                    <span class="percentage-number color-first">20,0%</span>
-                    <div class="candidate-percentage-container">
-                        <div class="percentage-bar first"></div>
+
+                    <div class="candidate-votes">
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="candidate-percentage-container">
+                            <div class="percentage-bar first "></div>
+                        </div>
                     </div>
+                    
+
+                    
                 </article>
                 <article class="candidate-item">
                     <div class="candidate-data">
                         <div class="candidate-container-image second">
-                            <img  src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" alt="candidate image">
+                            <img class="candidate-image"  src="" alt="candidate image">
                         </div>
                         <span class="candidate-name">name</span>
                     </div>
-                    <span class="percentage-number color-second">20,0%</span>
 
-                    <div class="candidate-percentage-container second">
-                        <div class="percentage-bar "></div>
+                    <div class="candidate-votes">
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="candidate-percentage-container">
+                            <div class="percentage-bar second "></div>
+                        </div>
                     </div>
+                    
+
+                    
                 </article>
                 <article class="candidate-item">
                     <div class="candidate-data">
                         <div class="candidate-container-image third">
-                            <img  src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" alt="candidate image">
+                            <img class="candidate-image"  src="" alt="candidate image">
                         </div>
                         <span class="candidate-name">name</span>
                     </div>
-                    <span class="percentage-number color-third">20,0%</span>
-                    <div class="candidate-percentage-container">
-                        
-                        <div class="percentage-bar third"></div>
+
+                    <div class="candidate-votes">
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="candidate-percentage-container">
+                            <div class="percentage-bar third "></div>
+                        </div>
                     </div>
                 </article>
-                <!-- <article class="candidate-item">
-                    <div class="candidate-data">
-                        <div class="candidate-container-image first">
-                            <img  src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" alt="candidate image">
-                        </div>
-                        <span class="candidate-name">name</span>
-                    </div>
-                    <div class="candidate-percentage-container">
-                        <span class="percentage-number">number</span>
-                        <div class="percentage-bar">percentage-bar</div>
-                    </div>
-                </article>
-                <article class="candidate-item">
-                    <div class="candidate-data">
-                        <div class="candidate-container-image first">
-                            <img  src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" alt="candidate image">
-                        </div>
-                        <span class="candidate-name">name</span>
-                    </div>
-                    <div class="candidate-percentage-container">
-                        <span class="percentage-number">number</span>
-                        <div class="percentage-bar">percentage-bar</div>
-                    </div>
-                </article> -->
-                <!-- <article class="candidate-item">
-                    <div class="candidate-data">
-                        <div class="candidate-container-image first">
-                            <img  src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" alt="candidate image">
-                        </div>
-                        <span class="candidate-name">name</span>
-                    </div>
-                    <div class="candidate-percentage-container">
-                        <span class="percentage-number">number</span>
-                        <div class="percentage-bar">percentage-bar</div>
-                    </div>
-                </article>
-                <article class="candidate-item">
-                    <div class="candidate-data">
-                        <div class="candidate-container-image first">
-                            <img  src="https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png" alt="candidate image">
-                        </div>
-                        <span class="candidate-name">name</span>
-                    </div>
-                    <div class="candidate-percentage-container">
-                        <span class="percentage-number">number</span>
-                        <div class="percentage-bar">percentage-bar</div>
-                    </div>
-                </article> -->
             </section>
        </article>
        <footer class="poll-footer">
@@ -3643,6 +3615,87 @@ function stickyNavbar() {
         navbar.classList.remove("sticky");
     }
 }
+
+
+const politicians = {
+    "Nombre politico 1": {
+        color: "color-first",
+        picture: "https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png",
+        percentage: {
+            firstPeriod: 100,
+            secondPeriod: 20
+        }
+    },
+    "Nombre politico 2": {
+        color: "color-second",
+        picture: "https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/patricia-bullrich-2.png",
+        percentage: {
+            firstPeriod: 10,
+            secondPeriod: 30
+        }
+    },
+    "Nombre politico 3": {
+        color: "color-third",
+        picture: "https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png",
+        percentage: {
+            firstPeriod: 20,
+            secondPeriod: 40
+        }
+    }
+};
+const options = {
+  root: null,
+  threshold: 0.5
+};
+const candidateItems = document.querySelectorAll('.candidate-item');
+
+const handleIntersection = (entries, observer) => {
+  entries.forEach(entry => {
+    const candidateVotes = entry.target.querySelector('.candidate-percentage-container');
+    if (entry.isIntersecting) {
+      candidateVotes.style.display = 'flex';
+    } else {
+      candidateVotes.style.display = 'none';
+    }
+  });
+};
+const observer = new IntersectionObserver(handleIntersection, options);
+
+function updatePercentageElements(period) {
+    const selectedPoliticians = politicians;
+
+    candidateItems.forEach((item, index) => {
+        const politicianName = Object.keys(selectedPoliticians)[index];
+        const politicianData = selectedPoliticians[politicianName];
+        const politicianColor = politicianData.color;
+        const politicianPercentage = politicianData.percentage[period];
+        const politicianImage = politicianData.picture;
+        const percentageNumber = item.querySelector('.percentage-number');
+        const percentageBar = item.querySelector('.percentage-bar');
+        const candidateImage = item.querySelector('.candidate-image');
+
+        item.classList.add(politicianColor);
+        percentageNumber.textContent = `${politicianPercentage}%`;
+        percentageBar.style.height = `${politicianPercentage}%`;
+        item.querySelector('.candidate-name').textContent = politicianName;
+        candidateImage.src = politicianImage;
+        percentageBar.style.animation = 'none';
+        void percentageBar.offsetWidth;
+        percentageBar.style.animation = 'progress 1.5s ease-out forwards';
+        observer.observe(item);
+
+    });
+}
+
+const initialPeriod = document.getElementById('poll-period').value;
+updatePercentageElements(initialPeriod);
+
+const selectElement = document.getElementById('poll-period');
+selectElement.addEventListener('change', function() {
+    const selectedPeriod = this.value;
+    updatePercentageElements(selectedPeriod);
+});
+
 </script>
                 
 
