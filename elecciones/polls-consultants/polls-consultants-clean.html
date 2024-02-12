@@ -1,0 +1,415 @@
+<style>
+    :root {
+        --color-first: #4284bf;
+        --color-second: #8f779a;
+        --color-third: #dc5c51;
+        --color-fourth: #f2b936;
+        --color-fifth: #4284bf;
+        --shadow-container: 1px 10px 15px -15px #0006;
+        --color-background: #FAFAFA;
+        --color-candidate-divider: #ccc;
+        --color-footer-text: #a3a3a3
+    }
+
+    .parties-nav {
+        /* background-color: #333; */
+        /* color: #fff; */
+        padding: 10px 0;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .container-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-text {
+        background-color: var(--color-background);
+        padding: 4rem 2rem 0;
+    }
+
+    .parties-nav.sticky {
+        position: fixed;
+        /* Set position to fixed when scrolled */
+        top: 10%;
+        box-shadow: var(--shadow-container);
+        background-color: var(--color-background);
+        width: 46%;
+        /* z-index: 1000; */
+    }
+
+    .navbar-items {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar-item {
+        display: flex;
+        align-items: center;
+        padding: 8px 20px;
+    }
+
+    .bullet {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .first {
+        background-color: var(--color-first);
+    }
+
+    .color-first {
+        color: var(--color-first)
+    }
+
+    .second {
+        background-color: var(--color-second);
+    }
+
+    .color-second {
+        color: var(--color-second)
+    }
+
+    .third {
+        background-color: var(--color-third);
+    }
+
+    .color-third {
+        color: var(--color-third)
+    }
+
+    .fourth {
+        background-color: var(--color-fourth);
+    }
+
+    .color-fourth {
+        color: var(--color-fourth)
+    }
+
+    .fifth {
+        background-color: var(--color-fifth);
+    }
+
+    .color-fifth {
+        color: var(--color-fifth)
+    }
+
+    .table-candidate-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        border-top: 1px solid var(--color-candidate-divider);
+        /* border-bottom:1px solid var(--color-candidate-divider); */
+        padding: 2rem 0 0;
+    }
+
+    .candidate-container-image {
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+
+    /* .candidate-container-image img{
+        transform: scale(1.5) 
+    } */
+    .candidate-item {
+        min-height: 300px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        padding: 2rem 1rem;
+        /* position:relative; */
+        border-left: 1px solid var(--color-candidate-divider);
+    }
+
+    .candidate-item:first-child {
+        border: none
+    }
+
+    .candidate-name {
+        text-transform: uppercase;
+        padding: 1rem;
+        font-weight: 600;
+    }
+
+    .candidate-data {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        align-items: center;
+    }
+
+    .candidate-votes {
+        /* border:1px solid red; */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        /* gap:1rem; */
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    .candidate-percentage-container {
+
+        flex-grow: 1;
+        width: 100%;
+        position: relative;
+        /* height: 100%; */
+    }
+
+    .percentage-number {
+        font-weight: 700;
+        font-size: 1.5em;
+    }
+
+    .poll-footer {
+        border: 1px solid var(--color-candidate-divider);
+        color: var(--color-footer-text);
+        padding: .5rem;
+        margin: 2rem 0;
+        /* width: 65%; */
+    }
+
+    .percentage-bar {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        height: 90%;
+        animation: progress 2s ease-out forwards;
+        transform-origin: bottom;
+    }
+
+    @keyframes progress {
+        from {
+            transform: scaleY(0);
+        }
+    }
+
+    .polls-wrapper,
+    .poll-container {
+        text-align: center;
+    }
+
+    .poll-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6rem
+    }
+
+    #poll-period {
+        padding: 0.2rem 3rem;
+        transition: .2s ease-in-out;
+    }
+</style>
+
+<div class="container-wrapper">
+    <section class="main-text">
+        <div class="text">La carrera presidencial entra en la recta final. El domingo 22, los argentinos elegirán entre
+            un menú de cinco candidatos, tres de los cuales tienen posibilidades reales de competir por el sillón de
+            Rivadavia: Javier Milei (La Libertad Avanza), Patricia Bullrich (Juntos por el Cambio) y Sergio Massa (Unión
+            por la Patria). A su vez, Juan Schiaretti (Hacemos por Nuestro País) y Myriam Bregman (Frente de
+            Izquierda-Unidad) disputan el cuarto lugar.
+
+            De cara a las elecciones generales hay dos incógnitas centrales a despejar: si alguno de los postulantes
+            estará en condiciones de ganar en primera vuelta –para ello necesitará obtener al menos el 40% de los votos
+            y esperar que ninguno de sus rivales supere el 30%-; y quiénes se ubicarán en los dos primeros lugares en
+            caso de configurarse un escenario de ballottage. La segunda vuelta, de ser necesaria, tendrá lugar el 19 de
+            noviembre.
+
+            Si bien las encuestas están bajo la lupa como un instrumento efectivo para anticipar el resultado de una
+            elección –de hecho ninguna consultora proyectó la performance de Milei en las PASO-, también reflejan
+            tendencias como la de los “tres tercios” que se verificaron en las primarias y que ahora son el punto de
+            partida de los sondeos publicados en las últimas semanas. Aquí, una muestra variada de los números a los que
+            accedió LA NACION.</div>
+
+
+    </section>
+    <section class="polls-wrapper">
+
+        <nav class="parties-nav" id="partiesNav">
+            <ul class="navbar-items">
+                <li class="navbar-item"><span class="bullet first"></span>Item 1</li>
+                <li class="navbar-item"><span class="bullet second"></span>Item 2</li>
+                <li class="navbar-item"><span class="bullet third"></span>Item 3</li>
+                <li class="navbar-item"><span class="bullet fourth"></span>Item 4</li>
+                <li class="navbar-item"><span class="bullet fifth"></span>Item 5</li>
+            </ul>
+        </nav>
+        <h2 class="parties-title"> A QUIEN ELEGIS?</h2>
+
+
+        <article class="poll-container">
+            <h3 class="poll-consultant">consultant</h3>
+            <select id="poll-period">
+                <option value="firstPeriod">period one</option>
+                <option value="secondPeriod">period two</option>
+            </select>
+            <section class="table-candidate-container">
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image first">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="candidate-percentage-container">
+                            <div class="percentage-bar first "></div>
+                        </div>
+                    </div>
+
+
+
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image second">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="candidate-percentage-container">
+                            <div class="percentage-bar second "></div>
+                        </div>
+                    </div>
+
+
+
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image third">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="candidate-percentage-container">
+                            <div class="percentage-bar third "></div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </article>
+        <footer class="poll-footer">
+            <span class="footer-text">footer text</span>
+        </footer>
+    </section>
+</div>
+
+<script>
+    window.onscroll = function () { stickyNavbar() };
+
+    let navbar = document.querySelector("#partiesNav");
+    let sticky = navbar.offsetTop;
+
+    function stickyNavbar() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky");
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+
+
+    const politicians = {
+        "Nombre politico 1": {
+            color: "color-first",
+            picture: "https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png",
+            percentage: {
+                firstPeriod: 100,
+                secondPeriod: 20
+            }
+        },
+        "Nombre politico 2": {
+            color: "color-second",
+            picture: "https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/patricia-bullrich-2.png",
+            percentage: {
+                firstPeriod: 10,
+                secondPeriod: 30
+            }
+        },
+        "Nombre politico 3": {
+            color: "color-third",
+            picture: "https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/sergio_Massa_2.png",
+            percentage: {
+                firstPeriod: 20,
+                secondPeriod: 40
+            }
+        }
+    };
+    const options = {
+        root: null,
+        threshold: 0.5
+    };
+    const candidateItems = document.querySelectorAll('.candidate-item');
+
+    const handleIntersection = (entries, observer) => {
+        entries.forEach(entry => {
+            const candidateVotes = entry.target.querySelector('.candidate-percentage-container');
+            if (entry.isIntersecting) {
+                candidateVotes.style.display = 'flex';
+            } else {
+                candidateVotes.style.display = 'none';
+            }
+        });
+    };
+    const observer = new IntersectionObserver(handleIntersection, options);
+
+    function updatePercentageElements(period) {
+        const selectedPoliticians = politicians;
+
+        candidateItems.forEach((item, index) => {
+            const politicianName = Object.keys(selectedPoliticians)[index];
+            const politicianData = selectedPoliticians[politicianName];
+            const politicianColor = politicianData.color;
+            const politicianPercentage = politicianData.percentage[period];
+            const politicianImage = politicianData.picture;
+            const percentageNumber = item.querySelector('.percentage-number');
+            const percentageBar = item.querySelector('.percentage-bar');
+            const candidateImage = item.querySelector('.candidate-image');
+
+            item.classList.add(politicianColor);
+            percentageNumber.textContent = `${politicianPercentage}%`;
+            percentageBar.style.height = `${politicianPercentage}%`;
+            item.querySelector('.candidate-name').textContent = politicianName;
+            candidateImage.src = politicianImage;
+            percentageBar.style.animation = 'none';
+            void percentageBar.offsetWidth;
+            percentageBar.style.animation = 'progress 1.5s ease-out forwards';
+            observer.observe(item);
+
+        });
+    }
+
+    const initialPeriod = document.getElementById('poll-period').value;
+    updatePercentageElements(initialPeriod);
+
+    const selectElement = document.getElementById('poll-period');
+    selectElement.addEventListener('change', function () {
+        const selectedPeriod = this.value;
+        updatePercentageElements(selectedPeriod);
+    });
+
+</script>
