@@ -3345,6 +3345,9 @@ if(hasIntersectionObserver) {
         padding: 10px 0;
         position: relative;
         z-index: 1000;
+        box-shadow: var(--shadow-container);
+        background-color: var(--color-background);
+
     }
 
     .container-wrapper {
@@ -3354,17 +3357,13 @@ if(hasIntersectionObserver) {
 
     .main-text {
         background-color: var(--color-background);
-        padding: 4rem 2rem 0;
+        padding: 4rem 2rem;
     }
 
     .parties-nav.sticky {
         position: fixed;
-        /* Set position to fixed when scrolled */
-        top: 10%;
-        box-shadow: var(--shadow-container);
-        background-color: var(--color-background);
+        top: 10%;        
         width: 46%;
-        /* z-index: 1000; */
     }
 
     .navbar-items {
@@ -3436,7 +3435,6 @@ if(hasIntersectionObserver) {
         align-items: center;
         width: 100%;
         border-top: 1px solid var(--color-candidate-divider);
-        /* border-bottom:1px solid var(--color-candidate-divider); */
         padding: 2rem 0 0;
     }
 
@@ -3451,7 +3449,7 @@ if(hasIntersectionObserver) {
         transform: scale(1.5) 
     } */
     .candidate-item {
-        min-height: 400px;
+        min-height: 380px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -3470,7 +3468,7 @@ if(hasIntersectionObserver) {
     .candidate-name {
         text-transform: uppercase;
         padding: 1rem;
-        font-weight: 600;
+        font-weight: 500;
     }
 
     .candidate-data {
@@ -3482,7 +3480,7 @@ if(hasIntersectionObserver) {
 
     .candidate-votes {
         width: 100%;
-        height: 200px;
+        height: 150px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -3520,25 +3518,69 @@ if(hasIntersectionObserver) {
     .poll-container {
         text-align: center;
     }
+    .polls-wrapper{
+        display: flex;
+        flex-direction: column;
+        gap:6rem
+    }
 
     .poll-container {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        gap: 6rem
+        /* gap: 6rem */
     }
-
+    .select-container{
+        /* border:1px solid red; */
+        min-width: 40%;
+        position: relative;
+        text-align: center;
+        margin: 5rem 0;
+    }
     #poll-period {
-        padding: 0.2rem 3rem;
+        min-width: 100%;
+        padding: 0.2rem 5rem;
         transition: .2s ease-in-out;
         color: var(--color-select-text);
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none; 
+        
     }
     #poll-period:hover{
         cursor:pointer
     }
+    .chevron-icon{
+        position: absolute;
+        right:10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 4px;
+        border-style: solid;
+        border-width: 6px 6px 0 6px;
+        border-color: #000 transparent transparent transparent;
+        pointer-events: none;
+        transition: .2s ease-in-out;
+    }
+   
+    #poll-period option {
+        text-align: center;
+    }
+    .RichTextBody .parties-title{
+        /* font-weight: 500; */
+        text-transform: uppercase;
+        font-size: 4rem;
+        /* color: #848484; */
+        font-variation-settings: "wght" 30,"opsz" 10;
+    }
+    .RichTextBody .poll-consultant{
+        text-transform: capitalize;
+        font-size: 3rem;
+    }
+
+
 </style>
 
 <div class="container-wrapper">
@@ -3574,15 +3616,21 @@ if(hasIntersectionObserver) {
                 <li class="navbar-item"><span class="bullet fifth"></span>Item 5</li>
             </ul>
         </nav>
-        <h2 class="parties-title"> A QUIEN ELEGIS?</h2>
+        <h2 class="parties-title"> ENTRE ESTOS CANDIDATOS, ¿A QUIÉN VOTARÍAS?  </h2>
 
 
         <article class="poll-container">
             <h3 class="poll-consultant">consultant</h3>
-            <select id="poll-period">
-                <option value="firstPeriod">period one</option>
-                <option value="secondPeriod">period two</option>
-            </select>
+            <div class="select-container"> 
+                <select id="poll-period">
+                    <option value="firstPeriod">period one</option>
+                    <option value="secondPeriod">period two</option>
+                </select>
+                <div class="chevron-icon">
+                   
+                </div>
+            </div>
+           
             <section class="table-candidate-container">
                 <article class="candidate-item">
                     <div class="candidate-data">
@@ -3625,11 +3673,12 @@ if(hasIntersectionObserver) {
                 </article>
 
             </section>
+            <footer class="poll-footer">
+                <span class="footer-text">Encuesta telefónica con metodología IVR, sobre 2188 casos, con un nivel de confianza del 95% y un error muestral de +-3,5%
+                </span>
+            </footer>
         </article>
-        <footer class="poll-footer">
-            <span class="footer-text">Encuesta telefónica con metodología IVR, sobre 2188 casos, con un nivel de confianza del 95% y un error muestral de +-3,5%
-            </span>
-        </footer>
+        
     </section>
 </div>
 
@@ -3705,7 +3754,7 @@ if(hasIntersectionObserver) {
             const percentageBar = item.querySelector('.percentage-bar');
             const candidateImage = item.querySelector('.candidate-image');
 
-            item.classList.add(politicianColor);
+            percentageNumber.classList.add(politicianColor);
             percentageNumber.textContent = `${politicianPercentage}%`;
             percentageBar.style.height = `${politicianPercentage}%`;
             item.querySelector('.candidate-name').textContent = politicianName;
