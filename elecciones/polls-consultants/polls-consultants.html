@@ -3331,7 +3331,7 @@ if(hasIntersectionObserver) {
         --color-second: #8f779a;
         --color-third: #dc5c51;
         --color-fourth: #f2b936;
-        --color-fifth: #4284bf;
+        --color-fifth: #91D6E3;
         --shadow-container: 1px 10px 15px -15px #0006;
         --color-background: #FAFAFA;
         --color-candidate-divider: #ccc;
@@ -3361,9 +3361,10 @@ if(hasIntersectionObserver) {
     }
 
     .parties-nav.sticky {
-        position: fixed;
-        top: 10%;        
-        width: 46%;
+        position: sticky;
+        /* top: 10%; */
+        top: calc(40px + 90px);
+        /* width: 56%; */
     }
 
     .navbar-items {
@@ -3372,6 +3373,7 @@ if(hasIntersectionObserver) {
         margin: 0;
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .navbar-item {
@@ -3431,7 +3433,8 @@ if(hasIntersectionObserver) {
     .table-candidate-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
+        flex-wrap: wrap;
         align-items: center;
         width: 100%;
         border-top: 1px solid var(--color-candidate-divider);
@@ -3449,19 +3452,22 @@ if(hasIntersectionObserver) {
         transform: scale(1.5) 
     } */
     .candidate-item {
-        min-height: 380px;
-        width: 100%;
+        min-height: 350px;
+        min-width: 25%;
+        max-width: 30%;
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         text-align: center;
         padding: 2rem 1rem;
         /* position:relative; */
         border-left: 1px solid var(--color-candidate-divider);
     }
 
-    .candidate-item:first-child {
+    .candidate-item:first-child,
+    .candidate-item:last-child {
         border: none
     }
 
@@ -3490,6 +3496,8 @@ if(hasIntersectionObserver) {
     .percentage-number {
         font-weight: 700;
         font-size: 1.5em;
+        display: flex;
+        white-space: nowrap;
     }
 
     .poll-footer {
@@ -3499,7 +3507,7 @@ if(hasIntersectionObserver) {
         margin: 2rem 0;
         font-size: 1rem;
         text-align: left;
-        /* width: 65%; */
+        width: 100%;
     }
 
     .percentage-bar {
@@ -3518,10 +3526,11 @@ if(hasIntersectionObserver) {
     .poll-container {
         text-align: center;
     }
-    .polls-wrapper{
+
+    .polls-wrapper {
         display: flex;
         flex-direction: column;
-        gap:6rem
+        gap: 6rem
     }
 
     .poll-container {
@@ -3531,13 +3540,15 @@ if(hasIntersectionObserver) {
         align-items: center;
         /* gap: 6rem */
     }
-    .select-container{
+
+    .select-container {
         /* border:1px solid red; */
         min-width: 40%;
         position: relative;
         text-align: center;
         margin: 5rem 0;
     }
+
     #poll-period {
         min-width: 100%;
         padding: 0.2rem 5rem;
@@ -3545,15 +3556,19 @@ if(hasIntersectionObserver) {
         color: var(--color-select-text);
         -webkit-appearance: none;
         -moz-appearance: none;
-        appearance: none; 
-        
+        appearance: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+
     }
-    #poll-period:hover{
-        cursor:pointer
+
+    #poll-period:hover {
+        cursor: pointer
     }
-    .chevron-icon{
+
+    .chevron-icon {
         position: absolute;
-        right:10px;
+        right: 10px;
         top: 50%;
         transform: translateY(-50%);
         width: 4px;
@@ -3564,23 +3579,100 @@ if(hasIntersectionObserver) {
         pointer-events: none;
         transition: .2s ease-in-out;
     }
-   
+
     #poll-period option {
         text-align: center;
     }
-    .RichTextBody .parties-title{
+
+    .RichTextBody .parties-title {
         /* font-weight: 500; */
         text-transform: uppercase;
         font-size: 4rem;
         /* color: #848484; */
-        font-variation-settings: "wght" 30,"opsz" 10;
+        font-variation-settings: "wght" 30, "opsz" 10;
     }
-    .RichTextBody .poll-consultant{
+
+    .RichTextBody .poll-consultant {
         text-transform: capitalize;
         font-size: 3rem;
     }
 
+    .candidate-name-mobile {
+        display: none;
+    }
 
+    @media only screen and (max-width: 767px) {
+        .parties-nav.sticky {
+            width: 100%;
+            top: calc(0px + 80px)
+        }
+
+        .select-container {
+            min-width: 60%;
+        }
+
+        .table-candidate-container {
+            flex-direction: column;
+            border: none;
+        }
+
+        .candidate-item {
+            min-height: fit-content;
+            flex-direction: row;
+            border: none;
+            min-width: 100%;
+            gap: 1rem;
+            align-items: end;
+            /* border:1px solid orange */
+        }
+
+        .candidate-data {
+            flex-direction: column-reverse;
+        }
+
+        .candidate-name-desktop {
+            display: none;
+        }
+
+        .candidate-votes {
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 1rem;
+            height: 100%;
+            justify-content: start;
+        }
+
+        @keyframes progress {
+            from {
+                width: 0;
+            }
+        }
+
+        .percentage-bar {
+            height: 100%;
+        }
+
+        .mobile {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            /* border:1px solid red; */
+            align-items: flex-start;
+            height: 90px;
+        }
+
+        /* .candidate-container-image {
+            width: 80px;
+            height: 120px;
+            margin-top: 3rem;
+        } */
+
+        .candidate-name-mobile {
+            display: flex;
+            padding: 1rem 0 0;
+            font-variation-settings: "wght" 600, "opsz" 90;
+        }
+    }
 </style>
 
 <div class="container-wrapper">
@@ -3609,38 +3701,39 @@ if(hasIntersectionObserver) {
 
         <nav class="parties-nav" id="partiesNav">
             <ul class="navbar-items">
-                <li class="navbar-item"><span class="bullet first"></span>Item 1</li>
-                <li class="navbar-item"><span class="bullet second"></span>Item 2</li>
-                <li class="navbar-item"><span class="bullet third"></span>Item 3</li>
-                <li class="navbar-item"><span class="bullet fourth"></span>Item 4</li>
-                <li class="navbar-item"><span class="bullet fifth"></span>Item 5</li>
+                <li class="navbar-item"><span class="bullet first"></span>Partido politico</li>
+                <li class="navbar-item"><span class="bullet second"></span>Partido politico</li>
+                <li class="navbar-item"><span class="bullet third"></span>Partido politico</li>
+                <li class="navbar-item"><span class="bullet fourth"></span>Partido politico</li>
+                <li class="navbar-item"><span class="bullet fifth"></span>Partido politico</li>
             </ul>
         </nav>
-        <h2 class="parties-title"> ENTRE ESTOS CANDIDATOS, ¿A QUIÉN VOTARÍAS?  </h2>
+        <h2 class="parties-title"> ENTRE ESTOS CANDIDATOS, ¿A QUIÉN VOTARÍAS? </h2>
 
 
-        <article class="poll-container">
+        <article id="poll-container-1" class="poll-container">
             <h3 class="poll-consultant">consultant</h3>
-            <div class="select-container"> 
+            <div class="select-container">
                 <select id="poll-period">
-                    <option value="firstPeriod">period one</option>
-                    <option value="secondPeriod">period two</option>
+                    <option value="firstPeriod">30 de septiembre al 7 de octubre</option>
+                    <option value="secondPeriod">10 al 13 de octubre</option>
                 </select>
                 <div class="chevron-icon">
-                   
+
                 </div>
             </div>
-           
+
             <section class="table-candidate-container">
                 <article class="candidate-item">
                     <div class="candidate-data">
                         <div class="candidate-container-image first">
                             <img class="candidate-image" src="" alt="candidate image">
                         </div>
-                        <span class="candidate-name">name</span>
+                        <span class="candidate-name candidate-name-desktop">name</span>
                     </div>
 
                     <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
                         <div class="percentage-number ">20,0%</div>
                         <div class="percentage-bar first"></div>
                     </div>
@@ -3650,10 +3743,11 @@ if(hasIntersectionObserver) {
                         <div class="candidate-container-image second">
                             <img class="candidate-image" src="" alt="candidate image">
                         </div>
-                        <span class="candidate-name">name</span>
+                        <span class="candidate-name candidate-name-desktop">name</span>
                     </div>
 
                     <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
                         <div class="percentage-number ">20,0%</div>
                         <div class="percentage-bar second"></div>
                     </div>
@@ -3663,22 +3757,239 @@ if(hasIntersectionObserver) {
                         <div class="candidate-container-image third">
                             <img class="candidate-image" src="" alt="candidate image">
                         </div>
-                        <span class="candidate-name">name</span>
+                        <span class="candidate-name candidate-name-desktop">name</span>
                     </div>
 
                     <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
                         <div class="percentage-number ">20,0%</div>
                         <div class="percentage-bar third"></div>
+                    </div>
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image fourth">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+
+                        <span class="candidate-name candidate-name-desktop">name</span>
+
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="candidate-votes">
+                            <div class="percentage-number ">20,0%</div>
+                            <div class="percentage-bar fourth"></div>
+                        </div>
+                    </div>
+
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image fifth">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name  candidate-name-desktop">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="percentage-bar fifth"></div>
                     </div>
                 </article>
 
             </section>
             <footer class="poll-footer">
-                <span class="footer-text">Encuesta telefónica con metodología IVR, sobre 2188 casos, con un nivel de confianza del 95% y un error muestral de +-3,5%
+                <span class="footer-text">Encuesta telefónica con metodología IVR, sobre 2188 casos, con un nivel de
+                    confianza del 95% y un error muestral de +-3,5%
                 </span>
             </footer>
         </article>
-        
+        <article id="poll-container-2" class="poll-container">
+            <h3 class="poll-consultant">consultant</h3>
+            <div class="select-container">
+                <select id="poll-period">
+                    <option value="firstPeriod">30 de septiembre al 7 de octubre</option>
+                    <option value="secondPeriod">10 al 13 de octubre</option>
+                </select>
+                <div class="chevron-icon">
+
+                </div>
+            </div>
+
+            <section class="table-candidate-container">
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image first">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name candidate-name-desktop">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="percentage-bar first"></div>
+                    </div>
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image second">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name candidate-name-desktop">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="percentage-bar second"></div>
+                    </div>
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image third">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name candidate-name-desktop">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="percentage-bar third"></div>
+                    </div>
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image fourth">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+
+                        <span class="candidate-name candidate-name-desktop">name</span>
+
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="candidate-votes">
+                            <div class="percentage-number ">20,0%</div>
+                            <div class="percentage-bar fourth"></div>
+                        </div>
+                    </div>
+
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image fifth">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name  candidate-name-desktop">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="percentage-bar fifth"></div>
+                    </div>
+                </article>
+
+            </section>
+            <footer class="poll-footer">
+                <span class="footer-text">Encuesta telefónica con metodología IVR, sobre 2188 casos, con un nivel de
+                    confianza del 95% y un error muestral de +-3,5%
+                </span>
+            </footer>
+        </article>
+        <article id="poll-container-3" class="poll-container">
+            <h3 class="poll-consultant">consultant</h3>
+            <div class="select-container">
+                <select id="poll-period">
+                    <option value="firstPeriod">30 de septiembre al 7 de octubre</option>
+                    <option value="secondPeriod">10 al 13 de octubre</option>
+                </select>
+                <div class="chevron-icon">
+
+                </div>
+            </div>
+
+            <section class="table-candidate-container">
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image first">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name candidate-name-desktop">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="percentage-bar first"></div>
+                    </div>
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image second">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name candidate-name-desktop">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="percentage-bar second"></div>
+                    </div>
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image third">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name candidate-name-desktop">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="percentage-bar third"></div>
+                    </div>
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image fourth">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+
+                        <span class="candidate-name candidate-name-desktop">name</span>
+
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="candidate-votes">
+                            <div class="percentage-number ">20,0%</div>
+                            <div class="percentage-bar fourth"></div>
+                        </div>
+                    </div>
+
+                </article>
+                <article class="candidate-item">
+                    <div class="candidate-data">
+                        <div class="candidate-container-image fifth">
+                            <img class="candidate-image" src="" alt="candidate image">
+                        </div>
+                        <span class="candidate-name  candidate-name-desktop">name</span>
+                    </div>
+
+                    <div class="candidate-votes">
+                        <span class="candidate-name candidate-name-mobile">name</span>
+                        <div class="percentage-number ">20,0%</div>
+                        <div class="percentage-bar fifth"></div>
+                    </div>
+                </article>
+
+            </section>
+            <footer class="poll-footer">
+                <span class="footer-text">Encuesta telefónica con metodología IVR, sobre 2188 casos, con un nivel de
+                    confianza del 95% y un error muestral de +-3,5%
+                </span>
+            </footer>
+        </article>
     </section>
 </div>
 
@@ -3702,7 +4013,7 @@ if(hasIntersectionObserver) {
             color: "color-first",
             picture: "https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/javier-milei-2.png",
             percentage: {
-                firstPeriod: 90,
+                firstPeriod: 80,
                 secondPeriod: 20
             }
         },
@@ -3721,6 +4032,22 @@ if(hasIntersectionObserver) {
                 firstPeriod: 20,
                 secondPeriod: 40
             }
+        },
+        "Nombre politico 4": {
+            color: "color-fourth",
+            picture: "https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/juan-schiaretti-2.png",
+            percentage: {
+                firstPeriod: 60,
+                secondPeriod: 70
+            }
+        },
+        "Nombre politico 5": {
+            color: "color-fifth",
+            picture: "https://elecciones2023paso.lanacion.com.ar/admin/media/candidatos_fotos/Miryam_Bregman-2.png",
+            percentage: {
+                firstPeriod: 50,
+                secondPeriod: 5
+            }
         }
     };
     const options = {
@@ -3728,7 +4055,7 @@ if(hasIntersectionObserver) {
         threshold: 0.5
     };
 
-    const candidateItems = document.querySelectorAll('.candidate-item');
+    // const candidateItems = document.querySelectorAll('.candidate-item');
     const handleIntersection = (entries, observer) => {
         entries.forEach(entry => {
             const candidateVotes = entry.target.querySelector('.percentage-bar');
@@ -3741,9 +4068,11 @@ if(hasIntersectionObserver) {
     };
     const observer = new IntersectionObserver(handleIntersection, options);
 
-    function updatePercentageElements(period) {
+    function updatePercentageElements(period, containerId) {
         const selectedPoliticians = politicians;
-
+        const isMobile = window.matchMedia("(max-width: 767px)").matches; // Check if screen size is mobile
+        const candidateItems = document.querySelectorAll(`#${containerId} .candidate-item`);
+        console.log('candidateItems', candidateItems)
         candidateItems.forEach((item, index) => {
             const politicianName = Object.keys(selectedPoliticians)[index];
             const politicianData = selectedPoliticians[politicianName];
@@ -3752,12 +4081,31 @@ if(hasIntersectionObserver) {
             const politicianImage = politicianData.picture;
             const percentageNumber = item.querySelector('.percentage-number');
             const percentageBar = item.querySelector('.percentage-bar');
+            // console.log('percentage', percentageBar)
             const candidateImage = item.querySelector('.candidate-image');
-
+            let candidateVotesContainer = item.querySelector('.candidate-votes');
+            let candidateNameMobile = item.querySelector('.candidate-name-mobile')
             percentageNumber.classList.add(politicianColor);
             percentageNumber.textContent = `${politicianPercentage}%`;
-            percentageBar.style.height = `${politicianPercentage}%`;
-            item.querySelector('.candidate-name').textContent = politicianName;
+            if (isMobile) {
+                console.log('itemmmm', item)
+                const mobileContainer = document.createElement('div');
+                mobileContainer.classList.add('mobile');
+                mobileContainer.appendChild(candidateNameMobile);
+                mobileContainer.appendChild(candidateVotesContainer);
+                item.appendChild(mobileContainer)
+                percentageBar.style.width = `${politicianPercentage}%`; // Adjust width for mobile
+                } else {
+                    const mobileContainer = item.querySelector('.mobile');
+                    if (mobileContainer) {
+                        mobileContainer.remove();
+                    }
+                    percentageBar.style.height = `${politicianPercentage}%`; // Adjust height for desktop
+            }
+            const candidateNames = item.querySelectorAll('.candidate-name')
+            candidateNames.forEach(nameElement => {
+                nameElement.textContent = politicianName;
+            });
             candidateImage.src = politicianImage;
             percentageBar.style.animation = 'none';
             void percentageBar.offsetWidth;
@@ -3766,15 +4114,28 @@ if(hasIntersectionObserver) {
 
         });
     }
-
-    const initialPeriod = document.getElementById('poll-period').value;
-    updatePercentageElements(initialPeriod);
-
-    const selectElement = document.getElementById('poll-period');
-    selectElement.addEventListener('change', function () {
-        const selectedPeriod = this.value;
-        updatePercentageElements(selectedPeriod);
+    function handleSelectChange(event) {
+        const selectedPeriod = event.target.value; // Get the selected period
+        const containerId = event.target.closest('.poll-container').id; // Get the ID of the closest poll container
+        updatePercentageElements(selectedPeriod, containerId); // Update percentage elements
+    }
+    const selectElements = document.querySelectorAll('.poll-container #poll-period');
+    selectElements.forEach(selectElement => {
+        selectElement.addEventListener('change', handleSelectChange);
     });
+    document.querySelectorAll('.poll-container').forEach(container => {
+        const initialPeriod = container.querySelector('#poll-period').value;
+        updatePercentageElements(initialPeriod, container.id);
+    });
+
+    // const initialPeriod = document.getElementById('poll-period').value;
+    // updatePercentageElements(initialPeriod);
+
+    // const selectElement = document.getElementById('poll-period');
+    // selectElement.addEventListener('change', function () {
+    //     const selectedPeriod = this.value;
+    //     updatePercentageElements(selectedPeriod);
+    // });
 
 </script>
                 
