@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .section-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+</style>
+
+<body>
+
+    <section class="section-container executive">
+        <article class="card-container" id="">
+            <h3 class="card-title">partido politico</h3>
+            <div class="card-image-container">
+                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png"
+                    alt="figure" />
+            </div>
+            <span class="office">cargo politico</span>
+            <span class="politician-name">nombre politico</span>
+            <div class="divider"> divider</div>
+            <span class="office">cargo politico</span>
+            <span class="politician-name">nombre politico</span>
+        </article>
+        <article class="card-container" id="">
+            <h3 class="card-title">partido politico</h3>
+            <div class="card-image-container">
+                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
+                    alt="figure" />
+            </div>
+            <span class="office">cargo politico</span>
+            <span class="politician-name">nombre politico</span>
+            <div class="divider"> divider</div>
+            <span class="office">cargo politico</span>
+            <span class="politician-name">nombre politico</span>
+        </article>
+    </section>
+    <section class="section-container legislative">
+        <article class="card-container" id="">
+            <h3 class="card-title">partido politico</h3>
+            <div class="card-image-container">
+                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                    alt="figure" />
+            </div>
+            <ol class="legislative-list">
+                <li class="legislative-item first">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+            </ol>
+        </article>
+        <article class="card-container" id="">
+            <h3 class="card-title">partido politico</h3>
+            <div class="card-image-container">
+                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                    alt="figure" />
+            </div>
+            <ol class="legislative-list">
+                <li class="legislative-item first">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+            </ol>
+        </article>
+        <article class="card-container" id="">
+            <h3 class="card-title">partido politico</h3>
+            <div class="card-image-container">
+                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                    alt="figure" />
+            </div>
+            <ol class="legislative-list">
+                <li class="legislative-item first">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+            </ol>
+        </article>
+    </section>
+</body>
+<script>
+    // Estructura de datos para la información de cada elemento
+    const data = {
+        executive: [
+            {
+                party: 'Partido Político 1',
+                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png',
+                office1: 'Cargo Político 1',
+                name1: 'Nombre Político 1',
+                office2: 'Cargo Político 2',
+                name2: 'Nombre Político 2'
+            },
+            {
+                party: 'Partido Político 2',
+                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png',
+                office1: 'Cargo Político 1',
+                name1: 'Nombre Político 1',
+                office2: 'Cargo Político 2',
+                name2: 'Nombre Político 2'
+            }
+        ],
+        legislative: [
+            {
+                party: 'Partido Político 3',
+                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
+                names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+            },
+            {
+                party: 'Partido Político 4',
+                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
+                names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+            },
+            {
+                party: 'Partido Político 5',
+                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
+                names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+            }
+        ]
+    };
+
+    // Función para completar cada elemento HTML con la información correspondiente
+    function populateHTML() {
+        // Iterar por secciones (executive y legislative)
+        for (const section in data) {
+            const articles = document.querySelectorAll(`.${section} .card-container`);
+
+            // Iterar por cada artículo
+            articles.forEach((article, index) => {
+                const info = data[section][index];
+                const title = article.querySelector('.card-title');
+                const offices = article.querySelectorAll('.office');
+                const names = article.querySelectorAll('.politician-name');
+
+                // Completar la información en los elementos HTML
+                title.textContent = info.party;
+                offices[0].textContent = info.office1;
+                names[0].textContent = info.name1;
+                offices[1].textContent = info.office2;
+                names[1].textContent = info.name2;
+
+                if (section === 'executive') {
+                    // Si es una sección executive, buscar la imagen y establecer su src
+                    const image = article.querySelector('.card-image-container img');
+                    image.src = info.image;
+                } else if (section === 'legislative') {
+                    // Si es una sección legislative, buscar la imagen y establecer su src
+                    const image = article.querySelector('.card-container img');
+                    image.src = info.image;
+
+                    // Completar la lista legislativa con los nombres políticos
+                    const list = article.querySelector('.legislative-list');
+                    const legislativeItems = list.querySelectorAll('.legislative-item');
+                    legislativeItems.forEach((item, i) => {
+                        item.textContent = info.names[i];
+                    });
+                }
+            });
+        }
+    }
+
+    // Llamar a la función para completar el HTML
+    populateHTML();
+
+</script>
+
+</html>
