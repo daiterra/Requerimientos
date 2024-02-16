@@ -23,10 +23,10 @@
                     alt="figure" />
             </div>
             <span class="office">cargo politico</span>
-            <span class="politician-name">nombre politico</span>
+            <span class="name1">nombre politico</span>
             <div class="divider"> divider</div>
-            <span class="office">cargo politico</span>
-            <span class="politician-name">nombre politico</span>
+            <span class="subordinate">cargo politico</span>
+            <span class="name2">nombre politico</span>
         </article>
         <article class="card-container" id="">
             <h3 class="card-title">partido politico</h3>
@@ -35,10 +35,22 @@
                     alt="figure" />
             </div>
             <span class="office">cargo politico</span>
-            <span class="politician-name">nombre politico</span>
+            <span class="name1">nombre politico</span>
             <div class="divider"> divider</div>
+            <span class="subordinate">cargo politico</span>
+            <span class="name2">nombre politico</span>
+        </article>
+        <article class="card-container" id="">
+            <h3 class="card-title">partido politico</h3>
+            <div class="card-image-container">
+                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
+                    alt="figure" />
+            </div>
             <span class="office">cargo politico</span>
-            <span class="politician-name">nombre politico</span>
+            <span class="name1">nombre politico</span>
+            <div class="divider"> divider</div>
+            <span class="subordinate">cargo politico</span>
+            <span class="name2">nombre politico</span>
         </article>
     </section>
     <section class="section-container legislative">
@@ -93,26 +105,50 @@
                 <li class="legislative-item">nombre politico</li>
             </ol>
         </article>
+        <article class="card-container" id="">
+            <h3 class="card-title">partido politico</h3>
+            <div class="card-image-container">
+                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                    alt="figure" />
+            </div>
+            <ol class="legislative-list">
+                <li class="legislative-item first">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+                <li class="legislative-item">nombre politico</li>
+            </ol>
+        </article>
     </section>
 </body>
 <script>
-    // Estructura de datos para la información de cada elemento
     const data = {
         executive: [
             {
                 party: 'Partido Político 1',
                 image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png',
-                office1: 'Cargo Político 1',
+                office: 'Cargo Político 1',
                 name1: 'Nombre Político 1',
-                office2: 'Cargo Político 2',
+                subordinate: 'Cargo Político 2',
+                name2: 'Nombre Político 2'
+            },
+            {
+                party: 'Partido Político 2',
+                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/LARRETA0001.png',
+                office: 'Cargo Político 1',
+                name1: 'Nombre Político 1',
+                subordinate: 'Cargo Político 2',
                 name2: 'Nombre Político 2'
             },
             {
                 party: 'Partido Político 2',
                 image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png',
-                office1: 'Cargo Político 1',
+                office: 'Cargo Político 1',
                 name1: 'Nombre Político 1',
-                office2: 'Cargo Político 2',
+                subordinate: 'Cargo Político 2',
                 name2: 'Nombre Político 2'
             }
         ],
@@ -131,52 +167,53 @@
                 party: 'Partido Político 5',
                 image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
                 names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+            },
+            {
+                party: 'Partido Político 6',
+                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
+                names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
             }
         ]
     };
 
-    // Función para completar cada elemento HTML con la información correspondiente
-    function populateHTML() {
+    function renderPoliticiansInfo() {
         // Iterar por secciones (executive y legislative)
         for (const section in data) {
-            const articles = document.querySelectorAll(`.${section} .card-container`);
-
-            // Iterar por cada artículo
-            articles.forEach((article, index) => {
+            const cards = document.querySelectorAll(`.${section} .card-container`);
+            cards.forEach((card, index) => {
                 const info = data[section][index];
-                const title = article.querySelector('.card-title');
-                const offices = article.querySelectorAll('.office');
-                const names = article.querySelectorAll('.politician-name');
-
-                // Completar la información en los elementos HTML
+                const title = card.querySelector('.card-title');
+                const image = card.querySelector('.card-image-container img');
                 title.textContent = info.party;
-                offices[0].textContent = info.office1;
-                names[0].textContent = info.name1;
-                offices[1].textContent = info.office2;
-                names[1].textContent = info.name2;
-
+                image.src = info.image;
                 if (section === 'executive') {
-                    // Si es una sección executive, buscar la imagen y establecer su src
-                    const image = article.querySelector('.card-image-container img');
-                    image.src = info.image;
-                } else if (section === 'legislative') {
-                    // Si es una sección legislative, buscar la imagen y establecer su src
-                    const image = article.querySelector('.card-container img');
-                    image.src = info.image;
-
-                    // Completar la lista legislativa con los nombres políticos
-                    const list = article.querySelector('.legislative-list');
-                    const legislativeItems = list.querySelectorAll('.legislative-item');
-                    legislativeItems.forEach((item, i) => {
-                        item.textContent = info.names[i];
-                    });
+                    renderExecutiveInfo(card, info)
+                }
+                else if (section === 'legislative') {
+                    renderLegislativeInfo(card, info)
                 }
             });
         }
     }
-
-    // Llamar a la función para completar el HTML
-    populateHTML();
+    const renderExecutiveInfo = (card, info) => {
+        for (const prop in info) {
+            if (prop !== 'party' && prop !== 'image') {
+                //buscar el elemento que coincide con el nombre de la propiedad
+                const element = card.querySelector(`.${prop}`);
+                if (element) {
+                    element.textContent = info[prop];
+                }
+            }
+        }
+    }
+    const renderLegislativeInfo = (card, info) => {
+        const list = card.querySelector('.legislative-list');
+        const legislativeItems = list.querySelectorAll('.legislative-item');
+        legislativeItems.forEach((item, i) => {
+            item.textContent = info.names[i];
+        });
+    }
+    renderPoliticiansInfo();
 
 </script>
 
