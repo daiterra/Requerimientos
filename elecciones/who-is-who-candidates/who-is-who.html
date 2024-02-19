@@ -3505,7 +3505,11 @@ if(hasIntersectionObserver) {
         --color-footer-text: #a3a3a3;
         --color-select-text: #8F8F8F;
         --color-bullet-active: #5C5C5C;
-        --color-bg-card-title: #414141
+        --color-bg-card-title: #414141;
+        --font-size-small:1.2rem;
+        --font-size-medium:1.3rem;
+        --font-size-large:1.5rem;
+        --font-size-xlarge:3rem
     }
 
     .container-wrapper {
@@ -3514,6 +3518,9 @@ if(hasIntersectionObserver) {
         gap: 4rem;
         /* align-items: center; */
         /* justify-content: center; */
+    }
+    .section-container{
+        padding: 3rem 0;
     }
 
     .bg-first {
@@ -3609,7 +3616,7 @@ if(hasIntersectionObserver) {
     .RichTextArticleBody .card-title {
         font-size: 1.2rem;
         text-transform: uppercase;
-        padding: .5rem;
+        padding:.2rem .5rem;
         /* background-color: var(--color-bg-card-title); */
     }
     .divider{
@@ -3621,19 +3628,111 @@ if(hasIntersectionObserver) {
     }
     .office, .subordinate{
         color: var(--color-bullet-active);
-        font-size: 1.2rem;
+        font-size: var(--font-size-small);
     }
-   
+   .name1{
+    text-transform: uppercase;
+    font-size: var(--font-size-small);
+    padding: .2rem .5rem;
+    font-weight: 600;
+    /* color:#F5F5F5;  alternativa sugerida*/
+   }
+   .name2{
+    text-transform: uppercase;
+    font-size: var(--font-size-small);
+   }
+   .glide__track{
+    padding:2rem 0;
+   }
+   .glide__arrow--left{
+    left: -3em;
+   }
+   .glide__arrow--right{
+    right: -3em;
+   }
+   .glide__bullet:hover,.glide__bullet:focus{
+    border:3px solid var(--color-select-text)
+   }
+  .legislative-item{
+    font-size: var(--font-size-medium)
+  }
+ol.legislative-list {
+  counter-reset: legislative-counter; 
+  list-style-type: none;
+}
+
+ol.legislative-list li {
+  counter-increment: legislative-counter;
+  padding-right: .8rem;
+}
+
+ol.legislative-list li::before {
+  content: counter(legislative-counter);
+  display: inline-block;
+  width: 1.2rem;
+  text-align: right;
+  margin-right: .5rem;
+  font-weight: bold;
+}
+.heading{
+    padding: 2rem;
+    display: flex;
+    gap:1rem;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-xlarge);
+
+}
+.heading-title{
+    font-size: var(--font-size-xlarge);
+}
+.heading-location{
+    font-weight: bold;
+}
+.social{
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    .card-container{
+        padding: .5rem 1rem;
+    }
+    .glide__track{
+        background: var(--color-background);
+    }
+    .glide__arrow--left{
+    left: -1em;
+   }
+   .glide__arrow--right{
+    right: -1em;
+   }
+}
+
   
 </style>
 <div class="container-wrapper">
-    <section class="executive">
+    
+    <section class="executive section-container">
+        <div class="heading-container">
+            <div class="heading">
+                <span class="heading-title">Cargo</span>
+                <span class="heading-location">Departamento</span>
+            </div>
+            <div class="social">
+                <a href="#" class="like-button"></a>
+                <a class="facebook-share-button redes" title="Compartilo en Facebook" href="" target="_blank">facebook</a>
+                <a class="twitter-share-button redes" href="">x</a>
+                <a class="whatsapp-share-button redes" href="">wpp</a>
+              </div>
+        </div>
         <div class="glide multi" id="glideOne">
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
                     <li class="glide__slide">
                         <article class="card-container" id="">
-                            <h3 class="card-title party">partido politico</h3>
+                            <h3 class="card-title party president">partido politico</h3>
                             <div class="card-image-container">
                                 <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png"
                                     alt="figure" />
@@ -3647,7 +3746,7 @@ if(hasIntersectionObserver) {
                     </li>
                     <li class="glide__slide">
                         <article class="card-container" id="">
-                            <h3 class="card-title party party">partido politico</h3>
+                            <h3 class="card-title party president">partido politico</h3>
                             <div class="card-image-container">
                                 <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
                                     alt="figure" />
@@ -3825,7 +3924,19 @@ if(hasIntersectionObserver) {
         </div>
     </section>
 
-    <section class="legislative">
+    <section class="legislative section-container">
+        <div class="heading-container">
+            <div class="heading">
+                <span class="heading-title">Cargo</span>
+                <span class="heading-location">Departamento</span>
+            </div>
+            <div class="social">
+                <a href="#" class="like-button"></a>
+                <a class="facebook-share-button redes" title="Compartilo en Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.lanacion.com.ar/2260288" target="_blank" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
+                <a class="twitter-share-button redes" href="https://twitter.com/share?url=https://www.lanacion.com.ar/2260288&amp;text=Conocé todas las listas para presidente, gobernador de Buenos Aires, jefe de gobierno y legisladores nacionales&amp;hashtags=CierreDeListas,Elecciones2019&amp;via=lanacion&amp;size=large" title="Compartilo en Twitter" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
+                <a class="whatsapp-share-button redes" href="https://api.whatsapp.com/send?text=Conocé todas las listas para presidente, gobernador de Buenos Aires, jefe de gobierno y legisladores nacionales --> https://www.lanacion.com.ar/2260288"></a>
+              </div>
+        </div>
         <div class="glide multi" id="glideTwo">
             <div class="glide__track " data-glide-el="track">
                 <ul class=" glide__slides">
@@ -3838,7 +3949,7 @@ if(hasIntersectionObserver) {
                                     alt="figure" />
                             </div>
                             <ol class="legislative-list">
-                                <li class="legislative-item first">nombre politico</li>
+                                <li class="legislative-item first-legislative">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
@@ -3858,7 +3969,7 @@ if(hasIntersectionObserver) {
                                     alt="figure" />
                             </div>
                             <ol class="legislative-list">
-                                <li class="legislative-item first">nombre politico</li>
+                                <li class="legislative-item first-legislative">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
@@ -3878,7 +3989,7 @@ if(hasIntersectionObserver) {
                                     alt="figure" />
                             </div>
                             <ol class="legislative-list">
-                                <li class="legislative-item first">nombre politico</li>
+                                <li class="legislative-item first-legislative">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
@@ -3897,27 +4008,7 @@ if(hasIntersectionObserver) {
                                     alt="figure" />
                             </div>
                             <ol class="legislative-list">
-                                <li class="legislative-item first">nombre politico</li>
-                                <li class="legislative-item">nombre politico</li>
-                                <li class="legislative-item">nombre politico</li>
-                                <li class="legislative-item">nombre politico</li>
-                                <li class="legislative-item">nombre politico</li>
-                                <li class="legislative-item">nombre politico</li>
-                                <li class="legislative-item">nombre politico</li>
-                                <li class="legislative-item">nombre politico</li>
-                            </ol>
-
-                        </article>
-                    </li>
-                    <li class="glide__slide">
-                        <article class="card-container" id="">
-                            <h3 class="card-title">partido politico</h3>
-                            <div class="card-image-container">
-                                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
-                                    alt="figure" />
-                            </div>
-                            <ol class="legislative-list">
-                                <li class="legislative-item first">nombre politico</li>
+                                <li class="legislative-item first-legislative">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
@@ -3937,7 +4028,7 @@ if(hasIntersectionObserver) {
                                     alt="figure" />
                             </div>
                             <ol class="legislative-list">
-                                <li class="legislative-item first">nombre politico</li>
+                                <li class="legislative-item first-legislative">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
@@ -3957,7 +4048,7 @@ if(hasIntersectionObserver) {
                                     alt="figure" />
                             </div>
                             <ol class="legislative-list">
-                                <li class="legislative-item first">nombre politico</li>
+                                <li class="legislative-item first-legislative">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
@@ -3977,7 +4068,27 @@ if(hasIntersectionObserver) {
                                     alt="figure" />
                             </div>
                             <ol class="legislative-list">
-                                <li class="legislative-item first">nombre politico</li>
+                                <li class="legislative-item first-legislative">nombre politico</li>
+                                <li class="legislative-item">nombre politico</li>
+                                <li class="legislative-item">nombre politico</li>
+                                <li class="legislative-item">nombre politico</li>
+                                <li class="legislative-item">nombre politico</li>
+                                <li class="legislative-item">nombre politico</li>
+                                <li class="legislative-item">nombre politico</li>
+                                <li class="legislative-item">nombre politico</li>
+                            </ol>
+
+                        </article>
+                    </li>
+                    <li class="glide__slide">
+                        <article class="card-container" id="">
+                            <h3 class="card-title">partido politico</h3>
+                            <div class="card-image-container">
+                                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                                    alt="figure" />
+                            </div>
+                            <ol class="legislative-list">
+                                <li class="legislative-item first-legislative">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
                                 <li class="legislative-item">nombre politico</li>
@@ -4227,8 +4338,14 @@ if(hasIntersectionObserver) {
                 const element = card.querySelector(`.${prop}`);
                 if (element) {
                     if (prop === 'party') {
-                        element.classList.add(info.color);
-                        element.style.backgroundColor = '#a3a3a3'
+                        if(element.classList.contains('president')){
+                            element.classList.add(info.color)
+                            element.style.backgroundColor= '#414141' 
+                        }
+                        else{
+                            element.style.color= '#414141'
+                            element.classList.add(info.bg)
+                        }
                     }
                     if (prop === 'name1') {
                         element.classList.add(info.bg);
@@ -4240,17 +4357,20 @@ if(hasIntersectionObserver) {
                 }
             }
         }
-    const renderLegislativeInfo = (card, info) => {
-        const list = card.querySelector('.legislative-list');
-        const legislativeItems = list.querySelectorAll('.legislative-item');
-        legislativeItems.forEach((item, i) => {
-            item.textContent = info.names[i];
-            if (item.classList.contains('first')) {
-                item.classList.add(info.bg);
-                console.log(item)
-            }
-        });
-    }
+        const renderLegislativeInfo = (card, info) => {
+            const party = card.querySelector('.card-title')
+            const list = card.querySelector('.legislative-list');
+            const legislativeItems = list.querySelectorAll('.legislative-item');
+            party.classList.add(info.bg)
+            legislativeItems.forEach((item, i) => {
+                item.textContent = info.names[i];
+
+                if (item.classList.contains('first-legislative')) {
+                    item.classList.add(info.bg);
+                    // item.classList.add('name1')
+                }
+            });
+        }
     renderPoliticiansInfo();
 
 </script>
@@ -4261,8 +4381,8 @@ if(hasIntersectionObserver) {
         // focusAt: 'center',
         // startAt: 0,
         // direction: 'ltr',
-        focusAt:1,
-        perView: 3,
+        // focusAt:1,
+        perView: 4,
         perTouch: false,
         breakpoints: {
             700: {
