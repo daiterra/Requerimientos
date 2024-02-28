@@ -1,220 +1,1118 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    .section-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-</style>
+<body lang="en">
 
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.6.0/dist/css/glide.theme.min.css"> -->
+        <!-- <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.6.0/dist/css/glide.core.min.css"> -->
+    </head>
+    <style>
+        /* glide css files */
+        .glide {
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-    <section class="section-container executive">
-        <article class="card-container" id="">
-            <h3 class="card-title">partido politico</h3>
-            <div class="card-image-container">
-                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png"
-                    alt="figure" />
-            </div>
-            <span class="office">cargo politico</span>
-            <span class="name1">nombre politico</span>
-            <div class="divider"> divider</div>
-            <span class="subordinate">cargo politico</span>
-            <span class="name2">nombre politico</span>
-        </article>
-        <article class="card-container" id="">
-            <h3 class="card-title">partido politico</h3>
-            <div class="card-image-container">
-                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
-                    alt="figure" />
-            </div>
-            <span class="office">cargo politico</span>
-            <span class="name1">nombre politico</span>
-            <div class="divider"> divider</div>
-            <span class="subordinate">cargo politico</span>
-            <span class="name2">nombre politico</span>
-        </article>
-        <article class="card-container" id="">
-            <h3 class="card-title">partido politico</h3>
-            <div class="card-image-container">
-                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
-                    alt="figure" />
-            </div>
-            <span class="office">cargo politico</span>
-            <span class="name1">nombre politico</span>
-            <div class="divider"> divider</div>
-            <span class="subordinate">cargo politico</span>
-            <span class="name2">nombre politico</span>
-        </article>
-    </section>
-    <section class="section-container legislative">
-        <article class="card-container" id="">
-            <h3 class="card-title">partido politico</h3>
-            <div class="card-image-container">
-                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
-                    alt="figure" />
-            </div>
-            <ol class="legislative-list">
-                <li class="legislative-item first">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-            </ol>
-        </article>
-        <article class="card-container" id="">
-            <h3 class="card-title">partido politico</h3>
-            <div class="card-image-container">
-                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
-                    alt="figure" />
-            </div>
-            <ol class="legislative-list">
-                <li class="legislative-item first">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-            </ol>
-        </article>
-        <article class="card-container" id="">
-            <h3 class="card-title">partido politico</h3>
-            <div class="card-image-container">
-                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
-                    alt="figure" />
-            </div>
-            <ol class="legislative-list">
-                <li class="legislative-item first">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-            </ol>
-        </article>
-        <article class="card-container" id="">
-            <h3 class="card-title">partido politico</h3>
-            <div class="card-image-container">
-                <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
-                    alt="figure" />
-            </div>
-            <ol class="legislative-list">
-                <li class="legislative-item first">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-                <li class="legislative-item">nombre politico</li>
-            </ol>
-        </article>
-    </section>
-</body>
-<script>
-    const data = {
-        executive: [
-            {
-                party: 'Partido Político 1',
-                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png',
-                office: 'Cargo Político 1',
-                name1: 'Nombre Político 1',
-                subordinate: 'Cargo Político 2',
-                name2: 'Nombre Político 2'
-            },
-            {
-                party: 'Partido Político 2',
-                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/LARRETA0001.png',
-                office: 'Cargo Político 1',
-                name1: 'Nombre Político 1',
-                subordinate: 'Cargo Político 2',
-                name2: 'Nombre Político 2'
-            },
-            {
-                party: 'Partido Político 2',
-                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png',
-                office: 'Cargo Político 1',
-                name1: 'Nombre Político 1',
-                subordinate: 'Cargo Político 2',
-                name2: 'Nombre Político 2'
+        .glide * {
+            box-sizing: inherit;
+        }
+
+        .glide__track {
+            overflow: hidden;
+        }
+
+        .glide__slides {
+            position: relative;
+            width: 100%;
+            list-style: none;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            touch-action: pan-Y;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            display: flex;
+            flex-wrap: nowrap;
+            will-change: transform;
+        }
+
+        .glide__slides--dragging {
+            user-select: none;
+        }
+
+        .glide__slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            white-space: normal;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glide__slide a {
+            user-select: none;
+            -webkit-user-drag: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .glide__arrows {
+            -webkit-touch-callout: none;
+            user-select: none;
+        }
+
+        .glide__bullets {
+            -webkit-touch-callout: none;
+            user-select: none;
+        }
+
+        .glide--rtl {
+            direction: rtl;
+        }
+
+        /*# sourceMappingURL=glide.core.css.map */
+        .glide__arrow {
+            position: absolute;
+            display: block;
+            top: 50%;
+            z-index: 2;
+            color: white;
+            text-transform: uppercase;
+            padding: 9px 12px;
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+            box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
+            text-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            cursor: pointer;
+            transition: opacity 150ms ease, border 300ms ease-in-out;
+            transform: translateY(-50%);
+            line-height: 1;
+        }
+
+        .glide__arrow:focus {
+            outline: none;
+        }
+
+        .glide__arrow:hover {
+            border-color: white;
+        }
+
+        .glide__arrow--left {
+            left: 2em;
+        }
+
+        .glide__arrow--right {
+            right: 2em;
+        }
+
+        .glide__arrow--disabled {
+            opacity: 0.33;
+        }
+
+        .glide__bullets {
+            position: absolute;
+            z-index: 2;
+            bottom: 2em;
+            left: 50%;
+            display: inline-flex;
+            list-style: none;
+            transform: translateX(-50%);
+        }
+
+        .glide__bullet {
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 9px;
+            height: 9px;
+            padding: 0;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            transition: all 300ms ease-in-out;
+            cursor: pointer;
+            line-height: 0;
+            box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
+            margin: 0 0.25em;
+        }
+
+        .glide__bullet:focus {
+            outline: none;
+        }
+
+        .glide__bullet:hover,
+        .glide__bullet:focus {
+            border: 2px solid white;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .glide__bullet--active {
+            background-color: white;
+        }
+
+        .glide--swipeable {
+            cursor: grab;
+            cursor: -moz-grab;
+            cursor: -webkit-grab;
+        }
+
+        .glide--dragging {
+            cursor: grabbing;
+            cursor: -moz-grabbing;
+            cursor: -webkit-grabbing;
+        }
+
+        /*# sourceMappingURL=glide.theme.css.map */
+    </style>
+    <style>
+        :root {
+            --color-first: #4284bf;
+            /* frente amplio */
+            --color-second: #8f779a;
+            /* partido nacional */
+            --color-third: #dc5c51;
+            /* partido colorado */
+            --color-fourth: #f2b936;
+            /* cabildo abierto */
+            --color-fifth: #91D6E3;
+            /* partido independiente */
+            --color-others: #bca689;
+            /* otros */
+            --shadow-container: 1px 10px 15px -15px #0006;
+            --color-background: #FAFAFA;
+            --color-candidate-divider: #EDEDED;
+            --color-footer-text: #a3a3a3;
+            --color-select-text: #8F8F8F;
+            --color-bullet-active: #5C5C5C;
+            --color-bg-card-title: #414141;
+            --font-size-small: 1.2rem;
+            --font-size-medium: 1.3rem;
+            --font-size-large: 1.5rem;
+            --font-size-xlarge: 3rem
+        }
+
+        .container-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            /* align-items: center; */
+            /* justify-content: center; */
+        }
+
+        .section-container {
+            padding: 3rem 0;
+        }
+
+        .bg-first {
+            background-color: var(--color-first);
+        }
+
+        .color-first {
+            color: var(--color-first)
+        }
+
+        .bg-second {
+            background-color: var(--color-second);
+        }
+
+        .color-second {
+            color: var(--color-second)
+        }
+
+        .bg-third {
+            background-color: var(--color-third);
+        }
+
+        .color-third {
+            color: var(--color-third)
+        }
+
+        .bg-fourth {
+            background-color: var(--color-fourth);
+        }
+
+        .color-fourth {
+            color: var(--color-fourth)
+        }
+
+        .bg-fifth {
+            background-color: var(--color-fifth);
+        }
+
+        .color-fifth {
+            color: var(--color-fifth)
+        }
+
+        .color-others {
+            color: var(--color-others)
+        }
+
+        .bg-others {
+            background-color: var(--color-others);
+        }
+
+
+
+        .glide__bullets {
+            bottom: -20px;
+            left: 49%;
+        }
+
+        .glide__bullet {
+            background-color: var(--color-footer-text);
+            cursor: pointer;
+        }
+
+        .glide__bullet--active {
+            /* bottom: 0; */
+            background-color: var(--color-bullet-active);
+        }
+
+        .glide__bullet:hover {
+            background-color: var(--color-candidate-divider);
+        }
+
+        .arrow-icon {
+            position: absolute;
+            /* background-color: #5c5c5c; */
+            border: none;
+            color: #fff;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            top: 45%;
+            cursor: pointer;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: .5rem 2rem;
+            border-right: 3px solid var(--color-candidate-divider);
+            gap: 1rem;
+        }
+
+        .RichTextArticleBody .card-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            padding: .2rem .5rem;
+            /* background-color: var(--color-bg-card-title); */
+        }
+
+        .divider {
+            border: 1px solid var(--color-candidate-divider);
+            width: 100%;
+        }
+
+        .glide__arrow {
+            color: var(--color-bullet-active);
+        }
+
+        .office,
+        .subordinate {
+            color: var(--color-bullet-active);
+            font-size: var(--font-size-small);
+        }
+
+        .name1 {
+            text-transform: uppercase;
+            font-size: var(--font-size-small);
+            padding: .2rem .5rem;
+            font-weight: 600;
+            /* color:#F5F5F5;  alternativa sugerida*/
+        }
+
+        .name2 {
+            text-transform: uppercase;
+            font-size: var(--font-size-small);
+        }
+
+        .glide__track {
+            padding: 2rem 0;
+        }
+
+        .glide__arrow--left {
+            left: -3em;
+        }
+
+        .glide__arrow--right {
+            right: -3em;
+        }
+
+        .glide__bullet:hover,
+        .glide__bullet:focus {
+            border: 3px solid var(--color-select-text)
+        }
+
+        .legislative-item {
+            font-size: var(--font-size-medium)
+        }
+
+        ol.legislative-list {
+            counter-reset: legislative-counter;
+            list-style-type: none;
+        }
+
+        ol.legislative-list li {
+            counter-increment: legislative-counter;
+            padding-right: .8rem;
+        }
+
+        ol.legislative-list li::before {
+            content: counter(legislative-counter);
+            display: inline-block;
+            width: 1.2rem;
+            text-align: right;
+            margin-right: .5rem;
+            font-weight: bold;
+        }
+
+        .heading {
+            padding: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            font-size: var(--font-size-xlarge);
+
+        }
+
+        .heading-title {
+            font-size: var(--font-size-xlarge);
+        }
+
+        .heading-location {
+            font-weight: bold;
+        }
+
+        .social {
+            /* border: 1px solid red; */
+            text-align: center;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .card-container {
+                padding: .5rem 1rem;
             }
-        ],
-        legislative: [
-            {
-                party: 'Partido Político 3',
-                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
-                names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
-            },
-            {
-                party: 'Partido Político 4',
-                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
-                names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
-            },
-            {
-                party: 'Partido Político 5',
-                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
-                names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
-            },
-            {
-                party: 'Partido Político 6',
-                image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
-                names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
-            }
-        ]
-    };
 
-    function renderPoliticiansInfo() {
-        // Iterar por secciones (executive y legislative)
-        for (const section in data) {
-            const cards = document.querySelectorAll(`.${section} .card-container`);
-            cards.forEach((card, index) => {
-                const info = data[section][index];
-                const title = card.querySelector('.card-title');
-                const image = card.querySelector('.card-image-container img');
-                title.textContent = info.party;
-                image.src = info.image;
-                if (section === 'executive') {
-                    renderExecutiveInfo(card, info)
+            .glide__track {
+                background: var(--color-background);
+            }
+
+            .glide__arrow--left {
+                left: -1em;
+            }
+
+            .glide__arrow--right {
+                right: -1em;
+            }
+        }
+    </style>
+    <div class="container-wrapper">
+
+        <section class="executive section-container">
+            <div class="heading-container">
+                <div class="heading">
+                    <span class="heading-title">Cargo</span>
+                    <span class="heading-location">Departamento</span>
+                </div>
+                <div class="social">
+                    <a href="#" class="like-button"></a>
+                    <a class="facebook-share-button redes" title="Compartilo en Facebook" href=""
+                        target="_blank">facebook</a>
+                    <a class="twitter-share-button redes" href="">x</a>
+                    <a class="whatsapp-share-button redes" href="">wpp</a>
+                </div>
+            </div>
+            <div class="glide multi" id="glideOne">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party president">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"></div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party president">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title party">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png"
+                                        alt="figure" />
+                                </div>
+                                <span class="office">cargo politico</span>
+                                <span class="name1">nombre politico</span>
+                                <div class="divider"> </div>
+                                <span class="subordinate">cargo politico</span>
+                                <span class="name2">nombre politico</span>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                            <path
+                                d="M0 12l10.975 11 2.848-2.828-6.176-6.176H24v-3.992H7.646l6.176-6.176L10.975 1 0 12z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                            <path
+                                d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="glide__bullets" data-glide-el="controls[nav]">
+                    <button class="glide__bullet" data-glide-dir="=0"></button>
+                    <button class="glide__bullet" data-glide-dir="=1"></button>
+                    <button class="glide__bullet" data-glide-dir="=2"></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="legislative section-container">
+            <div class="heading-container">
+                <div class="heading">
+                    <span class="heading-title">Cargo</span>
+                    <span class="heading-location">Departamento</span>
+                </div>
+                <div class="social">
+                    <a href="#" class="like-button"></a>
+                    <a class="facebook-share-button redes" title="Compartilo en Facebook"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://www.lanacion.com.ar/2260288"
+                        target="_blank"
+                        onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
+                    <a class="twitter-share-button redes"
+                        href="https://twitter.com/share?url=https://www.lanacion.com.ar/2260288&amp;text=Conocé todas las listas para presidente, gobernador de Buenos Aires, jefe de gobierno y legisladores nacionales&amp;hashtags=CierreDeListas,Elecciones2019&amp;via=lanacion&amp;size=large"
+                        title="Compartilo en Twitter"
+                        onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
+                    <a class="whatsapp-share-button redes"
+                        href="https://api.whatsapp.com/send?text=Conocé todas las listas para presidente, gobernador de Buenos Aires, jefe de gobierno y legisladores nacionales --> https://www.lanacion.com.ar/2260288"></a>
+                </div>
+            </div>
+            <div class="glide multi" id="glideTwo">
+                <div class="glide__track " data-glide-el="track">
+                    <ul class=" glide__slides">
+
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                                        alt="figure" />
+                                </div>
+                                <ol class="legislative-list">
+                                    <li class="legislative-item first-legislative">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                </ol>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+
+                                <h3 class="card-title">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                                        alt="figure" />
+                                </div>
+                                <ol class="legislative-list">
+                                    <li class="legislative-item first-legislative">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                </ol>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+
+                                <h3 class="card-title">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                                        alt="figure" />
+                                </div>
+                                <ol class="legislative-list">
+                                    <li class="legislative-item first-legislative">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                </ol>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                                        alt="figure" />
+                                </div>
+                                <ol class="legislative-list">
+                                    <li class="legislative-item first-legislative">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                </ol>
+
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                                        alt="figure" />
+                                </div>
+                                <ol class="legislative-list">
+                                    <li class="legislative-item first-legislative">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                </ol>
+
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                                        alt="figure" />
+                                </div>
+                                <ol class="legislative-list">
+                                    <li class="legislative-item first-legislative">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                </ol>
+
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                                        alt="figure" />
+                                </div>
+                                <ol class="legislative-list">
+                                    <li class="legislative-item first-legislative">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                </ol>
+
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container" id="">
+                                <h3 class="card-title">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                                        alt="figure" />
+                                </div>
+                                <ol class="legislative-list">
+                                    <li class="legislative-item first-legislative">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                    <li class="legislative-item">nombre politico</li>
+                                </ol>
+
+                            </article>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                            <path
+                                d="M0 12l10.975 11 2.848-2.828-6.176-6.176H24v-3.992H7.646l6.176-6.176L10.975 1 0 12z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                            <path
+                                d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z">
+                            </path>
+                        </svg></button>
+                </div>
+                <div class="glide__bullets" data-glide-el="controls[nav]">
+                    <button class="glide__bullet" data-glide-dir="=0"></button>
+                    <button class="glide__bullet" data-glide-dir="=1"></button>
+                    <button class="glide__bullet" data-glide-dir="=2"></button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script>
+        const data = {
+            executive: [
+                {
+                    party: 'Partido Político 1',
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png',
+                    color: "color-first",
+                    bg: "bg-first",
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                },
+                {
+                    party: 'Partido Político 2',
+                    color: "color-second",
+                    bg: "bg-second",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/LARRETA0001.png',
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                },
+                {
+                    party: 'Partido Político 3',
+                    color: "color-third",
+                    bg: "bg-third",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png',
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                }, {
+                    party: 'Partido Político 1',
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png',
+                    color: "color-first",
+                    bg: "bg-first",
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                },
+                {
+                    party: 'Partido Político 2',
+                    color: "color-second",
+                    bg: "bg-second",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/LARRETA0001.png',
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                },
+                {
+                    party: 'Partido Político 3',
+                    color: "color-third",
+                    bg: "bg-third",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png',
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                },
+                {
+                    party: 'Partido Político 1',
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png',
+                    color: "color-first",
+                    bg: "bg-first",
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                },
+                {
+                    party: 'Partido Político 2',
+                    color: "color-second",
+                    bg: "bg-second",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/LARRETA0001.png',
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                },
+                {
+                    party: 'Partido Político 3',
+                    color: "color-third",
+                    bg: "bg-third",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png',
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                },
+                {
+                    party: 'Partido Político 1',
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/kicillof.png',
+                    color: "color-first",
+                    bg: "bg-first",
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                },
+                {
+                    party: 'Partido Político 2',
+                    color: "color-second",
+                    bg: "bg-second",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/LARRETA0001.png',
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
+                },
+                {
+                    party: 'Partido Político 3',
+                    color: "color-third",
+                    bg: "bg-third",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png',
+                    office: 'Cargo Político 1',
+                    name1: 'Nombre Político 1',
+                    subordinate: 'Cargo Político 2',
+                    name2: 'Nombre Político 2'
                 }
-                else if (section === 'legislative') {
-                    renderLegislativeInfo(card, info)
+            ],
+            legislative: [
+                {
+                    party: 'Partido Político 3',
+                    color: "color-fourth",
+                    bg: "bg-fourth",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 4',
+                    color: "color-fifth",
+                    bg: "bg-fifth",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 5',
+                    color: "color-fifth",
+                    bg: "bg-fifth",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 6',
+                    color: "color-others",
+                    bg: "bg-others",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 6',
+                    color: "color-others",
+                    bg: "bg-others",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 6',
+                    color: "color-others",
+                    bg: "bg-others",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 6',
+                    color: "color-others",
+                    bg: "bg-others",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 6',
+                    color: "color-others",
+                    bg: "bg-others",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+            ]
+        };
+
+        function renderPoliticiansInfo() {
+            // Iterar por secciones (executive y legislative)
+            for (const section in data) {
+                const cards = document.querySelectorAll(`.${section} .card-container`);
+                // console.log('cards', cards)
+                cards.forEach((card, index) => {
+                    const information = data[section][index];
+                    // console.log('info', information)
+                    const title = card.querySelector('.card-title');
+                    const politicianName = card.querySelector('.office');
+                    const image = card.querySelector('.card-image-container img');
+                    // console.log('politicianName', politicianName)
+                    // title.classList.add(info.color);
+                    // title.textContent = info.party;
+                    image.src = information.image;
+                    if (section === 'executive') {
+                        renderExecutiveInfo(card, information)
+                    }
+                    else if (section === 'legislative') {
+                        renderLegislativeInfo(card, information)
+                    }
+                });
+            }
+        }
+        const renderExecutiveInfo = (card, info) => {
+            for (const prop in info) {
+                const element = card.querySelector(`.${prop}`);
+                if (element) {
+                    if (prop === 'party') {
+                        if (element.classList.contains('president')) {
+                            element.classList.add(info.color)
+                            element.style.backgroundColor = '#414141'
+                        }
+                        else {
+                            element.style.color = '#414141'
+                            element.classList.add(info.bg)
+                        }
+                    }
+                    if (prop === 'name1') {
+                        element.classList.add(info.bg);
+                    }
+                    else if (prop !== 'party' && prop !== 'image') {
+                        //buscar el elemento que coincide con el nombre de la propiedad                        
+                        element.textContent = info[prop];
+                    }
+                }
+            }
+        }
+        const renderLegislativeInfo = (card, info) => {
+            const party = card.querySelector('.card-title')
+            const list = card.querySelector('.legislative-list');
+            const legislativeItems = list.querySelectorAll('.legislative-item');
+            party.classList.add(info.bg)
+            legislativeItems.forEach((item, i) => {
+                item.textContent = info.names[i];
+
+                if (item.classList.contains('first')) {
+                    item.classList.add(info.bg);
                 }
             });
         }
-    }
-    const renderExecutiveInfo = (card, info) => {
-        for (const prop in info) {
-            if (prop !== 'party' && prop !== 'image') {
-                //buscar el elemento que coincide con el nombre de la propiedad
-                const element = card.querySelector(`.${prop}`);
-                if (element) {
-                    element.textContent = info[prop];
-                }
-            }
-        }
-    }
-    const renderLegislativeInfo = (card, info) => {
-        const list = card.querySelector('.legislative-list');
-        const legislativeItems = list.querySelectorAll('.legislative-item');
-        legislativeItems.forEach((item, i) => {
-            item.textContent = info.names[i];
-        });
-    }
-    renderPoliticiansInfo();
+        renderPoliticiansInfo();
 
-</script>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
+    <script>
+        const options = {
+            type: "carousel",
+            // focusAt: 'center',
+            // startAt: 0,
+            // direction: 'ltr',
+            focusAt: 1,
+            perView: 4,
+            perTouch: false,
+            breakpoints: {
+                700: {
+                    perView: 2
+                },
+                1200: {
+                    perView: 3
+                }
+            },
+            animationTimingFunc: 'ease'
+        };
+
+        const carousels = document.querySelectorAll(".multi");
+        console.log('carousel', carousels)
+        Object.values(carousels).map(carousel => {
+            new Glide(carousel, options).mount();
+        });
+    </script>
+
+</body>
 
 </html>
