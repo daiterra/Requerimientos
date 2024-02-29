@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testing cards</title>
+</head>
+
+<body>
+    <style>
+        :root {
+            --border-color: #ddd;
+            --box-shadow-card: 0 5px 16px 1px rgb(0 0 0 / 16%);
+        }
+
+        html,
+        body {
+            scroll-behavior: smooth;
+        }
+
+        .cards-links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 3rem 1rem;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4rem;
+        }
+
+        .cards-links-container .card-container {
+            box-shadow: var(--box-shadow-card);
+            border: 1px solid var(--border-color);
+        }
+
+        .cards-links-container .card-container:hover {
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-site-bg);
+            transition: all 0.3s;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            outline: none;
+            flex-grow: 1
+        }
+
+        .card-title {
+            font-size: 4.5rem;
+            color: var(--color-primary);
+        }
+
+        .cards-links-description .card-title {
+            border-bottom: 1px solid black;
+            padding: 0 1.2rem 1.5rem;
+        }
+
+
+        .card-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            flex-grow: 1;
+            /* margin-top: 1rem; */
+        }
+
+        .card-action {
+            border: 1px solid var(--color-border);
+            font-size: 1.2rem;
+            padding: .1rem .8rem;
+            border-radius: var(--borderRadiusRounded);
+            background-color: transparent;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .cards-links-description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .cards-links-description .card-container {
+            background-color: var(--color-article-backdrop);
+            padding: 4rem;
+            max-width: 700px;
+            scroll-margin: 120px;
+            scroll-behavior: smooth;
+        }
+
+        .card-subtitle-description {
+            padding: 2rem 1rem;
+        }
+
+
+        .floating-button {
+            display: none;
+            text-align: center;
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            /* border: 1px solid var(--color-primary); */
+            bottom: 5%;
+            border-radius: 50%;
+            right: 10%;
+            margin: auto;
+            /* color: white; */
+            line-height: 65px;
+            text-align: center;
+            font-size: 23px;
+            z-index: 100;
+            /* box-shadow: 0 10px 25px -5px rgba(195, 213, 221, 0.6); */
+            box-shadow: var(--box-shadow-card);
+            cursor: pointer;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .floating-button svg {
+            height: 40px;
+            width: 40px;
+            min-width: 40px;
+            min-height: 40px;
+        }
+
+        .floating-button svg path {
+            stroke: var(--color-primary);
+            /* Cambiar el color de la flecha */
+        }
+
+
+        .card-action-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cards-global-container .cards-links-container {
+            padding: 8rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .cards-global-container .cards-links-container {
+                padding: 2rem 0 0;
+                scroll-margin: 100px;
+            }
+
+            .cards-links-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card-description {
+                font-size: 1.5rem;
+            }
+
+            .card-container {
+                padding: 4rem .5rem;
+            }
+
+            .RichTextBody .card-subtitle-description {
+                font-size: 2rem;
+            }
+
+            .floating-button {
+                left: 0;
+                right: 80%;
+                bottom: 5%;
+            }
+        }
+    </style>
+    <div>2020</div>
+    <div class="cards-global-container">
+        <section class="cards-links-container" id="cards-links-container">
+            <article class="card-container">
+                <a class="card link" href="#pregunta-0">
+                    <h5 class="card-title">1</h5>
+                    <h6 class="card-subtitle">Economía: los precios y la situación fiscal</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-1">
+                    <h5 class="card-title">2</h5>
+                    <h6 class="card-subtitle">Seguridad: crisis a atacar</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-2">
+                    <h5 class="card-title">3</h5>
+                    <h6 class="card-subtitle">Educación</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-3">
+                    <h5 class="card-title">4</h5>
+                    <h6 class="card-subtitle">Relaciones Internacionales</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+        </section>
+        <section class="cards-links-description" id="cardsDescriptionContainer">
+            <a href="#cards-links-container" class="floating-button" id="floatingButton">
+                <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M12 6V18M12 6L7 11M12 6L17 11" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+            </a>
+            <article class="card-container" id="pregunta-0">
+                <h5 class="card-title">1</h5>
+                <h3 class="card-subtitle-description">¿Hasta cuándo puede aparecer un testamento?</h3>
+                <p class="card-description">La Justicia no determinó todavía quiénes heredarán a María Kodama, pero
+                    abrió su
+                    sucesión y se presentaron a reclamar la herencia cinco sobrinos, hijos de su hermano Jorge Kodama.
+                    Ellos
+                    serían herederos legítimos, pero no son herederos forzosos (condición que la ley argentina les
+                    reconoce
+                    solo
+                    a los ascendientes, descendientes y cónyuges); por eso, si apareciera un testamento, ellos podrían
+                    ser
+                    desplazados y no recibir nada.</p>
+            </article>
+            <article class="card-container" id="pregunta-1">
+                <h5 class="card-title">2</h5>
+                <h3 class="card-subtitle-description">¿Cómo sigue el trámite de la sucesión?</h3>
+                <p class="card-description">La Justicia tratará de determinar si hay un testamento -hasta ahora no hay
+                    rastros
+                    de que exista-, y si hay otros posibles herederos o acreedores de los bienes de Kodama. En busca de
+                    un
+                    posible testamento, se consultará a los registros del Colegio de Escribanos y de Abogados; para dar
+                    con
+                    otros herederos o acreedores, se publicarán edictos. Esta etapa del trámite de la sucesión termina
+                    con
+                    la
+                    declaratoria de herederos. Normalmente, la Justicia completa estos trámites en menos de seis meses.
+                    Después
+                    se identifican los bienes, se pagan las deudas de la sucesión y se puede hacer la partición.</p>
+
+            </article>
+            <article class="card-container" id="pregunta-2">
+                <h5 class="card-title">3</h5>
+                <h3 class="card-subtitle-description">¿Hasta cuándo puede aparecer un testamento?</h3>
+                <p class="card-description">Puede aparecer en cualquier momento porque la acción de petición de herencia
+                    (que es
+                    la que correspondería a un hipotético heredero reconocido por testamento) no tiene plazo. El Código
+                    aclara:
+                    “Sin perjuicio de la prescripción adquisitiva”, es decir, siempre que no haya pasado el tiempo que
+                    prevé
+                    la
+                    ley para que quien poseyó algo una determinada cantidad de años se convierta en su propietario (para
+                    inmuebles, por ejemplo, nunca es menos de 10 años). Hay dos clases de testamentos: por escritura
+                    pública
+                    (ante escribano) u ológrafo, que debe estar hecho de puño y letra por Kodama, con la fecha y con su
+                    firma.
+                    Podría ser válido incluso un testamento ológrafo dejado por ella en el extrajero.</p>
+
+            </article>
+            <article class="card-container" id="pregunta-3">
+                <h5 class="card-title">4</h5>
+                <h3 class="card-subtitle-description">¿Cuánto tiempo tiene el depositario de un testamento para
+                    entregarlo?
+                </h3>
+                <p class="card-description">El artículo 2471 del Código Civil y Comercial establece expresamente la
+                    “obligación
+                    de denunciar la existencia del testamento” y dice que “quien participa en el otorgamiento de un
+                    testamento o
+                    en cuyo poder se encuentra, está obligado a comunicarlo a las personas interesadas, una vez acaecida
+                    la
+                    muerte del testador”. Por eso, sería extraño que alguien tuviera el testamento en su poder y todavía
+                    no
+                    lo
+                    hubiera informado; sobre todo, si es un escribano.</p>
+            </article>
+
+        </section>
+    </div>
+    <div>2021</div>
+    <div class="cards-global-container">
+        <section class="cards-links-container" id="cards-links-container">
+            <article class="card-container">
+                <a class="card link" href="#pregunta-0">
+                    <h5 class="card-title">1</h5>
+                    <h6 class="card-subtitle">La pandemia y el gasto</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-1">
+                    <h5 class="card-title">2</h5>
+                    <h6 class="card-subtitle">Las metas económicas</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-2">
+                    <h5 class="card-title">3</h5>
+                    <h6 class="card-subtitle">Nuevas medidas y extensión de otras</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-3">
+                    <h5 class="card-title">4</h5>
+                    <h6 class="card-subtitle">Desarrollo social</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+
+
+        </section>
+        <section class="cards-links-description" id="cardsDescriptionContainer">
+            <article class="card-container" id="pregunta-0">
+                <h5 class="card-title">1</h5>
+                <h3 class="card-subtitle-description">¿Hasta cuándo puede aparecer un testamento?</h3>
+                <p class="card-description">La Justicia no determinó todavía quiénes heredarán a María Kodama, pero
+                    abrió su
+                    sucesión y se presentaron a reclamar la herencia cinco sobrinos, hijos de su hermano Jorge Kodama.
+                    Ellos
+                    serían herederos legítimos, pero no son herederos forzosos (condición que la ley argentina les
+                    reconoce
+                    solo
+                    a los ascendientes, descendientes y cónyuges); por eso, si apareciera un testamento, ellos podrían
+                    ser
+                    desplazados y no recibir nada.</p>
+            </article>
+            <article class="card-container" id="pregunta-1">
+                <h5 class="card-title">2</h5>
+                <h3 class="card-subtitle-description">¿Cómo sigue el trámite de la sucesión?</h3>
+                <p class="card-description">La Justicia tratará de determinar si hay un testamento -hasta ahora no hay
+                    rastros
+                    de que exista-, y si hay otros posibles herederos o acreedores de los bienes de Kodama. En busca de
+                    un
+                    posible testamento, se consultará a los registros del Colegio de Escribanos y de Abogados; para dar
+                    con
+                    otros herederos o acreedores, se publicarán edictos. Esta etapa del trámite de la sucesión termina
+                    con
+                    la
+                    declaratoria de herederos. Normalmente, la Justicia completa estos trámites en menos de seis meses.
+                    Después
+                    se identifican los bienes, se pagan las deudas de la sucesión y se puede hacer la partición.</p>
+
+            </article>
+            <article class="card-container" id="pregunta-2">
+                <h5 class="card-title">3</h5>
+                <h3 class="card-subtitle-description">¿Hasta cuándo puede aparecer un testamento?</h3>
+                <p class="card-description">Puede aparecer en cualquier momento porque la acción de petición de herencia
+                    (que es
+                    la que correspondería a un hipotético heredero reconocido por testamento) no tiene plazo. El Código
+                    aclara:
+                    “Sin perjuicio de la prescripción adquisitiva”, es decir, siempre que no haya pasado el tiempo que
+                    prevé
+                    la
+                    ley para que quien poseyó algo una determinada cantidad de años se convierta en su propietario (para
+                    inmuebles, por ejemplo, nunca es menos de 10 años). Hay dos clases de testamentos: por escritura
+                    pública
+                    (ante escribano) u ológrafo, que debe estar hecho de puño y letra por Kodama, con la fecha y con su
+                    firma.
+                    Podría ser válido incluso un testamento ológrafo dejado por ella en el extrajero.</p>
+
+            </article>
+            <article class="card-container" id="pregunta-3">
+                <h5 class="card-title">4</h5>
+                <h3 class="card-subtitle-description">¿Cuánto tiempo tiene el depositario de un testamento para
+                    entregarlo?
+                </h3>
+                <p class="card-description">El artículo 2471 del Código Civil y Comercial establece expresamente la
+                    “obligación
+                    de denunciar la existencia del testamento” y dice que “quien participa en el otorgamiento de un
+                    testamento o
+                    en cuyo poder se encuentra, está obligado a comunicarlo a las personas interesadas, una vez acaecida
+                    la
+                    muerte del testador”. Por eso, sería extraño que alguien tuviera el testamento en su poder y todavía
+                    no
+                    lo
+                    hubiera informado; sobre todo, si es un escribano.</p>
+            </article>
+        </section>
+    </div>
+    <div>2022</div>
+    <div class="cards-global-container">
+        <section class="cards-links-container" id="cards-links-container">
+            <article class="card-container">
+                <a class="card link" href="#pregunta-0">
+                    <h5 class="card-title">1</h5>
+                    <h6 class="card-subtitle">Pandemia</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-1">
+                    <h5 class="card-title">2</h5>
+                    <h6 class="card-subtitle">Seguridad y LUC</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-2">
+                    <h5 class="card-title">3</h5>
+                    <h6 class="card-subtitle">Reforma del Hospital de Clínicas</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-3">
+                    <h5 class="card-title">4</h5>
+                    <h6 class="card-subtitle">Obra Pública </h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+        </section>
+        <section class="cards-links-description" id="cardsDescriptionContainer">
+            <article class="card-container" id="pregunta-0">
+                <h5 class="card-title">1</h5>
+                <h3 class="card-subtitle-description">Cambios en el IRPF e IASS</h3>
+                <p class="card-description">La Justicia no determinó todavía quiénes heredarán a María Kodama, pero
+                    abrió su
+                    sucesión y se presentaron a reclamar la herencia cinco sobrinos, hijos de su hermano Jorge Kodama.
+                    Ellos
+                    serían herederos legítimos, pero no son herederos forzosos (condición que la ley argentina les
+                    reconoce
+                    solo
+                    a los ascendientes, descendientes y cónyuges); por eso, si apareciera un testamento, ellos podrían
+                    ser
+                    desplazados y no recibir nada.</p>
+            </article>
+            <article class="card-container" id="pregunta-1">
+                <h5 class="card-title">2</h5>
+                <h3 class="card-subtitle-description">Apertura de mercados</h3>
+                <p class="card-description">La Justicia tratará de determinar si hay un testamento -hasta ahora no hay
+                    rastros
+                    de que exista-, y si hay otros posibles herederos o acreedores de los bienes de Kodama. En busca de
+                    un
+                    posible testamento, se consultará a los registros del Colegio de Escribanos y de Abogados; para dar
+                    con
+                    otros herederos o acreedores, se publicarán edictos. Esta etapa del trámite de la sucesión termina
+                    con
+                    la
+                    declaratoria de herederos. Normalmente, la Justicia completa estos trámites en menos de seis meses.
+                    Después
+                    se identifican los bienes, se pagan las deudas de la sucesión y se puede hacer la partición.</p>
+
+            </article>
+            <article class="card-container" id="pregunta-2">
+                <h5 class="card-title">3</h5>
+                <h3 class="card-subtitle-description">Sequía</h3>
+                <p class="card-description">Puede aparecer en cualquier momento porque la acción de petición de herencia
+                    (que es
+                    la que correspondería a un hipotético heredero reconocido por testamento) no tiene plazo. El Código
+                    aclara:
+                    “Sin perjuicio de la prescripción adquisitiva”, es decir, siempre que no haya pasado el tiempo que
+                    prevé
+                    la
+                    ley para que quien poseyó algo una determinada cantidad de años se convierta en su propietario (para
+                    inmuebles, por ejemplo, nunca es menos de 10 años). Hay dos clases de testamentos: por escritura
+                    pública
+                    (ante escribano) u ológrafo, que debe estar hecho de puño y letra por Kodama, con la fecha y con su
+                    firma.
+                    Podría ser válido incluso un testamento ológrafo dejado por ella en el extrajero.</p>
+
+            </article>
+            <article class="card-container" id="pregunta-3">
+                <h5 class="card-title">4</h5>
+                <h3 class="card-subtitle-description">Salud</h3>
+                <p class="card-description">El artículo 2471 del Código Civil y Comercial establece expresamente la
+                    “obligación
+                    de denunciar la existencia del testamento” y dice que “quien participa en el otorgamiento de un
+                    testamento o
+                    en cuyo poder se encuentra, está obligado a comunicarlo a las personas interesadas, una vez acaecida
+                    la
+                    muerte del testador”. Por eso, sería extraño que alguien tuviera el testamento en su poder y todavía
+                    no
+                    lo
+                    hubiera informado; sobre todo, si es un escribano.</p>
+            </article>
+        </section>
+    </div>
+
+    <div>2023</div>
+    <div class="cards-global-container">
+        <section class="cards-links-container" id="cards-links-container">
+            <article class="card-container">
+                <a class="card link" href="#pregunta-0">
+                    <h5 class="card-title">1</h5>
+                    <h6 class="card-subtitle">Economía: los precios y la situación fiscal</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-1">
+                    <h5 class="card-title">2</h5>
+                    <h6 class="card-subtitle">Seguridad: crisis a atacar</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-2">
+                    <h5 class="card-title">3</h5>
+                    <h6 class="card-subtitle">Educación</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+            <article class="card-container">
+                <a class="card link" href="#pregunta-3">
+                    <h5 class="card-title">4</h5>
+                    <h6 class="card-subtitle">Relaciones Internacionales</h6>
+                    <span class="card-action">más info</span>
+                </a>
+            </article>
+        </section>
+        <section class="cards-links-description" id="cardsDescriptionContainer">
+            <article class="card-container" id="pregunta-0">
+                <h5 class="card-title">1</h5>
+                <h3 class="card-subtitle-description">Cambios en el IRPF e IASS</h3>
+                <p class="card-description">La Justicia no determinó todavía quiénes heredarán a María Kodama, pero
+                    abrió su
+                    sucesión y se presentaron a reclamar la herencia cinco sobrinos, hijos de su hermano Jorge Kodama.
+                    Ellos
+                    serían herederos legítimos, pero no son herederos forzosos (condición que la ley argentina les
+                    reconoce
+                    solo
+                    a los ascendientes, descendientes y cónyuges); por eso, si apareciera un testamento, ellos podrían
+                    ser
+                    desplazados y no recibir nada.</p>
+            </article>
+            <article class="card-container" id="pregunta-1">
+                <h5 class="card-title">2</h5>
+                <h3 class="card-subtitle-description">Apertura de mercados</h3>
+                <p class="card-description">La Justicia tratará de determinar si hay un testamento -hasta ahora no hay
+                    rastros
+                    de que exista-, y si hay otros posibles herederos o acreedores de los bienes de Kodama. En busca de
+                    un
+                    posible testamento, se consultará a los registros del Colegio de Escribanos y de Abogados; para dar
+                    con
+                    otros herederos o acreedores, se publicarán edictos. Esta etapa del trámite de la sucesión termina
+                    con
+                    la
+                    declaratoria de herederos. Normalmente, la Justicia completa estos trámites en menos de seis meses.
+                    Después
+                    se identifican los bienes, se pagan las deudas de la sucesión y se puede hacer la partición.</p>
+
+            </article>
+            <article class="card-container" id="pregunta-2">
+                <h5 class="card-title">3</h5>
+                <h3 class="card-subtitle-description">Sequía</h3>
+                <p class="card-description">Puede aparecer en cualquier momento porque la acción de petición de herencia
+                    (que es
+                    la que correspondería a un hipotético heredero reconocido por testamento) no tiene plazo. El Código
+                    aclara:
+                    “Sin perjuicio de la prescripción adquisitiva”, es decir, siempre que no haya pasado el tiempo que
+                    prevé
+                    la
+                    ley para que quien poseyó algo una determinada cantidad de años se convierta en su propietario (para
+                    inmuebles, por ejemplo, nunca es menos de 10 años). Hay dos clases de testamentos: por escritura
+                    pública
+                    (ante escribano) u ológrafo, que debe estar hecho de puño y letra por Kodama, con la fecha y con su
+                    firma.
+                    Podría ser válido incluso un testamento ológrafo dejado por ella en el extrajero.</p>
+
+            </article>
+            <article class="card-container" id="pregunta-3">
+                <h5 class="card-title">4</h5>
+                <h3 class="card-subtitle-description">Salud</h3>
+                <p class="card-description">El artículo 2471 del Código Civil y Comercial establece expresamente la
+                    “obligación
+                    de denunciar la existencia del testamento” y dice que “quien participa en el otorgamiento de un
+                    testamento o
+                    en cuyo poder se encuentra, está obligado a comunicarlo a las personas interesadas, una vez acaecida
+                    la
+                    muerte del testador”. Por eso, sería extraño que alguien tuviera el testamento en su poder y todavía
+                    no
+                    lo
+                    hubiera informado; sobre todo, si es un escribano.</p>
+            </article>
+        </section>
+    </div>
+
+    <script>
+        function isInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+                rect.top <= window.innerHeight &&
+                rect.bottom >= 0 &&
+                rect.left <= window.innerWidth &&
+                rect.right >= 0
+            );
+        }
+        let containerCardsDescription = document.getElementById('cardsDescriptionContainer')
+        let floatingButton = document.getElementById('floatingButton');
+        window.addEventListener('scroll', function () {
+            if (isInViewport(containerCardsDescription)) {
+
+                floatingButton.style.display = 'block';
+            } else {
+                floatingButton.style.display = 'none';
+            }
+        });
+        const tarjetaInfo = [
+
+            {
+                title: 'Economía: los precios y la situación fiscal ',
+                description: 'Lacalle Pou hizo referencia a la coyuntura económica del país y se detuvo en el deterioro del mercado laboral. Tenemos un compromiso ineludible con mejorar la calidad y el precio de los servicios públicos, dijo. Este gobierno tiene un compromiso de manejarse de manera austera, comentó y en la misma línea expresó que cuidaría cada peso de los contribuyentes.En su primer discurso como presidente se refirió además a la situación fiscal. Impulsaremos una verdadera regla fiscal, señaló y anunció la creación de una agencia de evaluación y monitoreo de las políticas públicas.'
+            },
+            {
+                title: 'Seguridad: crisis a atacar',
+                description: 'El mandatario fue enfático en este punto: “Estamos ante una emergencia”, dijo Lacalle Pou y señaló que actuaría con inmediatez en el tema. "Mañana mismo (...) convocaremos a todas las jerarquías policiales del país para darles instrucciones claras", dijo. “No estamos dispuestos a ceder territorio a la delincuencia, al narcotráfico (...) Vamos a recuperar el control de cada rincón de nuestra patria y también de las cárceles”'
+            },
+            {
+                title: 'Educación',
+                description: 'El mandatario también hizo referencia a que en los últimos años se vivió un "periodo de retroceso" en la enseñanza, y que Uruguay pasó de estar a la vanguardia de América Latina a ser de los peores en este terreno si se mira la cantidad de jóvenes que culmina la enseñanza media. "Vamos a proponer un cambio en la gobernanza de la educación para hacerla más ágil y más efectiva", dijo.'
+            },
+            {
+                title: ' Relaciones Internacionales',
+                description: 'En política exterior, Lacalle Pou dijo que no se manejaría en función de afinidades ideológicas, y se manifestó a favor de una flexibilización del Mercosur y de la rápida concreción del acuerdo de libre comercio con la Unión Europea. “Hay que fortalecer la región, el Mercosur y, al mismo tiempo, lograr flexibilizar el bloque para que cada socio pueda avanzar en procesos bilaterales con otros países. Debemos terminar los procesos e internalizar el tratado firmado por Uruguay y el Mercosur con la Unión Europea”, expresó.'
+            },
+            {
+                title: ' La pandemia y el gasto',
+                description: 'En el discurso del 2 de marzo de 2021 Lacalle Pou repasó su primer año de mandato. “Hace un año y un día aquí en este mismo lugar manifesté las grandes líneas del gobierno que tienen como base un compromiso electoral claro y explícito. Doce días después el Uruguay ya no sería el mismo”, fue una de las primeras frases de ese discurso. Y es que ese primer discurso estuvo marcado por el manejo de la crisis del coronavirus. Lacalle Pou defendió sus decisiones durante la crisis sanitaria y la tan mencionada “libertad responsable”. Defendió el gasto público a raíz de la pandemia, para mitigar el impacto en el ámbito sanitario, laboral y social. '
+            },
+            {
+                title: 'Las metas económicas',
+                description: 'Lacalle remarcó que el gobierno pudo cumplir con las metas económicas pautadas para ese primer año de gobierno. “El aumento real del gasto fue proyectado en 0,7 y fue 0,4. El tope de endeudamiento era de US$ 3.500 millones y fue 3.120”, dijo en esa oportunidad.'
+            },
+            {
+                title: 'Nuevas medidas y extensión de otras',
+                description: 'También anunció medidas como la extensión del seguro de desempleo parcial, el envío al Parlamento de un proyecto para habilitar la exoneración parcial de aportes patronales jubilatorios y la suspensión del IRAE mínimo. Además, anunció en esa oportunidad un plan de facilidades de pago de las deudas con DGI y BPS.'
+            },
+            {
+                title: 'Desarrollo social',
+                description: 'El mandatario anunció también la duplicación del monto de las asignaciones familiares entre los meses de marzo y abril. Además hizo referencia a una inversión de 200 millones de pesos para apoyar a ollas populares, comedores y merenderos en el marco de la pandemia y de otros $200 millones para atender a personas en situación de calle.'
+            },
+            {
+                title: 'Pandemia',
+                description: 'El presidente anunció que se administraron más de 7.600.000 vacunas en 360 vacunatorios en todo el país con 177 funcionarios trabajando para administrarlas de manera simultánea y 27 laboratorios realizando vigilancia genómica. “Todos recordarán aquella predicción de que nos íbamos a quedar sin camas suficientes de CTI. Bueno, Uruguay en este tiempo duplicó las camas de CTI a través del financiamiento del Fondo Covid”, dijo Lacalle Pou en un pasaje de su discurso. '
+            },
+            {
+                title: 'Seguridad y LUC',
+                description: 'El mandatario también hizo referencia a que en los últimos años se vivió un "periodo de retroceso" en la enseñanza, y que Uruguay pasó de estar a la vanguardia de América Latina a ser de los peores en este terreno si se mira la cantidad de jóvenes que culmina la enseñanza media. "Vamos a proponer un cambio en la gobernanza de la educación para hacerla más ágil y más efectiva", dijo.'
+            },
+            {
+                title: 'Reforma del Hospital de Clínicas',
+                description: 'Puede aparecer en cualquier momento porque la acción de petición de herencia (que es la que correspondería a un hipotético heredero reconocido por testamento) no tiene plazo. El Código aclara: “Sin perjuicio de la prescripción adquisitiva”, es decir, siempre que no haya pasado el tiempo que prevé la ley para que quien poseyó algo una determinada cantidad de años se convierta en su propietario (para inmuebles, por ejemplo, nunca es menos de 10 años). Hay dos clases de testamentos: por escritura pública (ante escribano) u ológrafo, que debe estar hecho de puño y letra por Kodama, con la fecha y con su firma. Podría ser válido incluso un testamento ológrafo dejado por ella en el extranjero.'
+            },
+            {
+                title: 'Obra Pública',
+                description: 'El artículo 2471 del Código Civil y Comercial establece expresamente la “obligación de denunciar la existencia del testamento” y dice que “quien participa en el otorgamiento de un testamento o en cuyo poder se encuentra, está obligado a comunicarlo a las personas interesadas, una vez acaecida la muerte del testador”. Por eso, sería extraño que alguien tuviera el testamento en su poder y todavía no lo hubiera informado; sobre todo, si es un escribano.'
+            },
+            {
+                title: 'Cambios en el IRPF e IASS',
+                description: 'En el discurso el mandatario anunció cambios en el IRPF. "Se va a aumentar la deducción del 10% al 14% a aquellas personas con ingresos menores. Se va a aumentar la deducción por hijo de 13 BPC a 20 BPC, manteniendo la duplicación en caso de hijos con discapacidad", indicó. A eso le sumó el aumento del tope del costo de la vivienda para poder acceder a la deducción del crédito hipotecario y un aumento del crédito por arrendamiento de 6% a 8%. Según dijo los cambios beneficiaban al 75% de los contribuyentes y unos 63 mil uruguayos iban a dejar de pagar IRPF. También anunció el aumento de la jubilación mínima a partir de la cual se paga el impuesto del IASS. Propuso aumentar el mínimo no imponible de 8 a 9 BPC, al mismo tiempo, que aumentar el crédito por arrendamiento al 8%. Según dijo el mandatario en el discurso, con estas medidas unas 20 mil personas dejaban de de pagar el IASS.'
+            },
+            {
+                title: 'Apertura de mercados',
+                description: 'En otra parte del discurso Lacalle Pou hizo énfasis en la apertura económica al mundo. "Estamos convencidos que con el apoyo necesario nuestros productos pueden competir en los mejores mercados. (...) En 2022 se trabajó en apertura de mercados, se culminaron las negociaciones para habilitar 33 nuevos mercados para el ingreso de nuestros productos", aseguró el mandatario. En este sentido, mencionó la exportación de trigo a Ecuador, arándanos a Israel, carne bovina y ovina a Egipto, cítricos a Perú, lengua bovina a Japón y nueces pecán al Reino Unido, entre otros. También se refirió a las negociaciones para el TLC con China, la solicitud presentada para adherir al Tratado del Transpacífico y el acuerdo de zona franca con Brasil.'
+            },
+            {
+                title: 'Sequía',
+                description: 'A su vez, el presidente se refirió a varias medidas que el gobierno tomó ante la sequía que sufría el país desde hace meses: habilitación del pastoreo en rutas, de una línea de apoyo a productores y el aporte del Ministerio de Ganadería de más de US$ 1 millón a las intendencias para que apoyen al sector con medidas específicas.'
+            },
+            {
+                title: 'Salud',
+                description: 'Lacalle Pou afirmó que el gobierno incorporó “una cantidad” de medicamentos de alto costo, y destacó el decreto que establece el acceso gratuito a los implantes mamarios y a estudios de mujeres mastectomizadas. Según el mandatario, la inversión en medicamentos con respecto al 2019 aumentó un 51%. En ese discurso recordó los comienzos de la obra del Hospital del Cerro que finalmente se inauguró en el 2023.'
+            }
+        ];
+        const cardsLinksContainer = document.getElementById('cards-links-container');
+        const cardsDescriptionContainer = document.getElementById('cardsDescriptionContainer');
+
+        tarjetaInfo.forEach((info, index) => {
+            const tarjetaContainer = document.getElementById(`pregunta-${index}`);
+            const cardLink = cardsLinksContainer.querySelector(`a[href="#pregunta-${index}"]`);
+
+            if (tarjetaContainer && cardLink) {
+                console.log(`Index: ${index}, Href: ${cardLink.href}`);
+            }
+        });
+        //remove aside bar in order to occupy full screen
+        // let pageAsideDiv = document.querySelector('.Page-aside');
+        // let pagetwoColumn = document.querySelector('.Page-twoColumn')
+        // if (pagetwoColumn) {
+        //     pagetwoColumn.classList.remove('Page-twoColumn');
+        //     pagetwoColumn.classList.add('Page-oneColumn');
+        // }
+        // if (pageAsideDiv) {
+        //     // Remove the div from the DOM
+        //     pageAsideDiv.parentNode.removeChild(pageAsideDiv);
+        // }
+    </script>
+</body>
+
+</html>
