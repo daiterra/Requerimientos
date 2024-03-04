@@ -3709,8 +3709,30 @@ ol.legislative-list li::before {
     right: -1em;
    }
 }
+.social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+    border:1px solid red;
+    padding:1rem 0
+}
+ .social svg {
+    border: 0;
+    height: 20px;
+    width: 20px;
+    /* -ms-flex-pack: center;
+    justify-content: center; */
+    border-radius: 50%;
+    /* display: -ms-flexbox;
+    display: flex; */
+}
 
-  
+
+.ArticlePage .ActionBar a.ActionLink svg {
+    height: 30px;
+    width: 30px;
+}
 </style>
 <div class="container-wrapper">
     
@@ -3721,11 +3743,22 @@ ol.legislative-list li::before {
                 <span class="heading-location">Departamento</span>
             </div>
             <div class="social">
-                <a href="#" class="like-button"></a>
-                <a class="facebook-share-button redes" title="Compartilo en Facebook" href="" target="_blank">facebook</a>
-                <a class="twitter-share-button redes" href="">x</a>
-                <a class="whatsapp-share-button redes" href="">wpp</a>
-              </div>
+                <a href="#" class="like-button">like</a>
+
+                    <a href="" target="_blank" data-social-service="twitter">
+                    <svg><use xlink:href="#mono-icon-twitter"></use></svg>
+                    </a>
+               
+            
+                    <a href="" target="_blank" data-social-service="facebook">
+                        <svg><use xlink:href="#mono-icon-facebook"></use></svg>
+                    </a>
+                
+
+                 <a class="" data-action="share/whatsapp/share" href="" target="_blank" data-social-service="whatsapp" data-sharewidth="800" data-shareheight="450">
+                    <svg><use xlink:href="#mono-icon-whatsapp"></use></svg>
+                    </a>
+            </div>
         </div>
         <div class="glide multi" id="glideOne">
             <div class="glide__track" data-glide-el="track">
@@ -3931,11 +3964,22 @@ ol.legislative-list li::before {
                 <span class="heading-location">Departamento</span>
             </div>
             <div class="social">
-                <a href="#" class="like-button"></a>
-                <a class="facebook-share-button redes" title="Compartilo en Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.lanacion.com.ar/2260288" target="_blank" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
-                <a class="twitter-share-button redes" href="https://twitter.com/share?url=https://www.lanacion.com.ar/2260288&amp;text=Conocé todas las listas para presidente, gobernador de Buenos Aires, jefe de gobierno y legisladores nacionales&amp;hashtags=CierreDeListas,Elecciones2019&amp;via=lanacion&amp;size=large" title="Compartilo en Twitter" onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
-                <a class="whatsapp-share-button redes" href="https://api.whatsapp.com/send?text=Conocé todas las listas para presidente, gobernador de Buenos Aires, jefe de gobierno y legisladores nacionales --> https://www.lanacion.com.ar/2260288"></a>
-              </div>
+                <a href="#" class="like-button">like</a>
+
+                    <a href="" target="_blank" data-social-service="twitter">
+                    <svg><use xlink:href="#mono-icon-twitter"></use></svg>
+                    </a>
+               
+            
+                    <a href="" target="_blank" data-social-service="facebook">
+                        <svg><use xlink:href="#mono-icon-facebook"></use></svg>
+                    </a>
+                
+
+                 <a class="" data-action="share/whatsapp/share" href="" target="_blank" data-social-service="whatsapp" data-sharewidth="800" data-shareheight="450">
+                    <svg><use xlink:href="#mono-icon-whatsapp"></use></svg>
+                    </a>
+            </div>
         </div>
         <div class="glide multi" id="glideTwo">
             <div class="glide__track " data-glide-el="track">
