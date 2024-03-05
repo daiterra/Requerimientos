@@ -1,14 +1,13 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<body lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <!-- <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.6.0/dist/css/glide.theme.min.css"> -->
-        <!-- <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.6.0/dist/css/glide.core.min.css"> -->
-    </head>
+<body>
     <style>
         /* glide css files */
         .glide {
@@ -193,7 +192,7 @@
             --font-size-small: 1.2rem;
             --font-size-medium: 1.3rem;
             --font-size-large: 1.5rem;
-            --font-size-xlarge: 3rem
+            --font-size-xlarge: 3rem --border-radius-actions:4px;
         }
 
         .container-wrapper {
@@ -298,6 +297,17 @@
             gap: 1rem;
         }
 
+        .card-container {
+
+            /* padding: 3rem 2rem; */
+            /* align-items: center; */
+            /* gap: 1.5rem; */
+            max-height: 350px;
+            /* overflow: hidden; */
+            /* text-overflow: ellipsis; */
+            position: relative
+        }
+
         .RichTextArticleBody .card-title {
             font-size: 1.2rem;
             text-transform: uppercase;
@@ -355,8 +365,12 @@
         }
 
         ol.legislative-list {
+            border: 1px solid red;
             counter-reset: legislative-counter;
             list-style-type: none;
+            /* text-align: justify; */
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         ol.legislative-list li {
@@ -414,6 +428,59 @@
                 right: -1em;
             }
         }
+
+        .social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            border: 1px solid red;
+            padding: 1rem 0
+        }
+
+        .social svg {
+            border: 0;
+            height: 20px;
+            width: 20px;
+            /* -ms-flex-pack: center;
+        justify-content: center; */
+            border-radius: 50%;
+            /* display: -ms-flexbox;
+        display: flex; */
+        }
+
+
+
+        .expanded {
+            max-height: none;
+            overflow: auto;
+        }
+
+        .card-toggle-button {
+            border: none;
+            padding: .5rem 1rem;
+            margin: 0 auto 1rem;
+            position: absolute;
+            bottom: 0;
+            border-radius: var(--border-radius-actions);
+            box-shadow: var(--shadow-container);
+            font-weight: 700;
+            font-size: 1.5rem;
+            cursor: pointer
+        }
+
+        .card-description-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            color: var(--color-primary-text)
+        }
+
+        /* .card-toggle-button:hover{
+            background-color: var(--color-primary-text-translucid);
+        } */
     </style>
     <div class="container-wrapper">
 
@@ -424,11 +491,28 @@
                     <span class="heading-location">Departamento</span>
                 </div>
                 <div class="social">
-                    <a href="#" class="like-button"></a>
-                    <a class="facebook-share-button redes" title="Compartilo en Facebook" href=""
-                        target="_blank">facebook</a>
-                    <a class="twitter-share-button redes" href="">x</a>
-                    <a class="whatsapp-share-button redes" href="">wpp</a>
+                    <a href="#" class="like-button">like</a>
+
+                    <a href="" target="_blank" data-social-service="twitter">
+                        <svg>
+                            <use xlink:href="#mono-icon-twitter"></use>
+                        </svg>
+                    </a>
+
+
+                    <a href="" target="_blank" data-social-service="facebook">
+                        <svg>
+                            <use xlink:href="#mono-icon-facebook"></use>
+                        </svg>
+                    </a>
+
+
+                    <a class="" data-action="share/whatsapp/share" href="" target="_blank"
+                        data-social-service="whatsapp" data-sharewidth="800" data-shareheight="450">
+                        <svg>
+                            <use xlink:href="#mono-icon-whatsapp"></use>
+                        </svg>
+                    </a>
                 </div>
             </div>
             <div class="glide multi" id="glideOne">
@@ -635,17 +719,28 @@
                     <span class="heading-location">Departamento</span>
                 </div>
                 <div class="social">
-                    <a href="#" class="like-button"></a>
-                    <a class="facebook-share-button redes" title="Compartilo en Facebook"
-                        href="https://www.facebook.com/sharer/sharer.php?u=https://www.lanacion.com.ar/2260288"
-                        target="_blank"
-                        onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
-                    <a class="twitter-share-button redes"
-                        href="https://twitter.com/share?url=https://www.lanacion.com.ar/2260288&amp;text=Conocé todas las listas para presidente, gobernador de Buenos Aires, jefe de gobierno y legisladores nacionales&amp;hashtags=CierreDeListas,Elecciones2019&amp;via=lanacion&amp;size=large"
-                        title="Compartilo en Twitter"
-                        onclick="window.open(this.href, this.target, 'width=555,height=400'); return false;"></a>
-                    <a class="whatsapp-share-button redes"
-                        href="https://api.whatsapp.com/send?text=Conocé todas las listas para presidente, gobernador de Buenos Aires, jefe de gobierno y legisladores nacionales --> https://www.lanacion.com.ar/2260288"></a>
+                    <a href="#" class="like-button">like</a>
+
+                    <a href="" target="_blank" data-social-service="twitter">
+                        <svg>
+                            <use xlink:href="#mono-icon-twitter"></use>
+                        </svg>
+                    </a>
+
+
+                    <a href="" target="_blank" data-social-service="facebook">
+                        <svg>
+                            <use xlink:href="#mono-icon-facebook"></use>
+                        </svg>
+                    </a>
+
+
+                    <a class="" data-action="share/whatsapp/share" href="" target="_blank"
+                        data-social-service="whatsapp" data-sharewidth="800" data-shareheight="450">
+                        <svg>
+                            <use xlink:href="#mono-icon-whatsapp"></use>
+                        </svg>
+                    </a>
                 </div>
             </div>
             <div class="glide multi" id="glideTwo">
@@ -653,26 +748,56 @@
                     <ul class=" glide__slides">
 
                         <li class="glide__slide">
-                            <article class="card-container" id="">
+                            <article class="card-container card-legislative" id="">
                                 <h3 class="card-title">partido politico</h3>
                                 <div class="card-image-container">
                                     <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
                                         alt="figure" />
                                 </div>
-                                <ol class="legislative-list">
-                                    <li class="legislative-item first-legislative">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                </ol>
+                                <div class="card-description-container">
+                                    <ol class="legislative-list">
+                                        <li class="legislative-item first-legislative">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                    </ol>
+                                    <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+                                    </button>
+                                </div>
+                            </article>
                             </article>
                         </li>
                         <li class="glide__slide">
-                            <article class="card-container" id="">
+                            <article class="card-container card-legislative" id="">
+
+                                <h3 class="card-title">partido politico</h3>
+                                <div class="card-image-container">
+                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
+                                        alt="figure" />
+                                </div>
+                                <div class="card-description-container">
+                                    <ol class="legislative-list">
+                                        <li class="legislative-item first-legislative">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                    </ol>
+                                    <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+                                    </button>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="glide__slide">
+                            <article class="card-container card-legislative" id="">
+
 
                                 <h3 class="card-title">partido politico</h3>
                                 <div class="card-image-container">
@@ -689,126 +814,124 @@
                                     <li class="legislative-item">nombre politico</li>
                                     <li class="legislative-item">nombre politico</li>
                                 </ol>
+                                <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+
                             </article>
                         </li>
                         <li class="glide__slide">
-                            <article class="card-container" id="">
-
+                            <article class="card-container card-legislative" id="">
                                 <h3 class="card-title">partido politico</h3>
                                 <div class="card-image-container">
                                     <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
                                         alt="figure" />
                                 </div>
-                                <ol class="legislative-list">
-                                    <li class="legislative-item first-legislative">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                </ol>
+                                <div class="card-description-container">
+                                    <ol class="legislative-list">
+                                        <li class="legislative-item first-legislative">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                    </ol>
+                                    <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+                                    </button>
+                                </div>
                             </article>
                         </li>
                         <li class="glide__slide">
-                            <article class="card-container" id="">
+                            <article class="card-container card-legislative" id="">
                                 <h3 class="card-title">partido politico</h3>
                                 <div class="card-image-container">
                                     <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
                                         alt="figure" />
                                 </div>
-                                <ol class="legislative-list">
-                                    <li class="legislative-item first-legislative">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                </ol>
-
+                                <div class="card-description-container">
+                                    <ol class="legislative-list">
+                                        <li class="legislative-item first-legislative">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                    </ol>
+                                    <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+                                    </button>
+                                </div>
                             </article>
                         </li>
                         <li class="glide__slide">
-                            <article class="card-container" id="">
+                            <article class="card-container card-legislative" id="">
                                 <h3 class="card-title">partido politico</h3>
                                 <div class="card-image-container">
                                     <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
                                         alt="figure" />
                                 </div>
-                                <ol class="legislative-list">
-                                    <li class="legislative-item first-legislative">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                </ol>
-
+                                <div class="card-description-container">
+                                    <ol class="legislative-list">
+                                        <li class="legislative-item first-legislative">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                    </ol>
+                                    <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+                                    </button>
+                                </div>
                             </article>
                         </li>
                         <li class="glide__slide">
-                            <article class="card-container" id="">
+                            <article class="card-container card-legislative" id="">
                                 <h3 class="card-title">partido politico</h3>
                                 <div class="card-image-container">
                                     <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
                                         alt="figure" />
                                 </div>
-                                <ol class="legislative-list">
-                                    <li class="legislative-item first-legislative">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                </ol>
 
+                                <div class="card-description-container">
+                                    <ol class="legislative-list">
+                                        <li class="legislative-item first-legislative">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                    </ol>
+                                    <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+                                    </button>
+                                </div>
                             </article>
                         </li>
                         <li class="glide__slide">
-                            <article class="card-container" id="">
+                            <article class="card-container card-legislative" id="">
                                 <h3 class="card-title">partido politico</h3>
                                 <div class="card-image-container">
                                     <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
                                         alt="figure" />
                                 </div>
-                                <ol class="legislative-list">
-                                    <li class="legislative-item first-legislative">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                </ol>
-
-                            </article>
-                        </li>
-                        <li class="glide__slide">
-                            <article class="card-container" id="">
-                                <h3 class="card-title">partido politico</h3>
-                                <div class="card-image-container">
-                                    <img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png"
-                                        alt="figure" />
+                                <div class="card-description-container">
+                                    <ol class="legislative-list">
+                                        <li class="legislative-item first-legislative">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                        <li class="legislative-item">nombre politico</li>
+                                    </ol>
+                                    <button class="card-toggle-button" onclick="toggleDescription(this)">ver mas
+                                    </button>
                                 </div>
-                                <ol class="legislative-list">
-                                    <li class="legislative-item first-legislative">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                    <li class="legislative-item">nombre politico</li>
-                                </ol>
-
                             </article>
                         </li>
 
@@ -1077,12 +1200,20 @@
             legislativeItems.forEach((item, i) => {
                 item.textContent = info.names[i];
 
-                if (item.classList.contains('first')) {
+                if (item.classList.contains('first-legislative')) {
                     item.classList.add(info.bg);
+                    // item.classList.add('name1')
                 }
             });
         }
         renderPoliticiansInfo();
+        function toggleDescription(button) {
+            const cardContainer = button.closest('.card-legislative');
+            console.log('cardContainer', cardContainer)
+            cardContainer.classList.toggle('expanded');
+            const buttonText = cardContainer.classList.contains('expanded') ? 'ver menos' : 'ver mas';
+            button.textContent = buttonText;
+        }
 
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
@@ -1092,7 +1223,7 @@
             // focusAt: 'center',
             // startAt: 0,
             // direction: 'ltr',
-            focusAt: 1,
+            // focusAt:1,
             perView: 4,
             perTouch: false,
             breakpoints: {
@@ -1112,7 +1243,6 @@
             new Glide(carousel, options).mount();
         });
     </script>
-
 </body>
 
 </html>
