@@ -50,7 +50,7 @@
         }
 
         .faq-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             padding: 1.2rem;
             padding-left: 0;
         }
@@ -91,11 +91,11 @@
         }
 
         .faq-container svg {
-            fill: white;
-            height: 40px;
-            width: 40px;
-            min-width: 40px;
-            min-height: 40px;
+            fill: none;
+            height: 25px;
+            width: 25px;
+            min-width: 25px;
+            min-height: 25px;
         }
 
         .faq-container-details summary::-webkit-details-marker {
@@ -111,7 +111,7 @@
         }
 
         .faq-details-description {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin: 0 0 1rem;
             padding: 1rem 0.5rem 0.5rem;
         }
@@ -123,11 +123,14 @@
             background-color: var(--colorPrimary);
             border-radius: 50%;
             padding: 1.5rem;
+            z-index: 5;
         }
 
-        /* .faq-image-container svg {
-            filter: invert(1);
-        } */
+        .faq-image-container svg {
+            fill: white;
+            height: 40px;
+            width: 40px;
+        }
 
         .faq-icon-container .faq-divider {
             display: none;
@@ -217,7 +220,7 @@
             <div class="faq-divider">
             </div>
             <p class="faq-subtitle">
-                Origen, caracteristicas del virus y como combatirlo
+                Origen, características del virus y cómo combatirlo
             </p>
             <details class="faq-container-details">
                 <summary>¿Qué es el dengue?
@@ -239,18 +242,24 @@
                     tanto pasó de 1.5 millones de casos acumulados en la década del 80, a 16.2 millones en la década del
                     2010-2019.
                 </p>
-                <!-- <a target="_blank" class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a> -->
+            </details>
+            <details class="faq-container-details">
+                <summary>¿Cuál es el ciclo de vida del mosquito Aedes aegypti?
+                    <div class="chevron-container"> <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" stroke="#fc2e20">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="M6 9L12 15L18 9" stroke="#06416a" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </summary>
+                <p class="faq-details-description">
+                    El mosquito puede completar su ciclo de vida, desde el huevo hasta el adulto, en 7-10 días; los
+                    mosquitos adultos generalmente viven de 4 a 6 semanas. </p>
+
             </details>
             <details class="faq-container-details">
                 <summary>¿Cómo se transmite el dengue?
@@ -271,18 +280,6 @@
                     el mosquito vector. Según la OPS, es un mosquito doméstico (que vive en y cerca de las casas) que se
                     reproduce en cualquier recipiente artificial o natural que contenga agua.
                 </p>
-                <!-- <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a> -->
             </details>
             <details class="faq-container-details">
                 <summary>¿Cómo se previene la enfermedad?
@@ -305,18 +302,6 @@
                     lugares de reproducción de mosquitos; cubrir adecuadamente los tanques y depósitos de agua para
                     mantener alejados a los mosquitos; evitar acumular basura, tirar la basura en bolsas de plástico
                     cerradas.</p>
-                <!-- <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a> -->
             </details>
             <details class="faq-container-details">
                 <summary>¿Cómo se protege de las picaduras?
@@ -336,18 +321,6 @@
                     libre. Se sugiere colocar mosquiteros en puertas y ventanas, y de ser posible usar ventiladores o
                     aire acondicionado. Proteger cunas y cochecitos de bebés con telas mosquiteras. Usar repelentes
                     ambientales como tabletas termoevaporables y espirales </p>
-                <!-- <a class="faq-details-link"
-                    href="https://elpais.com/especiales/coronavirus-covid-19/el-mapa-del-coronavirus-en-el-mundo">Mapa
-                    de
-                    expansion</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a> -->
             </details>
             <details class="faq-container-details">
                 <summary>¿Cuáles son los síntomas del dengue?
@@ -366,18 +339,6 @@
                     El síntoma más común del dengue es la fiebre. Se puede presentar dolor en los ojos generalmente
                     detrás, dolor muscular, en las articulaciones o en los huesos, náuseas o vómitos y erupción cutánea.
                 </p>
-                <!-- <a class="faq-details-link"
-                    href="https://elpais.com/especiales/coronavirus-covid-19/el-mapa-del-coronavirus-en-el-mundo">Mapa
-                    de
-                    expansion</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a> -->
             </details>
             <details class="faq-container-details">
                 <summary>¿Cuál es el tratamiento?
@@ -396,18 +357,6 @@
                     Una vez que una persona se contagia de la enfermedad, no existe un medicamento específico para
                     tratarla. De todas formas, es posible aliviar los síntomas controlando la fiebre y reduciendo el
                     dolor. </p>
-                <!-- <a class="faq-details-link"
-                    href="https://elpais.com/especiales/coronavirus-covid-19/el-mapa-del-coronavirus-en-el-mundo">Mapa
-                    de
-                    expansion</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a> -->
             </details>
             <details class="faq-container-details">
                 <summary>¿Qué hacer si presento síntomas?
@@ -425,51 +374,11 @@
                 <p class="faq-details-description">
                     Si una persona presenta síntomas es recomendable consultar con un médico.
                 </p>
-                <!-- <a class="faq-details-link"
-                    href="https://elpais.com/especiales/coronavirus-covid-19/el-mapa-del-coronavirus-en-el-mundo">Mapa
-                    de
-                    expansion</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a> -->
             </details>
-            <details class="faq-container-details">
-                <summary>¿Cuál es el ciclo de vida del mosquito Aedes aegypti?
-                    <div class="chevron-container"> <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg" stroke="#fc2e20">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path d="M6 9L12 15L18 9" stroke="#06416a" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </g>
-                        </svg>
-                    </div>
-                </summary>
-                <p class="faq-details-description">
-                    El mosquito puede completar su ciclo de vida, desde el huevo hasta el adulto, en 7-10 días; los
-                    mosquitos adultos generalmente viven de 4 a 6 semanas. </p>
-                <!-- <a class="faq-details-link"
-                    href="https://elpais.com/especiales/coronavirus-covid-19/el-mapa-del-coronavirus-en-el-mundo">Mapa
-                    de
-                    expansion</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a>
-                <a class="faq-details-link"
-                    href="https://elpais.com/sociedad/2020/01/29/actualidad/1580309595_830193.html">Lo que se sabe del
-                    nuevo
-                    virus</a> -->
-            </details>
+
             <a class="faq-details-link"
                 href="https://www.paho.org/es/temas/dengue#:~:text=Sobre%20el%20Dengue&text=Es%20una%20enfermedad%20febril%20que,en%20las%20articulaciones%2C%20y%20sarpullidos">Fuente
-                de informacion</a>
+                de información</a>
         </article>
     </section>
 
