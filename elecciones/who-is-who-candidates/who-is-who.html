@@ -3510,7 +3510,7 @@ if(hasIntersectionObserver) {
         --font-size-medium: 1.3rem;
         --font-size-large: 1.5rem;
         --font-size-xlarge: 3rem;
-        --border-radius-actions:4px;
+        --border-radius-actions: 4px;
     }
 
     .container-wrapper {
@@ -3799,8 +3799,58 @@ if(hasIntersectionObserver) {
     /* .card-toggle-button:hover{
         background-color: var(--color-primary-text-translucid);
     } */
+    #dropdownMenu{
+        border:1px solid var(--color-candidate-divider);
+        padding:1rem;
+        border-radius: var(--radius);
+        min-height: 20px;
+        /* padding: 5px 10px; */
+        font-size: 1.6rem;
+        background-color: white;
+        /* max-width: 350px; */
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        font-weight: 600;
+        /* position: relative;  */
+    }
+    .div-select{
+        padding: 15px;
+        background-color: #fff;
+        text-align: center;
+        margin: 35px auto 0;
+        position: relative;
+        width: 100%;
+        max-width: 350px;
+        border-radius: 5px;
+    }
+    .div-select::after{
+        content: '';
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIzLjAuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDY1LjIgMjguOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNjUuMiAyOC45OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cgkuc3Qxe2ZpbGw6IzAxMDEwMTt9Cjwvc3R5bGU+Cjxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iNTcuNSwzLjEgNDQuOCwxNS44IDM5LjMsMTAuMyAzNS40LDE0LjIgNDQuOCwyMy43IDYxLjUsNyAiLz4KPHBhdGggY2xhc3M9InN0MSIgZD0iTTE4LjYsNS4yYy0xLjQtMS40LTMuMy0yLjItNS4zLTIuMmMtMiwwLTMuOCwwLjgtNS4yLDIuMmMtMi43LDIuNy0yLjksNy4xLTAuNSwxMGwtNS4yLDUuMgoJYy0wLjMsMC4zLTAuMywwLjcsMCwxYzAuMSwwLjEsMC4zLDAuMiwwLjUsMC4yYzAuMiwwLDAuNC0wLjEsMC41LTAuMmw1LjItNS4yYzEuMywxLjEsMywxLjcsNC43LDEuN2MyLDAsMy44LTAuOCw1LjItMi4yCgljMS40LTEuNCwyLjItMy4zLDIuMi01LjNDMjAuOCw4LjUsMjAsNi42LDE4LjYsNS4yeiBNMTcuNSwxNC43Yy0xLjEsMS4xLTIuNiwxLjctNC4yLDEuN2MtMS42LDAtMy4xLTAuNi00LjItMS44CgljLTIuMy0yLjMtMi4zLTYuMSwwLTguNGMxLjEtMS4xLDIuNi0xLjcsNC4yLTEuN2MxLjYsMCwzLjEsMC42LDQuMiwxLjhjMS4xLDEuMSwxLjcsMi42LDEuNyw0LjJDMTkuMywxMi4xLDE4LjcsMTMuNiwxNy41LDE0Ljd6Ii8+Cjwvc3ZnPgo=);
+        background-size: 60px;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        right: 10%;
+        /* top: 40%; */
+        transform: translateY(50%);
+        opacity: .8;
+    }
+
+   
 </style>
 <div class="container-wrapper">
+    <div  class="div-select">
+        <select id="dropdownMenu">
+            <option value="" disabled selected hidden>Buscar departamento</option>
+        </select>
+    </div>
+    
 
     <section class="executive section-container">
         <div class="heading-container">
@@ -3810,7 +3860,19 @@ if(hasIntersectionObserver) {
             </div>
             <div class="social">
                 <a href="#" class="like-button">
-                    <svg width="121px" height="121px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.2694 16.265L20.9749 12.1852C21.1511 11.1662 20.3675 10.2342 19.3345 10.2342H14.1534C13.6399 10.2342 13.2489 9.77328 13.332 9.26598L13.9947 5.22142C14.1024 4.56435 14.0716 3.892 13.9044 3.24752C13.7659 2.71364 13.354 2.28495 12.8123 2.11093L12.6673 2.06435C12.3399 1.95918 11.9826 1.98365 11.6739 2.13239C11.3342 2.29611 11.0856 2.59473 10.9935 2.94989L10.5178 4.78374C10.3664 5.36723 10.146 5.93045 9.8617 6.46262C9.44634 7.24017 8.80416 7.86246 8.13663 8.43769L6.69789 9.67749C6.29223 10.0271 6.07919 10.5506 6.12535 11.0844L6.93752 20.4771C7.01201 21.3386 7.73231 22 8.59609 22H13.2447C16.726 22 19.697 19.5744 20.2694 16.265Z" fill="#303030"></path> <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M2.96767 9.48508C3.36893 9.46777 3.71261 9.76963 3.74721 10.1698L4.71881 21.4063C4.78122 22.1281 4.21268 22.7502 3.48671 22.7502C2.80289 22.7502 2.25 22.1954 2.25 21.5129V10.2344C2.25 9.83275 2.5664 9.5024 2.96767 9.48508Z" fill="#303030"></path> </g></svg>
+                    <svg width="121px" height="121px" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M20.2694 16.265L20.9749 12.1852C21.1511 11.1662 20.3675 10.2342 19.3345 10.2342H14.1534C13.6399 10.2342 13.2489 9.77328 13.332 9.26598L13.9947 5.22142C14.1024 4.56435 14.0716 3.892 13.9044 3.24752C13.7659 2.71364 13.354 2.28495 12.8123 2.11093L12.6673 2.06435C12.3399 1.95918 11.9826 1.98365 11.6739 2.13239C11.3342 2.29611 11.0856 2.59473 10.9935 2.94989L10.5178 4.78374C10.3664 5.36723 10.146 5.93045 9.8617 6.46262C9.44634 7.24017 8.80416 7.86246 8.13663 8.43769L6.69789 9.67749C6.29223 10.0271 6.07919 10.5506 6.12535 11.0844L6.93752 20.4771C7.01201 21.3386 7.73231 22 8.59609 22H13.2447C16.726 22 19.697 19.5744 20.2694 16.265Z"
+                                fill="#303030"></path>
+                            <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M2.96767 9.48508C3.36893 9.46777 3.71261 9.76963 3.74721 10.1698L4.71881 21.4063C4.78122 22.1281 4.21268 22.7502 3.48671 22.7502C2.80289 22.7502 2.25 22.1954 2.25 21.5129V10.2344C2.25 9.83275 2.5664 9.5024 2.96767 9.48508Z"
+                                fill="#303030"></path>
+                        </g>
+                    </svg>
                 </a>
 
                 <a href="" target="_blank" data-social-service="twitter">
@@ -4040,7 +4102,19 @@ if(hasIntersectionObserver) {
             </div>
             <div class="social">
                 <a href="#" class="like-button">
-                    <svg width="121px" height="121px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.2694 16.265L20.9749 12.1852C21.1511 11.1662 20.3675 10.2342 19.3345 10.2342H14.1534C13.6399 10.2342 13.2489 9.77328 13.332 9.26598L13.9947 5.22142C14.1024 4.56435 14.0716 3.892 13.9044 3.24752C13.7659 2.71364 13.354 2.28495 12.8123 2.11093L12.6673 2.06435C12.3399 1.95918 11.9826 1.98365 11.6739 2.13239C11.3342 2.29611 11.0856 2.59473 10.9935 2.94989L10.5178 4.78374C10.3664 5.36723 10.146 5.93045 9.8617 6.46262C9.44634 7.24017 8.80416 7.86246 8.13663 8.43769L6.69789 9.67749C6.29223 10.0271 6.07919 10.5506 6.12535 11.0844L6.93752 20.4771C7.01201 21.3386 7.73231 22 8.59609 22H13.2447C16.726 22 19.697 19.5744 20.2694 16.265Z" fill="#303030"></path> <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M2.96767 9.48508C3.36893 9.46777 3.71261 9.76963 3.74721 10.1698L4.71881 21.4063C4.78122 22.1281 4.21268 22.7502 3.48671 22.7502C2.80289 22.7502 2.25 22.1954 2.25 21.5129V10.2344C2.25 9.83275 2.5664 9.5024 2.96767 9.48508Z" fill="#303030"></path> </g></svg>
+                    <svg width="121px" height="121px" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M20.2694 16.265L20.9749 12.1852C21.1511 11.1662 20.3675 10.2342 19.3345 10.2342H14.1534C13.6399 10.2342 13.2489 9.77328 13.332 9.26598L13.9947 5.22142C14.1024 4.56435 14.0716 3.892 13.9044 3.24752C13.7659 2.71364 13.354 2.28495 12.8123 2.11093L12.6673 2.06435C12.3399 1.95918 11.9826 1.98365 11.6739 2.13239C11.3342 2.29611 11.0856 2.59473 10.9935 2.94989L10.5178 4.78374C10.3664 5.36723 10.146 5.93045 9.8617 6.46262C9.44634 7.24017 8.80416 7.86246 8.13663 8.43769L6.69789 9.67749C6.29223 10.0271 6.07919 10.5506 6.12535 11.0844L6.93752 20.4771C7.01201 21.3386 7.73231 22 8.59609 22H13.2447C16.726 22 19.697 19.5744 20.2694 16.265Z"
+                                fill="#303030"></path>
+                            <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M2.96767 9.48508C3.36893 9.46777 3.71261 9.76963 3.74721 10.1698L4.71881 21.4063C4.78122 22.1281 4.21268 22.7502 3.48671 22.7502C2.80289 22.7502 2.25 22.1954 2.25 21.5129V10.2344C2.25 9.83275 2.5664 9.5024 2.96767 9.48508Z"
+                                fill="#303030"></path>
+                        </g>
+                    </svg>
                 </a>
 
                 <a href="" target="_blank" data-social-service="twitter">
@@ -4286,6 +4360,61 @@ if(hasIntersectionObserver) {
 
 </div>
 <script>
+    const selectOptions = [
+        // { value: "0", label: "All departments" },
+        { value: "1", label: "Artigas" },
+        { value: "2", label: "Canelones" },
+        // { value: "3", label: "Cerro Largo" },
+        // { value: "4", label: "Colonia" },
+        // { value: "5", label: "Durazno" },
+        // { value: "6", label: "Flores" },
+        // { value: "7", label: "Florida" },
+        // { value: "8", label: "Lavalleja" },
+        // { value: "9", label: "Maldonado" },
+        // { value: "10", label: "Montevideo" },
+        // { value: "11", label: "Paysandú" },
+        // { value: "12", label: "Río Negro" },
+        // { value: "13", label: "Rivera" },
+        // { value: "14", label: "Rocha" },
+        // { value: "15", label: "Salto" },
+        // { value: "16", label: "San José" },
+        // { value: "17", label: "Soriano" },
+        // { value: "18", label: "Tacuarembó" },
+        // { value: "19", label: "Treinta y Tres" }
+    ];
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const departamentElements = document.querySelectorAll('.heading-location')
+    //setea el texto en el titulo que desp matchea con la opcion seleccionada
+    if (departamentElements.length === selectOptions.length) {
+        departamentElements.forEach((element, index) => {
+            if (selectOptions[index].label !== 'All departments') {
+                element.textContent = selectOptions[index].label;
+            }
+        });
+    } else {
+        console.error('Number of departament elements does not match selectOptions');
+    }
+    //crea las opciones en base a los datos del array
+    selectOptions.forEach((option) => {
+        const newOption = document.createElement("option");
+        newOption.value = option.value;
+        newOption.textContent = option.label;
+        dropdownMenu.appendChild(newOption);
+    });
+
+    const handleSelectChange = (event) => {
+        const allDepartments = document.querySelectorAll('.section-container')
+        const selectedValue = dropdownMenu.options[dropdownMenu.value].label;
+        allDepartments.forEach(department => {
+            const departmentLabel = department.querySelector('.heading-location').textContent;
+            department.style.display = 'none'
+            if (selectedValue === "All departments" || selectedValue == departmentLabel) {
+                department.style.display = 'block';
+            }
+        });
+    }
+    dropdownMenu.addEventListener('change', handleSelectChange);
+
     const data = {
         executive: [
             {
