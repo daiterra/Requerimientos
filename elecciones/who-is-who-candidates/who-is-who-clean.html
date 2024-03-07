@@ -1025,19 +1025,7 @@
                 </div>
                 <div class="social">
                     <a href="#" class="like-button">
-                        <svg width="121px" height="121px" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path
-                                    d="M20.2694 16.265L20.9749 12.1852C21.1511 11.1662 20.3675 10.2342 19.3345 10.2342H14.1534C13.6399 10.2342 13.2489 9.77328 13.332 9.26598L13.9947 5.22142C14.1024 4.56435 14.0716 3.892 13.9044 3.24752C13.7659 2.71364 13.354 2.28495 12.8123 2.11093L12.6673 2.06435C12.3399 1.95918 11.9826 1.98365 11.6739 2.13239C11.3342 2.29611 11.0856 2.59473 10.9935 2.94989L10.5178 4.78374C10.3664 5.36723 10.146 5.93045 9.8617 6.46262C9.44634 7.24017 8.80416 7.86246 8.13663 8.43769L6.69789 9.67749C6.29223 10.0271 6.07919 10.5506 6.12535 11.0844L6.93752 20.4771C7.01201 21.3386 7.73231 22 8.59609 22H13.2447C16.726 22 19.697 19.5744 20.2694 16.265Z"
-                                    fill="#303030"></path>
-                                <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M2.96767 9.48508C3.36893 9.46777 3.71261 9.76963 3.74721 10.1698L4.71881 21.4063C4.78122 22.1281 4.21268 22.7502 3.48671 22.7502C2.80289 22.7502 2.25 22.1954 2.25 21.5129V10.2344C2.25 9.83275 2.5664 9.5024 2.96767 9.48508Z"
-                                    fill="#303030"></path>
-                            </g>
-                        </svg>
+
                     </a>
 
                     <a href="" target="_blank" data-social-service="twitter">
@@ -5404,61 +5392,7 @@
 
     </div>
     <script>
-        const selectOptions = [
-            // { value: "", label: "All departments" },
-            { value: "1", label: "Artigas" },
-            { value: "2", label: "Canelones" },
-            { value: "3", label: "Cerro Largo" },
-            { value: "4", label: "Colonia" },
-            { value: "5", label: "Durazno" },
-            { value: "6", label: "Flores" },
-            { value: "7", label: "Florida" },
-            { value: "8", label: "Lavalleja" },
-            { value: "9", label: "Maldonado" },
-            { value: "10", label: "Montevideo" },
-            { value: "11", label: "Paysandú" },
-            { value: "12", label: "Río Negro" },
-            { value: "13", label: "Rivera" },
-            { value: "14", label: "Rocha" },
-            { value: "15", label: "Salto" },
-            { value: "16", label: "San José" },
-            { value: "17", label: "Soriano" },
-            { value: "18", label: "Tacuarembó" },
-            { value: "19", label: "Treinta y Tres" }
-        ];
-        const dropdownMenu = document.getElementById("dropdownMenu");
-        const departamentElements = document.querySelectorAll('.heading-location')
-        //setea el texto en el titulo que desp matchea con la opcion seleccionada
-        if (departamentElements.length === selectOptions.length) {
-            departamentElements.forEach((element, index) => {
-                if (selectOptions[index].label !== 'All departments') {
-                    element.textContent = selectOptions[index].label;
-                }
-            });
-        } else {
-            console.error('Number of departament elements does not match selectOptions');
-        }
-        //crea las opciones en base a los datos del array
-        selectOptions.forEach((option) => {
-            const newOption = document.createElement("option");
-            newOption.value = option.value;
-            newOption.textContent = option.label;
-            dropdownMenu.appendChild(newOption);
-        });
-
-        const handleSelectChange = (event) => {
-            const allDepartments = document.querySelectorAll('.section-container')
-            const selectedValue = dropdownMenu.options[dropdownMenu.value].label;
-            allDepartments.forEach(department => {
-                const departmentLabel = department.querySelector('.heading-location').textContent;
-                department.style.display = 'none'
-                if (selectedValue === "All departments" || selectedValue == departmentLabel) {
-                    department.style.display = 'block';
-                }
-            });
-        }
-        dropdownMenu.addEventListener('change', handleSelectChange);
-
+        //data structure
         const data = {
             executive: [
                 {
@@ -5583,28 +5517,35 @@
             ],
             legislative: [
                 {
-                    party: 'Partido Político 3',
+                    party: 'Partido Político 1',
                     color: "color-fourth",
                     bg: "bg-fourth",
                     image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
                     names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
                 },
                 {
-                    party: 'Partido Político 4',
+                    party: 'Partido Político 2',
                     color: "color-fifth",
                     bg: "bg-fifth",
                     image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 3',
+                    color: "color-fifth",
+                    bg: "bg-fifth",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 4',
+                    color: "color-others",
+                    bg: "bg-others",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
                     names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
                 },
                 {
                     party: 'Partido Político 5',
-                    color: "color-fifth",
-                    bg: "bg-fifth",
-                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/fernando_solana.png',
-                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
-                },
-                {
-                    party: 'Partido Político 6',
                     color: "color-others",
                     bg: "bg-others",
                     image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
@@ -5618,37 +5559,133 @@
                     names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
                 },
                 {
-                    party: 'Partido Político 6',
+                    party: 'Partido Político 7',
                     color: "color-others",
                     bg: "bg-others",
                     image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
                     names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
                 },
                 {
-                    party: 'Partido Político 6',
+                    party: 'Partido Político 8',
                     color: "color-others",
                     bg: "bg-others",
                     image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
                     names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
                 },
                 {
-                    party: 'Partido Político 6',
+                    party: 'Partido Político 9',
                     color: "color-others",
                     bg: "bg-others",
                     image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
                     names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
                 },
-            ]
-        };
+                {
+                    party: 'Partido Político 10',
+                    color: "color-others",
+                    bg: "bg-others",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 11',
+                    color: "color-others",
+                    bg: "bg-others",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 12',
+                    color: "color-others",
+                    bg: "bg-others",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+                {
+                    party: 'Partido Político 13',
+                    color: "color-others",
+                    bg: "bg-others",
+                    image: 'https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/cama%C3%B1oooo.png',
+                    names: ['Nombre Político 1', 'Nombre Político 2', 'Nombre Político 3', 'Nombre Político 4', 'Nombre Político 5', 'Nombre Político 6', 'Nombre Político 7', 'Nombre Político 8']
+                },
+            ],
+
+
+        }
+
+        const selectOptions = [
+            // { value: "", label: "All departments" },
+            { value: "1", label: "Artigas" },
+            { value: "2", label: "Canelones" },
+            { value: "3", label: "Cerro Largo" },
+            { value: "4", label: "Colonia" },
+            { value: "5", label: "Durazno" },
+            { value: "6", label: "Flores" },
+            { value: "7", label: "Florida" },
+            { value: "8", label: "Lavalleja" },
+            { value: "9", label: "Maldonado" },
+            { value: "10", label: "Montevideo" },
+            { value: "11", label: "Paysandú" },
+            { value: "12", label: "Río Negro" },
+            { value: "13", label: "Rivera" },
+            { value: "14", label: "Rocha" },
+            { value: "15", label: "Salto" },
+            { value: "16", label: "San José" },
+            { value: "17", label: "Soriano" },
+            { value: "18", label: "Tacuarembó" },
+            { value: "19", label: "Treinta y Tres" }
+        ];
+        const dropdownMenu = document.getElementById("dropdownMenu");
+        //crea las opciones en base a selectOptions
+        selectOptions.forEach((option) => {
+            const newOption = document.createElement("option");
+            newOption.value = option.value;
+            newOption.textContent = option.label;
+            dropdownMenu.appendChild(newOption);
+        });
+        const departamentElements = document.querySelectorAll('.heading-location')
+        //setea el texto en el titulo que desp matchea con la opcion seleccionada
+
+        if (departamentElements.length === selectOptions.length) {
+            departamentElements.forEach((element, index) => {
+                if (selectOptions[index].label !== 'All departments') {
+                    element.textContent = selectOptions[index].label;
+                }
+            });
+        } else {
+            console.error('Number of departament elements does not match selectOptions');
+        }
+
+
+        const handleSelectChange = (event) => {
+            const allDepartments = document.querySelectorAll('.section-container')
+            const selectedValue = dropdownMenu.options[dropdownMenu.value].label;
+            allDepartments.forEach(department => {
+                const departmentLabel = department.querySelector('.heading-location').textContent;
+                department.style.display = 'none'
+                if (selectedValue === "All departments" || selectedValue == departmentLabel) {
+                    department.style.display = 'block';
+                }
+            });
+        }
+        dropdownMenu.addEventListener('change', handleSelectChange);
+
+
+
+
 
         function renderPoliticiansInfo() {
             // Iterar por secciones (executive y legislative)
             for (const section in data) {
+                // console.log('section', section)
+
                 const cards = document.querySelectorAll(`.${section} .card-container`);
-                // console.log('cards', cards)
                 cards.forEach((card, index) => {
                     const information = data[section][index];
-                    console.log('info', information)
+                    if (information == undefined) {
+                        console.log("Pasaron cosas, information es", information, "probablemente porque el array esta fuera de rango")
+                        return
+                    }
+                    // console.log('info', information, index)
                     const title = card.querySelector('.card-title');
                     const politicianName = card.querySelector('.office');
                     const image = card.querySelector('.card-image-container img');
@@ -5706,7 +5743,7 @@
         renderPoliticiansInfo();
         function toggleDescription(button) {
             const cardContainer = button.closest('.card-legislative');
-            console.log('cardContainer', cardContainer)
+            // console.log('cardContainer', cardContainer)
             cardContainer.classList.toggle('expanded');
             const buttonText = cardContainer.classList.contains('expanded') ? 'ver menos' : 'ver mas';
             button.textContent = buttonText;
@@ -5715,6 +5752,7 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
     <script>
+        // script library
         const options = {
             type: "carousel",
             // focusAt: 'center',
