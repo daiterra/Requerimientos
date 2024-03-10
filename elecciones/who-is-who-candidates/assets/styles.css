@@ -151,13 +151,13 @@
   color: var(--color-bullet-active);
 }
 
-.office,
-.subordinate {
+.name-first ,
+.name-second  {
   color: var(--color-bullet-active);
   font-size: var(--font-size-small);
 }
 
-.name1 {
+.name-first {
   text-transform: uppercase;
   font-size: var(--font-size-small);
   padding: 0.2rem 0.5rem;
@@ -165,7 +165,7 @@
   /* color:#F5F5F5;  alternativa sugerida*/
 }
 
-.name2 {
+.name-second {
   text-transform: uppercase;
   font-size: var(--font-size-small);
 }
