@@ -142,7 +142,7 @@ function createSlider(parent, slides = []) {
 
     const glideSlides = document.createElement("ul")
     glideSlides.className = "glide__slides"
-    glide.appendChild(glideSlides)
+    glideTrack.appendChild(glideSlides)
 
     slides.forEach((item) => {
         const li = glideSlides.createElement("li")
