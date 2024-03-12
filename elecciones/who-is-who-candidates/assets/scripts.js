@@ -84,6 +84,26 @@ const glideOptions = {
     },
     animationTimingFunc: "ease",
 }
+const sectionData = [
+    {
+        title: "Gobernador",
+        location: "Canelones",
+        cardsAmount: 4,
+        hasSlider: Boolean,
+    },
+    {
+        title: "Jefe de Gobierno",
+        location: "Artigas",
+        cardsAmount: 6,
+        hasSlider: Boolean,
+    },
+    {
+        title: "Diputados",
+        location: "Montevideo",
+        cardsAmount: 10,
+        hasSlider: Boolean,
+    },
+]
 //#endregion
 
 //#region Methods
@@ -161,7 +181,6 @@ function createSlider(parent, slides = []) {
         slides: glideSlides,
     }
 }
-
 function createArticle(
     image,
     party,
@@ -192,6 +211,7 @@ function createArticle(
             const li = document.createElement("li")
             li.className = "legislative-item"
             li.innerText = applicant
+            console.log("li", li.textContent)
             applicantList.appendChild(li)
             //insertar cada aplicante como item de la lista
         })
@@ -208,11 +228,13 @@ function createArticle(
         article.appendChild(createSpan(nameSecond, "name-second"))
     }
 
-    let glideItem = document.querySelectorAll(".glide__slide")
-    const li = document.createElement("li")
-    li.className = "glide__slide"
-    li.appendChild(article)
-    return li
+    // let glideItem = document.querySelectorAll(".glide__slide")
+    // console.log("flide", glideItem)
+    // const li = document.createElement("li")
+    // li.className = "glide__slide"
+    // li.appendChild(article)
+    // console.log("article", article)
+    return article
 }
 
 function createSpan(content, className) {
@@ -223,7 +245,7 @@ function createSpan(content, className) {
     return span
 }
 
-const handleDepartmentChange = (event) => {
+function handleDepartmentChange(event) {
     const dropdownMenu = event.target
     const selectedValue = dropdownMenu.options[event.target.selectedIndex].label
 
@@ -243,6 +265,64 @@ const handleDepartmentChange = (event) => {
     })
 }
 
+function setSliderValue(data) {
+    const cardsPerView = glideOptions.perView
+    data.cardsAmount > cardsPerView
+        ? (data.hasSlider = true)
+        : (data.hasSlider = false)
+}
+function createAllSections(data, sectionParents) {
+    data.forEach((item) => {
+        setSliderValue(item)
+        const section = createSection(item.title, item.location)
+        const socialSection = createSocials()
+        section.appendChild(socialSection)
+        sectionParents.appendChild(section)
+        if (item.hasSlider) {
+            const newSlider = createSlider(section, [])
+            createSlides(newSlider)
+            new Glide(newSlider.slider, glideOptions).mount()
+        } else {
+            createCards(section)
+        }
+    })
+}
+function createCards(section) {
+    // console.log("section", section)
+    const newcard = createArticle(
+        "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
+        null,
+        null,
+        null,
+        null,
+        null,
+        data[0].applicants
+    )
+    const otherCard = createArticle(
+        "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
+        "Partido nacional",
+        "Delgado",
+        "Presidente",
+        "Vice",
+        "Laura Raffo",
+        null
+    )
+    section.appendChild(newcard)
+    section.appendChild(otherCard)
+}
+function createSlides(newSlider) {
+    newSlider.slides.appendChild(
+        createArticle(
+            "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
+            "Partido nacional",
+            "Delgado",
+            "Presidente",
+            "Vice",
+            "Laura Raffo",
+            null
+        )
+    )
+}
 //#endregion
 
 function initialize() {
@@ -252,160 +332,7 @@ function initialize() {
 
     // Creando sección padre y sus respectivos hijos
     const sectionParents = document.querySelector("#sections-parent")
-
-    const section = createSection("Gobernador", "Canelones")
-    const section2 = createSection("Jefe de Gobierno", "Artigas")
-    const sectionWithApplicants = createSection("Diputados", "Montevideo")
-    // console.log(sectionWithApplicants)
-    const socialSection = createSocials()
-
-    sectionParents.appendChild(section)
-    sectionParents.appendChild(section2)
-    sectionParents.appendChild(sectionWithApplicants)
-
-    section.appendChild(socialSection)
-    section2.appendChild(socialSection)
-    sectionWithApplicants.appendChild(socialSection)
-
-    const newSlider = createSlider(section, [])
-    //aca siempre va a recibir un array vacio no?
-    newSlider.slides.appendChild(
-        createArticle(
-            "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
-            "Partido nacional",
-            "Delgado",
-            "Presidente",
-            "Vice",
-            "Laura Raffo"
-        )
-    ) // TODO: Pasar la data que va
-    // newSlider.slides.appendChild(
-    //     createArticle(
-    //         "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
-    //         "Partido nacional",
-    //         "Delgado",
-    //         "Presidente",
-    //         "Vice",
-    //         "Laura Raffo",
-    //         null
-    //     )
-    // )
-    // newSlider.slides.appendChild(
-    //     createArticle(
-    //         "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
-    //         "Partido nacional",
-    //         "Delgado",
-    //         "Presidente",
-    //         "Vice",
-    //         "Laura Raffo",
-    //         null
-    //     )
-    // )
-    // newSlider.slides.appendChild(
-    //     createArticle(
-    //         "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
-    //         "Partido nacional",
-    //         "Delgado",
-    //         "Presidente",
-    //         "Vice",
-    //         "Laura Raffo",
-    //         null
-    //     )
-    // )
-    // newSlider.slides.appendChild(
-    //     createArticle(
-    //         "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
-    //         "Partido nacional",
-    //         "Delgado",
-    //         "Presidente",
-    //         "Vice",
-    //         "Laura Raffo",
-    //         null
-    //     )
-    // )
-
-    const newSlider2 = createSlider(section2, [])
-    newSlider2.slides.appendChild(
-        createArticle(
-            "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/vidal1.png",
-            "Frente amplio",
-            "Yamandú Orsi",
-            "Presidente",
-            "Vice",
-            "Laura Raffo",
-            null
-        )
-    ) // TODO: Pasar la data que va
-    // newSlider2.slides.appendChild(
-    //     createArticle(
-    //         "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/vidal1.png",
-    //         "Frente amplio",
-    //         "Yamandú Orsi",
-    //         "Presidente",
-    //         "Vice",
-    //         "Laura Raffo",
-    //         null
-    //     )
-    // )
-    // newSlider2.slides.appendChild(
-    //     createArticle(
-    //         "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/vidal1.png",
-    //         "Frente amplio",
-    //         "Yamandú Orsi",
-    //         "Presidente",
-    //         "Vice",
-    //         "Laura Raffo",
-    //         null
-    //     )
-    // )
-    // newSlider2.slides.appendChild(
-    //     createArticle(
-    //         "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/vidal1.png",
-    //         "Frente amplio",
-    //         "Yamandú Orsi",
-    //         "Presidente",
-    //         "Vice",
-    //         "Laura Raffo",
-    //         null
-    //     )
-    // )
-    // newSlider2.slides.appendChild(
-    //     createArticle(
-    //         "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/vidal1.png",
-    //         "Frente amplio",
-    //         "Yamandú Orsi",
-    //         "Presidente",
-    //         "Vice",
-    //         "Laura Raffo",
-    //         null
-    //     )
-    // )
-    // newSlider2.slides.appendChild(
-    //     createArticle(
-    //         "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/vidal1.png",
-    //         "Frente amplio",
-    //         "Yamandú Orsi",
-    //         "Presidente",
-    //         "Vice",
-    //         "Laura Raffo",
-    //         null
-    //     )
-    // )
-    const newSlider3 = createSlider(sectionWithApplicants, [])
-    newSlider3.slides.appendChild(
-        createArticle(
-            "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/vidal1.png",
-            "Frente amplio",
-            null,
-            null,
-            null,
-            null,
-            data[0].applicants
-        )
-    )
-    new Glide(newSlider.slider, glideOptions).mount()
-    new Glide(newSlider2.slider, glideOptions).mount()
-    new Glide(newSlider3.slider, glideOptions).mount()
+    createAllSections(sectionData, sectionParents)
 }
 
 // App
