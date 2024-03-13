@@ -30,6 +30,7 @@
         .glide__slides {
             position: relative;
             width: 100%;
+            min-height:450px;
             list-style: none;
             backface-visibility: hidden;
             transform-style: preserve-3d;
@@ -709,6 +710,7 @@
         function filterDataBy( filterFunction ) {
             return data.filter(filterFunction)
         }
+        
         //#region Methods
         function createSection(job, department) {
             const section = document.createElement("section");
@@ -799,8 +801,21 @@
             return result
         }
 
+        function createNumberedList(items) {
+            const ol = document.createElement("ol");
+            ol.className = 'numbered';
+            
+            items.forEach((item) => {
+                const li = document.createElement("li");
+                li.innerText = item;
+                ol.appendChild(li)
+            });
+
+            return ol;
+        }
+
         function createArticle( params ) {
-            const {image, party, firstPosition, secondPosition} = params;
+            const {image, applicants, party, firstPosition, secondPosition} = params;
 
             const article = document.createElement("article");
             article.className = "card-container";
@@ -825,14 +840,21 @@
             article.appendChild(createSpan(firstPosition.name, "name-first"));
             article.appendChild(createSpan("", "divider"));
             // article.appendChild(createSpan(data[0].secondPosition.job, "second-position"));
-            article.appendChild(createSpan(secondPosition.job, "second-position"))
-            // article.appendChild(createSpan(data[0].secondPosition.name, "name-second"));
-            article.appendChild(createSpan(secondPosition.name, "name-second"));
+            if (applicants.length < 0)
+            {
+                article.appendChild(createSpan(secondPosition.job, "second-position"))
+                // article.appendChild(createSpan(data[0].secondPosition.name, "name-second"));
+                article.appendChild(createSpan(secondPosition.name, "name-second"));
+            }else{
+                article.appendChild(createNumberedList(applicants));
+            }
+
             let glideItem = document.querySelectorAll('.glide__slide')
             // console.log('glideItem', glideItem)
             const li = document.createElement("li");
             li.className = "glide__slide";
             li.appendChild(article);
+
             return li;
         }
 
