@@ -1,30 +1,119 @@
 //#region Data Structure
 const data = [
     {
-        party: "Partido Político",
-        image: "image", // ver de pasarle el link de la imagen de forma dinamica
+        party: "Frente Amplio",
+        image: "FERNANDEZ1.png", // ver de pasarle el link de la imagen de forma dinamica
         color: "color-first",
         bg: "bg-first",
-        //type: "executive", // legislative
-        applicants: [
-            "Nombre Político 1",
-            "Nombre Político 2",
-            "Nombre Político 3",
-            "Nombre Político 4",
-            "Nombre Político 5",
-            "Nombre Político 6",
-            "Nombre Político 7",
-            "Nombre Político 8",
-        ],
         department: "Artigas",
         firstPosition: {
-            name: "Nombre Político 1",
-            job: "Cargo 1",
+            name: "Yamandú Orsi",
+            job: "Presidente",
         },
         secondPosition: {
-            name: "Nombre Político 2",
-            job: "Cargo 2",
+            name: "Otra Persona",
+            job: "Vicepresidente",
         },
+        applicants: [],
+    },
+    {
+        party: "Frente Amplio",
+        image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Artigas",
+        firstPosition: {
+            name: "Massa",
+            job: "Presidente",
+        },
+        secondPosition: {
+            name: "Otro más",
+            job: "Vicepresidente",
+        },
+        applicants: [],
+    },
+    {
+        party: "Frente Amplio",
+        image: "LAVAGNA1.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Artigas",
+        firstPosition: {
+            name: "R. Lavagna",
+            job: "Presidente",
+        },
+        secondPosition: {
+            name: "Otra de Lav",
+            job: "Vicepresidente",
+        },
+        applicants: [],
+    },
+
+    {
+        party: "Frente Amplio",
+        image: "FERNANDEZ1.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Montevideo",
+        firstPosition: {
+            name: "Prueba #1",
+            job: "Diputado",
+        },
+        secondPosition: {
+            name: "--",
+            job: "--",
+        },
+        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+    },
+    {
+        party: "Frente Amplio",
+        image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Montevideo",
+        firstPosition: {
+            name: "Prueba #2",
+            job: "Diputado",
+        },
+        secondPosition: {
+            name: "Otro más",
+            job: "Vicepresidente",
+        },
+        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+    },
+    {
+        party: "Frente Amplio",
+        image: "LAVAGNA1.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Montevideo",
+        firstPosition: {
+            name: "Prueba #3",
+            job: "Diputado",
+        },
+        secondPosition: {
+            name: "Otra de Lav",
+            job: "Vicepresidente",
+        },
+        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+    },
+
+    /*  */
+    {
+        party: "Partido Colorado",
+        image: "LAVAGNA1.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Canelones",
+        firstPosition: {
+            name: "Persona #1",
+            job: "Diputado",
+        },
+        secondPosition: {
+            name: "Otra de Lav",
+            job: "Vicepresidente",
+        },
+        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
     },
 ]
 
@@ -71,7 +160,7 @@ const socialsData = [
 ]
 
 const glideOptions = {
-    type: "carousel",
+    type: "slider",
     perView: 4,
     perTouch: false,
     breakpoints: {
@@ -82,6 +171,7 @@ const glideOptions = {
             perView: 3,
         },
     },
+    rewind: false,
     animationTimingFunc: "ease",
 }
 const sectionData = [
@@ -105,7 +195,9 @@ const sectionData = [
     },
 ]
 //#endregion
-
+function filterDataBy(filterFunction) {
+    return data.filter(filterFunction)
+}
 //#region Methods
 function createSection(job, department) {
     const section = document.createElement("section")
@@ -154,7 +246,7 @@ function loadDepartments(container) {
     })
 }
 
-function createSlider(parent, slides = []) {
+function createSlider(parent) {
     const glide = document.createElement("div")
     glide.className = "glide"
 
@@ -168,11 +260,11 @@ function createSlider(parent, slides = []) {
     glideSlides.className = "glide__slides"
     glideTrack.appendChild(glideSlides)
 
-    slides.forEach((item) => {
-        const li = glideSlides.createElement("li")
-        li.className = "glide__slide"
-        glideSlides.appendChild(li)
-    })
+    // slides.forEach((item) => {
+    //     const li = glideSlides.createElement("li")
+    //     li.className = "glide__slide"
+    //     glideSlides.appendChild(li)
+    // })
 
     parent.appendChild(glide)
 
@@ -181,15 +273,20 @@ function createSlider(parent, slides = []) {
         slides: glideSlides,
     }
 }
-function createArticle(
-    image,
-    party,
-    nameFirst,
-    firstPosition,
-    secondPosition,
-    nameSecond,
-    applicants
-) {
+function createNumberedList(items) {
+    const ol = document.createElement("ol")
+    ol.className = "legislative-list"
+
+    items.forEach((item) => {
+        const li = document.createElement("li")
+        li.innerText = item
+        ol.appendChild(li)
+    })
+
+    return ol
+}
+function createArticle(params) {
+    const { image, applicants, party, firstPosition, secondPosition } = params
     const article = document.createElement("article")
     article.className = "card-container"
     const partyTag = document.createElement("h3")
@@ -198,24 +295,14 @@ function createArticle(
     partyTag.innerText = party
     const photoTag = document.createElement("div")
     photoTag.className = "card-image-container"
-    photoTag.innerHTML = `<img src="${image}" alt="figure" />`
+    photoTag.innerHTML = `<img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/${image}"  alt="${firstPosition.name} Foto" />`
     article.appendChild(partyTag)
     article.appendChild(photoTag)
-    if (applicants) {
+    if (applicants.length < 0) {
         //crear una lista vacia
         const applicantList = document.createElement("ol")
         applicantList.className = "legislative-list"
-
-        applicants.forEach((applicant) => {
-            //iterar sobre applicants
-            const li = document.createElement("li")
-            li.className = "legislative-item"
-            li.innerText = applicant
-            console.log("li", li.textContent)
-            applicantList.appendChild(li)
-            //insertar cada aplicante como item de la lista
-        })
-        article.appendChild(applicantList)
+        article.appendChild(createNumberedList(applicants))
     } else {
         // article.appendChild(createSpan(data[0].firstPosition.job, "first-position"));
         article.appendChild(createSpan(nameFirst, "name-first"))
@@ -272,19 +359,22 @@ function setSliderValue(data) {
         : (data.hasSlider = false)
 }
 function createAllSections(data, sectionParents) {
+    const cardsPerView = glideOptions.perView
     data.forEach((item) => {
-        setSliderValue(item)
+        // setSliderValue(item)
         const section = createSection(item.title, item.location)
         const socialSection = createSocials()
         section.appendChild(socialSection)
         sectionParents.appendChild(section)
-        if (item.hasSlider) {
-            const newSlider = createSlider(section, [])
-            createSlides(newSlider)
-            new Glide(newSlider.slider, glideOptions).mount()
-        } else {
-            createCards(section)
-        }
+        data.cardsAmount > cardsPerView ? 
+
+        // if (item.hasSlider) {
+        //     const newSlider = createSlider(section, [])
+        //     createSlides(newSlider)
+        //     new Glide(newSlider.slider, glideOptions).mount()
+        // } else {
+        //     createCards(section)
+        // }
     })
 }
 function createCards(section) {
