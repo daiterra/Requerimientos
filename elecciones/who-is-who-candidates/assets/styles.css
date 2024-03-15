@@ -151,8 +151,8 @@
     color: var(--color-bullet-active);
 }
 
-.name-first,
-.name-second {
+.first-position,
+.second-position {
     color: var(--color-bullet-active);
     font-size: var(--font-size-small);
 }
@@ -351,4 +351,7 @@ display: flex; */
 .cards-container {
     display: flex;
     justify-content: center;
+}
+.party {
+    padding: 0.25rem 0.5rem;
 }
