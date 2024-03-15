@@ -5,7 +5,7 @@ const data = [
         image: "FERNANDEZ1.png", // ver de pasarle el link de la imagen de forma dinamica
         color: "color-first",
         bg: "bg-first",
-        department: "Artigas",
+        department: "",
         firstPosition: {
             name: "Yamandú Orsi",
             job: "Presidente",
@@ -17,7 +17,7 @@ const data = [
         applicants: [],
     },
     {
-        party: "Frente Amplio",
+        party: "Partido de los Trabajadores",
         image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
         color: "color-first",
         bg: "bg-first",
@@ -33,7 +33,7 @@ const data = [
         applicants: [],
     },
     {
-        party: "Frente Amplio",
+        party: "Partido Independiente",
         image: "LAVAGNA1.png", // ver de pasarle el link de la imagen de forma dinamica
         color: "color-first",
         bg: "bg-first",
@@ -50,13 +50,13 @@ const data = [
     },
 
     {
-        party: "Frente Amplio",
+        party: "Partido Colorado",
         image: "FERNANDEZ1.png", // ver de pasarle el link de la imagen de forma dinamica
         color: "color-first",
         bg: "bg-first",
         department: "Montevideo",
         firstPosition: {
-            name: "Prueba #1",
+            name: "--",
             job: "Diputado",
         },
         secondPosition: {
@@ -66,39 +66,117 @@ const data = [
         applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
     },
     {
-        party: "Frente Amplio",
-        image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
+        party: "Partido Colorado",
+        image: "FERNANDEZ1.png", // ver de pasarle el link de la imagen de forma dinamica
         color: "color-first",
         bg: "bg-first",
-        department: "Montevideo",
+        department: "Maldonado",
         firstPosition: {
-            name: "Prueba #2",
-            job: "Diputado",
+            name: "--",
+            job: "Senador",
         },
         secondPosition: {
-            name: "Otro más",
-            job: "Vicepresidente",
+            name: "--",
+            job: "--",
         },
         applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
     },
     {
-        party: "Frente Amplio",
+        party: "Partido Colorado",
+        image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Artigas",
+        firstPosition: {
+            name: "--",
+            job: "Senador",
+        },
+        secondPosition: {
+            name: "--",
+            job: "--",
+        },
+        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+    },
+    {
+        party: "Partido Colorado",
+        image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Artigas",
+        firstPosition: {
+            name: "--",
+            job: "Senador",
+        },
+        secondPosition: {
+            name: "--",
+            job: "--",
+        },
+        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+    },
+    {
+        party: "Partido Colorado",
+        image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Artigas",
+        firstPosition: {
+            name: "--",
+            job: "Senador",
+        },
+        secondPosition: {
+            name: "--",
+            job: "--",
+        },
+        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+    },
+    {
+        party: "Partido Colorado",
+        image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Artigas",
+        firstPosition: {
+            name: "--",
+            job: "Senador",
+        },
+        secondPosition: {
+            name: "--",
+            job: "--",
+        },
+        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+    },
+    {
+        party: "Partido Colorado",
+        image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Artigas",
+        firstPosition: {
+            name: "--",
+            job: "Senador",
+        },
+        secondPosition: {
+            name: "--",
+            job: "--",
+        },
+        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+    },
+    {
+        party: "Partido Colorado",
         image: "LAVAGNA1.png", // ver de pasarle el link de la imagen de forma dinamica
         color: "color-first",
         bg: "bg-first",
         department: "Montevideo",
         firstPosition: {
-            name: "Prueba #3",
+            name: "--",
             job: "Diputado",
         },
         secondPosition: {
-            name: "Otra de Lav",
-            job: "Vicepresidente",
+            name: "--",
+            job: "--",
         },
         applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
     },
-
-    /*  */
     {
         party: "Partido Colorado",
         image: "LAVAGNA1.png", // ver de pasarle el link de la imagen de forma dinamica
@@ -107,13 +185,13 @@ const data = [
         department: "Canelones",
         firstPosition: {
             name: "Persona #1",
-            job: "Diputado",
+            job: "Presidente",
         },
         secondPosition: {
             name: "Otra de Lav",
             job: "Vicepresidente",
         },
-        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+        applicants: [],
     },
 ]
 
@@ -174,31 +252,12 @@ const glideOptions = {
     rewind: false,
     animationTimingFunc: "ease",
 }
-const sectionData = [
-    {
-        title: "Gobernador",
-        location: "Canelones",
-        cardsAmount: 4,
-        hasSlider: Boolean,
-    },
-    {
-        title: "Jefe de Gobierno",
-        location: "Artigas",
-        cardsAmount: 6,
-        hasSlider: Boolean,
-    },
-    {
-        title: "Diputados",
-        location: "Montevideo",
-        cardsAmount: 10,
-        hasSlider: Boolean,
-    },
-]
 //#endregion
+
+//#region Methods
 function filterDataBy(filterFunction) {
     return data.filter(filterFunction)
 }
-//#region Methods
 function createSection(job, department) {
     const section = document.createElement("section")
     const headingContainer = document.createElement("div")
@@ -291,28 +350,20 @@ function createArticle(params) {
     article.className = "card-container"
     const partyTag = document.createElement("h3")
     partyTag.className = "card-title party president"
-    // partyTag.innerText = data[0].party me gustaria consumir la data
     partyTag.innerText = party
     const photoTag = document.createElement("div")
     photoTag.className = "card-image-container"
-    photoTag.innerHTML = `<img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/${image}"  alt="${firstPosition.name} Foto" />`
+    photoTag.innerHTML = `<img src="https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/${image}"  alt="${firstPosition} Foto" />`
     article.appendChild(partyTag)
     article.appendChild(photoTag)
-    if (applicants.length < 0) {
-        //crear una lista vacia
-        const applicantList = document.createElement("ol")
-        applicantList.className = "legislative-list"
+    if (applicants.length > 0) {
         article.appendChild(createNumberedList(applicants))
     } else {
-        // article.appendChild(createSpan(data[0].firstPosition.job, "first-position"));
-        article.appendChild(createSpan(nameFirst, "name-first"))
-        article.appendChild(createSpan(firstPosition, "first-position"))
-
+        article.appendChild(createSpan(firstPosition.name, "name-first"))
+        article.appendChild(createSpan(firstPosition.job, "first-position"))
         article.appendChild(createSpan("", "divider"))
-        // article.appendChild(createSpan(data[0].secondPosition.job, "second-position"));
-        article.appendChild(createSpan(secondPosition, "second-position"))
-        // article.appendChild(createSpan(data[0].secondPosition.name, "name-second"));
-        article.appendChild(createSpan(nameSecond, "name-second"))
+        article.appendChild(createSpan(secondPosition.job, "second-position"))
+        article.appendChild(createSpan(secondPosition.name, "name-second"))
     }
 
     // let glideItem = document.querySelectorAll(".glide__slide")
@@ -337,12 +388,9 @@ function handleDepartmentChange(event) {
     const selectedValue = dropdownMenu.options[event.target.selectedIndex].label
 
     const allDepartments = document.querySelectorAll(".section-container")
-    // const selectedValue = dropdownMenu
-    // console.log("selectedValue", selectedValue)
     allDepartments.forEach((department, index) => {
         const departmentLabel =
             department.querySelector(".heading-location").textContent
-        // const departmentIndexSelected = index
         department.style.display = "none"
 
         if (selectedValue == departmentLabel) {
@@ -352,67 +400,70 @@ function handleDepartmentChange(event) {
     })
 }
 
-function setSliderValue(data) {
-    const cardsPerView = glideOptions.perView
-    data.cardsAmount > cardsPerView
-        ? (data.hasSlider = true)
-        : (data.hasSlider = false)
-}
-function createAllSections(data, sectionParents) {
-    const cardsPerView = glideOptions.perView
-    data.forEach((item) => {
-        // setSliderValue(item)
-        const section = createSection(item.title, item.location)
-        const socialSection = createSocials()
-        section.appendChild(socialSection)
-        sectionParents.appendChild(section)
-        data.cardsAmount > cardsPerView ? 
+function createPresidentSection(parent) {
+    const section = createSection("Candidatos a", "Presidente")
+    const socialSection = createSocials()
+    parent.appendChild(section)
+    section.appendChild(socialSection)
+    const presidents = filterDataBy(
+        (candidates) => candidates.firstPosition.job == "Presidente"
+    )
+    const hasSlider = presidents.length > glideOptions.perView
 
-        // if (item.hasSlider) {
-        //     const newSlider = createSlider(section, [])
-        //     createSlides(newSlider)
-        //     new Glide(newSlider.slider, glideOptions).mount()
-        // } else {
-        //     createCards(section)
-        // }
-    })
+    if (hasSlider) {
+        const newSlider = createSlider(section)
+        presidents.forEach((item) => {
+            newSlider.slides.appendChild(createArticle(item))
+        })
+        new Glide(newSlider.slider, glideOptions).mount()
+    } else {
+        const cardsContainer = document.createElement("div")
+        cardsContainer.className = "cards-container"
+        presidents.forEach((item) => {
+            cardsContainer.appendChild(createArticle(item))
+        })
+        section.appendChild(cardsContainer)
+    }
 }
-function createCards(section) {
-    // console.log("section", section)
-    const newcard = createArticle(
-        "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
-        null,
-        null,
-        null,
-        null,
-        null,
-        data[0].applicants
+
+function createStateSection(parent, job, state) {
+    const section = createSection(job, state)
+    const socialSection = createSocials()
+    parent.appendChild(section)
+    section.appendChild(socialSection)
+    /**
+     * Esto lo filtro por la posición (Presidente) pero puedo filtrarlo por el departamento y
+     * obtendría el slider de cada uno
+     */
+    const statePolitics = filterDataBy(
+        (candidates) =>
+            candidates.department == state &&
+            candidates.firstPosition.job == job
     )
-    const otherCard = createArticle(
-        "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
-        "Partido nacional",
-        "Delgado",
-        "Presidente",
-        "Vice",
-        "Laura Raffo",
-        null
-    )
-    section.appendChild(newcard)
-    section.appendChild(otherCard)
+    if (statePolitics == null || statePolitics.length == 0) return
+    const hasSlider = statePolitics.length > glideOptions.perView
+    if (hasSlider) {
+        const newSlider = createSlider(section)
+        statePolitics.forEach((item) => {
+            newSlider.slides.appendChild(createArticle(item))
+        })
+        new Glide(newSlider.slider, glideOptions).mount()
+    } else {
+        const cardsContainer = document.createElement("div")
+        cardsContainer.className = "cards-container"
+        statePolitics.forEach((item) => {
+            cardsContainer.appendChild(createArticle(item))
+        })
+        section.appendChild(cardsContainer)
+    }
 }
-function createSlides(newSlider) {
-    newSlider.slides.appendChild(
-        createArticle(
-            "https://elecciones2019.lanacion.com.ar/admin/media/candidatos_fotos/FERNANDEZ1.png",
-            "Partido nacional",
-            "Delgado",
-            "Presidente",
-            "Vice",
-            "Laura Raffo",
-            null
-        )
-    )
+function createAllSections(sectionParents) {
+    createPresidentSection(sectionParents)
+    createStateSection(sectionParents, "Senador", "Artigas")
+    createStateSection(sectionParents, "Senador", "Maldonado")
+    createStateSection(sectionParents, "Senador", "Juan Justo") // no deberia crear vacio
 }
+
 //#endregion
 
 function initialize() {
@@ -422,7 +473,7 @@ function initialize() {
 
     // Creando sección padre y sus respectivos hijos
     const sectionParents = document.querySelector("#sections-parent")
-    createAllSections(sectionData, sectionParents)
+    createAllSections(sectionParents)
 }
 
 // App
