@@ -252,6 +252,7 @@ const glideOptions = {
     rewind: false,
     animationTimingFunc: "ease",
 }
+
 //#endregion
 
 //#region Methods
@@ -324,7 +325,10 @@ function createSlider(parent) {
     //     li.className = "glide__slide"
     //     glideSlides.appendChild(li)
     // })
-
+    const glideArrows = createGlideArrows()
+    const glideBullets = createGlideBullets(3)
+    glideTrack.appendChild(glideArrows)
+    glideTrack.appendChild(glideBullets)
     parent.appendChild(glide)
 
     return {
@@ -332,6 +336,41 @@ function createSlider(parent) {
         slides: glideSlides,
     }
 }
+function createGlideArrows() {
+    const arrowsDiv = document.createElement("div")
+    arrowsDiv.className = "glide__arrows"
+    arrowsDiv.setAttribute("data-glide-el", "controls")
+
+    const leftButton = document.createElement("button")
+    leftButton.className = "glide__arrow glide__arrow--left"
+    leftButton.setAttribute("data-glide-dir", "<")
+    leftButton.textContent = "<"
+
+    const rightButton = document.createElement("button")
+    rightButton.className = "glide__arrow glide__arrow--right"
+    rightButton.setAttribute("data-glide-dir", ">")
+    rightButton.textContent = ">"
+
+    arrowsDiv.appendChild(leftButton)
+    arrowsDiv.appendChild(rightButton)
+
+    return arrowsDiv
+}
+function createGlideBullets(numBullets) {
+    const bulletsDiv = document.createElement("div")
+    bulletsDiv.className = "glide__bullets"
+    bulletsDiv.setAttribute("data-glide-el", "controls[nav]")
+
+    for (let i = 0; i < numBullets; i++) {
+        const bulletButton = document.createElement("button")
+        bulletButton.className = "glide__bullet"
+        bulletButton.setAttribute("data-glide-dir", `=${i}`)
+        bulletsDiv.appendChild(bulletButton)
+    }
+
+    return bulletsDiv
+}
+
 function createNumberedList(items, bg) {
     const ol = document.createElement("ol")
     ol.className = "legislative-list"
