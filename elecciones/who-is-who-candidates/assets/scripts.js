@@ -179,19 +179,19 @@ const data = [
     },
     {
         party: "Partido Colorado",
-        image: "LAVAGNA1.png", // ver de pasarle el link de la imagen de forma dinamica
-        color: "color-fourth",
-        bg: "bg-fourth",
-        department: "Canelones",
+        image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "Rivera",
         firstPosition: {
-            name: "Persona #1",
-            job: "Presidente",
+            name: "--",
+            job: "Diputado",
         },
         secondPosition: {
-            name: "Otra de Lav",
-            job: "Vicepresidente",
+            name: "--",
+            job: "--",
         },
-        applicants: [],
+        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
     },
 ]
 
@@ -386,6 +386,15 @@ function createNumberedList(items, bg) {
 
     return ol
 }
+function createToggleButton(text) {
+    const button = document.createElement("button")
+    button.className = "card-toggle-button"
+    button.textContent = text || "ver mas"
+    button.onclick = function () {
+        toggleDescription(this)
+    }
+    return button
+}
 function createArticle(params) {
     const {
         image,
@@ -414,6 +423,12 @@ function createArticle(params) {
     article.appendChild(photoTag)
     if (applicants.length > 0) {
         article.appendChild(createNumberedList(applicants, bg))
+        const toggleButton = createToggleButton()
+        // console.log("toggleButton", toggleButton)
+        toggleButton.addEventListener("click", function () {
+            toggleDescription(this)
+        })
+        article.appendChild(toggleButton)
     } else {
         article.appendChild(createSpan(firstPosition.job, "first-position"))
         article.appendChild(
@@ -480,6 +495,12 @@ function createPresidentSection(parent) {
 }
 
 function createStateSection(parent, job, state) {
+    const statePolitics = filterDataBy(
+        (candidates) =>
+            candidates.department == state &&
+            candidates.firstPosition.job == job
+    )
+    if (statePolitics == null || statePolitics.length == 0) return
     const section = createSection(job, state)
     const socialSection = createSocials()
     parent.appendChild(section)
@@ -488,12 +509,7 @@ function createStateSection(parent, job, state) {
      * Esto lo filtro por la posición (Presidente) pero puedo filtrarlo por el departamento y
      * obtendría el slider de cada uno
      */
-    const statePolitics = filterDataBy(
-        (candidates) =>
-            candidates.department == state &&
-            candidates.firstPosition.job == job
-    )
-    if (statePolitics == null || statePolitics.length == 0) return
+
     const hasSlider = statePolitics.length > glideOptions.perView
     if (hasSlider) {
         const newSlider = createSlider(section)
@@ -512,9 +528,24 @@ function createStateSection(parent, job, state) {
 }
 function createAllSections(sectionParents) {
     createPresidentSection(sectionParents)
-    createStateSection(sectionParents, "Senador", "Artigas")
-    createStateSection(sectionParents, "Senador", "Maldonado")
-    createStateSection(sectionParents, "Senador", "Juan Justo") // no deberia crear vacio
+    selectDepartment.forEach((state) => {
+        createSectionsForState(sectionParents, state.label)
+    })
+}
+function createSectionsForState(parent, state) {
+    const jobs = ["Senador", "Diputado"]
+    jobs.forEach((job) => {
+        createStateSection(parent, job, state)
+    })
+}
+function toggleDescription(button) {
+    const cardContainer = button.closest(".card-container")
+    console.log("cardContainer", cardContainer)
+    cardContainer.classList.toggle("expanded")
+    const buttonText = cardContainer.classList.contains("expanded")
+        ? "ver menos"
+        : "ver mas"
+    button.textContent = buttonText
 }
 
 //#endregion
