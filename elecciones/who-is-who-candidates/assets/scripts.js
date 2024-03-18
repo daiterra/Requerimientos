@@ -487,7 +487,10 @@ function handleDepartmentChange(event) {
             department.querySelector(".heading-location").textContent
         department.style.display = "none"
 
-        if (selectedValue == departmentLabel) {
+        if (
+            selectedValue === "Ver todos" ||
+            selectedValue === departmentLabel
+        ) {
             department.style.display = "block"
         }
     })
