@@ -79,7 +79,20 @@ const data = [
             name: "--",
             job: "--",
         },
-        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+        applicants: [
+            "M. Ferro",
+            "V.M. Gorleri",
+            "E. Yacobitti",
+            "M. Ferro",
+            "V.M. Gorleri",
+            "E. Yacobitti",
+            "M. Ferro",
+            "V.M. Gorleri",
+            "E. Yacobitti",
+            "M. Ferro",
+            "V.M. Gorleri",
+            "E. Yacobitti",
+        ],
     },
     {
         party: "Partido Colorado",
@@ -95,7 +108,20 @@ const data = [
             name: "--",
             job: "--",
         },
-        applicants: ["M. Ferro", "V.M. Gorleri", "E. Yacobitti"],
+        applicants: [
+            "M. Ferro",
+            "V.M. Gorleri",
+            "E. Yacobitti",
+            "M. Ferro",
+            "V.M. Gorleri",
+            "E. Yacobitti",
+            "M. Ferro",
+            "V.M. Gorleri",
+            "E. Yacobitti",
+            "M. Ferro",
+            "V.M. Gorleri",
+            "E. Yacobitti",
+        ],
     },
     {
         party: "Partido Colorado",
@@ -390,9 +416,9 @@ function createToggleButton(text) {
     const button = document.createElement("button")
     button.className = "card-toggle-button"
     button.textContent = text || "ver mas"
-    button.onclick = function () {
-        toggleDescription(this)
-    }
+    button.addEventListener("click", function (event) {
+        toggleDescription(this, event)
+    })
     return button
 }
 function createArticle(params) {
@@ -422,13 +448,12 @@ function createArticle(params) {
     article.appendChild(partyTag)
     article.appendChild(photoTag)
     if (applicants.length > 0) {
-        article.appendChild(createNumberedList(applicants, bg))
+        const cardDescriptionContainer = document.createElement("div")
+        cardDescriptionContainer.className = "card-description-container"
+        cardDescriptionContainer.appendChild(createNumberedList(applicants, bg))
         const toggleButton = createToggleButton()
-        // console.log("toggleButton", toggleButton)
-        toggleButton.addEventListener("click", function () {
-            toggleDescription(this)
-        })
-        article.appendChild(toggleButton)
+        cardDescriptionContainer.appendChild(toggleButton)
+        article.appendChild(cardDescriptionContainer)
     } else {
         article.appendChild(createSpan(firstPosition.job, "first-position"))
         article.appendChild(
@@ -538,9 +563,9 @@ function createSectionsForState(parent, state) {
         createStateSection(parent, job, state)
     })
 }
-function toggleDescription(button) {
+function toggleDescription(button, event) {
+    event.stopPropagation()
     const cardContainer = button.closest(".card-container")
-    console.log("cardContainer", cardContainer)
     cardContainer.classList.toggle("expanded")
     const buttonText = cardContainer.classList.contains("expanded")
         ? "ver menos"

@@ -277,6 +277,7 @@ display: flex; */
 .expanded {
     max-height: none;
     overflow: auto;
+    /* border: 1px solid red; */
 }
 
 .card-toggle-button {
