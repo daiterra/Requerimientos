@@ -345,12 +345,6 @@ function createSlider(parent) {
     const glideSlides = document.createElement("ul")
     glideSlides.className = "glide__slides"
     glideTrack.appendChild(glideSlides)
-
-    // slides.forEach((item) => {
-    //     const li = glideSlides.createElement("li")
-    //     li.className = "glide__slide"
-    //     glideSlides.appendChild(li)
-    // })
     const glideArrows = createGlideArrows()
     const glideBullets = createGlideBullets(3)
     glideTrack.appendChild(glideArrows)
@@ -403,6 +397,7 @@ function createNumberedList(items, bg) {
 
     items.forEach((item, index) => {
         const li = document.createElement("li")
+        li.className = "legislative-item"
         li.innerText = item
         if (index === 0) {
             li.classList.add(bg)
@@ -549,7 +544,9 @@ function createStateSection(parent, job, state) {
         const cardsContainer = document.createElement("div")
         cardsContainer.className = "cards-container"
         statePolitics.forEach((item) => {
-            cardsContainer.appendChild(createArticle(item))
+            const article = createArticle(item)
+            article.classList.add("no-slider")
+            cardsContainer.appendChild(article)
         })
         section.appendChild(cardsContainer)
     }
