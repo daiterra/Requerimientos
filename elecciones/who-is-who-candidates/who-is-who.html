@@ -3325,7 +3325,7 @@ if(hasIntersectionObserver) {
 <div class="Enhancement" data-align-center>
     <div class="Enhancement-item">
         <!-- aca empieza tu codigo -->
-<!-- <style></style> -->
+
 
 <style>
     /* glide css files */
@@ -3613,27 +3613,22 @@ if(hasIntersectionObserver) {
     padding: 0.5rem 2rem;
     border-right: 3px solid var(--color-candidate-divider);
     gap: 1rem;
+    max-height: 350px;
+    position: relative;
+
 }
 
-.card-container {
-    /* padding: 3rem 2rem; */
-    /* align-items: center; */
-    /* gap: 1.5rem; */
-    max-height: 350px;
-    /* overflow: hidden; */
-    /* text-overflow: ellipsis; */
-    position: relative;
-}
 
 .RichTextArticleBody .card-title {
     font-size: 1.2rem;
     text-transform: uppercase;
     padding: 0.2rem 0.5rem;
     max-width: 11rem;
-    text-align:center;
+    text-align: center;
     display: flex;
     align-items: center;
     min-height: 4rem;
+    /* background-color: var(--color-bg-card-title); */
 }
 
 .divider {
@@ -3691,12 +3686,14 @@ ol.legislative-list {
     list-style-type: none;
     /* text-align: justify; */
     overflow: hidden;
-    text-overflow: ellipsis;
+    width: 90%;
+    /* text-overflow: ellipsis; */
 }
 
 ol.legislative-list li {
     counter-increment: legislative-counter;
     padding-right: 0.8rem;
+    white-space: nowrap;
 }
 
 ol.legislative-list li::before {
@@ -3775,22 +3772,23 @@ display: flex; */
 }
 
 .card-toggle-button {
-    border: none;
-    padding: 0.5rem 1rem;
-    margin: 0 auto 1rem;
+    border: 1px solid var(--color-primary);
+    padding: 0 1rem;
+    /* margin: 0 auto 1rem; */
     position: absolute;
     bottom: 0;
     border-radius: var(--border-radius-actions);
     box-shadow: var(--shadow-container);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     cursor: pointer;
+    background: transparent;
 }
 
 .card-description-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     overflow: hidden;
     margin-bottom: 3rem;
     color: var(--color-primary-text);
@@ -3848,15 +3846,33 @@ display: flex; */
     justify-content: center;
     padding: 1rem;
 }
-.party {
+/* .party {
     padding: 0.25rem 0.5rem;
-}
+} */
 .card-container.no-slider {
     min-width: 215px;
+    /* /border:1px solid red; */
+    /* align-items: normal;  */
 }
-
-
+.divider-item {
+    border-bottom: 2px solid var(--color-candidate-divider);
+}
+.item-align{
+    align-items: normal;
+}
+.item-align > .card-title{
+    align-self: center;
+    max-width: none;
+}
+.item-align > .card-image-container{
+    align-self: center;
+    max-width: none;
+}
+.item-align >.card-description-container > .card-toggle-button{
+align-self: center;
+}
 </style>
+
 <div class="container-wrapper">
     <div class="div-select">
         <select id="dropdownMenu">
@@ -3865,10 +3881,14 @@ display: flex; */
         </select>
     </div>
     <div id="sections-parent"></div>
+
+                
+
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
 <!-- <script></script> -->
 <script>
-    //#region Data Structure
+//#region Data Structure
 const data = [
     {
         party: "Frente Amplio",
@@ -4117,20 +4137,20 @@ const selectDepartment = [
 const socialsData = [
     {
         social: "Facebook",
-        icon: "../assets/like.svg",
+        icon: "#mono-icon-facebook",
     },
     {
-        social: "Instagram",
-        icon: "../assets/like.svg",
+        social: "Twitter",
+        icon: "#mono-icon-twitter",
     },
     {
         social: "Whatsapp",
-        icon: "../assets/like.svg",
+        icon: "#mono-icon-whatsapp",
     },
-    {
-        social: "Like",
-        icon: "../assets/like.svg",
-    },
+    // {
+    //     social: "Like",
+    //     icon: "../assets/like.svg",
+    // },
 ]
 
 const glideOptions = {
@@ -4174,10 +4194,17 @@ function createSection(job, department) {
     return section
 }
 
+// function socialLink(social, icon) {
+//     return `<a href="#" target="_blank" data-social-service="${social}">
+//   <img src="assets/${icon}" style="width:20px; height:20px;" alt="${social} icon" />
+// </a>`
+// }
 function socialLink(social, icon) {
     return `<a href="#" target="_blank" data-social-service="${social}">
-  <img src="assets/${icon}" style="width:20px; height:20px;" alt="${social} icon" />
-</a>`
+        <svg>
+            <use xlink:href="${icon}"></use>
+        </svg>
+    </a>`
 }
 
 function createSocials() {
@@ -4235,12 +4262,21 @@ function createGlideArrows() {
     leftButton.className = "glide__arrow glide__arrow--left"
     leftButton.setAttribute("data-glide-dir", "<")
     leftButton.textContent = "<"
-
+    const leftSvgTemplate = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+    <path d="M0 12l10.975 11 2.848-2.828-6.176-6.176H24v-3.992H7.646l6.176-6.176L10.975 1 0 12z">
+    </path>
+    </svg>`
+    leftButton.innerHTML = leftSvgTemplate
     const rightButton = document.createElement("button")
     rightButton.className = "glide__arrow glide__arrow--right"
     rightButton.setAttribute("data-glide-dir", ">")
     rightButton.textContent = ">"
-
+    const rightSvgTemplate = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"></path>
+    </svg>
+`
+    rightButton.innerHTML = rightSvgTemplate
     arrowsDiv.appendChild(leftButton)
     arrowsDiv.appendChild(rightButton)
 
@@ -4269,9 +4305,7 @@ function createNumberedList(items, bg) {
         const li = document.createElement("li")
         li.className = "legislative-item"
         li.innerText = item
-        if (index === 0) {
-            li.classList.add(bg)
-        }
+        index === 0 ? li.classList.add(bg) : li.classList.add('divider-item')
         ol.appendChild(li)
     })
 
@@ -4316,9 +4350,17 @@ function createArticle(params) {
         const cardDescriptionContainer = document.createElement("div")
         cardDescriptionContainer.className = "card-description-container"
         cardDescriptionContainer.appendChild(createNumberedList(applicants, bg))
-        const toggleButton = createToggleButton()
-        cardDescriptionContainer.appendChild(toggleButton)
+        const contentHeight = cardDescriptionContainer.scrollHeight
+    const containerHeight = cardDescriptionContainer.clientHeight
+    console.log(containerHeight,contentHeight )
+    if (contentHeight > containerHeight) {
+
+        // if (cardDescriptionContainer.scrollHeight > cardDescriptionContainer.clientHeight) {
+            const toggleButton = createToggleButton()
+            cardDescriptionContainer.appendChild(toggleButton)
+        }
         article.appendChild(cardDescriptionContainer)
+        article.classList.add('item-align')
     } else {
         article.appendChild(createSpan(firstPosition.job, "first-position"))
         article.appendChild(
@@ -4360,7 +4402,6 @@ function handleDepartmentChange(event) {
         }
     })
 }
-
 function createPresidentSection(parent) {
     const section = createSection("Candidatos a", "Presidente")
     const socialSection = createSocials()
@@ -4460,10 +4501,8 @@ function initialize() {
 // App
 initialize()
 
-</script>
-                
 
-            </div>
+</script>
         </div><p></p>
 </div>
 
