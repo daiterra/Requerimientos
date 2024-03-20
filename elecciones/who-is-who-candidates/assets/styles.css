@@ -201,13 +201,14 @@ ol.legislative-list {
     counter-reset: legislative-counter;
     list-style-type: none;
     /* text-align: justify; */
-    overflow: hidden;
+    /* overflow: hidden; */
     text-overflow: ellipsis;
 }
 
 ol.legislative-list li {
     counter-increment: legislative-counter;
     padding-right: 0.8rem;
+    white-space: nowrap;
 }
 
 ol.legislative-list li::before {
@@ -286,16 +287,17 @@ display: flex; */
 }
 
 .card-toggle-button {
-    border: none;
-    padding: 0.5rem 1rem;
-    margin: 0 auto 1rem;
+    border: 1px solid var(--color-primary);
+    padding: 0 1rem;
+    /* margin: 0 auto 1rem; */
     position: absolute;
     bottom: 0;
     border-radius: var(--border-radius-actions);
     box-shadow: var(--shadow-container);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     cursor: pointer;
+    background: transparent;
 }
 
 .card-description-container {
@@ -365,3 +367,31 @@ display: flex; */
 .card-container.no-slider {
     min-width: 215px;
 }
+.divider-item {
+    border: 1px solid var(--color-candidate-divider);
+}
+
+/* implementacion con css
+#toggle:checked ~ #content {
+    max-height: none;
+}
+
+#toggle:not(:checked) ~ #content {
+    max-height: 100px;
+    overflow: hidden;
+}
+
+#toggle:checked ~ #content #show-more-label {
+    display: none;
+}
+
+#toggle:not(:checked) ~ #content #show-less-label {
+    display: inline;
+}
+
+#toggle:checked ~ #content #show-less-label {
+    display: none;
+}
+#toggle:not(:checked) ~ #content #show-more-label {
+    display: inline;
+} */

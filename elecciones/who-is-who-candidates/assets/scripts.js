@@ -247,20 +247,20 @@ const selectDepartment = [
 const socialsData = [
     {
         social: "Facebook",
-        icon: "../assets/like.svg",
+        icon: "#mono-icon-facebook",
     },
     {
         social: "Instagram",
-        icon: "../assets/like.svg",
+        icon: "#mono-icon-instagram",
     },
     {
         social: "Whatsapp",
-        icon: "../assets/like.svg",
+        icon: "#mono-icon-whatsapp",
     },
-    {
-        social: "Like",
-        icon: "../assets/like.svg",
-    },
+    // {
+    //     social: "Like",
+    //     icon: "../assets/like.svg",
+    // },
 ]
 
 const glideOptions = {
@@ -304,10 +304,17 @@ function createSection(job, department) {
     return section
 }
 
+// function socialLink(social, icon) {
+//     return `<a href="#" target="_blank" data-social-service="${social}">
+//   <img src="assets/${icon}" style="width:20px; height:20px;" alt="${social} icon" />
+// </a>`
+// }
 function socialLink(social, icon) {
     return `<a href="#" target="_blank" data-social-service="${social}">
-  <img src="assets/${icon}" style="width:20px; height:20px;" alt="${social} icon" />
-</a>`
+        <svg>
+            <use xlink:href="${icon}"></use>
+        </svg>
+    </a>`
 }
 
 function createSocials() {
@@ -365,12 +372,21 @@ function createGlideArrows() {
     leftButton.className = "glide__arrow glide__arrow--left"
     leftButton.setAttribute("data-glide-dir", "<")
     leftButton.textContent = "<"
-
+    const leftSvgTemplate = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+    <path d="M0 12l10.975 11 2.848-2.828-6.176-6.176H24v-3.992H7.646l6.176-6.176L10.975 1 0 12z">
+    </path>
+    </svg>`
+    leftButton.innerHTML = leftSvgTemplate
     const rightButton = document.createElement("button")
     rightButton.className = "glide__arrow glide__arrow--right"
     rightButton.setAttribute("data-glide-dir", ">")
     rightButton.textContent = ">"
-
+    const rightSvgTemplate = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"></path>
+    </svg>
+`
+    rightButton.innerHTML = rightSvgTemplate
     arrowsDiv.appendChild(leftButton)
     arrowsDiv.appendChild(rightButton)
 
@@ -416,6 +432,31 @@ function createToggleButton(text) {
     })
     return button
 }
+// function createCheckBoxForButton(container) {
+//     console.log("container", container)
+//     const checkbox = document.createElement("input")
+//     checkbox.setAttribute("type", "checkbox")
+//     checkbox.setAttribute("id", "toggle")
+//     container.appendChild(checkbox)
+//     checkbox.style.display = "none"
+// }
+// function createToggleButton(container) {
+//     console.log("container", container)
+
+//     const showMoreLabel = document.createElement("label")
+//     showMoreLabel.setAttribute("for", "toggle")
+//     showMoreLabel.setAttribute("id", "show-more-label")
+//     showMoreLabel.textContent = "Show More"
+
+//     const showLessLabel = document.createElement("label")
+//     showLessLabel.setAttribute("for", "toggle")
+//     showLessLabel.setAttribute("id", "show-less-label")
+//     showLessLabel.textContent = "Show Less"
+//     // showLessLabel.style.display = "none"
+//     container.appendChild(checkbox)
+//     container.appendChild(showMoreLabel)
+//     container.appendChild(showLessLabel)
+// }
 function createArticle(params) {
     const {
         image,
@@ -449,6 +490,7 @@ function createArticle(params) {
         const toggleButton = createToggleButton()
         cardDescriptionContainer.appendChild(toggleButton)
         article.appendChild(cardDescriptionContainer)
+        article.classList.add("item-align")
     } else {
         article.appendChild(createSpan(firstPosition.job, "first-position"))
         article.appendChild(
@@ -511,7 +553,9 @@ function createPresidentSection(parent) {
         const cardsContainer = document.createElement("div")
         cardsContainer.className = "cards-container"
         presidents.forEach((item) => {
-            cardsContainer.appendChild(createArticle(item))
+            const article = createArticle(item, cardsContainer)
+            article.classList.add("no-slider")
+            cardsContainer.appendChild(article)
         })
         section.appendChild(cardsContainer)
     }
