@@ -9,6 +9,10 @@
     /* cabildo abierto */
     --color-fifth: #91d6e3;
     /* partido independiente */
+    --color-sixth: #bfc3c6;
+    /* indecisos */
+    --color-seventh: #dfe0e2;
+    /* en blanco/anulado */
     --color-others: #bca689;
     /* otros */
     --shadow-container: 1px 10px 15px -15px #0006;
@@ -143,7 +147,7 @@
     text-align: center;
     display: flex;
     align-items: center;
-    min-height: 4rem;
+    min-height: 4rem; /* ver de quitarlo para hacerlo mas chiquito */
     /* background-color: var(--color-bg-card-title); */
 }
 
@@ -167,6 +171,7 @@
     font-size: var(--font-size-small);
     padding: 0.2rem 0.5rem;
     font-weight: 600;
+    text-align: center;
     /* color:#F5F5F5;  alternativa sugerida*/
 }
 
@@ -201,7 +206,7 @@ ol.legislative-list {
     counter-reset: legislative-counter;
     list-style-type: none;
     /* text-align: justify; */
-    /* overflow: hidden; */
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 
@@ -216,7 +221,7 @@ ol.legislative-list li::before {
     display: inline-block;
     width: 1.2rem;
     text-align: right;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
     font-weight: bold;
 }
 
@@ -303,14 +308,14 @@ display: flex; */
 .card-description-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     overflow: hidden;
     margin-bottom: 3rem;
     color: var(--color-primary-text);
 }
 
 /* .card-toggle-button:hover{
-    background-color: var(--color-primary-text-translucid);
+background-color: var(--color-primary-text-translucid);
 } */
 #dropdownMenu {
     border: 1px solid var(--color-candidate-divider);
@@ -361,37 +366,27 @@ display: flex; */
     justify-content: center;
     padding: 1rem;
 }
-.party {
-    padding: 0.25rem 0.5rem;
-}
-.card-container.no-slider {
-    min-width: 215px;
-}
-.divider-item {
-    border: 1px solid var(--color-candidate-divider);
-}
-
-/* implementacion con css
-#toggle:checked ~ #content {
-    max-height: none;
-}
-
-#toggle:not(:checked) ~ #content {
-    max-height: 100px;
-    overflow: hidden;
-}
-
-#toggle:checked ~ #content #show-more-label {
-    display: none;
-}
-
-#toggle:not(:checked) ~ #content #show-less-label {
-    display: inline;
-}
-
-#toggle:checked ~ #content #show-less-label {
-    display: none;
-}
-#toggle:not(:checked) ~ #content #show-more-label {
-    display: inline;
+/* .party {
+padding: 0.25rem 0.5rem;
 } */
+.card-container.no-slider {
+    min-width: 230px;
+}
+
+.divider-item {
+    border-bottom: 2px solid var(--color-candidate-divider);
+}
+.item-align {
+    align-items: normal;
+}
+.item-align > .card-title {
+    align-self: center;
+    max-width: none;
+}
+.item-align > .card-image-container {
+    align-self: center;
+    max-width: none;
+}
+.item-align > .card-description-container > .card-toggle-button {
+    align-self: center;
+}

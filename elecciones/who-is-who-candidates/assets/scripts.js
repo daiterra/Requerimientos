@@ -21,13 +21,45 @@ const data = [
         image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
         color: "color-second",
         bg: "bg-second",
-        department: "Artigas",
+        department: "",
         firstPosition: {
             name: "Massa",
             job: "Presidente",
         },
         secondPosition: {
             name: "Otro más",
+            job: "Vicepresidente",
+        },
+        applicants: [],
+    },
+    {
+        party: "Partido Colorado",
+        image: "FERNANDEZ1.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-fourth",
+        bg: "bg-fourth",
+        department: "",
+        firstPosition: {
+            name: "R. Lavagna",
+            job: "Presidente",
+        },
+        secondPosition: {
+            name: "Otra de Lav",
+            job: "Vicepresidente",
+        },
+        applicants: [],
+    },
+    {
+        party: "Partido Colorado",
+        image: "MASSA.png", // ver de pasarle el link de la imagen de forma dinamica
+        color: "color-first",
+        bg: "bg-first",
+        department: "",
+        firstPosition: {
+            name: "R. Lavagna",
+            job: "Presidente",
+        },
+        secondPosition: {
+            name: "Otra de Lav",
             job: "Vicepresidente",
         },
         applicants: [],
@@ -250,8 +282,8 @@ const socialsData = [
         icon: "#mono-icon-facebook",
     },
     {
-        social: "Instagram",
-        icon: "#mono-icon-instagram",
+        social: "Twitter",
+        icon: "#mono-icon-twitter",
     },
     {
         social: "Whatsapp",
@@ -272,7 +304,7 @@ const glideOptions = {
             perView: 2,
         },
         1200: {
-            perView: 3,
+            perView: 4,
         },
     },
     rewind: false,
@@ -293,10 +325,10 @@ function createSection(job, department) {
     headingContainer.className = "heading-container"
 
     const headingTemplate = `
-    <div class="heading">
-        <span class="heading-title">${job}</span>
-        <span class="heading-location">${department}</span>
-    </div>`
+<div class="heading">
+<span class="heading-title">${job}</span>
+<span class="heading-location">${department}</span>
+</div>`
 
     headingContainer.innerHTML = headingTemplate
     section.appendChild(headingContainer)
@@ -309,12 +341,44 @@ function createSection(job, department) {
 //   <img src="assets/${icon}" style="width:20px; height:20px;" alt="${social} icon" />
 // </a>`
 // }
+// function socialLink(social, icon) {
+//     return `<a href="#" target="_blank" data-social-service="${social}">
+//         <svg>
+//             <use xlink:href="${icon}"></use>
+//         </svg>
+//     </a>`
+// }
+
 function socialLink(social, icon) {
-    return `<a href="#" target="_blank" data-social-service="${social}">
-        <svg>
-            <use xlink:href="${icon}"></use>
-        </svg>
-    </a>`
+    let url = ""
+    switch (social.toLowerCase()) {
+        case "facebook":
+            url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                window.location.href
+            )}`
+            break
+        case "twitter":
+            url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                window.location.href
+            )}`
+            break
+        case "whatsapp":
+            url = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+                window.location.href
+            )}`
+            break
+        default:
+            return `<a href="#" target="_blank" data-social-service="${social}">
+            <svg>
+                <use xlink:href="${icon}"></use>
+            </svg>
+        </a>`
+    }
+    return `<a href="${url}" target="_blank" data-social-service="${social}">
+    <svg>
+        <use xlink:href="${icon}"></use>
+    </svg>
+</a>`
 }
 
 function createSocials() {
@@ -432,31 +496,7 @@ function createToggleButton(text) {
     })
     return button
 }
-// function createCheckBoxForButton(container) {
-//     console.log("container", container)
-//     const checkbox = document.createElement("input")
-//     checkbox.setAttribute("type", "checkbox")
-//     checkbox.setAttribute("id", "toggle")
-//     container.appendChild(checkbox)
-//     checkbox.style.display = "none"
-// }
-// function createToggleButton(container) {
-//     console.log("container", container)
 
-//     const showMoreLabel = document.createElement("label")
-//     showMoreLabel.setAttribute("for", "toggle")
-//     showMoreLabel.setAttribute("id", "show-more-label")
-//     showMoreLabel.textContent = "Show More"
-
-//     const showLessLabel = document.createElement("label")
-//     showLessLabel.setAttribute("for", "toggle")
-//     showLessLabel.setAttribute("id", "show-less-label")
-//     showLessLabel.textContent = "Show Less"
-//     // showLessLabel.style.display = "none"
-//     container.appendChild(checkbox)
-//     container.appendChild(showMoreLabel)
-//     container.appendChild(showLessLabel)
-// }
 function createArticle(params) {
     const {
         image,
@@ -487,8 +527,11 @@ function createArticle(params) {
         const cardDescriptionContainer = document.createElement("div")
         cardDescriptionContainer.className = "card-description-container"
         cardDescriptionContainer.appendChild(createNumberedList(applicants, bg))
-        const toggleButton = createToggleButton()
-        cardDescriptionContainer.appendChild(toggleButton)
+        applicants.length > 5
+            ? cardDescriptionContainer.appendChild(createToggleButton())
+            : ""
+        /* const isMobile = window.innerWidth < 360;
+const maxViewMoreButton = isMobile ? 2 : 4   */
         article.appendChild(cardDescriptionContainer)
         article.classList.add("item-align")
     } else {
