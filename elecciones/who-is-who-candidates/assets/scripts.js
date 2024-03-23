@@ -726,6 +726,7 @@ function handleFilterOptionSelected(filterOption) {
 
 function showCandidatesByParty(filteredData) {
     const candidateElements = document.querySelectorAll(".card-container")
+    let anyCandidateVisible = false
     candidateElements.forEach((candidate) => {
         const candidateParty = candidate.querySelector(".party").textContent
         const matchingCandidate = filteredData.find(
@@ -733,12 +734,33 @@ function showCandidatesByParty(filteredData) {
         )
         if (matchingCandidate) {
             candidate.style.display = "block"
+            anyCandidateVisible = true
         } else {
             candidate.style.display = "none"
         }
     })
+    hideEmptySections()
 }
+function hideEmptySections() {
+    const sectionContainers = document.querySelectorAll(".section-container")
 
+    sectionContainers.forEach((section) => {
+        const cardContainers = section.querySelectorAll(".card-container")
+        let allHidden = true
+
+        cardContainers.forEach((card) => {
+            if (card.style.display !== "none") {
+                allHidden = false
+            }
+        })
+
+        if (allHidden) {
+            section.style.display = "none"
+        } else {
+            section.style.display = "block"
+        }
+    })
+}
 //#endregion
 
 function initialize() {
