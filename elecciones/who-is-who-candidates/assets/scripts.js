@@ -310,11 +310,45 @@ const glideOptions = {
     rewind: false,
     animationTimingFunc: "ease",
 }
+const filterOptions = [
+    {
+        label: "Frente Amplio",
+        isSelected: false,
+        icon: "./assets/fist.svg",
+    },
+    {
+        label: "Partido nacional",
+        isSelected: false,
+        icon: "./assets/sun.svg",
+    },
+    {
+        label: "Partido de los Trabajadores",
+        isSelected: false,
+        icon: "./assets/hammer.svg",
+        // icon: "icono-partido-trabajador",
+    },
+    {
+        label: "Partido Colorado",
+        isSelected: false,
+        icon: "./assets/rose.svg",
+    },
+    {
+        label: "Partido Independiente",
+        isSelected: false,
+        icon: "./assets/scale.svg",
+    },
+    {
+        label: "Otros",
+        isSelected: false,
+        icon: "./assets/others.svg",
+    },
+]
 
 //#endregion
 
 //#region Methods
 function filterDataBy(filterFunction) {
+    console.log("filterFuncion", filterFunction)
     return data.filter(filterFunction)
 }
 function createSection(job, department) {
@@ -325,10 +359,10 @@ function createSection(job, department) {
     headingContainer.className = "heading-container"
 
     const headingTemplate = `
-<div class="heading">
-<span class="heading-title">${job}</span>
-<span class="heading-location">${department}</span>
-</div>`
+    <div class="heading">
+    <span class="heading-title">${job}</span>
+    <span class="heading-location">${department}</span>
+    </div>`
 
     headingContainer.innerHTML = headingTemplate
     section.appendChild(headingContainer)
@@ -659,10 +693,58 @@ function toggleDescription(button, event) {
         : "ver mas"
     button.textContent = buttonText
 }
+function createFilterBar(options) {
+    const filterBar = document.createElement("ul")
+    filterBar.classList.add("filter-bar")
+
+    options.forEach((option) => {
+        const filterOption = document.createElement("li")
+        filterOption.classList.add("filter-option")
+        filterOption.dataset.filter = option.label
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+        filterOption.innerHTML = `
+            <img src="${option.icon}" alt="${option.label}" class="filter-icon">
+            <span class="filter-label">${option.label}</span>
+        `
+        filterBar.appendChild(filterOption)
+        filterOption.addEventListener("click", () =>
+            handleFilterOptionSelected(filterOption)
+        )
+    })
+    return filterBar
+}
+function handleFilterOptionSelected(filterOption) {
+    const filterSelected = filterOption.dataset.filter
+    const filteredData = filterDataBy(
+        (candidates) =>
+            candidates.party.toLowerCase().replace(/\s+/g, "-") ===
+            filterSelected
+    )
+    filteredData.length > 0 ? showCandidatesByParty(filteredData) : ""
+}
+
+function showCandidatesByParty(filteredData) {
+    const candidateElements = document.querySelectorAll(".card-container")
+    candidateElements.forEach((candidate) => {
+        const candidateParty = candidate.querySelector(".party").textContent
+        const matchingCandidate = filteredData.find(
+            (dataObject) => dataObject.party === candidateParty
+        )
+        if (matchingCandidate) {
+            candidate.style.display = "block"
+        } else {
+            candidate.style.display = "none"
+        }
+    })
+}
 
 //#endregion
 
 function initialize() {
+    const filterBarContainer = document.getElementById("container-filter-bar")
+    const filterBar = createFilterBar(filterOptions)
+    filterBarContainer.appendChild(filterBar)
     const departmentsDropdown = document.getElementById("dropdownMenu")
     departmentsDropdown.addEventListener("change", handleDepartmentChange)
     loadDepartments(departmentsDropdown)

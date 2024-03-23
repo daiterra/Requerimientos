@@ -390,3 +390,16 @@ padding: 0.25rem 0.5rem;
 .item-align > .card-description-container > .card-toggle-button {
     align-self: center;
 }
+.container-filter-bar {
+    display: flex;
+}
+.filter-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.filter-bar img {
+    width: 16px;
+    height: 16px;
+}
